@@ -1,450 +1,86 @@
 @font-face {
-    font-family: 'NotoSansKR';
-    src: url('/static/fonts/NotoSansKR-Bold-Alphabetic.eot');
-    src: url('/static/fonts/NotoSansKR-Bold-Alphabetic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NotoSansKR-Bold-Alphabetic.woff2') format('woff2'),
-        url('/static/fonts/NotoSansKR-Bold-Alphabetic.woff') format('woff'),
-        url('/static/fonts/NotoSansKR-Bold-Alphabetic.ttf') format('truetype'),
-        url('/static/fonts/NotoSansKR-Bold-Alphabetic.svg#NotoSansKR-Bold-Alphabetic') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NotoSansKR';
-    src: url('/static/fonts/NotoSansKR-Black-Alphabetic.eot');
-    src: url('/static/fonts/NotoSansKR-Black-Alphabetic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NotoSansKR-Black-Alphabetic.woff2') format('woff2'),
-        url('/static/fonts/NotoSansKR-Black-Alphabetic.woff') format('woff'),
-        url('/static/fonts/NotoSansKR-Black-Alphabetic.ttf') format('truetype'),
-        url('/static/fonts/NotoSansKR-Black-Alphabetic.svg#NotoSansKR-Black-Alphabetic') format('svg');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NotoSansKR';
-    src: url('/static/fonts/NotoSansKR-Light-Alphabetic.eot');
-    src: url('/static/fonts/NotoSansKR-Light-Alphabetic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NotoSansKR-Light-Alphabetic.woff2') format('woff2'),
-        url('/static/fonts/NotoSansKR-Light-Alphabetic.woff') format('woff'),
-        url('/static/fonts/NotoSansKR-Light-Alphabetic.ttf') format('truetype'),
-        url('/static/fonts/NotoSansKR-Light-Alphabetic.svg#NotoSansKR-Light-Alphabetic') format('svg');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NotoSansKR';
-    src: url('/static/fonts/NotoSansKR-Thin-Alphabetic.eot');
-    src: url('/static/fonts/NotoSansKR-Thin-Alphabetic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NotoSansKR-Thin-Alphabetic.woff2') format('woff2'),
-        url('/static/fonts/NotoSansKR-Thin-Alphabetic.woff') format('woff'),
-        url('/static/fonts/NotoSansKR-Thin-Alphabetic.ttf') format('truetype'),
-        url('/static/fonts/NotoSansKR-Thin-Alphabetic.svg#NotoSansKR-Thin-Alphabetic') format('svg');
-    font-weight: 100;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NotoSansKR';
-    src: url('/static/fonts/NotoSansKR-Regular-Alphabetic.eot');
-    src: url('/static/fonts/NotoSansKR-Regular-Alphabetic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NotoSansKR-Regular-Alphabetic.woff2') format('woff2'),
-        url('/static/fonts/NotoSansKR-Regular-Alphabetic.woff') format('woff'),
-        url('/static/fonts/NotoSansKR-Regular-Alphabetic.ttf') format('truetype'),
-        url('/static/fonts/NotoSansKR-Regular-Alphabetic.svg#NotoSansKR-Regular-Alphabetic') format('svg');
+    font-family: 'NewParisSkyline';
+    src: url('/static/fonts/NewParisSkyline.woff2') format('woff2'),
+        url('/static/fonts/NewParisSkyline.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'NotoSansKR';
-    src: url('/static/fonts/NotoSansKR-Medium-Alphabetic.eot');
-    src: url('/static/fonts/NotoSansKR-Medium-Alphabetic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NotoSansKR-Medium-Alphabetic.woff2') format('woff2'),
-        url('/static/fonts/NotoSansKR-Medium-Alphabetic.woff') format('woff'),
-        url('/static/fonts/NotoSansKR-Medium-Alphabetic.ttf') format('truetype'),
-        url('/static/fonts/NotoSansKR-Medium-Alphabetic.svg#NotoSansKR-Medium-Alphabetic') format('svg');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-
-@font-face {
-    font-family: 'NanumMyeongjo';
-    src: url('/static/fonts/NanumMyeongjoOTFExtraBold00.eot');
-    src: url('/static/fonts/NanumMyeongjoOTFExtraBold00.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NanumMyeongjoOTFExtraBold00.woff2') format('woff2'),
-        url('/static/fonts/NanumMyeongjoOTFExtraBold00.woff') format('woff'),
-        url('/static/fonts/NanumMyeongjoOTFExtraBold00.ttf') format('truetype'),
-        url('/static/fonts/NanumMyeongjoOTFExtraBold00.svg#NanumMyeongjoOTFExtraBold00') format('svg');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NanumMyeongjo';
-    src: url('/static/fonts/NanumMyeongjoOTFBold00.eot');
-    src: url('/static/fonts/NanumMyeongjoOTFBold00.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NanumMyeongjoOTFBold00.woff2') format('woff2'),
-        url('/static/fonts/NanumMyeongjoOTFBold00.woff') format('woff'),
-        url('/static/fonts/NanumMyeongjoOTFBold00.ttf') format('truetype'),
-        url('/static/fonts/NanumMyeongjoOTFBold00.svg#NanumMyeongjoOTFBold00') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'NanumMyeongjo';
-    src: url('/static/fonts/NanumMyeongjoOTF00.eot');
-    src: url('/static/fonts/NanumMyeongjoOTF00.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NanumMyeongjoOTF00.woff2') format('woff2'),
-        url('/static/fonts/NanumMyeongjoOTF00.woff') format('woff'),
-        url('/static/fonts/NanumMyeongjoOTF00.ttf') format('truetype'),
-        url('/static/fonts/NanumMyeongjoOTF00.svg#NanumMyeongjoOTF00') format('svg');
+    font-family: 'KoPubBatangPM';
+    src: url('/static/fonts/KoPubBatangPM.eot');
+    src: url('/static/fonts/KoPubBatangPM.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/KoPubBatangPM.woff2') format('woff2'),
+        url('/static/fonts/KoPubBatangPM.woff') format('woff'),
+        url('/static/fonts/KoPubBatangPM.ttf') format('truetype'),
+        url('/static/fonts/KoPubBatangPM.svg#KoPubBatangPM') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'NanumMyeongjoExtraBold';
-    src: url('/static/fonts/NanumMyeongjoExtraBold.eot');
-    src: url('/static/fonts/NanumMyeongjoExtraBold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/NanumMyeongjoExtraBold.woff2') format('woff2'),
-        url('/static/fonts/NanumMyeongjoExtraBold.woff') format('woff'),
-        url('/static/fonts/NanumMyeongjoExtraBold.ttf') format('truetype'),
-        url('/static/fonts/NanumMyeongjoExtraBold.svg#NanumMyeongjoExtraBold') format('svg');
-    font-weight: 900;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-
-
-@font-face {
-    font-family: 'Libre Baskerville';
-    src: url('/static/fonts/LibreBaskerville-Bold.eot');
-    src: url('/static/fonts/LibreBaskerville-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/LibreBaskerville-Bold.woff2') format('woff2'),
-        url('/static/fonts/LibreBaskerville-Bold.woff') format('woff'),
-        url('/static/fonts/LibreBaskerville-Bold.ttf') format('truetype'),
-        url('/static/fonts/LibreBaskerville-Bold.svg#LibreBaskerville-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Libre Baskerville';
-    src: url('/static/fonts/LibreBaskerville-Italic.eot');
-    src: url('/static/fonts/LibreBaskerville-Italic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/LibreBaskerville-Italic.woff2') format('woff2'),
-        url('/static/fonts/LibreBaskerville-Italic.woff') format('woff'),
-        url('/static/fonts/LibreBaskerville-Italic.ttf') format('truetype'),
-        url('/static/fonts/LibreBaskerville-Italic.svg#LibreBaskerville-Italic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Libre Baskerville';
-    src: url('/static/fonts/LibreBaskerville-Regular.eot');
-    src: url('/static/fonts/LibreBaskerville-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/LibreBaskerville-Regular.woff2') format('woff2'),
-        url('/static/fonts/LibreBaskerville-Regular.woff') format('woff'),
-        url('/static/fonts/LibreBaskerville-Regular.ttf') format('truetype'),
-        url('/static/fonts/LibreBaskerville-Regular.svg#LibreBaskerville-Regular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: 'Baskerville MT Std';
-    src: url('/static/fonts/BaskervilleMTStd-Italic.eot');
-    src: url('/static/fonts/BaskervilleMTStd-Italic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/BaskervilleMTStd-Italic.woff2') format('woff2'),
-        url('/static/fonts/BaskervilleMTStd-Italic.woff') format('woff'),
-        url('/static/fonts/BaskervilleMTStd-Italic.ttf') format('truetype'),
-        url('/static/fonts/BaskervilleMTStd-Italic.svg#BaskervilleMTStd-Italic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Baskerville MT Std';
-    src: url('/static/fonts/BaskervilleMTStd-BoldIt.eot');
-    src: url('/static/fonts/BaskervilleMTStd-BoldIt.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/BaskervilleMTStd-BoldIt.woff2') format('woff2'),
-        url('/static/fonts/BaskervilleMTStd-BoldIt.woff') format('woff'),
-        url('/static/fonts/BaskervilleMTStd-BoldIt.ttf') format('truetype'),
-        url('/static/fonts/BaskervilleMTStd-BoldIt.svg#BaskervilleMTStd-BoldIt') format('svg');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Baskerville MT Std';
-    src: url('/static/fonts/BaskervilleMTStd-Bold.eot');
-    src: url('/static/fonts/BaskervilleMTStd-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/BaskervilleMTStd-Bold.woff2') format('woff2'),
-        url('/static/fonts/BaskervilleMTStd-Bold.woff') format('woff'),
-        url('/static/fonts/BaskervilleMTStd-Bold.ttf') format('truetype'),
-        url('/static/fonts/BaskervilleMTStd-Bold.svg#BaskervilleMTStd-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Baskerville MT Std';
-    src: url('/static/fonts/BaskervilleMTStd-Regular.eot');
-    src: url('/static/fonts/BaskervilleMTStd-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/BaskervilleMTStd-Regular.woff2') format('woff2'),
-        url('/static/fonts/BaskervilleMTStd-Regular.woff') format('woff'),
-        url('/static/fonts/BaskervilleMTStd-Regular.ttf') format('truetype'),
-        url('/static/fonts/BaskervilleMTStd-Regular.svg#BaskervilleMTStd-Regular') format('svg');
+    font-family: 'KoPubBatangPB';
+    src: url('/static/fonts/KoPubBatangPB.eot');
+    src: url('/static/fonts/KoPubBatangPB.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/KoPubBatangPB.woff2') format('woff2'),
+        url('/static/fonts/KoPubBatangPB.woff') format('woff'),
+        url('/static/fonts/KoPubBatangPB.ttf') format('truetype'),
+        url('/static/fonts/KoPubBatangPB.svg#KoPubBatangPB') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Baskerville MT Std';
-    src: url('/static/fonts/BaskervilleMTStd-SemiBdIt.eot');
-    src: url('/static/fonts/BaskervilleMTStd-SemiBdIt.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/BaskervilleMTStd-SemiBdIt.woff2') format('woff2'),
-        url('/static/fonts/BaskervilleMTStd-SemiBdIt.woff') format('woff'),
-        url('/static/fonts/BaskervilleMTStd-SemiBdIt.ttf') format('truetype'),
-        url('/static/fonts/BaskervilleMTStd-SemiBdIt.svg#BaskervilleMTStd-SemiBdIt') format('svg');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Baskerville MT Std';
-    src: url('/static/fonts/BaskervilleMTStd-SemiBd.eot');
-    src: url('/static/fonts/BaskervilleMTStd-SemiBd.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/BaskervilleMTStd-SemiBd.woff2') format('woff2'),
-        url('/static/fonts/BaskervilleMTStd-SemiBd.woff') format('woff'),
-        url('/static/fonts/BaskervilleMTStd-SemiBd.ttf') format('truetype'),
-        url('/static/fonts/BaskervilleMTStd-SemiBd.svg#BaskervilleMTStd-SemiBd') format('svg');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-
-@font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-Bold.eot');
-    src: url('/static/fonts/TimesLTStd-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-Bold.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-Bold.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-Bold.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-Bold.svg#TimesLTStd-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-BoldItalic.eot');
-    src: url('/static/fonts/TimesLTStd-BoldItalic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-BoldItalic.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-BoldItalic.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-BoldItalic.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-BoldItalic.svg#TimesLTStd-BoldItalic') format('svg');
-    font-weight: bold;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-Roman.eot');
-    src: url('/static/fonts/TimesLTStd-Roman.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-Roman.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-Roman.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-Roman.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-Roman.svg#TimesLTStd-Roman') format('svg');
+    font-family: 'KoPubBatangPL';
+    src: url('/static/fonts/KoPubBatangPL.eot');
+    src: url('/static/fonts/KoPubBatangPL.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/KoPubBatangPL.woff2') format('woff2'),
+        url('/static/fonts/KoPubBatangPL.woff') format('woff'),
+        url('/static/fonts/KoPubBatangPL.ttf') format('truetype'),
+        url('/static/fonts/KoPubBatangPL.svg#KoPubBatangPL') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-ExtraBold.eot');
-    src: url('/static/fonts/TimesLTStd-ExtraBold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-ExtraBold.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-ExtraBold.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-ExtraBold.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-ExtraBold.svg#TimesLTStd-ExtraBold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-Italic.eot');
-    src: url('/static/fonts/TimesLTStd-Italic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-Italic.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-Italic.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-Italic.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-Italic.svg#TimesLTStd-Italic') format('svg');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-Phonetic.eot');
-    src: url('/static/fonts/TimesLTStd-Phonetic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-Phonetic.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-Phonetic.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-Phonetic.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-Phonetic.svg#TimesLTStd-Phonetic') format('svg');
+    font-family: 'KoPubDotumPL';
+    src: url('/static/fonts/KoPubDotumPL.eot');
+    src: url('/static/fonts/KoPubDotumPL.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/KoPubDotumPL.woff2') format('woff2'),
+        url('/static/fonts/KoPubDotumPL.woff') format('woff'),
+        url('/static/fonts/KoPubDotumPL.ttf') format('truetype'),
+        url('/static/fonts/KoPubDotumPL.svg#KoPubDotumPL') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-Semibold.eot');
-    src: url('/static/fonts/TimesLTStd-Semibold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-Semibold.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-Semibold.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-Semibold.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-Semibold.svg#TimesLTStd-Semibold') format('svg');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Times LT Std';
-    src: url('/static/fonts/TimesLTStd-SemiboldItalic.eot');
-    src: url('/static/fonts/TimesLTStd-SemiboldItalic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/TimesLTStd-SemiboldItalic.woff2') format('woff2'),
-        url('/static/fonts/TimesLTStd-SemiboldItalic.woff') format('woff'),
-        url('/static/fonts/TimesLTStd-SemiboldItalic.ttf') format('truetype'),
-        url('/static/fonts/TimesLTStd-SemiboldItalic.svg#TimesLTStd-SemiboldItalic') format('svg');
-    font-weight: 600;
-    font-style: italic;
-    font-display: swap;
-}
-
-
-
-
-@font-face {
-    font-family: 'Chronicle Display';
-    src: url('/static/fonts/ChronicleDisplay-Italic.eot');
-    src: url('/static/fonts/ChronicleDisplay-Italic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/ChronicleDisplay-Italic.woff2') format('woff2'),
-        url('/static/fonts/ChronicleDisplay-Italic.woff') format('woff'),
-        url('/static/fonts/ChronicleDisplay-Italic.ttf') format('truetype'),
-        url('/static/fonts/ChronicleDisplay-Italic.svg#ChronicleDisplay-Italic') format('svg');
-    font-weight: normal;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Chronicle Display';
-    src: url('/static/fonts/ChronicleDisplay-LightItalic.eot');
-    src: url('/static/fonts/ChronicleDisplay-LightItalic.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/ChronicleDisplay-LightItalic.woff2') format('woff2'),
-        url('/static/fonts/ChronicleDisplay-LightItalic.woff') format('woff'),
-        url('/static/fonts/ChronicleDisplay-LightItalic.ttf') format('truetype'),
-        url('/static/fonts/ChronicleDisplay-LightItalic.svg#ChronicleDisplay-LightItalic') format('svg');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Chronicle Display XLight';
-    src: url('/static/fonts/ChronicleDisplay-XLight.eot');
-    src: url('/static/fonts/ChronicleDisplay-XLight.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/ChronicleDisplay-XLight.woff2') format('woff2'),
-        url('/static/fonts/ChronicleDisplay-XLight.woff') format('woff'),
-        url('/static/fonts/ChronicleDisplay-XLight.ttf') format('truetype'),
-        url('/static/fonts/ChronicleDisplay-XLight.svg#ChronicleDisplay-XLight') format('svg');
-    font-weight: 200;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Eina 03';
-    src: url('/static/fonts/Eina03-Bold.eot');
-    src: url('/static/fonts/Eina03-Bold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/Eina03-Bold.woff2') format('woff2'),
-        url('/static/fonts/Eina03-Bold.woff') format('woff'),
-        url('/static/fonts/Eina03-Bold.ttf') format('truetype'),
-        url('/static/fonts/Eina03-Bold.svg#Eina03-Bold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Eina 03';
-    src: url('/static/fonts/Eina03-Light.eot');
-    src: url('/static/fonts/Eina03-Light.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/Eina03-Light.woff2') format('woff2'),
-        url('/static/fonts/Eina03-Light.woff') format('woff'),
-        url('/static/fonts/Eina03-Light.ttf') format('truetype'),
-        url('/static/fonts/Eina03-Light.svg#Eina03-Light') format('svg');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Eina 03';
-    src: url('/static/fonts/Eina03-Regular.eot');
-    src: url('/static/fonts/Eina03-Regular.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/Eina03-Regular.woff2') format('woff2'),
-        url('/static/fonts/Eina03-Regular.woff') format('woff'),
-        url('/static/fonts/Eina03-Regular.ttf') format('truetype'),
-        url('/static/fonts/Eina03-Regular.svg#Eina03-Regular') format('svg');
+    font-family: 'KoPubDotumPB';
+    src: url('/static/fonts/KoPubDotumPB.eot');
+    src: url('/static/fonts/KoPubDotumPB.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/KoPubDotumPB.woff2') format('woff2'),
+        url('/static/fonts/KoPubDotumPB.woff') format('woff'),
+        url('/static/fonts/KoPubDotumPB.ttf') format('truetype'),
+        url('/static/fonts/KoPubDotumPB.svg#KoPubDotumPB') format('svg');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Eina 03';
-    src: url('/static/fonts/Eina03-SemiBold.eot');
-    src: url('/static/fonts/Eina03-SemiBold.eot?#iefix') format('embedded-opentype'),
-        url('/static/fonts/Eina03-SemiBold.woff2') format('woff2'),
-        url('/static/fonts/Eina03-SemiBold.woff') format('woff'),
-        url('/static/fonts/Eina03-SemiBold.ttf') format('truetype'),
-        url('/static/fonts/Eina03-SemiBold.svg#Eina03-SemiBold') format('svg');
-    font-weight: 600;
+    font-family: 'KoPubDotumPM';
+    src: url('/static/fonts/KoPubDotumPM.eot');
+    src: url('/static/fonts/KoPubDotumPM.eot?#iefix') format('embedded-opentype'),
+        url('/static/fonts/KoPubDotumPM.woff2') format('woff2'),
+        url('/static/fonts/KoPubDotumPM.woff') format('woff'),
+        url('/static/fonts/KoPubDotumPM.ttf') format('truetype'),
+        url('/static/fonts/KoPubDotumPM.svg#KoPubDotumPM') format('svg');
+    font-weight: normal;
     font-style: normal;
     font-display: swap;
 }

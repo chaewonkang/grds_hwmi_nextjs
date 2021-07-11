@@ -9,7 +9,7 @@
     height: 40px;
     border: 8px solid #EAEAEA;
     border-radius: 50%;
-    border-top: 8px solid #DB6929;
+    border-top: 8px solid #e1e1e1;
     -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
   }
