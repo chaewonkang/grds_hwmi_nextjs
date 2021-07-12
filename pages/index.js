@@ -95,17 +95,24 @@ class Index extends Component {
         {this.state.pageLoaded == true ? (
           <>
             <div className='page_container'>
-              <div className='page_navigation1'>Navigation1</div>
-              <div className='page_navigation2'>
-                <div className='page_navigation_inner'>
-                  <div className='nav_item'>All</div>
-                  <div className='nav_item'>Material</div>
-                  <div className='nav_item'>Manufacturing</div>
-                  <div className='nav_item'>Technology</div>
-                  <div className='nav_item'>Location</div>
-                  <div className='nav_item'>Traceability</div>
+              <div className='page_navigation1'>
+                <div className="box box_1">
+                  Navigation1
                 </div>
               </div>
+              <div className='page_navigation2'>
+                <div className="box box_2">
+                  <div className='page_navigation_inner'>
+                    <div className='nav_item'>All</div>
+                    <div className='nav_item'>Material</div>
+                    <div className='nav_item'>Manufacturing</div>
+                    <div className='nav_item'>Technology</div>
+                    <div className='nav_item'>Location</div>
+                    <div className='nav_item'>Traceability</div>
+                  </div>
+                </div>
+              </div>
+              <div className="box box_3">boxboxboxboxbox</div>
               <Footer></Footer>
             </div>
           </>

@@ -2,7 +2,12 @@
 .box {
     width: 320px;
     margin: 0 auto;
-    position: relative
+    position: relative;
+    background-color: #1f2bb1;
+}
+
+.box_1 {
+    background-color: #b11f1f !important;
 }
 
 @media (min-width: 370px) {
