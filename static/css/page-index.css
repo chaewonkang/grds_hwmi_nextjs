@@ -7,8 +7,8 @@ img,
 img a {
 border: none;
 outline:none;
-outline-style: none; 
--moz-outline-style:none; 
+outline-style: none;
+-moz-outline-style:none;
 }
 .cursor_pointer {
     cursor: pointer;
@@ -30,17 +30,19 @@ outline-style: none;
 }
 .page_navigation1 {
     width: 100vw;
-    height : 90px;
+    height : 60px;
     position: fixed;
     top: 0;
-    border-bottom: 1px solid #20201e;
+	border-bottom: 1px solid #20201e;
 }
+
 .page_navigation2 {
     width: 100vw;
-    height : 90px;
+    height : 60px;
     position: fixed;
-    top: 90px;
-    border-bottom: 1px solid #20201e;
+    top: 60px;
+	border-bottom: 1px solid #20201e;
+
 }
 
 .page_navigation2 > .page_navigation_inner  {
@@ -51,12 +53,12 @@ outline-style: none;
 
 }
 .page_navigation2 > .page_navigation_inner > .nav_item {
-    
+
     margin-right: 8px;
     height: 70px;
     text-decoration: underline;
     font-family: 'NewParisSkyline';
-    font-size: 24px;
+    font-size: 20px;
     vertical-align: middle;
     display: flex;
     align-items: center;
@@ -81,9 +83,9 @@ outline-style: none;
 }
 @media only screen and (min-width: 1200px) {
     /* ... */
-    
+
 }
 @media only screen and (min-width: 1440px) {
     /* ... */
-    
+
 }

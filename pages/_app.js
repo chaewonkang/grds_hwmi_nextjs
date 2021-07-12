@@ -1,27 +1,17 @@
-import React from 'react'
-import App from 'next/app'
+import React from 'react';
+import Head from 'next/head';
 
-class Layout extends React.Component {
-  render () {
-    const { children } = this.props
-    return <div className='layout'>{children}</div>
-  }
+function MyApp({ Component, pageProps }) {
+  return (
+    <>
+      <Head>
+        <link rel='shortcut icon' href='../static/images/favicon.ico' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <title>How we make it ﹣ grds</title>
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }
 
-export default class MyApp extends App {
-
-  componentDidCatch (error, errorInfo) {
-    // console.log('CUSTOM ERROR HANDLING', error)
-    // This is needed to render errors correctly in development / production
-    super.componentDidCatch(error, errorInfo)
-  }
-  
-  render () {
-    const { Component, pageProps } = this.props
-    return (
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    )
-  }
-}
+export default MyApp;
