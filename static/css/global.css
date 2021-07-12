@@ -1,0 +1,58 @@
+
+.box {
+    width: 320px;
+    margin: 0 auto;
+    position: relative
+}
+
+@media (min-width: 370px) {
+    .box {
+        width:360px
+    }
+}
+
+@media (min-width: 450px) {
+    .box {
+        width:430px
+    }
+}
+
+@media (min-width: 620px) {
+    .box {
+        width:620px
+    }
+}
+
+@media (min-width: 768px) {
+    .box {
+        width:729px
+    }
+}
+
+@media (min-width: 1024px) {
+    .box {
+        width:1000px
+    }
+}
+
+@media (min-width: 1120px) {
+    .box {
+        width:1120px
+    }
+}
+
+@media (min-width: 768px) {
+    .expandable {
+        position:absolute;
+        bottom: 80px
+    }
+}
+
+@media (min-width: 1024px) {
+    .expandable {
+        width:100%;
+        bottom: 50px;
+        height: 260px
+    }
+}
+

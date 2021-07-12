@@ -6,6 +6,7 @@ import Router from 'next/router';
 import jQuery from 'jquery';
 import parse from 'html-react-parser';
 import moment from 'moment';
+import { Footer } from '../components';
 
 import * as Wine from '../axios/Material';
 // import Header from "../components/Header";
@@ -105,6 +106,7 @@ class Index extends Component {
                   <div className='nav_item'>Traceability</div>
                 </div>
               </div>
+              <Footer></Footer>
             </div>
           </>
         ) : (

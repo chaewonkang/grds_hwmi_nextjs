@@ -56,8 +56,8 @@ outline-style: none;
 
     margin-right: 8px;
     height: 70px;
-    text-decoration: underline;
-    font-family: 'NewParisSkyline';
+	font-family: 'NewParisSkyline';
+	font-weight: lighter;
     font-size: 20px;
     vertical-align: middle;
     display: flex;
