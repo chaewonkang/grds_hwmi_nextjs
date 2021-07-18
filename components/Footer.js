@@ -31,6 +31,7 @@ const Footer = () => {
       <style jsx='true' global='true' suppressHydrationWarning>{`
         .footer_container {
           width: 100vw;
+          max-width: 100vw;
           position: relative;
           border-top: 1px solid #20201e;
         }
@@ -84,6 +85,7 @@ const Footer = () => {
             font-size: 0.6em;
             line-height: 1.8em;
             word-break: keep-all;
+            width: 100vw;
           }
         }
       `}</style>

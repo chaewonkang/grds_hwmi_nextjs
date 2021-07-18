@@ -5,11 +5,12 @@ import logoH from '../static/images/HWMI_logo.png';
 const Header = () => {
   const [pos, setPos] = useState(false);
   const timeoutRef = useRef(null);
-  const myRef = useRef(null);
-
-  const executeScroll = () => {
-    scrollToRef(myRef);
-  };
+  const topRef = useRef(null);
+  const matRef = useRef(null);
+  const manRef = useRef(null);
+  const locRef = useRef(null);
+  const tecRef = useRef(null);
+  const tracRef = useRef(null);
 
   const onScrollStep = (ref) => {
     if (window.pageYOffset === 0) {
@@ -17,7 +18,7 @@ const Header = () => {
     }
     window.scrollTo({
       left: 0,
-      top: ref.current.offsetTop,
+      top: ref.current.offsetTop + 122,
       behavior: 'smooth',
     });
   };
@@ -55,14 +56,24 @@ const Header = () => {
           <div className='page_navigation2'>
             <div className='header_box'>
               <ul className='page_navigation_inner topnav'>
-                <li className='nav_item' onClick={executeScroll}>
+                <li className='nav_item' onClick={() => scrollToRef(topRef)}>
                   All
                 </li>
-                <li className='nav_item'>Material</li>
-                <li className='nav_item'>Manufacturing</li>
-                <li className='nav_item'>Technology</li>
-                <li className='nav_item'>Location</li>
-                <li className='nav_item'>Traceability</li>
+                <li className='nav_item' onClick={() => scrollToRef(matRef)}>
+                  Material
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
+                  Manufacturing
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
+                  Technology
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(locRef)}>
+                  Location
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
+                  Traceability
+                </li>
                 <li className='contactright'>
                   <span>Searchbar</span>
                 </li>
@@ -70,8 +81,25 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className='test' ref={myRef}>
-          I wanna be seen
+        <div className='content_box'>
+          <div className='test' ref={topRef}>
+            All
+          </div>
+          <div className='test' ref={matRef}>
+            Material
+          </div>
+          <div className='test' ref={manRef}>
+            Manufacturing
+          </div>
+          <div className='test' ref={tecRef}>
+            Technology
+          </div>
+          <div className='test' ref={locRef}>
+            Location
+          </div>
+          <div className='test' ref={tracRef}>
+            Traceability
+          </div>
         </div>
       </div>
       <style jsx='true' global='true' suppressHydrationWarning>
@@ -81,7 +109,7 @@ const Header = () => {
           }
 
           .test {
-            height: 100vh;
+            height: 50vh;
           }
 
           .index_header {
@@ -96,7 +124,10 @@ const Header = () => {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            z-index: 3;
+            position: sticky;
+            top: 0;
+            background-color: #ffffef;
           }
 
           .small {
@@ -129,7 +160,6 @@ const Header = () => {
 
           .page_container {
             width: 100vw;
-            height: 100vh;
             overflow: scroll;
           }
 
