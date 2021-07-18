@@ -1,6 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 const GoToTop = ({ scrollStepInPx, delayInMs }) => {
+
+	// 100, 30.50
+	
   const [intervalId, setIntervalId] = useState(0);
   const [pos, setPos] = useState(false);
   const timeoutRef = useRef(null);

@@ -33,7 +33,7 @@ const Footer = () => {
           width: 100vw;
           max-width: 100vw;
           position: relative;
-          border-top: 1px solid #20201e;
+          border-top: 1px solid #888;
         }
 
         .footer_content {

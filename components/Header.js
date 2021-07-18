@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import logoH from '../static/images/HWMI_logo.png';
 
+import { SearchBar } from './index';
+
 const Header = () => {
   const [pos, setPos] = useState(false);
   const timeoutRef = useRef(null);
@@ -18,7 +20,7 @@ const Header = () => {
     }
     window.scrollTo({
       left: 0,
-      top: ref.current.offsetTop + 122,
+      top: ref.current.offsetTop,
       behavior: 'smooth',
     });
   };
@@ -75,7 +77,7 @@ const Header = () => {
                   Traceability
                 </li>
                 <li className='contactright'>
-                  <span>Searchbar</span>
+                  <SearchBar></SearchBar>
                 </li>
               </ul>
             </div>
@@ -113,6 +115,7 @@ const Header = () => {
           }
 
           .index_header {
+            width: 100vw;
             margin-top: 1em;
             display: flex;
             flex-direction: column;
@@ -121,6 +124,7 @@ const Header = () => {
           }
 
           #topmenu {
+            width: 100vw;
             list-style-type: none;
             margin: 0;
             padding: 0;
@@ -141,17 +145,12 @@ const Header = () => {
             padding: 2px 16px;
             text-decoration: none;
             transition: 0.2s;
-            font-size: 14px;
           }
 
           ul.topnav li.contactright {
             float: right;
             text-decoration: none;
             transition: 0.2s;
-          }
-
-          ul.topnav li:hover {
-            background-color: rgb(100, 100, 100);
           }
 
           span.icon {
@@ -166,7 +165,7 @@ const Header = () => {
           .page_navigation1 {
             width: 100vw;
             height: 60px;
-            border-bottom: 1px solid #20201e;
+            border-bottom: 1px solid #888;
           }
 
           .page_navigation1 > .header_box,
@@ -178,7 +177,7 @@ const Header = () => {
 
           .page_navigation1 > .header_box > h1 {
             font-weight: lighter;
-            font-size: 1.725em;
+            font-size: 1.5em;
             margin: 0;
           }
 
@@ -186,13 +185,13 @@ const Header = () => {
             width: 100vw;
             height: 60px;
 
-            border-bottom: 1px solid #20201e;
-            font-size: 1.5em;
+            border-bottom: 1px solid #888;
+            font-size: 1.25em;
           }
 
           .page_navigation2 > .header_box > .page_navigation_inner {
             width: 100%;
-            height: 100%;
+
             display: flex;
             flex-direction: row;
             row-gap: 10px;
@@ -220,10 +219,16 @@ const Header = () => {
               font-size: 1em;
             }
 
+            .page_navigation1 > .header_box,
+            .page_navigation2 > .header_box {
+              width: 100vw;
+              overflow-x: auto;
+            }
+
             .page_navigation1,
             .page_navigation2 {
               height: 40px;
-              border-bottom: 1px solid #000;
+              border-bottom: 1px solid #888;
             }
 
             span.icon {
@@ -246,6 +251,14 @@ const Header = () => {
             ul.topnav.responsive li a {
               display: block;
               text-align: left;
+            }
+
+            .page_navigation1 > .header_box > h1 {
+              margin-left: 1em;
+            }
+
+            ul.topnav li:first-child {
+              margin-left: 1em;
             }
           }
         `}

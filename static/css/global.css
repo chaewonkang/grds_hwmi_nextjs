@@ -5,7 +5,7 @@ body{
 	max-width: 100vw;
     background-color: #FFFFEF;
     font-family: "NewParisSkyline", Arial, Helvetica, sans-serif;
-    color: rgb(0,0,0);
+    color: rgb(58, 58, 58);
 	margin: 0;
 	font-size: 16px;
 	overflow-x: hidden;
@@ -43,6 +43,15 @@ ul li {
 	list-style: none;
 	margin: 0;
 	padding-inline-start: 0;
+}
+
+input {
+	background-color: transparent;
+	line-height: 1.8em;
+	padding-left: 8px;
+	outline: none;
+	border: 1px solid transparent;
+	min-width: 135px;
 }
 
 
@@ -86,7 +95,6 @@ ul li {
 }
 
 @media (max-width: 768px) {
-	.content_box,
 	.header_box,
 	.footer_box {
         width:729px
@@ -96,7 +104,6 @@ ul li {
 		width: calc(100vw - 2em);
 		border: 1px solid #20201e;
 	}
-
 
 }
 
@@ -108,19 +115,33 @@ ul li {
 
 	.content_box {
 		width: calc(100vw - 2em);
-		border: 1px solid #20201e;
+
 	}
-
-
 }
 
-@media (min-width: 1120px) {
+
+@media (max-width: 1120px) {
 	.content_box,
 	.header_box,
 	.footer_box  {
         width:1120px
 	}
+
+
 }
+
+@media (min-width: 1121px) {
+	.content_box,
+	.header_box,
+	.footer_box  {
+        width:1120px
+	}
+
+
+}
+
+
+
 
 @media (min-width: 768px) {
     .expandable {
