@@ -131,7 +131,8 @@ const Header = () => {
             z-index: 3;
             position: sticky;
             top: 0;
-            background-color: #ffffef;
+            // background-color: #ffffef;
+            background-color: rgba(254, 217, 11);
           }
 
           .small {
@@ -164,7 +165,7 @@ const Header = () => {
 
           .page_navigation1 {
             width: 100vw;
-            height: 60px;
+            height: 50px;
             border-bottom: 1px solid #888;
           }
 
@@ -183,8 +184,7 @@ const Header = () => {
 
           .page_navigation2 {
             width: 100vw;
-            height: 60px;
-
+            height: 50px;
             border-bottom: 1px solid #888;
             font-size: 1.25em;
           }

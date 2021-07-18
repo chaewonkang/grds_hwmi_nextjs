@@ -36,6 +36,11 @@ const Footer = () => {
           border-top: 1px solid #888;
         }
 
+        .footer_box {
+          margin-top: 1.5em;
+          margin-bottom: 15em;
+        }
+
         .footer_content {
           display: flex;
           flex-direction: row;
