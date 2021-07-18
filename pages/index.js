@@ -6,7 +6,7 @@ import Router from 'next/router';
 import jQuery from 'jquery';
 import parse from 'html-react-parser';
 import moment from 'moment';
-import { Footer } from '../components';
+import { Footer, Header, GoToTop } from '../components';
 
 import * as Wine from '../axios/Material';
 // import Header from "../components/Header";
@@ -94,27 +94,9 @@ class Index extends Component {
         {/* <HeaderSub  path={'/'} ref="header_sub" menu={main_page_menu}></HeaderSub> */}
         {this.state.pageLoaded == true ? (
           <>
-            <div className='page_container'>
-              <div className='page_navigation1'>
-                <div className="box box_1">
-                  Navigation1
-                </div>
-              </div>
-              <div className='page_navigation2'>
-                <div className="box box_2">
-                  <div className='page_navigation_inner'>
-                    <div className='nav_item'>All</div>
-                    <div className='nav_item'>Material</div>
-                    <div className='nav_item'>Manufacturing</div>
-                    <div className='nav_item'>Technology</div>
-                    <div className='nav_item'>Location</div>
-                    <div className='nav_item'>Traceability</div>
-                  </div>
-                </div>
-              </div>
-              <div className="box box_3">boxboxboxboxbox</div>
-              <Footer></Footer>
-            </div>
+            <Header></Header>
+            <Footer></Footer>
+            <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
           </>
         ) : (
           <>{/* <div id="loader"></div> */}</>

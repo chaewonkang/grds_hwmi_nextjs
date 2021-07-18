@@ -1,24 +1,4 @@
 import React, { useState, useRef, useEffect } from 'react';
-import styled from 'styled-components';
-
-const GoToTopContainer = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 1px solid ${(props) => props.theme.toggleButtonTextColor};
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-  z-index: 9999999999999;
-  display: grid;
-  cursor: pointer;
-`;
-
-const GoToTopText = styled.div`
-  display: flex;
-  justify-self: center;
-  align-self: center;
-  font-size: 14px;
-`;
 
 const GoToTop = ({ scrollStepInPx, delayInMs }) => {
   const [intervalId, setIntervalId] = useState(0);
@@ -47,9 +27,35 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
   };
 
   return (
-    <GoToTopContainer onClick={scrollToTop}>
-      <GoToTopText>top</GoToTopText>
-    </GoToTopContainer>
+    <>
+      <div className='gototop_container' onClick={scrollToTop}>
+        <div className='gototop_text'>top</div>
+      </div>
+      <style jsx>{`
+        .gototop_container {
+          position: fixed;
+          bottom: 20px;
+          width: 40px;
+          height: 40px;
+          border: 1px solid #000;
+          background-color: #000;
+          color: #fff;
+          position: fixed;
+          right: 20px;
+          bottom: 20px;
+          z-index: 9999999999999;
+          display: grid;
+          cursor: pointer;
+        }
+
+        .gototop_text {
+          display: flex;
+          justify-self: center;
+          align-self: center;
+          font-size: 14px;
+        }
+      `}</style>
+    </>
   );
 };
 
