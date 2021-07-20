@@ -32,9 +32,16 @@ const Footer = () => {
         .footer_container {
           width: 100vw;
           max-width: 100vw;
+          height: 100px;
           position: relative;
           border-top: 1px solid #888;
           padding-left: 1em;
+          transition: height 1s;
+          transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+        }
+
+        .footer_container:hover {
+          height: 200px;
         }
 
         .footer_box {
@@ -72,10 +79,17 @@ const Footer = () => {
           .footer_container {
             width: 100vw;
             max-width: 100vw;
+            height: 200px;
             position: relative;
             top: -2px;
             border-top: 1px solid #888;
             padding-left: 1em;
+            transition: height 1s;
+            transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+          }
+
+          .footer_container:hover {
+            height: 300px;
           }
 
           .footer_content {

@@ -66,6 +66,8 @@ const StyledMenu = styled.nav`
   background-color: #ffffef;
   position: sticky;
   top: 41px;
+  transition: height 1.5s;
+  transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
 
   & > div {
     animation: fade-in 0.3s ease-in-out;
@@ -150,6 +152,12 @@ const Header = () => {
   const tecRef = useRef(null);
   const tracRef = useRef(null);
   const [open, setOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+    setPos(true);
+  };
 
   const onScrollStep = (ref) => {
     if (window.pageYOffset === 0) {
@@ -157,19 +165,13 @@ const Header = () => {
     }
     window.scrollTo({
       left: 0,
-      top: ref.current.offsetTop + 154,
+      top: ref.current.offsetTop + 195,
       behavior: 'smooth',
     });
   };
 
   useEffect(() => {
-    document.addEventListener('scroll', () => {
-      if (window.scrollY > 170) {
-        setPos(true);
-      } else {
-        setPos(false);
-      }
-    });
+    document.addEventListener('scroll', updateScroll);
   });
 
   const scrollToRef = (ref) => {
@@ -222,7 +224,13 @@ const Header = () => {
         </StyledMenu>
         <div className='page_container' id='topmenu'>
           <div className='page_navigation1'>
-            <div className='header_box'>
+            <div
+              className={
+                scrollPosition < 180
+                  ? 'header_box before_scroll'
+                  : 'header_box after_scroll'
+              }
+            >
               {open ? (
                 <h1 onClick={() => setOpen(!open)}>How we make it</h1>
               ) : (
@@ -238,7 +246,13 @@ const Header = () => {
             </div>
           </div>
           <div className='page_navigation2'>
-            <div className='header_box'>
+            <div
+              className={
+                scrollPosition < 180
+                  ? 'header_box before_scroll'
+                  : 'header_box after_scroll'
+              }
+            >
               <ul className='page_navigation_inner topnav'>
                 <li className='nav_item' onClick={() => scrollToRef(topRef)}>
                   All
@@ -297,6 +311,7 @@ const Header = () => {
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            height: 180px;
           }
 
           #topmenu {
@@ -307,10 +322,6 @@ const Header = () => {
             position: sticky;
             top: 0;
             background-color: #ffffef;
-          }
-
-          .small {
-            font-size: 1px;
           }
 
           li {
@@ -354,13 +365,26 @@ const Header = () => {
             align-items: center;
           }
 
+          .before_scroll,
+          .before_scroll h1 {
+            font-size: 1em;
+            transition: font-size 1s;
+            transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+          }
+
+          .after_scroll,
+          .after_scroll > h1 {
+            font-size: 1.25em;
+            transition: font-size 1s;
+            transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+          }
+
           .page_navigation1 > .header_box {
             overflow-x: hidden;
           }
 
           .page_navigation1 > .header_box > h1 {
             font-weight: lighter;
-            font-size: 1.5em;
             margin: 0;
             width: 100vw;
           }
@@ -369,7 +393,7 @@ const Header = () => {
             width: 100vw;
             height: 50px;
             border-bottom: 1px solid #888;
-            font-size: 1.25em;
+            animation: fade-in 1s ease-in-out;
           }
 
           .page_navigation2 > .header_box > .page_navigation_inner {
@@ -400,6 +424,20 @@ const Header = () => {
             .page_navigation2 {
               font-weight: lighter;
               font-size: 1em;
+            }
+
+            .before_scroll,
+            .before_scroll h1 {
+              font-size: 0.75em;
+              transition: font-size 1s;
+              transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+            }
+
+            .after_scroll,
+            .after_scroll > h1 {
+              font-size: 1em;
+              transition: font-size 1s;
+              transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
             }
 
             .page_navigation2 > .header_box {

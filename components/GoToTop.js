@@ -52,7 +52,7 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
           <img src={TopArrow} alt='arrowtop'></img>
         </div>
       </div>
-      <style jsx>{`
+      <style jsx='true' global='true' suppressHydrationWarning>{`
         .gototop_container {
           position: fixed;
           bottom: 20px;
