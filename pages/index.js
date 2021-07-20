@@ -6,7 +6,7 @@ import Router from 'next/router';
 import jQuery from 'jquery';
 import parse from 'html-react-parser';
 import moment from 'moment';
-import { Footer, Header, GoToTop } from '../components';
+import { Footer, Header, GoToTop, GoToShop } from '../components';
 
 import * as Wine from '../axios/Material';
 // import Header from "../components/Header";
@@ -96,6 +96,8 @@ class Index extends Component {
           <>
             <Header></Header>
             <Footer></Footer>
+
+            <GoToShop></GoToShop>
             <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
           </>
         ) : (

@@ -34,6 +34,7 @@ const Footer = () => {
           max-width: 100vw;
           position: relative;
           border-top: 1px solid #888;
+          padding-left: 1em;
         }
 
         .footer_box {
@@ -68,6 +69,15 @@ const Footer = () => {
         }
 
         @media (max-width: 768px) {
+          .footer_container {
+            width: 100vw;
+            max-width: 100vw;
+            position: relative;
+            top: -2px;
+            border-top: 1px solid #888;
+            padding-left: 1em;
+          }
+
           .footer_content {
             display: flex;
             flex-direction: column;

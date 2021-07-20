@@ -1,8 +1,144 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import logoH from '../static/images/HWMI_logo.png';
+import LogoBlack from '../static/images/LogoBlack.png';
+import styled from 'styled-components';
 
 import { SearchBar } from './index';
+
+const StyledBurger = styled.button`
+  position: absolute;
+  right: 2em;
+  background-color: rgba(0, 0, 0, 0) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  div {
+    width: 1.8rem;
+    background-color: #000;
+
+    height: 0.05rem;
+    border-radius: 0px;
+    transition: all 0.3s linear;
+
+    transform-origin: center;
+
+    :first-child {
+      transform: ${({ open }) =>
+        open ? 'rotate(30deg) translateY(6px)' : 'rotate(0)'};
+    }
+
+    :nth-child(2) {
+      width: 1.3rem;
+      transform: ${({ open }) => (open ? 'translateX(100px) ' : 'rotate(0)')};
+    }
+
+    :last-child {
+      transform: ${({ open }) =>
+        open ? 'rotate(-30deg) translateY(-6px)' : 'rotate(0)'};
+    }
+  }
+`;
+
+const StyledMenu = styled.nav`
+  display: ${({ open }) => (open ? 'block' : 'none')};
+  width: 100vw;
+  padding-top: 0px;
+  padding-bottom: 0;
+  z-index: 100000;
+  border-bottom: 1px solid #888;
+  height: 45vh;
+  background-color: #ffffef;
+  position: sticky;
+  top: 41px;
+
+  & > div {
+    animation: fade-in 0.3s ease-in-out;
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    height: 100%;
+  }
+
+  & > div > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #888;
+    padding-left: 1em;
+  }
+
+  & > div > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    & > div {
+      width: 50%;
+      border-right: 1px solid #888;
+
+      :first-child {
+        padding-left: 1em;
+        padding-top: 1em;
+      }
+    }
+
+    & > div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+
+        :last-child {
+          border-top: 1px solid #888;
+
+          img {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  & > div > span {
+    display: block;
+  }
+
+  & > div > a {
+    display: block;
+    padding: 0.25em;
+    margin-top: 0.5em;
+
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s linear;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      font-size: em;
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.primaryHover};
+    }
+  }
+`;
 
 const Header = () => {
   const [pos, setPos] = useState(false);
@@ -13,6 +149,7 @@ const Header = () => {
   const locRef = useRef(null);
   const tecRef = useRef(null);
   const tracRef = useRef(null);
+  const [open, setOpen] = useState(false);
 
   const onScrollStep = (ref) => {
     if (window.pageYOffset === 0) {
@@ -20,7 +157,7 @@ const Header = () => {
     }
     window.scrollTo({
       left: 0,
-      top: ref.current.offsetTop,
+      top: ref.current.offsetTop + 154,
       behavior: 'smooth',
     });
   };
@@ -33,7 +170,7 @@ const Header = () => {
         setPos(false);
       }
     });
-  }, []);
+  });
 
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
@@ -47,12 +184,57 @@ const Header = () => {
         </div>
         <div className='coverimage'>How we make it</div>
       </div>
-      <div>
+      <div style={{ position: 'relative' }}>
+        <StyledMenu open={open} setOpen={setOpen}>
+          <div>
+            <div>
+              <SearchBar></SearchBar>
+            </div>
+            <div>
+              <div>
+                <li className='nav_item' onClick={() => scrollToRef(topRef)}>
+                  All
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(matRef)}>
+                  Material
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
+                  Manufacturing
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
+                  Technology
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(locRef)}>
+                  Location
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
+                  Traceability
+                </li>
+              </div>
+              <div>
+                <div>Go to grds.com</div>
+                <div>
+                  <img src={LogoBlack} alt='officiallogo'></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </StyledMenu>
         <div className='page_container' id='topmenu'>
           <div className='page_navigation1'>
             <div className='header_box'>
-              <h1>Balmoral 07 Suede/Leather Black</h1>
-              <span className='icon'>☰</span>
+              {open ? (
+                <h1 onClick={() => setOpen(!open)}>How we make it</h1>
+              ) : (
+                <h1 onClick={() => setOpen(!open)}>
+                  Balmoral 07 Suede/Leather Black
+                </h1>
+              )}
+              <StyledBurger open={open} onClick={() => setOpen(!open)}>
+                <div />
+                <div />
+                <div />
+              </StyledBurger>
             </div>
           </div>
           <div className='page_navigation2'>
@@ -84,24 +266,12 @@ const Header = () => {
           </div>
         </div>
         <div className='content_box'>
-          <div className='test' ref={topRef}>
-            All
-          </div>
-          <div className='test' ref={matRef}>
-            Material
-          </div>
-          <div className='test' ref={manRef}>
-            Manufacturing
-          </div>
-          <div className='test' ref={tecRef}>
-            Technology
-          </div>
-          <div className='test' ref={locRef}>
-            Location
-          </div>
-          <div className='test' ref={tracRef}>
-            Traceability
-          </div>
+          <div className='test' ref={topRef}></div>
+          <div className='test' ref={matRef}></div>
+          <div className='test' ref={manRef}></div>
+          <div className='test' ref={tecRef}></div>
+          <div className='test' ref={locRef}></div>
+          <div className='test' ref={tracRef}></div>
         </div>
       </div>
       <style jsx='true' global='true' suppressHydrationWarning>
@@ -112,6 +282,12 @@ const Header = () => {
 
           .test {
             height: 50vh;
+            border-bottom: 1px solid #888;
+          }
+
+          .test:last-child {
+            height: calc(100vh - 208px);
+            border-bottom: none;
           }
 
           .index_header {
@@ -128,15 +304,17 @@ const Header = () => {
             list-style-type: none;
             margin: 0;
             padding: 0;
-            z-index: 3;
             position: sticky;
             top: 0;
-            // background-color: #ffffef;
-            background-color: rgba(254, 217, 11);
+            background-color: #ffffef;
           }
 
           .small {
             font-size: 1px;
+          }
+
+          li {
+            list-style-type: none;
           }
 
           ul.topnav li a {
@@ -154,7 +332,7 @@ const Header = () => {
             transition: 0.2s;
           }
 
-          span.icon {
+          button.icon {
             display: none;
           }
 
@@ -176,10 +354,15 @@ const Header = () => {
             align-items: center;
           }
 
+          .page_navigation1 > .header_box {
+            overflow-x: hidden;
+          }
+
           .page_navigation1 > .header_box > h1 {
             font-weight: lighter;
             font-size: 1.5em;
             margin: 0;
+            width: 100vw;
           }
 
           .page_navigation2 {
@@ -219,7 +402,6 @@ const Header = () => {
               font-size: 1em;
             }
 
-            .page_navigation1 > .header_box,
             .page_navigation2 > .header_box {
               width: 100vw;
               overflow-x: auto;
@@ -231,23 +413,14 @@ const Header = () => {
               border-bottom: 1px solid #888;
             }
 
-            span.icon {
-              float: right;
-              display: inline-block;
+            ul.topnav.responsive {
             }
 
-            ul.topnav.responsive {
-              position: relative;
-            }
-            ul.topnav.responsive li.icon {
-              position: absolute;
-              right: 0;
-              top: 0;
-            }
             ul.topnav.responsive li {
               float: none;
               display: inline;
             }
+
             ul.topnav.responsive li a {
               display: block;
               text-align: left;
@@ -259,6 +432,10 @@ const Header = () => {
 
             ul.topnav li:first-child {
               margin-left: 1em;
+            }
+
+            ul.topnav li.contactright {
+              display: none;
             }
           }
         `}

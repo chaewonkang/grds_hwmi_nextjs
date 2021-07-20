@@ -1,10 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Throttle } from '../utils';
-import TopArrow from '../static/images/GoToTop.png';
+import ShopLogo from '../static/images/Cart.png';
 
-const GoToTop = ({ scrollStepInPx, delayInMs }) => {
-  const [pos, setPos] = useState(false);
-  const timeoutRef = useRef(null);
+const GoToShop = () => {
   const [show, setShow] = useState(false);
   const [pageY, setPageY] = useState(0);
   const documentRef = useRef(document);
@@ -21,41 +19,25 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
 
   useEffect(() => {
     documentRef.current.addEventListener('scroll', throttleScroll);
-
-    document.addEventListener('scroll', () => {
-      if (window.scrollY > 170) {
-        setPos(true);
-      } else {
-        setPos(false);
-      }
-    });
-
     return () =>
       documentRef.current.removeEventListener('scroll', throttleScroll);
   }, []);
 
-  const onScrollStep = () => {
-    if (window.pageYOffset === 0) {
-      clearInterval(timeoutRef.current);
-    }
-    window.scroll(0, window.pageYOffset - scrollStepInPx);
-  };
-
-  const scrollToTop = () => {
-    timeoutRef.current = setInterval(onScrollStep, delayInMs);
-  };
-
   return (
     <div className={show ? 'show btn_container' : 'btn_container'}>
-      <div className='gototop_container' onClick={scrollToTop}>
-        <div className='gototop_text'>
-          <img src={TopArrow} alt='arrowtop'></img>
+      <div className={show ? 'gotoshop_container' : 'gotoshop_container'}>
+        <div className='gotoshop_text'>
+          <a href='https://grds.com' target='_blank'>
+            <img src={ShopLogo} alt='shoplogo'></img>
+          </a>
         </div>
       </div>
-      <style jsx>{`
-        .gototop_container {
-          position: fixed;
-          bottom: 20px;
+      <style jsx='true' global='true' suppressHydrationWarning>{`
+        .btn_container {
+          display: none;
+        }
+
+        .gotoshop_container {
           width: 40px;
           height: 40px;
           border: 1px solid #000;
@@ -63,36 +45,36 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
           color: #fff;
           position: fixed;
           right: 1em;
-          bottom: 20px;
+          bottom: 70px;
           z-index: 10;
           display: grid;
           cursor: pointer;
         }
 
-        .gototop_text {
+        .gotoshop_text {
           display: flex;
           justify-self: center;
           align-self: center;
         }
 
-        .gototop_text a {
+        .gotoshop_text a {
           width: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
         }
 
-        .gototop_text img {
+        .gotoshop_text img {
           width: 100%;
         }
 
         .show {
           display: block;
-          animation: fade-in 1.5s ease-in;
+          animation: fade-in 0.5s ease-in;
         }
       `}</style>
     </div>
   );
 };
 
-export default GoToTop;
+export default GoToShop;
