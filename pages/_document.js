@@ -28,9 +28,7 @@ class CustomDocument extends Document {
         </Head>
         <body>
           {/* Header on Each files */}
-          <div className='container'>
-            <Main />
-          </div>
+          <Main />
           <NextScript />
         </body>
       </Html>

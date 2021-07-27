@@ -1,7 +1,16 @@
 @font-face {
-    font-family: 'NewParisSkyline';
-    src: url('/static/fonts/NewParisSkyline.woff2') format('woff2'),
-        url('/static/fonts/NewParisSkyline.woff') format('woff');
+    font-family: 'GilSansMedium';
+    src: url('/static/fonts/GillSansMTPro-Medium.woff2') format('woff2'),
+        url('/static/fonts/GillSansMTPro-Medium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GilSansLight';
+    src: url('/static/fonts/GillSansMTPro-Light.woff2') format('woff2'),
+        url('/static/fonts/GillSansMTPro-Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;

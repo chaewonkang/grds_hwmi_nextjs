@@ -1,5 +1,5 @@
 import React from 'react';
-import logoF from '../static/images/HWMI_logo.png';
+import logoF from '../static/images/logo.png';
 
 const Footer = () => {
   return (
@@ -32,34 +32,34 @@ const Footer = () => {
         .footer_container {
           width: 100vw;
           max-width: 100vw;
-          height: 100px;
+          height: 20vh;
           position: relative;
           border-top: 1px solid #888;
-          padding-left: 1em;
-          transition: height 1s;
-          transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
-        }
-
-        .footer_container:hover {
-          height: 200px;
         }
 
         .footer_box {
+          max-width: 100vw;
+          overflow-x: hidden;
           margin-top: 1.5em;
           margin-bottom: 15em;
         }
 
         .footer_content {
+          position: sticky;
+          top: 0;
           display: flex;
           flex-direction: row;
           justify-content: center;
+          max-width: 100vw;
+          overflow-x: hidden;
         }
 
         .footer_content > div {
-          width: 33%;
+          padding: 1em;
         }
 
         .footer_content > div > h3 {
+          max-width: 100vw;
           font-size: 1em;
           font-weight: lighter;
           margin-top: 0;
@@ -79,30 +79,29 @@ const Footer = () => {
           .footer_container {
             width: 100vw;
             max-width: 100vw;
-            height: 200px;
+            height: 20vh;
             position: relative;
-            top: -2px;
             border-top: 1px solid #888;
-            padding-left: 1em;
             transition: height 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
           }
 
           .footer_container:hover {
-            height: 300px;
+            height: 40vh;
           }
 
           .footer_content {
+            position: sticky;
+            top: 0;
             display: flex;
             flex-direction: column;
           }
 
           .footer_logo_box > img {
-            height: 30%;
+            height: 10%;
           }
 
           .footer_content > div {
-            width: 100%;
           }
 
           .footer_content > div > h3 {
@@ -114,7 +113,6 @@ const Footer = () => {
             font-size: 0.6em;
             line-height: 1.8em;
             word-break: keep-all;
-            width: 100vw;
           }
         }
       `}</style>

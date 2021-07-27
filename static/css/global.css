@@ -1,21 +1,37 @@
+* {
+	-ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+}
 
 body{
 	width: 100vw;
 	height: 100vh;
 	min-width: 100vw;
-	background-color: #FFFFEF;
-	font-family: "NewParisSkyline", Arial, Helvetica, sans-serif;
+	/* background-color: #FFFFEF; */
+	background-color: #fff;
+	font-family: "GilSansMedium",  "KoPubDoTumPL", Arial, Helvetica, sans-serif;
     color: rgb(58, 58, 58);
 	margin: 0;
-	font-size: 16px;
-	overflow-x: hidden;
-	-ms-overflow-style: none; /* IE and Edge */
-	scrollbar-width: none;
+
 }
 
-html::-webkit-scrollbar {
-	display: none;
+footer {
+	position: relative;
+	top: -3px;
+	background-color: #fff;
+	z-index: 10;
+	height: 20vh;
+	transition: height 1s;
+	transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
 }
+
+footer:hover {
+	height: 30vh;
+  }
 
 .header_box,
 .footer_box {
@@ -28,7 +44,7 @@ html::-webkit-scrollbar {
 
 .footer-box {
 	position: relative;
-	top:-2px;
+	top:-5px;
 	box-sizing: border-box;
 }
 
@@ -59,6 +75,7 @@ input {
 	outline: none;
 	border: 1px solid transparent;
 	min-width: 135px;
+	width:
 }
 
 .sticky {
@@ -112,8 +129,14 @@ input {
 	.mobile_hidden {
 		display: display !important;
 	}
-
 }
+
+@media only screen and (max-width: 768px) {
+	input {
+		width: calc(100vw - 4em);
+	}
+}
+
 
 @media only screen and (min-width: 1024px) {
 	.header_box,

@@ -8,7 +8,10 @@ function MyApp({ Component, pageProps }) {
     <>
       <Head>
         <link rel='shortcut icon' href='../static/images/favicon.ico' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1.0, minimum-scale=1.0'
+        />
         <title>How we make it ﹣ grds</title>
       </Head>
       <Component {...pageProps} />

@@ -15,3 +15,37 @@
 	  opacity: 0;
 	}
   }
+
+  @keyframes left {
+	0% {
+	  -webkit-transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(180deg);
+	}
+  }
+  @-webkit-keyframes left {
+	0% {
+	  -webkit-transform: rotate(0deg);
+	}
+	100% {
+	  -webkit-transform: rotate(180deg);
+	}
+  }
+
+  @keyframes right {
+	0% {
+	  -webkit-transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(180deg);
+	}
+  }
+  @-webkit-keyframes right {
+	0% {
+	  transform: rotate(0deg);
+	}
+	100% {
+	  transform: rotate(180deg);
+	}
+  }
