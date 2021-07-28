@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import LogoExample from '../static/images/logo.png';
+import LogoExample from '../static/images/trial_1.png';
 import LogoBlack from '../static/images/LogoBlack.png';
 import Emblem from '../static/images/emblem.png';
 
@@ -29,6 +29,8 @@ const imagePath07 = [
   '../static/images/07/07_13.gif',
   '../static/images/07/07_14.gif',
   '../static/images/07/07_15.gif',
+  '../static/images/07/07_8.jpg',
+  '../static/images/07/07_21.png',
 ];
 
 import { SearchBar } from './index';
@@ -91,7 +93,7 @@ const StyledMenu = styled.nav`
   border-bottom: 1px solid #888;
   height: 45vh;
   //   background-color: #ffffef;
-  background-color: #fff;
+  background-color: #f4f1de;
   position: sticky;
   top: 41px;
   transition: height 1.5s;
@@ -203,7 +205,7 @@ const Header = () => {
     }
     window.scrollTo({
       left: 0,
-      top: ref.current.offsetTop + 150,
+      top: ref.current.offsetTop + 158,
       behavior: 'smooth',
     });
   };
@@ -218,9 +220,24 @@ const Header = () => {
 
   return (
     <>
-      <div className='index_header'>
+      {/* <div className='index_header'>
         <div className='logo'>
           <img src={LogoExample}></img>
+        </div>
+      </div> */}
+      <div className='header_box'>
+        <div className='index_header'>
+          <div className='hwmi'>
+            <span>HWMI</span>
+          </div>
+          <div className='grds_logo'>
+            <img src={LogoBlack}></img>
+          </div>
+          <div className='copyright'>
+            <span>
+              FINE QUALITY +<br></br> TRANCEPARENCY
+            </span>
+          </div>
         </div>
       </div>
       <>
@@ -375,8 +392,9 @@ const Header = () => {
                     있는 것이 특징입니다.
                   </p>
                   <p>
-                    종류: 풀그레인 소가죽 풀카프 태닝: 크롬 태닝 (이탈리아
-                    베네토 비첸자) 마감: 세미아날린 원피: 유럽 두께: 1.0mm-1.2mm
+                    종류: 풀그레인 소가죽 풀카프 <br></br>태닝: 크롬 태닝
+                    (이탈리아 베네토 비첸자) <br></br>마감: 세미아날린 <br></br>
+                    원피: 유럽 두께: 1.0mm-1.2mm
                   </p>
                 </div>
               </div>
@@ -428,6 +446,32 @@ const Header = () => {
               </div>
               <div>
                 <img src={imagePath07[7]} alt='mainImg'></img>
+              </div>
+            </div>
+          </div>
+          <div className='test sub_material'>
+            <div className='sub_material_img'>
+              <div>
+                <img src={imagePath07[22]} alt='mainImg'></img>
+              </div>
+              <div>
+                <img src={imagePath07[23]} alt='mainImg'></img>
+              </div>
+            </div>
+            <div className='sub_material_intro'>
+              <div>
+                <p>
+                  재활용된 섬유보드로(이탈리아) 조립(포르투갈) 블루 라텍스 폼
+                  사용(스위스) 폴리프로펠린으로 주형된 인솔 오쏘틱을 최종
+                  제조단계에서 인솔 쿠션 하단에 접착(대한민국) 폴리우레탄 폼을
+                  사용(포르투갈) 100% 폴리에스터를 방적하여 재봉실로
+                  생산(이탈리아) 수성 기반의 접착제로 사용(포르투갈) 재활용된
+                  폴리에스테르로 제작(포르투갈) 100% 유기농 코튼 방적하여 끈으로
+                  생산(포르투갈) 100% 사탕수수(콜롬비아)를 서울시 광진구에서
+                  자연생분해가 되는 종이로 재가공하여 제작 100% 유기농 코튼으로
+                  봉제하여 코튼 레이스 적용(포르투갈) 100% 재활용된 골판지와
+                  카톤 종이로 제작(포르투갈)
+                </p>
               </div>
             </div>
           </div>
@@ -536,7 +580,6 @@ const Header = () => {
             border-bottom: 1px solid #888;
             display: flex;
             flex-direction: row;
-            overflow-y: scroll;
           }
 
           .test > div:first-child {
@@ -666,7 +709,6 @@ const Header = () => {
             border-top: 1px solid #888;
             justify-content: center;
             align-items: center;
-            background-color: limegreen;
           }
 
           .traceability_topimg {
@@ -776,15 +818,55 @@ const Header = () => {
           }
 
           .index_header {
-            width: 100vw;
+            width: 100%;
+            height: 120px;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
+            background-color: #f4f1de;
+            font-size: 30px;
           }
 
-          .index_header .logo {
-            margin-top: 1em;
+          .index_header .hwmi {
+            width: 30%;
+            height: 100%;
+            border-left: 1px solid #888;
+            border-right: 1px solid #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // background-color: #f3aa28;
+          }
+
+          .index_header .grds_logo {
+            width: 30%;
+            height: 100%;
+            border-right: 1px solid #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            // background-color: #5e5e51;
+          }
+
+          .index_header .copyright {
+            width: 40%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            border-right: 1px solid #888;
+            justify-content: center;
+            // background-color: #fff;
+          }
+
+          .index_header .grds_logo img {
+            width: 30%;
+          }
+
+          .index_header .logo img {
+            height: 100%;
+            -webkit-animation: float 2s ease-in-out infinite;
+            animation: float 2s ease-in-out infinite;
           }
 
           #topmenu {
@@ -794,7 +876,8 @@ const Header = () => {
             padding: 0;
             position: sticky;
             top: 0;
-            background-color: #fff;
+            // background-color: #fff;
+            background-color: #f4f1de;
           }
 
           li {
@@ -829,6 +912,7 @@ const Header = () => {
           .page_navigation1 {
             width: 100vw;
             height: 50px;
+            border-top: 1px solid #888;
             border-bottom: 1px solid #888;
           }
 
@@ -841,17 +925,18 @@ const Header = () => {
 
           .before_scroll,
           .before_scroll h1 {
-            font-family: 'GilSansMedium';
-            font-size: 1em;
+            // font-family: 'GilSansMedium';
+            font-family: 'Helvetica';
+            font-size: 15px;
             transition: font-size 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
           }
 
           .after_scroll,
           .after_scroll > h1 {
-            font-size: 1.25em;
-            font-family: 'GilSansMedium';
-
+            font-size: 19px;
+            // font-family: 'GilSansMedium';
+            font-family: 'Helvetica';
             transition: font-size 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
           }
@@ -883,8 +968,6 @@ const Header = () => {
 
           .page_navigation2 > .header_box > .page_navigation_inner > .nav_item {
             margin-right: 55px;
-            font-family: 'GilSansMedium';
-            font-weight: lighter;
           }
 
           #loading {
@@ -994,19 +1077,100 @@ const Header = () => {
             height: 75v;
           }
 
+          .sub_material {
+            width: 100%;
+            height: 75vh;
+          }
+
+          .sub_material_img {
+            width: calc(40% - 2px);
+          }
+
+          .sub_material_img > div {
+            width: calc(100% - 1px);
+            height: calc(50% - 1px);
+          }
+
+          .sub_material_img > div:last-child {
+            border-top: 1px solid #888;
+          }
+
+          .sub_material_img > div > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .sub_material_intro {
+            width: calc(60% - 1px);
+          }
+
           @media (max-width: 768px) {
+            .index_header {
+              width: 100vw;
+              height: 200px;
+              display: flex;
+              flex-direction: row;
+              flex-flow: wrap;
+              align-items: center;
+              justify-content: center;
+              background-color: #f4f1de;
+              font-size: 30px;
+            }
+
+            .index_header .hwmi {
+              width: calc(50% - 1px);
+              height: 50%;
+              border-right: 1px solid #888;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: #f4f1de;
+              border-left: none;
+            }
+
+            .index_header .grds_logo {
+              width: 50%;
+              height: 50%;
+              border-right: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: #f4f1de;
+            }
+
+            .index_header .copyright {
+              width: 100%;
+              height: calc(50% - 1px);
+              border-top: 1px solid #888;
+              border-right: none;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background-color: #f4f1de;
+            }
+
+            .index_header .grds_logo img {
+              height: 50%;
+              width: auto;
+            }
+
+            .index_header .logo img {
+              height: 100%;
+              -webkit-animation: float 2s ease-in-out infinite;
+              animation: float 2s ease-in-out infinite;
+            }
+
             .page_navigation1 > .header_box > h1,
             .page_navigation2 {
               font-weight: lighter;
               font-size: 1em;
-              font-family: 'GilSansMedium';
             }
 
             .before_scroll,
             .before_scroll h1 {
               font-size: 1em;
               transition: none;
-              font-family: 'GilSansMedium';
             }
 
             .after_scroll,
@@ -1308,6 +1472,36 @@ const Header = () => {
               width: 100%;
               height: 100%;
               object-fit: cover;
+            }
+
+            .sub_material {
+              width: 100%;
+              height: 100%;
+            }
+
+            .sub_material_img {
+              width: 100%;
+              height: 100%;
+            }
+
+            .sub_material_img > div {
+              width: 100%;
+              height: 100%;
+            }
+
+            .sub_material_img > div:last-child {
+              border-top: 1px solid #888;
+            }
+
+            .sub_material_img > div > img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+
+            .sub_material_intro {
+              width: 100%;
+              height: auto;
             }
           }
         `}

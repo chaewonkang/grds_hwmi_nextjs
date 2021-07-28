@@ -1,5 +1,5 @@
 import React from 'react';
-import logoF from '../static/images/logo.png';
+import logoF from '../static/images/trial_1.png';
 
 const Footer = () => {
   return (
@@ -66,7 +66,7 @@ const Footer = () => {
         }
 
         .footer_logo_box > img {
-          height: 50%;
+          width: 20%;
         }
 
         .footer_content > div > p {

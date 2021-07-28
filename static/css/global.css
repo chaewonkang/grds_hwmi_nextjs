@@ -12,8 +12,9 @@ body{
 	height: 100vh;
 	min-width: 100vw;
 	/* background-color: #FFFFEF; */
-	background-color: #fff;
-	font-family: "GilSansMedium",  "KoPubDoTumPL", Arial, Helvetica, sans-serif;
+	/* background-color: #fff; */
+	background-color: #f4f1de;
+	font-family: "Helvetica",  "KoPubDoTumPL", Arial, Helvetica, sans-serif;
     color: rgb(58, 58, 58);
 	margin: 0;
 
@@ -22,7 +23,7 @@ body{
 footer {
 	position: relative;
 	top: -3px;
-	background-color: #fff;
+	background-color: #f4f1de;
 	z-index: 10;
 	height: 20vh;
 	transition: height 1s;
