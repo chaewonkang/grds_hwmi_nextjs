@@ -1,5 +1,5 @@
 import React from 'react';
-import logoF from '../static/images/trial_1.png';
+import logoF from '../static/images/trial_2.png';
 
 const Footer = () => {
   return (
@@ -11,7 +11,7 @@ const Footer = () => {
               <div className='footer_logo_box'>
                 <img src={logoF}></img>
               </div>
-              <div>
+              <div className='footer_about'>
                 <h3>How we made it</h3>
                 <p>
                   그라더스가 사용하는 소재와 기술의 출처를 밝혀 투명하게 제품이
@@ -21,7 +21,7 @@ const Footer = () => {
                   보여줍니다.
                 </p>
               </div>
-              <div>
+              <div className='footer_connect'>
                 <h3>Connect with us</h3>
               </div>
             </div>
@@ -45,17 +45,33 @@ const Footer = () => {
         }
 
         .footer_content {
-          position: sticky;
-          top: 0;
           display: flex;
           flex-direction: row;
           justify-content: center;
           max-width: 100vw;
+          height: 100%;
           overflow-x: hidden;
         }
 
         .footer_content > div {
           padding: 1em;
+          height: 70%;
+        }
+
+        .footer_logo_box {
+          width: calc(100% / 6 * 2);
+          border-left: 1px solid #888;
+        }
+
+        .footer_about {
+          width: calc(100% / 6 * 2);
+          border-left: 1px solid #888;
+        }
+
+        .footer_connect {
+          width: calc(100% / 6 * 2);
+          border-left: 1px solid #888;
+          border-right: 1px solid #888;
         }
 
         .footer_content > div > h3 {
@@ -66,7 +82,7 @@ const Footer = () => {
         }
 
         .footer_logo_box > img {
-          width: 20%;
+          height: 100%;
         }
 
         .footer_content > div > p {
@@ -90,18 +106,34 @@ const Footer = () => {
             height: 40vh;
           }
 
+          .footer_box {
+            height: 20vh;
+            margin-top: 0;
+          }
+
+          .footer_logo_box,
+          .footer_about,
+          .footer_connect {
+            height: 100%;
+          }
+
           .footer_content {
             position: sticky;
             top: 0;
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
+            height: 100%;
           }
 
           .footer_logo_box > img {
-            height: 10%;
+            height: 100%;
           }
 
           .footer_content > div {
+          }
+
+          .footer_connect {
+            border-right: none;
           }
 
           .footer_content > div > h3 {
