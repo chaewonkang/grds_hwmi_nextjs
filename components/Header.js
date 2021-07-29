@@ -110,6 +110,7 @@ const StyledMenu = styled.nav`
     display: flex;
     align-items: center;
     border-bottom: 1px solid #888;
+    border-top: 1px solid #888;
     padding-left: 1em;
   }
 
@@ -205,7 +206,7 @@ const Header = () => {
     }
     window.scrollTo({
       left: 0,
-      top: ref.current.offsetTop + 158,
+      top: ref.current.offsetTop + 125,
       behavior: 'smooth',
     });
   };
@@ -281,25 +282,30 @@ const Header = () => {
         </StyledMenu>
         <div className='page_container' id='topmenu'>
           <div className='page_navigation1'>
-            <div
-              className={
-                scrollPosition < 180
-                  ? 'header_box before_scroll'
-                  : 'header_box after_scroll'
-              }
-            >
-              {open ? (
-                <h1 onClick={() => setOpen(!open)}>How we make it</h1>
-              ) : (
-                <h1 onClick={() => setOpen(!open)}>
-                  Balmoral 07 Suede/Leather Black
-                </h1>
-              )}
-              <StyledBurger open={open} onClick={() => setOpen(!open)}>
-                <div />
-                <div />
-                <div />
-              </StyledBurger>
+            <div className='header_box'>
+              <div
+                className={
+                  scrollPosition < 180 ? 'before_scroll' : 'after_scroll'
+                }
+              >
+                {open ? (
+                  <h1 onClick={() => setOpen(!open)}>How we make it</h1>
+                ) : (
+                  <h1 onClick={() => setOpen(!open)}>
+                    Balmoral 07 Suede/Leather Black
+                  </h1>
+                )}
+              </div>
+              <div className='other_box'>
+                <li className='contactright'>
+                  <SearchBar></SearchBar>
+                </li>
+                <StyledBurger open={open} onClick={() => setOpen(!open)}>
+                  <div />
+                  <div />
+                  <div />
+                </StyledBurger>
+              </div>
             </div>
           </div>
           <div className='page_navigation2'>
@@ -328,9 +334,6 @@ const Header = () => {
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(locRef)}>
                   Location
-                </li>
-                <li className='contactright'>
-                  <SearchBar></SearchBar>
                 </li>
               </ul>
             </div>
@@ -624,13 +627,13 @@ const Header = () => {
 
           .manufacturing_intro > div:first-child {
             height: 100%;
-            width: 60%;
+            width: calc((100% / 6) * 3 - 1px);
             border-right: 1px solid #888 !important;
           }
 
           .manufacturing_intro > div:last-child {
             height: 100%;
-            width: 40%;
+            width: calc((100% / 6) * 3 - 1px);
             border-right: 1px solid #888 !important;
           }
 
@@ -661,7 +664,7 @@ const Header = () => {
           }
 
           .item div:first-child {
-            width: calc(60% - 1px);
+            width: calc((100% / 6) * 4 - 1px);
             display: flex;
             align-items: center;
           }
@@ -671,7 +674,7 @@ const Header = () => {
           }
 
           .item div:last-child {
-            width: calc(40% - 1px);
+            width: calc((100% / 6) * 2 - 1px);
             position: relative;
             height: 100%;
           }
@@ -682,11 +685,11 @@ const Header = () => {
           }
 
           .traceability > div:first-child {
-            width: calc(60% - 2px);
+            width: calc((100% / 6) * 4 - 1px);
           }
 
           .traceability > div:last-child {
-            width: calc(40% - 1px);
+            width: calc((100% / 6) * 2 - 1px);
             display: flex;
             flex-direction: column;
             height: 100%;
@@ -774,12 +777,13 @@ const Header = () => {
           }
 
           .material_column_small {
-            width: calc(60% - 1px);
+            width: calc((100% / 6) * 4 - 1px);
+
             display: flex;
           }
 
           .gif_column_small {
-            width: calc(40% - 1px);
+            width: calc((100% / 6) * 2 - 1px);
             height: 100%;
             display: flex;
             flex-flow: wrap;
@@ -829,7 +833,7 @@ const Header = () => {
           }
 
           .index_header .hwmi {
-            width: 30%;
+            width: calc((100% / 6) - 1px);
             height: 100%;
             border-left: 1px solid #888;
             border-right: 1px solid #888;
@@ -840,7 +844,7 @@ const Header = () => {
           }
 
           .index_header .grds_logo {
-            width: 30%;
+            width: calc((100% / 6) - 1px);
             height: 100%;
             border-right: 1px solid #888;
             display: flex;
@@ -850,7 +854,7 @@ const Header = () => {
           }
 
           .index_header .copyright {
-            width: 40%;
+            width: calc((100% / 6) * 4 - 1px);
             height: 100%;
             display: flex;
             align-items: center;
@@ -860,7 +864,7 @@ const Header = () => {
           }
 
           .index_header .grds_logo img {
-            width: 30%;
+            width: 40%;
           }
 
           .index_header .logo img {
@@ -893,11 +897,10 @@ const Header = () => {
             transition: 2s;
           }
 
-          ul.topnav li.contactright {
+          li.contactright {
             text-decoration: none;
             transition: 2s;
-            position: absolute;
-            right: 0;
+            width: 100%;
           }
 
           button.icon {
@@ -914,12 +917,35 @@ const Header = () => {
             height: 50px;
             border-top: 1px solid #888;
             border-bottom: 1px solid #888;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
           }
 
           .page_navigation1 > .header_box,
           .page_navigation2 > .header_box {
             display: flex;
+            flex-direction: row;
             justify-content: flex-start;
+            align-items: center;
+          }
+
+          .page_navigation1 > .header_box > .before_scroll,
+          .page_navigation1 > .header_box > .after_scroll {
+            width: calc((100% / 6) * 4);
+            height: fit-content;
+            border-left: 1px solid #888;
+            border-right: 1px solid #888;
+            display: flex;
+            justify-content: center;
+          }
+
+          .page_navigation1 > .header_box > .other_box {
+            width: calc((100% / 6) * 2);
+            border-right: 1px solid #888;
+            position: relative;
+            height: fit-content;
+            display: flex;
             align-items: center;
           }
 
@@ -934,7 +960,7 @@ const Header = () => {
 
           .after_scroll,
           .after_scroll > h1 {
-            font-size: 19px;
+            font-size: 18px;
             // font-family: 'GilSansMedium';
             font-family: 'Helvetica';
             transition: font-size 1s;
@@ -943,10 +969,12 @@ const Header = () => {
 
           .page_navigation1 > .header_box {
             overflow-x: hidden;
+            display: flex;
+            flex-direction: row;
           }
 
           .page_navigation1 > .header_box > h1 {
-            font-weight: lighter;
+            font-weight: 400;
             margin: 0;
             width: 100vw;
           }
@@ -962,12 +990,23 @@ const Header = () => {
             width: 100%;
             display: flex;
             flex-direction: row;
+            justify-content: center;
+            align-items: center;
             row-gap: 10px;
             overflow-x: scroll;
           }
 
           .page_navigation2 > .header_box > .page_navigation_inner > .nav_item {
-            margin-right: 55px;
+            width: calc(100% / 6);
+            text-align: center;
+            border-left: 1px solid #888;
+          }
+
+          .page_navigation2
+            > .header_box
+            > .page_navigation_inner
+            > .nav_item:last-child {
+            border-right: 1px solid #888;
           }
 
           #loading {
@@ -1028,7 +1067,7 @@ const Header = () => {
           }
 
           .technology_intro {
-            width: calc(40% - 1px);
+            width: calc((100% / 6) * 2 - 1px);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -1051,7 +1090,7 @@ const Header = () => {
           }
 
           .technology_img {
-            width: calc(60% - 1px);
+            width: calc((100% / 6) * 4 - 1px);
             display: flex;
             flex-direction: row;
           }
@@ -1083,7 +1122,7 @@ const Header = () => {
           }
 
           .sub_material_img {
-            width: calc(40% - 2px);
+            width: calc((100% / 6) * 3 - 1px);
           }
 
           .sub_material_img > div {
@@ -1102,7 +1141,7 @@ const Header = () => {
           }
 
           .sub_material_intro {
-            width: calc(60% - 1px);
+            width: calc((100% / 6) * 3 - 1px);
           }
 
           @media (max-width: 768px) {
@@ -1148,6 +1187,7 @@ const Header = () => {
               align-items: center;
               justify-content: center;
               background-color: #f4f1de;
+              border-bottom: 1px solid #888;
             }
 
             .index_header .grds_logo img {
@@ -1163,8 +1203,17 @@ const Header = () => {
 
             .page_navigation1 > .header_box > h1,
             .page_navigation2 {
-              font-weight: lighter;
               font-size: 1em;
+            }
+
+            .page_navigation1 > .header_box > .before_scroll,
+            .page_navigation1 > .header_box > .after_scroll {
+              width: calc((100% / 6) * 4);
+              height: fit-content;
+              border: none;
+              display: flex;
+              justify-content: flex-start;
+              margin-left: 1em;
             }
 
             .before_scroll,
@@ -1182,13 +1231,47 @@ const Header = () => {
             .page_navigation2 > .header_box {
               width: 100vw;
               max-width: 100vw;
-              overflow-x: auto;
             }
 
             .page_navigation1,
             .page_navigation2 {
               height: 40px;
               border-bottom: 1px solid #888;
+            }
+
+            .page_navigation2 {
+              width: 100%;
+              height: 40px;
+              border-bottom: 1px solid #888;
+              animation: fade-in 1s ease-in-out;
+            }
+
+            .page_navigation2 > .header_box > .page_navigation_inner {
+              width: 200vw;
+              max-width: 200vw;
+              display: flex;
+              flex-direction: row;
+              justify-content: flex-start;
+              align-items: flex-start;
+              row-gap: 2em;
+              overflow-x: scroll;
+            }
+
+            .page_navigation2
+              > .header_box
+              > .page_navigation_inner
+              > .nav_item {
+              text-align: left;
+              border-left: none;
+              width: fit-content;
+              margin-right: 2em;
+            }
+
+            .page_navigation2
+              > .header_box
+              > .page_navigation_inner
+              > .nav_item:last-child {
+              border-right: none;
             }
 
             ul.topnav.responsive {
@@ -1212,7 +1295,7 @@ const Header = () => {
               margin-left: 1em;
             }
 
-            ul.topnav li.contactright {
+            li.contactright {
               display: none;
             }
 

@@ -34,6 +34,15 @@ footer:hover {
 	height: 30vh;
   }
 
+  h1 {
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: 400;
+}
+
 .header_box,
 .footer_box {
 	width: 100vw;
@@ -75,8 +84,7 @@ input {
 	padding-left: 8px;
 	outline: none;
 	border: 1px solid transparent;
-	min-width: 135px;
-	width:
+	min-width: 90%;
 }
 
 .sticky {
