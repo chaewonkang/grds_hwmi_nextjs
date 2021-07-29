@@ -31,6 +31,7 @@ const imagePath07 = [
   '../static/images/07/07_15.gif',
   '../static/images/07/07_8.jpg',
   '../static/images/07/07_21.png',
+  '../static/images/07/score.png',
 ];
 
 import { SearchBar } from './index';
@@ -355,11 +356,14 @@ const Header = () => {
               <div>
                 <div id='loading'>
                   <span>80%</span>
-                  <div className='left'>
+                  {/* <div className='left'>
                     <div className='fill'></div>
                   </div>
                   <div className='right'>
                     <div className='fill'></div>
+                  </div> */}
+                  <div className='score'>
+                    <img src={imagePath07[24]} alt='officiallogo'></img>
                   </div>
                 </div>
               </div>
@@ -1010,16 +1014,28 @@ const Header = () => {
           }
 
           #loading {
-            width: 60%;
+            width: 80%;
             height: 90%;
             margin: 0 auto;
             position: relative;
           }
 
+          .score {
+            width: 100%;
+            margin-top: 1em;
+          }
+
+          .score > img {
+            width: 100%;
+            filter: drop-shadow(2px 10px 12px #888);
+            -webkit-animation: float 2s ease-in-out infinite;
+            animation: float 2s ease-in-out infinite;
+          }
+
           #loading > span {
             position: absolute;
-            top: 45%;
-            left: 40%;
+            bottom: 0;
+            left: 35%;
             z-index: 10;
             font-size: 40px;
           }
@@ -1032,7 +1048,7 @@ const Header = () => {
           .fill {
             position: absolute;
             width: 100%;
-            height: 100%;
+            height: 70%;
             border-radius: 100%;
             clip: rect(0px, 50%, 100%, 0px);
           }
@@ -1585,6 +1601,14 @@ const Header = () => {
             .sub_material_intro {
               width: 100%;
               height: auto;
+            }
+
+            .fill {
+              position: absolute;
+              width: 60%;
+              height: 100%;
+              border-radius: 100%;
+              clip: rect(0px, 50%, 100%, 0px);
             }
           }
         `}
