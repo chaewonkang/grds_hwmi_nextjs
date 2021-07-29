@@ -207,7 +207,7 @@ const Header = () => {
     }
     window.scrollTo({
       left: 0,
-      top: ref.current.offsetTop + 125,
+      top: ref.current.offsetTop + 70,
       behavior: 'smooth',
     });
   };
@@ -254,22 +254,19 @@ const Header = () => {
                   Traceability
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(topRef)}>
-                  Item
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(topRef)}>
-                  Introduction
+                  Product
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(matRef)}>
                   Material
                 </li>
-                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
-                  Manufacturing
-                </li>
                 <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
                   Technology
                 </li>
+                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
+                  Manufacturing
+                </li>
                 <li className='nav_item' onClick={() => scrollToRef(locRef)}>
-                  Location
+                  Aim
                 </li>
               </StyledNav>
               <div>
@@ -322,25 +319,36 @@ const Header = () => {
                   Traceability
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(topRef)}>
-                  Item
+                  Product
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(matRef)}>
                   Material
                 </li>
-                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
-                  Manufacturing
-                </li>
                 <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
                   Technology
                 </li>
+                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
+                  Manufacturing
+                </li>
                 <li className='nav_item' onClick={() => scrollToRef(locRef)}>
-                  Location
+                  Aim
                 </li>
               </ul>
             </div>
           </div>
         </div>
         <div className='content_box'>
+          <div className='category_desc'>
+            <div>
+              <span>추적가능성</span>
+            </div>
+            <div>
+              <p>
+                하나의 제품이 만들어지기 위해 필요한 모든 소재와 제조과정을
+                파악하여 100% 투명성에 도달할 수 있도록 지속가능성을 실천합니다.
+              </p>
+            </div>
+          </div>
           <div className='test traceability' ref={tracRef}>
             <div className='traceability_topimg'>
               <img
@@ -355,7 +363,6 @@ const Header = () => {
             <div>
               <div>
                 <div id='loading'>
-                  <span>80%</span>
                   {/* <div className='left'>
                     <div className='fill'></div>
                   </div>
@@ -363,13 +370,24 @@ const Header = () => {
                     <div className='fill'></div>
                   </div> */}
                   <div className='score'>
-                    <img src={imagePath07[24]} alt='officiallogo'></img>
+                    <span>80%</span>
                   </div>
                 </div>
               </div>
               <div className='traceability_emblem'>
                 <img src={Emblem} alt='emblemImg'></img>
               </div>
+            </div>
+          </div>
+          <div className='category_desc'>
+            <div>
+              <span>제품</span>
+            </div>
+            <div>
+              <p>
+                엄선하게 선별된 주요 소재와 제품에 사용되는 작은 부품까지
+                해당되는 모든 소재에 대한 정보를 공유합니다.
+              </p>
             </div>
           </div>
           <div className='test item' ref={topRef}>
@@ -383,6 +401,17 @@ const Header = () => {
                 앞코를 가졌으며 발등과 발볼이 넓게 나왔습니다. 표준 사이즈로 발
                 뒤꿈치가 들리지 않게 끈을 잘 조여주시면 편안하게 신을 수
                 있습니다.
+              </p>
+            </div>
+          </div>
+          <div className='category_desc'>
+            <div>
+              <span>소재</span>
+            </div>
+            <div>
+              <p>
+                엄선하게 선별된 주요 소재와 제품에 사용되는 작은 부품까지
+                해당되는 모든 소재에 대한 정보를 공유합니다.
               </p>
             </div>
           </div>
@@ -456,33 +485,18 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className='test sub_material'>
-            <div className='sub_material_img'>
-              <div>
-                <img src={imagePath07[22]} alt='mainImg'></img>
-              </div>
-              <div>
-                <img src={imagePath07[23]} alt='mainImg'></img>
-              </div>
+          <div className='category_desc'>
+            <div>
+              <span>아웃솔</span>
             </div>
-            <div className='sub_material_intro'>
-              <div>
-                <p>
-                  재활용된 섬유보드로(이탈리아) 조립(포르투갈) 블루 라텍스 폼
-                  사용(스위스) 폴리프로펠린으로 주형된 인솔 오쏘틱을 최종
-                  제조단계에서 인솔 쿠션 하단에 접착(대한민국) 폴리우레탄 폼을
-                  사용(포르투갈) 100% 폴리에스터를 방적하여 재봉실로
-                  생산(이탈리아) 수성 기반의 접착제로 사용(포르투갈) 재활용된
-                  폴리에스테르로 제작(포르투갈) 100% 유기농 코튼 방적하여 끈으로
-                  생산(포르투갈) 100% 사탕수수(콜롬비아)를 서울시 광진구에서
-                  자연생분해가 되는 종이로 재가공하여 제작 100% 유기농 코튼으로
-                  봉제하여 코튼 레이스 적용(포르투갈) 100% 재활용된 골판지와
-                  카톤 종이로 제작(포르투갈)
-                </p>
-              </div>
+            <div>
+              <p>
+                엄선하게 선별된 주요 소재와 제품에 사용되는 작은 부품까지
+                해당되는 모든 소재에 대한 정보를 공유합니다.
+              </p>
             </div>
           </div>
-          <div className='test manufacturing' ref={manRef}>
+          <div className='test manufacturing'>
             <div className='manufacturing_intro'>
               <div>
                 <p>
@@ -516,6 +530,54 @@ const Header = () => {
               </div>
             </div>
           </div>
+          <div className='category_desc'>
+            <div>
+              <span>기타소재</span>
+            </div>
+            <div>
+              <p>
+                엄선하게 선별된 주요 소재와 제품에 사용되는 작은 부품까지
+                해당되는 모든 소재에 대한 정보를 공유합니다.
+              </p>
+            </div>
+          </div>
+          <div className='test sub_material'>
+            <div className='sub_material_img'>
+              <div>
+                <img src={imagePath07[22]} alt='mainImg'></img>
+              </div>
+              <div>
+                <img src={imagePath07[23]} alt='mainImg'></img>
+              </div>
+            </div>
+            <div className='sub_material_intro'>
+              <div>
+                <p>
+                  재활용된 섬유보드로(이탈리아) 조립(포르투갈) 블루 라텍스 폼
+                  사용(스위스) 폴리프로펠린으로 주형된 인솔 오쏘틱을 최종
+                  제조단계에서 인솔 쿠션 하단에 접착(대한민국) 폴리우레탄 폼을
+                  사용(포르투갈) 100% 폴리에스터를 방적하여 재봉실로
+                  생산(이탈리아) 수성 기반의 접착제로 사용(포르투갈) 재활용된
+                  폴리에스테르로 제작(포르투갈) 100% 유기농 코튼 방적하여 끈으로
+                  생산(포르투갈) 100% 사탕수수(콜롬비아)를 서울시 광진구에서
+                  자연생분해가 되는 종이로 재가공하여 제작 100% 유기농 코튼으로
+                  봉제하여 코튼 레이스 적용(포르투갈) 100% 재활용된 골판지와
+                  카톤 종이로 제작(포르투갈)
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className='category_desc'>
+            <div>
+              <span>기술</span>
+            </div>
+            <div>
+              <p>
+                하지 생체 역학기술을 바탕으로 편안한 걸음이 되도록 개발합니다.
+              </p>
+            </div>
+          </div>
           <div className='test technology' ref={tecRef}>
             <div className='technology_intro'>
               <div>
@@ -543,13 +605,24 @@ const Header = () => {
               </div>
             </div>
           </div>
-          <div className='test manufacturing' ref={locRef}>
+          <div className='category_desc'>
+            <div>
+              <span>공정</span>
+            </div>
+            <div>
+              <p>
+                엄선하게 선별된 주요 소재와 제품에 사용되는 작은 부품까지
+                해당되는 모든 소재에 대한 정보를 공유합니다.
+              </p>
+            </div>
+          </div>
+          <div className='test manufacturing' ref={manRef}>
             <div className='manufacturing_intro'>
               <div>
                 <p>
-                  지역 <br></br>산토 아드리아 비젤라, 포르투갈(santo adrião
-                  vizela, portugal) <br></br>설립연도 <br></br>2005년 <br></br>
-                  직원수<br></br> 120명<br></br>
+                  지역 : 산토 아드리아 비젤라, 포르투갈(santo adrião vizela,
+                  portugal) <br></br>설립연도 : 2005년 <br></br>
+                  직원수 : 120명<br></br>
                   <br></br>아버지와 아들이 운영하는 회사로 한해 26만족의 신발을
                   생산합니다. 주로 북유럽 브랜드들과 협업하며 영국, 이탈리아,
                   독일 및 여러 유럽 국가에 수출합니다. 신발을 만들 때 가장 많이
@@ -576,10 +649,66 @@ const Header = () => {
               </div>
             </div>
           </div>
+          <div className='category_desc' ref={locRef}>
+            <div>
+              <span>목표</span>
+            </div>
+            <div>
+              <p>그라더스의 지향점을 설명합니다.</p>
+            </div>
+          </div>
+          <div className='category_desc' ref={locRef}>
+            <div>
+              <p>끝</p>
+            </div>
+          </div>
         </div>
       </>
       <style jsx='true' global='true' suppressHydrationWarning>
         {`
+          .category_desc {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #888;
+          }
+
+          .category_desc:last-child {
+            width: 100%;
+            height: 75vh;
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #888;
+          }
+
+          .category_desc div:first-child {
+            width: calc((100% / 6) * 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-left: 1px solid #888;
+            border-right: 1px solid #888;
+            // color: #fff;
+            // background-color: #000;
+          }
+
+          .category_desc div:last-child {
+            width: calc((100% / 6) * 5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid #888;
+          }
+
+          .category_desc:last-child div:first-child {
+            width: 100%;
+            height: 75vh;
+            display: flex;
+            flex-direction: row;
+            border-bottom: 1px solid #888;
+          }
+
           .test {
             position: relative;
             height: 75vh;
@@ -704,15 +833,16 @@ const Header = () => {
           }
 
           .traceability > div:last-child > div:first-child {
-            height: 70%;
+            height: 40%;
             justify-content: center;
             align-items: center;
             display: flex;
           }
 
           .traceability_emblem {
-            height: 30%;
+            height: calc(60% - 1px);
             display: flex;
+
             border-top: 1px solid #888;
             justify-content: center;
             align-items: center;
@@ -778,24 +908,32 @@ const Header = () => {
 
           .material {
             width: 100%;
+            display: flex;
+            height: calc(75vh + (75vh / 2));
+            flex-direction: column;
           }
 
           .material_column_small {
-            width: calc((100% / 6) * 4 - 1px);
-
+            width: calc(100% - 3px);
+            height: 75vh;
             display: flex;
+            border-bottom: 1px solid #888;
           }
 
           .gif_column_small {
-            width: calc((100% / 6) * 2 - 1px);
-            height: 100%;
+            width: 100%;
+            height: calc(75vh / 2);
             display: flex;
+            flex-direction: row;
             flex-flow: wrap;
+
+            border-left: 1px solid #888;
+            border-right: 1px solid #888;
           }
 
           .gif_column_small > div {
-            width: 50%;
-            height: calc(75vh / 2);
+            width: calc(100% / 4);
+            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -817,7 +955,7 @@ const Header = () => {
           }
 
           .material_column_small > div:last-child {
-            border: none;
+            border-right: none;
           }
 
           .material_column_small div > div:first-child img {
@@ -956,7 +1094,7 @@ const Header = () => {
           .before_scroll,
           .before_scroll h1 {
             // font-family: 'GilSansMedium';
-            font-family: 'Helvetica';
+            font-family: 'GilSansMedium';
             font-size: 15px;
             transition: font-size 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
@@ -966,7 +1104,7 @@ const Header = () => {
           .after_scroll > h1 {
             font-size: 18px;
             // font-family: 'GilSansMedium';
-            font-family: 'Helvetica';
+            font-family: 'GilSansMedium';
             transition: font-size 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
           }
@@ -1014,15 +1152,21 @@ const Header = () => {
           }
 
           #loading {
-            width: 80%;
-            height: 90%;
+            width: 100%;
+            height: 100%;
             margin: 0 auto;
             position: relative;
+            background-color: #e8a648;
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
           .score {
-            width: 100%;
-            margin-top: 1em;
+          }
+
+          .score span {
+            font-size: 6em;
           }
 
           .score > img {
@@ -1030,14 +1174,6 @@ const Header = () => {
             filter: drop-shadow(2px 10px 12px #888);
             -webkit-animation: float 2s ease-in-out infinite;
             animation: float 2s ease-in-out infinite;
-          }
-
-          #loading > span {
-            position: absolute;
-            bottom: 0;
-            left: 35%;
-            z-index: 10;
-            font-size: 40px;
           }
 
           .fill,
@@ -1161,6 +1297,60 @@ const Header = () => {
           }
 
           @media (max-width: 768px) {
+            .category_desc {
+              width: 100%;
+              height: 80px;
+              display: flex;
+              flex-direction: column;
+              border-bottom: 1px solid #888;
+              font-size: 0.75em;
+            }
+
+            .category_desc:last-child {
+              width: 100%;
+              height: 50vh;
+              display: flex;
+              flex-direction: column;
+              border-bottom: 1px solid #888;
+              font-size: 0.75em;
+            }
+
+            .category_desc div:first-child {
+              width: 100%;
+              height: 25%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-left: none;
+              border-right: none;
+              border-bottom: 1px solid #888;
+            }
+
+            .category_desc div:last-child {
+              width: 100%;
+              height: 75%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-right: 1px solid #888;
+            }
+
+            .category_desc div:last-child p {
+              width: 100%;
+              max-width: 100%;
+              padding-left: 1em;
+              padding-right: 1em;
+            }
+
+            .test {
+              flex-direction: column;
+              height: auto;
+            }
+
+            .test div:first-child {
+              border: none;
+            }
+
             .index_header {
               width: 100vw;
               height: 200px;
@@ -1326,26 +1516,38 @@ const Header = () => {
 
             .traceability > div:last-child {
               width: 100%;
+              height: 100%;
+              flex-direction: row;
             }
 
             .traceability > div:last-child > div {
               width: 100%;
+              height: 100%;
+            }
+
+            .traceability > div:last-child > div:last-child {
+              width: 60%;
+              height: 100%;
             }
 
             .traceability > div:last-child > div:first-child {
-              width: 100%;
-              height: 40vh;
+              width: 40%;
+              height: auto;
               border-top: 1px solid #888;
+              display: flex;
               justify-content: center;
               align-items: center;
-              display: flex;
+            }
+
+            .traceability div:last-child div:last-child img {
+              width: 80%;
             }
 
             .traceability_emblem {
-              width: 100%;
               padding-top: 1em;
               padding-bottom: 1em;
               display: flex;
+              border-left: 1px solid #888;
               border-top: 1px solid #888;
               justify-content: center;
               align-items: center;
@@ -1392,22 +1594,19 @@ const Header = () => {
               opacity: 1;
             }
 
-            .traceability div:last-child div:last-child img {
-              height: 80%;
-              object-fit: contain;
-            }
-
             .test p {
               font-size: 0.75em;
             }
 
             .material {
               width: 100%;
+              height: auto;
             }
 
             .material_column_small {
               width: 100%;
               display: block;
+              height: auto;
             }
 
             .material_column_small > div {
@@ -1424,6 +1623,8 @@ const Header = () => {
               height: 100%;
               display: flex;
               flex-flow: wrap;
+              border-left: none;
+              border-top: 1px solid #888;
             }
 
             .gif_column_small > div {
@@ -1435,16 +1636,6 @@ const Header = () => {
               width: 98%;
               height: 98%;
               object-fit: cover;
-            }
-
-            .test {
-              flex-direction: column;
-
-              height: auto;
-            }
-
-            .test div:first-child {
-              border: none;
             }
 
             .item div:first-child {
@@ -1609,6 +1800,14 @@ const Header = () => {
               height: 100%;
               border-radius: 100%;
               clip: rect(0px, 50%, 100%, 0px);
+            }
+
+            .score {
+              margin-top: 1em;
+            }
+
+            .score span {
+              font-size: 3em;
             }
           }
         `}
