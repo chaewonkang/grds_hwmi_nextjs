@@ -93,7 +93,6 @@ const StyledMenu = styled.nav`
   z-index: 100;
   border-bottom: 1px solid #888;
   height: 45vh;
-  //   background-color: #ffffef;
   background-color: #f4f1de;
   position: sticky;
   top: 41px;
@@ -123,7 +122,8 @@ const StyledMenu = styled.nav`
     & > div {
       width: 50%;
       border-right: 1px solid #888;
-      111111111199*/011 01/9* :first-child {
+
+      &:first-child {
         padding-left: 1em;
         padding-top: 1em;
       }
@@ -186,19 +186,19 @@ const StyledNav = styled.div`
 const Header = () => {
   const [pos, setPos] = useState(false);
 
-  const timeoutRef = useRef(null);
+  const timeoutRef = useRef();
 
-  const topRef = useRef(null);
-  const matRef = useRef(null);
-  const manRef = useRef(null);
-  const locRef = useRef(null);
-  const tecRef = useRef(null);
-  const tracRef = useRef(null);
+  const topRef = useRef();
+  const matRef = useRef();
+  const manRef = useRef();
+  const locRef = useRef();
+  const tecRef = useRef();
+  const tracRef = useRef();
   const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updateScroll = () => {
-    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+    setScrollPosition(window.scrollY);
     setPos(true);
   };
 
@@ -215,7 +215,7 @@ const Header = () => {
 
   useEffect(() => {
     document.addEventListener('scroll', updateScroll);
-  });
+  }, []);
 
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
@@ -223,11 +223,6 @@ const Header = () => {
 
   return (
     <>
-      {/* <div className='index_header'>
-        <div className='logo'>
-          <img src={LogoExample}></img>
-        </div>
-      </div> */}
       <div className='header_box'>
         <div className='index_header'>
           <div className='hwmi'>
@@ -350,31 +345,51 @@ const Header = () => {
           </div>
           <div className='test traceability' ref={tracRef}>
             <div className='traceability_topimg'>
-              <img
-                id='traceability_hiddenimg'
-                src={imagePath07[8]}
-                alt='itemImg'
-              ></img>
-              <div id='traceability_showimg' className='overlay'>
+              {scrollPosition &&
+              tracRef &&
+              scrollPosition > tracRef.current.offsetTop ? (
                 <img src={imagePath07[8]} alt='itemImg'></img>
-              </div>
+              ) : (
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[8]}
+                  alt='itemImg'
+                ></img>
+              )}
+              {/* <div id='traceability_showimg' className='overlay'>
+                {scrollPosition &&
+                tracRef &&
+                scrollPosition > tracRef.current.offsetTop ? (
+                  <img src={imagePath07[8]} alt='itemImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[8]}
+                    alt='itemImg'
+                  ></img>
+                )}
+              </div> */}
             </div>
             <div>
               <div>
                 <div id='loading'>
-                  {/* <div className='left'>
-                    <div className='fill'></div>
-                  </div>
-                  <div className='right'>
-                    <div className='fill'></div>
-                  </div> */}
                   <div className='score'>
-                    <span>80%</span>
+                    <span>80 %</span>
                   </div>
                 </div>
               </div>
               <div className='traceability_emblem'>
-                <img src={Emblem} alt='emblemImg'></img>
+                {scrollPosition &&
+                tracRef &&
+                scrollPosition > tracRef.current.offsetTop ? (
+                  <img src={Emblem} alt='emblemImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={Emblem}
+                    alt='emblemImg'
+                  ></img>
+                )}
               </div>
             </div>
           </div>
@@ -391,7 +406,17 @@ const Header = () => {
           </div>
           <div className='test item' ref={topRef}>
             <div>
-              <img src={imagePath07[0]} alt='mainImg'></img>
+              {scrollPosition &&
+              topRef &&
+              scrollPosition > topRef.current.offsetTop ? (
+                <img src={imagePath07[0]} alt='mainImg'></img>
+              ) : (
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[0]}
+                  alt='mainImg'
+                ></img>
+              )}
             </div>
             <div>
               <p>
@@ -418,7 +443,17 @@ const Header = () => {
             <div className='material_column_small'>
               <div>
                 <div>
-                  <img src={imagePath07[1]} alt='mainImg'></img>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop ? (
+                    <img src={imagePath07[1]} alt='mainImg'></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={imagePath07[1]}
+                      alt='mainImg'
+                    ></img>
+                  )}
                 </div>
                 <div>
                   <p>
@@ -435,7 +470,17 @@ const Header = () => {
               </div>
               <div>
                 <div>
-                  <img src={imagePath07[2]} alt='mainImg'></img>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop ? (
+                    <img src={imagePath07[2]} alt='mainImg'></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={imagePath07[2]}
+                      alt='mainImg'
+                    ></img>
+                  )}
                 </div>
                 <div>
                   <p>
@@ -454,7 +499,17 @@ const Header = () => {
               </div>
               <div>
                 <div>
-                  <img src={imagePath07[3]} alt='mainImg'></img>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop ? (
+                    <img src={imagePath07[3]} alt='mainImg'></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={imagePath07[3]}
+                      alt='mainImg'
+                    ></img>
+                  )}
                 </div>
                 <div>
                   <p>
@@ -471,16 +526,56 @@ const Header = () => {
             </div>
             <div className='gif_column_small'>
               <div>
-                <img src={imagePath07[4]} alt='mainImg'></img>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop ? (
+                  <img src={imagePath07[4]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[4]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[5]} alt='mainImg'></img>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop ? (
+                  <img src={imagePath07[5]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[5]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[6]} alt='mainImg'></img>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop ? (
+                  <img src={imagePath07[6]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[6]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[7]} alt='mainImg'></img>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop ? (
+                  <img src={imagePath07[7]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[7]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
             </div>
           </div>
@@ -511,7 +606,17 @@ const Header = () => {
                 </p>
               </div>
               <div>
-                <img src={imagePath07[13]} alt='mainImg'></img>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop ? (
+                  <img src={imagePath07[13]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[13]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
             </div>
             <div className='manufacturing_gif'>
@@ -1405,7 +1510,8 @@ const Header = () => {
 
             .test {
               flex-direction: column;
-              height: auto;
+              height: fit-content;
+              max-height: fit-content;
             }
 
             .test div:first-child {

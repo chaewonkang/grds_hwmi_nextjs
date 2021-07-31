@@ -1,6 +1,7 @@
 * {
 	-ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+	scrollbar-width: none; /* Firefox */
+
 }
 
 *::-webkit-scrollbar {
@@ -40,7 +41,12 @@ footer:hover {
     margin-block-end: 0em;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
-    font-weight: 400;
+	font-weight: 400;
+	animation: fade-in 1s ease-in-out;
+}
+
+p {
+	animation: fade-in 2s ease-in-out;
 }
 
 .header_box,
