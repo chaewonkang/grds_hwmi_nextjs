@@ -712,6 +712,7 @@ const Header = () => {
           .test {
             position: relative;
             height: 75vh;
+            max-height: 700px;
             width: 100%;
             border-bottom: 1px solid #888;
             display: flex;
@@ -912,6 +913,7 @@ const Header = () => {
             width: 100%;
             display: flex;
             height: calc(75vh + (75vh / 2));
+            max-height: 1000px;
             flex-direction: column;
           }
 
