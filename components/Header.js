@@ -315,22 +315,22 @@ const Header = () => {
             >
               <ul className='page_navigation_inner topnav'>
                 <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
-                  Traceability
+                  <span>Traceability</span>
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(topRef)}>
-                  Product
+                  <span>Product</span>
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(matRef)}>
-                  Material
+                  <span>Material</span>
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
-                  Technology
+                  <span>Technology</span>
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(manRef)}>
-                  Manufacturing
+                  <span>Manufacturing</span>
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(locRef)}>
-                  Aim
+                  <span>Aim</span>
                 </li>
               </ul>
             </div>
@@ -1162,6 +1162,11 @@ const Header = () => {
             text-align: center;
             border-left: 1px solid #888;
             position: relative;
+          }
+
+          .nav_item span {
+            position: relative;
+            top: 2px;
           }
 
           .page_navigation2
