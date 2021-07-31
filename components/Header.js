@@ -152,6 +152,7 @@ const StyledMenu = styled.nav`
 
   & > div > span {
     display: block;
+    vertical-align: middle;
   }
 
   & > div > a {
@@ -236,9 +237,7 @@ const Header = () => {
             <img src={LogoBlack}></img>
           </div>
           <div className='copyright'>
-            <span>
-              FINE QUALITY +<br></br> TRANCEPARENCY
-            </span>
+            <span>FINE QUALITY + TRANCEPARENCY</span>
           </div>
         </div>
       </div>
@@ -674,23 +673,14 @@ const Header = () => {
             border-bottom: 1px solid #888;
           }
 
-          .category_desc:last-child {
-            width: 100%;
-            height: 75vh;
-            display: flex;
-            flex-direction: row;
-            border-bottom: 1px solid #888;
-          }
-
           .category_desc div:first-child {
+            position: relative;
             width: calc((100% / 6) * 1);
             display: flex;
             align-items: center;
             justify-content: center;
             border-left: 1px solid #888;
             border-right: 1px solid #888;
-            // color: #fff;
-            // background-color: #000;
           }
 
           .category_desc div:last-child {
@@ -699,6 +689,16 @@ const Header = () => {
             align-items: center;
             justify-content: center;
             border-right: 1px solid #888;
+          }
+
+          .category_desc div:first-child span {
+            position: relative;
+            top: 2px;
+          }
+
+          .category_desc div:last-child p {
+            position: relative;
+            top: 2px;
           }
 
           .category_desc:last-child div:first-child {
@@ -804,6 +804,8 @@ const Header = () => {
 
           .item div:first-child img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
           }
 
           .item div:last-child {
@@ -982,7 +984,12 @@ const Header = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            // background-color: #f3aa28;
+            position: relative;
+          }
+
+          .index_header .hwmi span {
+            position: relative;
+            top: calc(1em / 5);
           }
 
           .index_header .grds_logo {
@@ -992,7 +999,6 @@ const Header = () => {
             display: flex;
             align-items: center;
             justify-content: center;
-            // background-color: #5e5e51;
           }
 
           .index_header .copyright {
@@ -1002,7 +1008,12 @@ const Header = () => {
             align-items: center;
             border-right: 1px solid #888;
             justify-content: center;
-            // background-color: #fff;
+            position: relative;
+          }
+
+          .index_header .copyright span {
+            position: relative;
+            top: calc(1em / 5);
           }
 
           .index_header .grds_logo img {
@@ -1022,7 +1033,6 @@ const Header = () => {
             padding: 0;
             position: sticky;
             top: 0;
-            // background-color: #fff;
             background-color: #f4f1de;
           }
 
@@ -1080,6 +1090,7 @@ const Header = () => {
             border-right: 1px solid #888;
             display: flex;
             justify-content: center;
+            position: relative;
           }
 
           .page_navigation1 > .header_box > .other_box {
@@ -1093,20 +1104,28 @@ const Header = () => {
 
           .before_scroll,
           .before_scroll h1 {
-            // font-family: 'GilSansMedium';
             font-family: 'GilSansMedium';
             font-size: 15px;
             transition: font-size 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
           }
 
+          .before_scroll h1 {
+            position: relative;
+            top: 2px;
+          }
+
           .after_scroll,
           .after_scroll > h1 {
             font-size: 18px;
-            // font-family: 'GilSansMedium';
             font-family: 'GilSansMedium';
             transition: font-size 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+          }
+
+          .after_scroll > h1 {
+            position: relative;
+            top: 2px;
           }
 
           .page_navigation1 > .header_box {
@@ -1142,6 +1161,7 @@ const Header = () => {
             width: calc(100% / 6);
             text-align: center;
             border-left: 1px solid #888;
+            position: relative;
           }
 
           .page_navigation2
@@ -1163,10 +1183,14 @@ const Header = () => {
           }
 
           .score {
+            position: relative;
           }
 
           .score span {
             font-size: 6em;
+            vertical-align: middle;
+            position: relative;
+            top: calc(1em / 7);
           }
 
           .score > img {
@@ -1179,6 +1203,7 @@ const Header = () => {
           .fill,
           .dot span {
             background-color: #e8a648;
+            vertical-align: middle;
           }
 
           .fill {
@@ -1215,7 +1240,7 @@ const Header = () => {
 
           .technology {
             width: 100%;
-            height: 75v;
+            height: 75vh;
           }
 
           .technology_intro {
@@ -1265,7 +1290,7 @@ const Header = () => {
 
           .location {
             width: 100%;
-            height: 75v;
+            height: 75vh;
           }
 
           .sub_material {
@@ -1278,8 +1303,8 @@ const Header = () => {
           }
 
           .sub_material_img > div {
-            width: calc(100% - 1px);
-            height: calc(50% - 1px);
+            width: 100%;
+            height: calc(50% - 0.5px);
           }
 
           .sub_material_img > div:last-child {
@@ -1299,25 +1324,17 @@ const Header = () => {
           @media (max-width: 768px) {
             .category_desc {
               width: 100%;
-              height: 80px;
+              height: 130px;
               display: flex;
               flex-direction: column;
               border-bottom: 1px solid #888;
               font-size: 0.75em;
             }
 
-            .category_desc:last-child {
+            .category_desc > div:first-child {
+              position: relative;
               width: 100%;
-              height: 50vh;
-              display: flex;
-              flex-direction: column;
-              border-bottom: 1px solid #888;
-              font-size: 0.75em;
-            }
-
-            .category_desc div:first-child {
-              width: 100%;
-              height: 25%;
+              height: 50%;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -1326,9 +1343,15 @@ const Header = () => {
               border-bottom: 1px solid #888;
             }
 
-            .category_desc div:last-child {
+            .category_desc > div:first-child span {
+              position: relative;
+              top: 1px;
+            }
+
+            .category_desc > div:last-child {
+              position: relative;
               width: 100%;
-              height: 75%;
+              height: 50%;
               display: flex;
               align-items: center;
               justify-content: center;
@@ -1336,7 +1359,10 @@ const Header = () => {
             }
 
             .category_desc div:last-child p {
+              position: relative;
+              top: 1px;
               width: 100%;
+              overflow-x: scroll;
               max-width: 100%;
               padding-left: 1em;
               padding-right: 1em;
@@ -1639,7 +1665,7 @@ const Header = () => {
             }
 
             .item div:first-child {
-              width: calc(100% - 2px);
+              width: 100%;
               display: flex;
               align-items: center;
             }
@@ -1808,6 +1834,7 @@ const Header = () => {
 
             .score span {
               font-size: 3em;
+              vertical-align: middle;
             }
           }
         `}
