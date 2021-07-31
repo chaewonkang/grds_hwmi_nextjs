@@ -381,7 +381,7 @@ const Header = () => {
               <div className='traceability_emblem'>
                 {scrollPosition &&
                 tracRef &&
-                scrollPosition > tracRef.current.offsetTop ? (
+                scrollPosition > tracRef.current.offsetTop + 100 ? (
                   <img src={Emblem} alt='emblemImg'></img>
                 ) : (
                   <img
@@ -445,7 +445,7 @@ const Header = () => {
                 <div>
                   {scrollPosition &&
                   matRef &&
-                  scrollPosition > matRef.current.offsetTop ? (
+                  scrollPosition > matRef.current.offsetTop + 100 ? (
                     <img src={imagePath07[1]} alt='mainImg'></img>
                   ) : (
                     <img
@@ -472,7 +472,7 @@ const Header = () => {
                 <div>
                   {scrollPosition &&
                   matRef &&
-                  scrollPosition > matRef.current.offsetTop ? (
+                  scrollPosition > matRef.current.offsetTop + 200 ? (
                     <img src={imagePath07[2]} alt='mainImg'></img>
                   ) : (
                     <img
@@ -501,7 +501,7 @@ const Header = () => {
                 <div>
                   {scrollPosition &&
                   matRef &&
-                  scrollPosition > matRef.current.offsetTop ? (
+                  scrollPosition > matRef.current.offsetTop + 200 ? (
                     <img src={imagePath07[3]} alt='mainImg'></img>
                   ) : (
                     <img
@@ -528,7 +528,7 @@ const Header = () => {
               <div>
                 {scrollPosition &&
                 matRef &&
-                scrollPosition > matRef.current.offsetTop ? (
+                scrollPosition > matRef.current.offsetTop + 300 ? (
                   <img src={imagePath07[4]} alt='mainImg'></img>
                 ) : (
                   <img
@@ -541,7 +541,7 @@ const Header = () => {
               <div>
                 {scrollPosition &&
                 matRef &&
-                scrollPosition > matRef.current.offsetTop ? (
+                scrollPosition > matRef.current.offsetTop + 400 ? (
                   <img src={imagePath07[5]} alt='mainImg'></img>
                 ) : (
                   <img
@@ -554,7 +554,7 @@ const Header = () => {
               <div>
                 {scrollPosition &&
                 matRef &&
-                scrollPosition > matRef.current.offsetTop ? (
+                scrollPosition > matRef.current.offsetTop + 500 ? (
                   <img src={imagePath07[6]} alt='mainImg'></img>
                 ) : (
                   <img
@@ -567,7 +567,7 @@ const Header = () => {
               <div>
                 {scrollPosition &&
                 matRef &&
-                scrollPosition > matRef.current.offsetTop ? (
+                scrollPosition > matRef.current.offsetTop + 600 ? (
                   <img src={imagePath07[7]} alt='mainImg'></img>
                 ) : (
                   <img
@@ -608,7 +608,7 @@ const Header = () => {
               <div>
                 {scrollPosition &&
                 matRef &&
-                scrollPosition > matRef.current.offsetTop ? (
+                scrollPosition > matRef.current.offsetTop + 700 ? (
                   <img src={imagePath07[13]} alt='mainImg'></img>
                 ) : (
                   <img
@@ -699,13 +699,43 @@ const Header = () => {
             </div>
             <div className='technology_img'>
               <div>
-                <img src={imagePath07[14]} alt='mainImg'></img>
+                {scrollPosition &&
+                tecRef &&
+                scrollPosition > tecRef.current.offsetTop ? (
+                  <img src={imagePath07[14]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[14]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[15]} alt='mainImg'></img>
+                {scrollPosition &&
+                tecRef &&
+                scrollPosition > tecRef.current.offsetTop + 100 ? (
+                  <img src={imagePath07[15]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[15]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[16]} alt='mainImg'></img>
+                {scrollPosition &&
+                tecRef &&
+                scrollPosition > tecRef.current.offsetTop + 200 ? (
+                  <img src={imagePath07[16]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[16]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
             </div>
           </div>
