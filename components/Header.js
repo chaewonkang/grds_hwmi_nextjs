@@ -1106,6 +1106,7 @@ const Header = () => {
 
           .before_scroll,
           .before_scroll h1 {
+            // font-family: 'GilSansMedium';
             font-family: 'GilSansMedium';
             font-size: 15px;
             transition: font-size 1s;
@@ -1183,7 +1184,6 @@ const Header = () => {
             height: 100%;
             margin: 0 auto;
             position: relative;
-
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1312,6 +1312,34 @@ const Header = () => {
           .sub_material_img > div {
             width: 100%;
             height: calc(50% - 0.5px);
+          }
+
+          .sub_material_img > div:last-child {
+            border-top: 1px solid #888;
+          }
+
+          .sub_material_img > div > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+
+          .sub_material_intro {
+            width: calc((100% / 6) * 3 - 1px);
+          }
+
+          .sub_material {
+            width: 100%;
+            height: 75vh;
+          }
+
+          .sub_material_img {
+            width: calc((100% / 6) * 3 - 1px);
+          }
+
+          .sub_material_img > div {
+            width: calc(100% - 1px);
+            height: calc(50% - 1px);
           }
 
           .sub_material_img > div:last-child {
