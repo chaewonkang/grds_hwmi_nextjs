@@ -202,6 +202,8 @@ const Header = () => {
   const locRef = useRef();
   const tecRef = useRef();
   const tracRef = useRef();
+  const outRef = useRef();
+  const subRef = useRef();
   const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -598,7 +600,7 @@ const Header = () => {
               </p>
             </div>
           </div>
-          <div className='test manufacturing'>
+          <div className='test manufacturing' ref={outRef}>
             <div className='manufacturing_intro'>
               <div>
                 <p>
@@ -615,8 +617,8 @@ const Header = () => {
               </div>
               <div>
                 {scrollPosition &&
-                matRef &&
-                scrollPosition > matRef.current.offsetTop + 700 ? (
+                outRef &&
+                scrollPosition > outRef.current.offsetTop ? (
                   <img src={imagePath07[13]} alt='mainImg'></img>
                 ) : (
                   <img
@@ -629,16 +631,56 @@ const Header = () => {
             </div>
             <div className='manufacturing_gif'>
               <div>
-                <img src={imagePath07[10]} alt='mainImg'></img>
+                {scrollPosition &&
+                outRef &&
+                scrollPosition > outRef.current.offsetTop + 100 ? (
+                  <img src={imagePath07[10]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[10]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[11]} alt='mainImg'></img>
+                {scrollPosition &&
+                outRef &&
+                scrollPosition > outRef.current.offsetTop + 200 ? (
+                  <img src={imagePath07[11]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[11]}
+                    alt='mainImg'
+                  ></img>
+                )}{' '}
               </div>
               <div>
-                <img src={imagePath07[12]} alt='mainImg'></img>
+                {scrollPosition &&
+                outRef &&
+                scrollPosition > outRef.current.offsetTop + 200 ? (
+                  <img src={imagePath07[12]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[12]}
+                    alt='mainImg'
+                  ></img>
+                )}{' '}
               </div>
               <div>
-                <img src={imagePath07[9]} alt='mainImg'></img>
+                {scrollPosition &&
+                outRef &&
+                scrollPosition > outRef.current.offsetTop + 300 ? (
+                  <img src={imagePath07[9]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[9]}
+                    alt='mainImg'
+                  ></img>
+                )}{' '}
               </div>
             </div>
           </div>
@@ -653,13 +695,33 @@ const Header = () => {
               </p>
             </div>
           </div>
-          <div className='test sub_material'>
+          <div className='test sub_material' ref={subRef}>
             <div className='sub_material_img'>
               <div>
-                <img src={imagePath07[22]} alt='mainImg'></img>
+                {scrollPosition &&
+                subRef &&
+                scrollPosition > subRef.current.offsetTop ? (
+                  <img src={imagePath07[22]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[22]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[23]} alt='mainImg'></img>
+                {scrollPosition &&
+                subRef &&
+                scrollPosition > subRef.current.offsetTop + 100 ? (
+                  <img src={imagePath07[23]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[23]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
             </div>
             <div className='sub_material_intro'>
@@ -935,8 +997,8 @@ const Header = () => {
           }
 
           .manufacturing_gif > div > img {
-            height: 98%;
-            width: 98.5%;
+            height: 60%;
+            width: 80%;
             object-fit: cover;
           }
 
@@ -1068,7 +1130,7 @@ const Header = () => {
           }
 
           .gif_column_small {
-            width: 100%;
+            width: calc(100% - 3px);
             height: calc(75vh / 2);
             display: flex;
             flex-direction: row;
@@ -1087,8 +1149,8 @@ const Header = () => {
           }
 
           .gif_column_small > div img {
-            width: 98%;
-            height: 99%;
+            height: 60%;
+            width: 80%;
             object-fit: cover;
           }
 
@@ -1840,8 +1902,8 @@ const Header = () => {
             }
 
             .gif_column_small > div img {
-              width: 98%;
-              height: 98%;
+              height: 60%;
+              width: 80%;
               object-fit: cover;
             }
 
@@ -1912,8 +1974,8 @@ const Header = () => {
             }
 
             .manufacturing_gif > div > img {
-              width: 98%;
-              height: 98%;
+              height: 60%;
+              width: 80%;
               object-fit: cover;
             }
 
