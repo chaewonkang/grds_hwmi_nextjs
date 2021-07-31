@@ -1183,7 +1183,7 @@ const Header = () => {
             height: 100%;
             margin: 0 auto;
             position: relative;
-            background-color: #e8a648;
+
             display: flex;
             justify-content: center;
             align-items: center;
@@ -1425,6 +1425,7 @@ const Header = () => {
               display: flex;
               align-items: center;
               justify-content: center;
+              text-align: center;
               background-color: #f4f1de;
               border-bottom: 1px solid #888;
             }
@@ -1633,7 +1634,8 @@ const Header = () => {
 
             .material {
               width: 100%;
-              height: auto;
+              height: fit-content;
+              max-height: fit-content;
             }
 
             .material_column_small {
@@ -1684,7 +1686,8 @@ const Header = () => {
 
             .manufacturing {
               width: 100%;
-              height: 100%;
+              height: fit-content;
+              max-height: fit-content;
               display: flex;
               flex-direction: column;
             }
@@ -1744,7 +1747,8 @@ const Header = () => {
 
             .technology {
               width: 100%;
-              height: auto;
+              height: fit-content;
+              max-height: fit-content;
               display: flex;
               flex-direction: column;
             }
@@ -1799,7 +1803,8 @@ const Header = () => {
 
             .sub_material {
               width: 100%;
-              height: 100%;
+              height: fit-content;
+              max-height: fit-content;
             }
 
             .sub_material_img {
