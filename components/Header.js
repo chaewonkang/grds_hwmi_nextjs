@@ -835,21 +835,71 @@ const Header = () => {
                 </p>
               </div>
               <div>
-                <img src={imagePath07[17]} alt='mainImg'></img>
+                {scrollPosition &&
+                manRef &&
+                scrollPosition > manRef.current.offsetTop ? (
+                  <img src={imagePath07[17]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[17]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
             </div>
             <div className='manufacturing_gif'>
               <div>
-                <img src={imagePath07[18]} alt='mainImg'></img>
+                {scrollPosition &&
+                manRef &&
+                scrollPosition > manRef.current.offsetTop + 100 ? (
+                  <img src={imagePath07[18]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[18]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[19]} alt='mainImg'></img>
+                {scrollPosition &&
+                manRef &&
+                scrollPosition > manRef.current.offsetTop + 200 ? (
+                  <img src={imagePath07[19]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[19]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[20]} alt='mainImg'></img>
+                {scrollPosition &&
+                manRef &&
+                scrollPosition > manRef.current.offsetTop + 300 ? (
+                  <img src={imagePath07[20]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[20]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
               <div>
-                <img src={imagePath07[21]} alt='mainImg'></img>
+                {scrollPosition &&
+                manRef &&
+                scrollPosition > manRef.current.offsetTop + 400 ? (
+                  <img src={imagePath07[21]} alt='mainImg'></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={imagePath07[21]}
+                    alt='mainImg'
+                  ></img>
+                )}
               </div>
             </div>
           </div>
@@ -906,12 +956,17 @@ const Header = () => {
             top: 2px;
           }
 
-          .category_desc:last-child div:first-child {
+          .category_desc:last-child {
             width: 100%;
-            height: 75vh;
+            height: 75vh !important;
             display: flex;
             flex-direction: row;
             border-bottom: 1px solid #888;
+          }
+
+          .category_desc:last-child div:first-child {
+            width: 100%;
+            height: 100%;
           }
 
           .test {
@@ -997,8 +1052,8 @@ const Header = () => {
           }
 
           .manufacturing_gif > div > img {
-            height: 60%;
-            width: 80%;
+            height: 90%;
+            width: 90%;
             object-fit: cover;
           }
 
@@ -1149,8 +1204,8 @@ const Header = () => {
           }
 
           .gif_column_small > div img {
-            height: 60%;
-            width: 80%;
+            height: 90%;
+            width: 90%;
             object-fit: cover;
           }
 
@@ -1543,8 +1598,8 @@ const Header = () => {
           }
 
           .sub_material_img > div {
-            width: calc(100% - 1px);
-            height: calc(50% - 1px);
+            width: 100%;
+            height: 50%;
           }
 
           .sub_material_img > div:last-child {
@@ -1606,6 +1661,16 @@ const Header = () => {
               max-width: 100%;
               padding-left: 1em;
               padding-right: 1em;
+            }
+
+            .category_desc:last-child {
+              border-right: none !important;
+            }
+
+            .category_desc:last-child div:first-child {
+              width: 100%;
+              height: 100%;
+              border-right: none !important;
             }
 
             .test {
@@ -1902,8 +1967,8 @@ const Header = () => {
             }
 
             .gif_column_small > div img {
-              height: 60%;
-              width: 80%;
+              height: 90%;
+              width: 90%;
               object-fit: cover;
             }
 
@@ -1974,8 +2039,8 @@ const Header = () => {
             }
 
             .manufacturing_gif > div > img {
-              height: 60%;
-              width: 80%;
+              height: 90%;
+              width: 90%;
               object-fit: cover;
             }
 

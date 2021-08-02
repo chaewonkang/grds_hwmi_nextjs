@@ -1,10 +1,10 @@
 {
-  "name": "tulip_elephants_nextjs",
+  "name": "grds_hwmi_nextjs",
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start"
   },
