@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import '../static/css/global.css';
 import '../static/css/animation.css';
+import '../static/css/responsive.css';
 
 function MyApp({ Component, pageProps }) {
   return (
