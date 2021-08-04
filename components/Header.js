@@ -269,9 +269,9 @@ const Header = () => {
                 <li className='nav_item' onClick={() => scrollToRef(manRef)}>
                   Manufacturing
                 </li>
-                <li className='nav_item' onClick={() => scrollToRef(locRef)}>
-                  Aim
-                </li>
+                <Link href='/category/introduction'>
+                  <li className='nav_item'>Introduction</li>
+                </Link>
               </StyledNav>
               <div>
                 <div>Go to grds.com</div>
@@ -335,7 +335,7 @@ const Header = () => {
                   <span>Manufacturing</span>
                 </li>
                 <li className='nav_item' onClick={() => scrollToRef(locRef)}>
-                  <span>Aim</span>
+                  <span>Introduction</span>
                 </li>
               </ul>
             </div>

@@ -191,10 +191,10 @@ const StyledNav = styled.div`
 
 const Header = () => {
   const [pos, setPos] = useState(false);
-  const router = useRouter();
-  const [query, setQuery] = useState('');
 
   const timeoutRef = useRef();
+
+  const router = useRouter();
 
   const topRef = useRef();
   const matRef = useRef();
@@ -225,9 +225,7 @@ const Header = () => {
 
   useEffect(() => {
     document.addEventListener('scroll', updateScroll);
-    if (router && router.query && router.query.slug)
-      setQuery(router.query.slug[0]);
-  }, [router.query.slug[0]]);
+  }, []);
 
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
@@ -272,6 +270,69 @@ const Header = () => {
             </div>
             <div>
               <StyledNav>
+                <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
+                  Traceability
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(topRef)}>
+                  Product
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(matRef)}>
+                  Material
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
+                  Technology
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
+                  Manufacturing
+                </li>
+                <li className='nav_item' onClick={() => scrollToRef(locRef)}>
+                  Introduction
+                </li>
+              </StyledNav>
+              <div>
+                <div>Go to grds.com</div>
+                <div>
+                  <img src={LogoBlack} alt='officiallogo'></img>
+                </div>
+              </div>
+            </div>
+          </div>
+        </StyledMenu>
+        <div className='page_container' id='topmenu'>
+          <div className='page_navigation1'>
+            <div className='header_box'>
+              <div
+                className={
+                  scrollPosition < 180 ? 'before_scroll' : 'after_scroll'
+                }
+              >
+                {open ? (
+                  <h1 onClick={() => setOpen(!open)}>How we make it</h1>
+                ) : (
+                  <h1 onClick={() => setOpen(!open)}>How we make it</h1>
+                )}
+              </div>
+              <div className='other_box'>
+                <li className='contactright'>
+                  <SearchBar></SearchBar>
+                </li>
+                <StyledBurger open={open} onClick={() => setOpen(!open)}>
+                  <div />
+                  <div />
+                  <div />
+                </StyledBurger>
+              </div>
+            </div>
+          </div>
+          <div className='page_navigation2'>
+            <div
+              className={
+                scrollPosition < 180
+                  ? 'header_box before_scroll'
+                  : 'header_box after_scroll'
+              }
+            >
+              <ul className='page_navigation_inner topnav'>
                 <Link href='/category/traceability'>
                   <li className='nav_item'>Traceability</li>
                 </Link>
@@ -298,122 +359,113 @@ const Header = () => {
                     Introduction
                   </li>
                 </Link>
-              </StyledNav>
-              <div>
-                <div>Go to grds.com</div>
-                <div>
-                  <img src={LogoBlack} alt='officiallogo'></img>
-                </div>
-              </div>
-            </div>
-          </div>
-        </StyledMenu>
-        <div className='page_container' id='topmenu'>
-          <div className='page_navigation1'>
-            <div className='header_box'>
-              <div
-                className={
-                  scrollPosition < 180 ? 'before_scroll' : 'after_scroll'
-                }
-              >
-                {open ? (
-                  <h1 onClick={() => setOpen(!open)}>How we make it</h1>
-                ) : (
-                  <h1 onClick={() => setOpen(!open)}>Introduction</h1>
-                )}
-              </div>
-              <div className='other_box'>
-                <li className='contactright'>
-                  <SearchBar></SearchBar>
-                </li>
-                <StyledBurger open={open} onClick={() => setOpen(!open)}>
-                  <div />
-                  <div />
-                  <div />
-                </StyledBurger>
-              </div>
-            </div>
-          </div>
-          <div className='page_navigation2'>
-            <div
-              className={
-                scrollPosition < 180
-                  ? 'header_box before_scroll'
-                  : 'header_box after_scroll'
-              }
-            >
-              <ul className='page_navigation_inner topnav'>
-                <Link href='/category/traceability'>
-                  <li
-                    className={
-                      router && query && query == 'traceability'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Traceability
-                  </li>
-                </Link>
-                <Link href='/category/product'>
-                  <li
-                    className={
-                      router && query && query == 'product'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Product
-                  </li>
-                </Link>
-                <Link href='/category/material'>
-                  <li
-                    className={
-                      router && query && query == 'material'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Material
-                  </li>
-                </Link>
-                <Link href='/category/technology'>
-                  <li
-                    className={
-                      router && query && query == 'technology'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Technology
-                  </li>
-                </Link>
-                <Link href='/category/manufacturing'>
-                  <li
-                    className={
-                      router && query && query == 'manufacturing'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Manufacturing
-                  </li>
-                </Link>
-                <Link href='/category/introduction'>
-                  <li
-                    className={
-                      router.pathname == '/category/introduction'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Introduction
-                  </li>
-                </Link>
               </ul>
             </div>
           </div>
         </div>
-        <div className='content_box'></div>
+        <div className='content_box'>
+          <div className='test introduction' ref={topRef}>
+            <div>
+              {scrollPosition &&
+              topRef &&
+              scrollPosition > topRef.current.offsetTop ? (
+                <img src={imagePath07[0]} alt='mainImg'></img>
+              ) : (
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[0]}
+                  alt='mainImg'
+                ></img>
+              )}
+            </div>
+            <div>
+              <div>
+                <span>HWMI</span>
+              </div>
+              <div>
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[1]}
+                  alt='mainImg'
+                ></img>
+              </div>
+              <div>
+                <p>
+                  그라더스의 디자인은 개인의 기호를 위해 다양한 스타일을
+                  만들어냄과 동시에 하입(hype)을 배제한 진실함을 추구합니다.
+                  제품이 오래사용될 수 있는 좋은 품질을 지향하며 월드클라스
+                  디자인을 모두에게 접근성있게 만들 것입니다. 제품이 만들어지는
+                  과정에 대한 투명성은 hwmi(how we make it)의 본질이자
+                  태도입니다.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className='introduction_halfimg' ref={locRef}>
+            <div>
+              {scrollPosition &&
+              subRef &&
+              scrollPosition > subRef.current.offsetTop ? (
+                <img src={imagePath07[3]} alt='mainImg'></img>
+              ) : (
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[3]}
+                  alt='mainImg'
+                ></img>
+              )}
+            </div>
+            <div>
+              {scrollPosition &&
+              subRef &&
+              scrollPosition > subRef.current.offsetTop ? (
+                <img src={imagePath07[4]} alt='mainImg'></img>
+              ) : (
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[4]}
+                  alt='mainImg'
+                ></img>
+              )}
+            </div>
+          </div>
+          <div className='test introduction_fulltext' ref={subRef}>
+            <div>
+              <p>
+                hwmi의 황금알(golden egg)은 이솝 우화중 ‘황금알을 낳는 거위’의
+                모티브에서 시작되었습니다. 쉽게 황금알을 가지려는 농부는 인간의
+                탐욕스러움을 나타내며 많은 것을 바랄수록 더 큰 것을 잃는 교훈을
+                줍니다. 반대로 그라더스는 정직한 농부가 되어 거위가 좋은
+                황금알을 낳을 수 있도록 노력하고자 합니다.
+              </p>
+            </div>
+          </div>
+          <div className='introduction_fullimg' ref={locRef}>
+            <div>
+              {scrollPosition &&
+              subRef &&
+              scrollPosition > subRef.current.offsetTop ? (
+                <img src={imagePath07[2]} alt='mainImg'></img>
+              ) : (
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[2]}
+                  alt='mainImg'
+                ></img>
+              )}
+            </div>
+          </div>
+          <div className='test introduction_fulltext'>
+            <div>
+              <p>
+                그라더스의 황금알은 제품에 사용되는 모든 소재와 제조과정에 대한
+                100% 투명성을 상징합니다. 친환경 브랜드는 아니지만 좋은 제품을
+                만들어 오래도록 사용할 수 있는 지속가능성을 실천할 것입니다.
+              </p>
+            </div>
+          </div>
+        </div>
       </>
     </>
   );

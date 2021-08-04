@@ -21,6 +21,10 @@ body{
 
 }
 
+nav {
+    display: none;
+}
+
 footer {
 	position: relative;
 	top: -3px;
@@ -263,6 +267,8 @@ input {
   .category_desc div:last-child p {
 	position: relative;
 	top: 2px;
+	margin: 0 auto;
+    width: calc(100% - 2em);
   }
 
   .category_desc:last-child {
@@ -384,7 +390,121 @@ input {
 	height: 100%;
   }
 
-  .item div:last-child p {
+  .introduction {
+	  height: 50vh;
+  }
+
+  .introduction_halfimg {
+	height: 50vh;
+	width: calc(100% - 2px);
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+	display: flex;
+	flex-direction: row;
+
+}
+
+.introduction_fulltext {
+	height: 10vh;
+	width: 100%;
+	border-bottom: 1px solid #888;
+	display: flex;
+	flex-direction: row;
+}
+
+.introduction_fulltext div {
+
+}
+
+.introduction_halfimg div {
+	width: calc(50% - 1px);
+	height: 100%;
+}
+
+.introduction_halfimg > div > img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+
+  .introduction_fullimg {
+	height: 50vh;
+	width: calc(100% - 2px);
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+	border-bottom: 1px solid #888;
+}
+
+.introduction_fullimg > div > img {
+	height: 50vh;
+	width: 100%;
+	object-fit: cover;
+}
+
+  .introduction div:last-child p {
+	position: sticky;
+	top: 0;
+  }
+
+  .introduction div:first-child {
+	width: calc((100% / 6) * 2 - 1px);
+	display: flex;
+	align-items: center;
+  }
+
+  .introduction div:first-child img {
+	width: 100%;
+	object-fit: cover;
+  }
+
+  .introduction > div:last-child {
+	width: calc((100% / 6) * 4 - 1px);
+	position: relative;
+	height: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-flow: wrap;
+  }
+
+  .introduction > div:last-child > div:first-child {
+	  width: calc(50% - 1px);
+	  height: 55%;
+	  border-right: 1px solid #888;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  position: relative;
+  }
+
+  .introduction > div:last-child > div:first-child > span{
+	font-size: 4.5em;
+	position: relative;
+	top: 12px;
+  }
+
+  .introduction > div:last-child > div:nth-child(2) {
+	width: 50%;
+	height: 55%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.introduction > div:last-child > div:nth-child(2) > img {
+	width: 60%;
+	position: relative;
+	top: -3px;
+}
+
+.introduction > div:last-child > div:last-child {
+	width: 100%;
+	height: calc(50% - 1px);
+	border-top: 1px solid #888;
+}
+
+  .introduction div:last-child p {
 	position: sticky;
 	top: 0;
   }
@@ -451,6 +571,12 @@ input {
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
+  }
+
+.active,
+.nav_item:hover {
+	  color: #F3AA28 !important;
+
   }
 
   body:hover #traceability_hiddenimg {
@@ -544,7 +670,7 @@ input {
 	align-items: center;
 	justify-content: center;
 	background-color: #f4f1de;
-	font-size: 30px;
+	font-size: 30px !important;
   }
 
   .index_header .hwmi {
@@ -728,17 +854,20 @@ input {
 	overflow-x: scroll;
   }
 
+  .page_navigation_inner {
+	position: relative;
+  }
+
   .page_navigation2 > .header_box > .page_navigation_inner > .nav_item {
 	width: calc(100% / 6);
 	text-align: center;
 	border-left: 1px solid #888;
-	position: relative;
-  }
-
-  .nav_item span {
+	cursor: pointer;
 	position: relative;
 	top: 2px;
   }
+
+
 
   .page_navigation2
 	> .header_box

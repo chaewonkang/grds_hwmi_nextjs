@@ -10,9 +10,11 @@ outline:none;
 outline-style: none;
 -moz-outline-style:none;
 }
+
 .cursor_pointer {
     cursor: pointer;
 }
+
 .not_draggable {
     user-drag: none;
     user-select: none;
