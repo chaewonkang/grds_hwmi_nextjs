@@ -1,18 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import LogoExample from '../static/images/trial_1.png';
 import LogoBlack from '../static/images/LogoBlack.png';
 import Emblem from '../static/images/emblem.png';
-
 import styled from 'styled-components';
-
-// 0731
-// TODO #1 : 각 Ref box의 이미지 box order 1 => offsetTop grayscale 전환에 바로 걸리게끔
-// TODO #2 : 각 Ref box의 scrollPosition 걸렸을 때 글자 깜빡이는 모션 등장하기
-
-// 0801
-// TODO #3 : API 명세 정리
-// TODO #4 : 메인화면 정리 (6단 그리드일때. 5개의 카테고리를 어떻게 정리하면 좋을지?)
 
 const imagePath07 = [
   '../static/images/07/07_9.png',

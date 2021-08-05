@@ -308,11 +308,7 @@ const Header = () => {
                   scrollPosition < 180 ? 'before_scroll' : 'after_scroll'
                 }
               >
-                {open ? (
-                  <h1 onClick={() => setOpen(!open)}>How we make it</h1>
-                ) : (
-                  <h1 onClick={() => setOpen(!open)}>Introduction</h1>
-                )}
+                <h1 onClick={() => setOpen(!open)}>How we make it</h1>
               </div>
               <div className='other_box'>
                 <li className='contactright'>

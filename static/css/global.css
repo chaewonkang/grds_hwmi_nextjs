@@ -660,13 +660,21 @@ input {
 }
 
 .product_module {
-	width: calc((100% / 6) * 3);
+	width: calc((100% / 6) * 3 - 1px);
 	height: 30vh;
 }
 
 .product_module > div {
-	width: 100%;
-	height: 100%;
+	width: calc(100% - 1px);
+	height: calc(100% - 1px);
+	border-left: 1px solid #888;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
+}
+
+
+.product_module:nth-child(2n) {
+	border-right: 1px solid #888;
 }
 
 .product_module > div > img {
@@ -676,13 +684,18 @@ input {
 }
 
 .material_module {
-	width: calc((100% / 6) * 1);
-	height: 10vh;
+	width: calc((100% / 6) * 2 - 1px);
+	height: 15vh;
+	min-height: 200px;
+	max-height: 300px;
 }
 
 .material_module div {
-	width: 100%;
-	height: 100%;
+	width: calc(100% - 1px);
+	height: calc(100% - 1px);
+	border-left: 1px solid #888;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
 }
 
 .material_module > div > img {
@@ -697,10 +710,6 @@ input {
 	border-bottom: 1px solid #888;
 	display: flex;
 	flex-direction: row;
-}
-
-.introduction_fulltext div {
-
 }
 
 .introduction_halfimg div {
@@ -1369,6 +1378,7 @@ input {
 	display: flex;
 	flex-flow: wrap;
 	box-sizing: border-box;
+	animation: fade-in 1.5s ease-in-out;
 }
 
 
@@ -1405,10 +1415,16 @@ input {
 }
 
 
-.traceability_module img {
+.traceability_module > div:first-child > img {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	animation: fade-in 2s ease-in-out;
+}
+
+
+.traceability_module > div:last-child img {
+	animation: fade-in 3s ease-in-out;
 }
 
 .traceability_module > div:first-child > span {

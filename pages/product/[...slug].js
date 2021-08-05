@@ -14,7 +14,6 @@ import * as Wine from '../../axios/Material';
 
 import store from '../../common/store';
 import Link from 'next/link';
-import LogoExample from '../../static/images/trial_1.png';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 
