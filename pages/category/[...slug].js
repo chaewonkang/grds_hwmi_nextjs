@@ -9,7 +9,13 @@ import React, {
 
 import { useRouter } from 'next/router';
 
-import { Footer, GoToTop, Traceability, Product } from '../../components';
+import {
+  Footer,
+  GoToTop,
+  Traceability,
+  Product,
+  Material,
+} from '../../components';
 
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
@@ -23,6 +29,12 @@ const imagePath07 = [
   '../static/images/introduction/int_3.jpeg',
   '../static/images/introduction/int_4.jpeg',
   '../static/images/introduction/int_5.jpeg',
+];
+
+const materialPath = [
+  '../static/images/material/1_1.jpg',
+  '../static/images/material/1_2.jpeg',
+  '../static/images/material/1_3.jpg',
 ];
 
 const StyledBurger = styled.button`
@@ -418,6 +430,13 @@ const Header = () => {
               <Product></Product>
               <Product></Product>
               <Product></Product>
+            </div>
+          ) : null}
+          {router && query && query == 'material' ? (
+            <div className='module_wrapper'>
+              <Material image={materialPath[0]}></Material>
+              <Material image={materialPath[1]}></Material>
+              <Material image={materialPath[2]}></Material>
             </div>
           ) : null}
         </div>

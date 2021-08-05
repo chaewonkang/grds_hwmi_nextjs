@@ -64,7 +64,7 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
           position: fixed;
           right: 1em;
           bottom: 20px;
-          z-index: 10;
+          z-index: 10000 !important;
           display: grid;
           cursor: pointer;
         }

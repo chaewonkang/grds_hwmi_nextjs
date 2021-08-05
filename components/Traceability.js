@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const imagePath = [
   '../static/images/07/07_24.png',
