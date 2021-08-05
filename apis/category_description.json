@@ -1,0 +1,22 @@
+{
+	"traceability" : {
+		"title": "string",
+		"description": "string/text"
+	},
+	"product" : {
+		"title": "string",
+		"description": "string/text"
+	},
+	"material" : {
+		"title": "string",
+		"description": "string/text"
+	},
+	"technology" : {
+		"title": "string",
+		"description": "string/text"
+	},
+	"manufacturing" : {
+		"title": "string",
+		"description": "string/text"
+	}
+}
