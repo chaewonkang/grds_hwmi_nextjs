@@ -15,7 +15,7 @@ import moment from 'moment';
 import { Footer } from '../../components';
 
 import * as Wine from '../../axios/Material';
-// import Header from "../../components/Header";
+
 import store from '../../common/store';
 import Link from 'next/link';
 import LogoExample from '../../static/images/trial_1.png';
@@ -25,15 +25,6 @@ import Emblem from '../../static/images/emblem.png';
 import { SearchBar } from '../../components';
 
 import styled from 'styled-components';
-
-// 0731
-// TODO #1 : 각 Ref box의 이미지 box order 1 => offsetTop grayscale 전환에 바로 걸리게끔
-// TODO #2 : 각 Ref box의 scrollPosition 걸렸을 때 글자 깜빡이는 모션 등장하기
-
-// 0801
-// TODO #3 : API 명세 정리
-// TODO #4 : 메인화면 정리 (6단 그리드일때. 5개의 카테고리를 어떻게 정리하면 좋을지?)
-
 const imagePath07 = [
   '../static/images/introduction/int_1.png',
   '../static/images/introduction/int_2.png',
@@ -191,10 +182,11 @@ const StyledNav = styled.div`
 
 const Header = () => {
   const [pos, setPos] = useState(false);
-  const router = useRouter();
+
   const [query, setQuery] = useState('');
 
   const timeoutRef = useRef();
+  const router = useRouter();
 
   const topRef = useRef();
   const matRef = useRef();
@@ -225,9 +217,13 @@ const Header = () => {
 
   useEffect(() => {
     document.addEventListener('scroll', updateScroll);
-    if (router && router.query && router.query.slug)
-      setQuery(router.query.slug[0]);
-  }, [router.query.slug[0]]);
+
+    if (router.query.slug) {
+      setQuery(router.query.slug);
+    } else {
+      setQuery(router.pathname.split('/')[1]);
+    }
+  }, []);
 
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
@@ -290,6 +286,8 @@ const Header = () => {
                 <Link href='/category/introduction'>
                   <li
                     className={
+                      router &&
+                      router.pathname &&
                       router.pathname == '/category/introduction'
                         ? 'nav_item active'
                         : 'nav_item'
@@ -390,7 +388,11 @@ const Header = () => {
                 <Link href='/category/manufacturing'>
                   <li
                     className={
-                      router && query && query == 'manufacturing'
+                      router &&
+                      router.pathname &&
+                      router &&
+                      query &&
+                      query == 'manufacturing'
                         ? 'nav_item active'
                         : 'nav_item'
                     }
@@ -401,6 +403,8 @@ const Header = () => {
                 <Link href='/category/introduction'>
                   <li
                     className={
+                      router &&
+                      router.pathname &&
                       router.pathname == '/category/introduction'
                         ? 'nav_item active'
                         : 'nav_item'

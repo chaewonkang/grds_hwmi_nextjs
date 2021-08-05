@@ -8,11 +8,8 @@ import React, {
 } from 'react';
 import { observable, toJS, reaction } from 'mobx';
 import { observer } from 'mobx-react';
-import Router from 'next/router';
-import jQuery from 'jquery';
-import parse from 'html-react-parser';
-import moment from 'moment';
-import { Footer } from '../../components';
+import { useRouter } from 'next/router';
+import queryString from 'query-string';
 
 import * as Wine from '../../axios/Material';
 // import Header from "../../components/Header";
@@ -209,10 +206,12 @@ const StyledNav = styled.div`
   }
 `;
 
-const Header = () => {
+const Header = ({ props }) => {
   const [pos, setPos] = useState(false);
 
   const timeoutRef = useRef();
+  const router = useRouter();
+  const [query, setQuery] = useState('');
 
   const topRef = useRef();
   const matRef = useRef();
@@ -242,6 +241,11 @@ const Header = () => {
   };
 
   useEffect(() => {
+    if (router.query.slug) {
+      setQuery(router.query.slug);
+    } else {
+      setQuery(router.pathname.split('/')[1]);
+    }
     document.addEventListener('scroll', updateScroll);
   }, []);
 
