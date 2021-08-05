@@ -22,7 +22,7 @@ import LogoExample from '../../static/images/trial_1.png';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 
-import { SearchBar } from '../../components';
+import { SearchBar, GoToShop, GoToTop } from '../../components';
 
 import styled from 'styled-components';
 
@@ -252,7 +252,9 @@ const Header = () => {
       <div className='header_box'>
         <div className='index_header'>
           <div className='hwmi'>
-            <span>HWMI</span>
+            <Link href='/category/introduction'>
+              <span>HWMI</span>
+            </Link>
           </div>
           <div className='grds_logo'>
             <img src={LogoBlack}></img>
@@ -380,7 +382,9 @@ const Header = () => {
             </div>
             <div>
               <div>
-                <span>HWMI</span>
+                <Link href='/category/introduction'>
+                  <span>HWMI</span>
+                </Link>
               </div>
               <div>
                 <img
@@ -466,6 +470,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>
     </>
   );

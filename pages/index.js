@@ -8,9 +8,164 @@ import parse from 'html-react-parser';
 import moment from 'moment';
 import { Footer, Header, GoToTop, GoToShop, ProductBody } from '../components';
 
-import * as Wine from '../axios/Material';
-// import Header from "../components/Header";
 import store from '../common/store';
+import Link from 'next/link';
+
+import styled from 'styled-components';
+const imagePath07 = [
+  '../static/images/introduction/int_1.png',
+  '../static/images/introduction/int_2.png',
+  '../static/images/introduction/int_3.jpeg',
+  '../static/images/introduction/int_4.jpeg',
+  '../static/images/introduction/int_5.jpeg',
+];
+
+const StyledBurger = styled.button`
+  position: absolute;
+  right: 2em;
+  background-color: rgba(0, 0, 0, 0) !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+
+  &:focus {
+    outline: none;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  div {
+    width: 1.8rem;
+    background-color: #000;
+
+    height: 0.05rem;
+    border-radius: 0px;
+    transition: all 0.3s linear;
+
+    transform-origin: center;
+
+    :first-child {
+      transform: ${({ open }) =>
+        open ? 'rotate(30deg) translateY(6px)' : 'rotate(0)'};
+    }
+
+    :nth-child(2) {
+      width: 1.3rem;
+      transform: ${({ open }) => (open ? 'translateX(100px) ' : 'rotate(0)')};
+    }
+
+    :last-child {
+      transform: ${({ open }) =>
+        open ? 'rotate(-30deg) translateY(-6px)' : 'rotate(0)'};
+    }
+  }
+`;
+
+const StyledMenu = styled.nav`
+  display: ${({ open }) => (open ? 'block' : 'none')};
+  width: 100vw;
+  padding-top: 0px;
+  padding-bottom: 0;
+  z-index: 100;
+  border-bottom: 1px solid #888;
+  height: 45vh;
+  background-color: #f4f1de;
+  position: sticky;
+  top: 41px;
+  transition: height 1.5s;
+  transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
+
+  & > div {
+    animation: fade-in 0.3s ease-in-out;
+    display: grid;
+    grid-template-rows: 40px 1fr;
+    height: 100%;
+  }
+
+  & > div > div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #888;
+    border-top: 1px solid #888;
+    padding-left: 1em;
+  }
+
+  & > div > div:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+
+    & > div {
+      width: 50%;
+      border-right: 1px solid #888;
+
+      &:first-child {
+        padding-left: 1em;
+        padding-top: 1em;
+      }
+    }
+
+    & > div:nth-child(2) {
+      display: flex;
+      flex-direction: column;
+
+      & > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50%;
+
+        :last-child {
+          border-top: 1px solid #888;
+
+          img {
+            width: 50%;
+          }
+        }
+      }
+    }
+  }
+
+  & > div > span {
+    display: block;
+    vertical-align: middle;
+  }
+
+  & > div > a {
+    display: block;
+    padding: 0.25em;
+    margin-top: 0.5em;
+
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s linear;
+
+    @media (max-width: ${({ theme }) => theme.mobile}) {
+      font-size: em;
+    }
+
+    &:hover {
+      color: ${({ theme }) => theme.primaryHover};
+    }
+  }
+`;
+
+const StyledNav = styled.div`
+  padding-top: 1.5em;
+  padding-left: 1em;
+
+  li {
+    margin-bottom: 0.25em;
+  }
+`;
 
 @observer
 class Index extends Component {
@@ -18,6 +173,7 @@ class Index extends Component {
     super(props);
     this.state = {
       pageLoaded: false,
+      open: false,
     };
     // this.headerRef = createRef();
     this.onResize = this.onResize.bind(this);
@@ -28,7 +184,7 @@ class Index extends Component {
   }
 
   onResize() {
-    store.layoutMode = this.getLayoutMode();
+    // store.layoutMode = this.getLayoutMode();
   }
 
   getLayoutMode() {
@@ -42,7 +198,7 @@ class Index extends Component {
   componentDidMount() {
     window.$ = window.jQuery = jQuery;
     window.addEventListener('resize', this.onResize);
-    store.layoutMode = this.getLayoutMode();
+    // store.layoutMode = this.getLayoutMode();
     this.____getPageData();
   }
 
@@ -94,10 +250,13 @@ class Index extends Component {
         {/* <HeaderSub  path={'/'} ref="header_sub" menu={main_page_menu}></HeaderSub> */}
         {this.state.pageLoaded == true ? (
           <>
-            <Header></Header>
-            <Footer></Footer>
-            <GoToShop></GoToShop>
-            <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
+            <div>
+              <Link href='/category/introduction'>
+                <div>Hello World</div>
+              </Link>
+
+              <div></div>
+            </div>
           </>
         ) : (
           <>{/* <div id="loader"></div> */}</>

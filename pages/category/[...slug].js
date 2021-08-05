@@ -6,21 +6,13 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import { observable, toJS, reaction } from 'mobx';
-import { observer } from 'mobx-react';
+
 import { useRouter } from 'next/router';
-import jQuery from 'jquery';
-import parse from 'html-react-parser';
-import moment from 'moment';
-import { Footer } from '../../components';
 
-import * as Wine from '../../axios/Material';
+import { Footer, GoToTop, Traceability, Product } from '../../components';
 
-import store from '../../common/store';
 import Link from 'next/link';
-import LogoExample from '../../static/images/trial_1.png';
 import LogoBlack from '../../static/images/LogoBlack.png';
-import Emblem from '../../static/images/emblem.png';
 
 import { SearchBar } from '../../components';
 
@@ -188,14 +180,6 @@ const Header = () => {
   const timeoutRef = useRef();
   const router = useRouter();
 
-  const topRef = useRef();
-  const matRef = useRef();
-  const manRef = useRef();
-  const locRef = useRef();
-  const tecRef = useRef();
-  const tracRef = useRef();
-  const outRef = useRef();
-  const subRef = useRef();
   const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -220,10 +204,9 @@ const Header = () => {
 
     if (router.query.slug) {
       setQuery(router.query.slug);
-    } else {
-      setQuery(router.pathname.split('/')[1]);
     }
-  }, []);
+    console.log(query);
+  }, [router.query.slug, query]);
 
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
@@ -250,7 +233,9 @@ const Header = () => {
       <div className='header_box'>
         <div className='index_header'>
           <div className='hwmi'>
-            <span>HWMI</span>
+            <Link href='/category/introduction'>
+              <span>HWMI</span>
+            </Link>
           </div>
           <div className='grds_logo'>
             <img src={LogoBlack}></img>
@@ -417,8 +402,28 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className='content_box'></div>
+        <div className='content_box'>
+          {router && query && query == 'traceability' ? (
+            <div className='module_wrapper'>
+              <Traceability></Traceability>
+              <Traceability></Traceability>
+              <Traceability></Traceability>
+              <Traceability></Traceability>
+              <Traceability></Traceability>
+              <Traceability></Traceability>
+            </div>
+          ) : null}
+          {router && query && query == 'product' ? (
+            <div className='module_wrapper'>
+              <Product></Product>
+              <Product></Product>
+              <Product></Product>
+            </div>
+          ) : null}
+        </div>
+        <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>
+      <Footer></Footer>
     </>
   );
 };

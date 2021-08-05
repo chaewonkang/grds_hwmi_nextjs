@@ -19,7 +19,7 @@ import LogoExample from '../../static/images/trial_1.png';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 
-import { SearchBar } from '../../components';
+import { SearchBar, GoToTop, GoToShop, Footer } from '../../components';
 
 import styled from 'styled-components';
 
@@ -57,6 +57,7 @@ const imagePath07 = [
   '../static/images/07/07_8.jpg',
   '../static/images/07/07_21.png',
   '../static/images/07/score.png',
+  '../static/images/temblem.png',
 ];
 
 const StyledBurger = styled.button`
@@ -241,13 +242,12 @@ const Header = ({ props }) => {
   };
 
   useEffect(() => {
-    if (router.query.slug) {
+    if (router && router.query && router.query.slug) {
       setQuery(router.query.slug);
-    } else {
-      setQuery(router.pathname.split('/')[1]);
     }
+    console.log(router.query.slug);
     document.addEventListener('scroll', updateScroll);
-  }, []);
+  }, [router.query]);
 
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
@@ -274,7 +274,9 @@ const Header = ({ props }) => {
       <div className='header_box'>
         <div className='index_header'>
           <div className='hwmi'>
-            <span>HWMI</span>
+            <Link href='/category/introduction'>
+              <span>HWMI</span>
+            </Link>
           </div>
           <div className='grds_logo'>
             <img src={LogoBlack}></img>
@@ -372,9 +374,9 @@ const Header = ({ props }) => {
                 <li className='nav_item' onClick={() => scrollToRef(manRef)}>
                   Manufacturing
                 </li>
-                <Link href='/category/introduction'>
-                  <li className='nav_item'>Introduction</li>
-                </Link>
+                <li className='nav_item' onClick={() => scrollToRef(locRef)}>
+                  Introduction
+                </li>
               </ul>
             </div>
           </div>
@@ -931,21 +933,50 @@ const Header = ({ props }) => {
               </div>
             </div>
           </div>
-          <div className='category_desc' ref={locRef}>
+          <div className='test introduction' ref={locRef}>
             <div>
-              <span>목표</span>
+              {scrollPosition &&
+              locRef &&
+              scrollPosition > locRef.current.offsetTop - 400 ? (
+                <img src={imagePath07[25]} alt='mainImg'></img>
+              ) : (
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={imagePath07[25]}
+                  alt='mainImg'
+                ></img>
+              )}
             </div>
             <div>
-              <p>그라더스의 지향점을 설명합니다.</p>
-            </div>
-          </div>
-          <div className='category_desc' ref={locRef}>
-            <div>
-              <p>끝</p>
+              <div>
+                <Link href='/category/introduction'>
+                  <span>HWMI</span>
+                </Link>
+              </div>
+              <div>
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={LogoBlack}
+                  alt='mainImg'
+                ></img>
+              </div>
+              <div>
+                <p>
+                  그라더스의 디자인은 개인의 기호를 위해 다양한 스타일을
+                  만들어냄과 동시에 하입(hype)을 배제한 진실함을 추구합니다.
+                  제품이 오래사용될 수 있는 좋은 품질을 지향하며 월드클라스
+                  디자인을 모두에게 접근성있게 만들 것입니다. 제품이 만들어지는
+                  과정에 대한 투명성은 hwmi(how we make it)의 본질이자
+                  태도입니다.
+                </p>
+              </div>
             </div>
           </div>
         </div>
+        <GoToShop></GoToShop>
+        <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>
+      <Footer></Footer>
     </>
   );
 };

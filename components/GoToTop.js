@@ -7,7 +7,6 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
   const timeoutRef = useRef(null);
   const [show, setShow] = useState(false);
   const [pageY, setPageY] = useState(0);
-  const documentRef = useRef(document);
 
   const handleScroll = () => {
     const { pageYOffset } = window;
@@ -20,18 +19,19 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
   const throttleScroll = Throttle(handleScroll, 50);
 
   useEffect(() => {
-    documentRef.current.addEventListener('scroll', throttleScroll);
+    if (typeof window !== 'undefined')
+      document.addEventListener('scroll', throttleScroll);
 
-    document.addEventListener('scroll', () => {
-      if (window.scrollY > 170) {
-        setPos(true);
-      } else {
-        setPos(false);
-      }
-    });
+    if (typeof window !== 'undefined')
+      document.addEventListener('scroll', () => {
+        if (window.scrollY > 170) {
+          setPos(true);
+        } else {
+          setPos(false);
+        }
+      });
 
-    return () =>
-      documentRef.current.removeEventListener('scroll', throttleScroll);
+    return () => document.removeEventListener('scroll', throttleScroll);
   }, []);
 
   const onScrollStep = () => {

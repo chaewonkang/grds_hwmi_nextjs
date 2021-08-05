@@ -5,7 +5,6 @@ import ShopLogo from '../static/images/Cart.png';
 const GoToShop = () => {
   const [show, setShow] = useState(false);
   const [pageY, setPageY] = useState(0);
-  const documentRef = useRef(document);
 
   const handleScroll = () => {
     const { pageYOffset } = window;
@@ -18,9 +17,8 @@ const GoToShop = () => {
   const throttleScroll = Throttle(handleScroll, 50);
 
   useEffect(() => {
-    documentRef.current.addEventListener('scroll', throttleScroll);
-    return () =>
-      documentRef.current.removeEventListener('scroll', throttleScroll);
+    if (typeof window !== 'undefined')
+      document.addEventListener('scroll', throttleScroll);
   }, []);
 
   return (

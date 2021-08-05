@@ -236,7 +236,9 @@ const Header = () => {
       <div className='header_box'>
         <div className='index_header'>
           <div className='hwmi'>
-            <span>HWMI</span>
+            <Link href='/category/introduction'>
+              <span>HWMI</span>
+            </Link>
           </div>
           <div className='grds_logo'>
             <img src={LogoBlack}></img>
