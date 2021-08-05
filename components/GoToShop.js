@@ -44,7 +44,7 @@ const GoToShop = () => {
           position: fixed;
           right: 1em;
           bottom: 70px;
-          z-index: 10000;
+          z-index: 1000000;
           display: grid;
           cursor: pointer;
         }

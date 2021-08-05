@@ -119,9 +119,9 @@ const StyledMenu = styled.nav`
 
     & > div {
       width: 50%;
-      border-right: 1px solid #888;
 
       &:first-child {
+        border-right: 1px solid #888;
         padding-left: 1em;
         padding-top: 1em;
       }

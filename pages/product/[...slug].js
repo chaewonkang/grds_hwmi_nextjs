@@ -935,6 +935,17 @@ const Header = ({ props }) => {
               </div>
             </div>
           </div>
+          <div className='category_desc'>
+            <div>
+              <span>추적가능성</span>
+            </div>
+            <div>
+              <p>
+                시멘팅(cementing)공법. 소재부터 최종 신발에 이르는 모든
+                제조단계를 보여줍니다.
+              </p>
+            </div>
+          </div>
           <div className='test introduction' ref={locRef}>
             <div>
               {scrollPosition &&

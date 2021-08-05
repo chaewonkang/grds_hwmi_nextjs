@@ -387,11 +387,11 @@ input {
 }
 
 .introduction {
-    height: 50vh;
+    height: 75vh;
 }
 
 .introduction_halfimg {
-    height: 50vh;
+    height: 75vh;
     width: calc(100% - 2px);
     border-left: 1px solid #888;
     border-right: 1px solid #888;
