@@ -3,10 +3,10 @@ import { Throttle } from '../utils';
 import TopArrow from '../static/images/GoToTop.png';
 
 const GoToTop = ({ scrollStepInPx, delayInMs }) => {
-  const [pos, setPos] = useState(false);
   const timeoutRef = useRef(null);
   const [show, setShow] = useState(false);
   const [pageY, setPageY] = useState(0);
+  const [pos, setPos] = useState(false);
 
   const handleScroll = () => {
     const { pageYOffset } = window;
@@ -22,7 +22,7 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
     if (typeof window !== 'undefined')
       document.addEventListener('scroll', throttleScroll);
 
-    if (typeof window !== 'undefined')
+    if (typeof window !== 'undefined') {
       document.addEventListener('scroll', () => {
         if (window.scrollY > 170) {
           setPos(true);
@@ -30,6 +30,7 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
           setPos(false);
         }
       });
+    }
 
     return () => document.removeEventListener('scroll', throttleScroll);
   }, []);

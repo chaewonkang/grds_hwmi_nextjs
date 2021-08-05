@@ -9,10 +9,9 @@ import React, {
 import { observable, toJS, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import { useRouter } from 'next/router';
-import queryString from 'query-string';
 
 import * as Wine from '../../axios/Material';
-// import Header from "../../components/Header";
+
 import store from '../../common/store';
 import Link from 'next/link';
 import LogoExample from '../../static/images/trial_1.png';
@@ -114,7 +113,8 @@ const StyledMenu = styled.nav`
   width: 100vw;
   padding-top: 0px;
   padding-bottom: 0;
-  z-index: 100;
+  z-index: 10000000;
+
   border-bottom: 1px solid #888;
   height: 45vh;
   background-color: #f4f1de;
@@ -209,10 +209,10 @@ const StyledNav = styled.div`
 
 const Header = ({ props }) => {
   const [pos, setPos] = useState(false);
+  const [query, setQuery] = useState('');
 
   const timeoutRef = useRef();
   const router = useRouter();
-  const [query, setQuery] = useState('');
 
   const topRef = useRef();
   const matRef = useRef();
@@ -222,6 +222,7 @@ const Header = ({ props }) => {
   const tracRef = useRef();
   const outRef = useRef();
   const subRef = useRef();
+
   const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -334,7 +335,9 @@ const Header = ({ props }) => {
                   <h1 onClick={() => setOpen(!open)}>How we make it</h1>
                 ) : (
                   <h1 onClick={() => setOpen(!open)}>
-                    Balmoral 07 Suede/Leather Black
+                    {router && router.query && router.query.slug
+                      ? router.query.slug.toString().replace(/-/g, ' ')
+                      : null}
                   </h1>
                 )}
               </div>

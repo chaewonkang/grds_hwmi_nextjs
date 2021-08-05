@@ -98,7 +98,7 @@ const StyledMenu = styled.nav`
   width: 100vw;
   padding-top: 0px;
   padding-bottom: 0;
-  z-index: 100;
+  z-index: 10000000;
   border-bottom: 1px solid #888;
   height: 45vh;
   background-color: #f4f1de;

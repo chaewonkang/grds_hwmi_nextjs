@@ -12,8 +12,6 @@ body{
 	width: 100vw;
 	height: 100vh;
 	min-width: 100vw;
-	/* background-color: #FFFFEF; */
-	/* background-color: #fff; */
 	background-color: #f4f1de;
 	font-family: "GilSansMedium",  "KoPubDoTumPL", Arial, GilSansMedium, sans-serif;
     color: rgb(58, 58, 58);
@@ -29,7 +27,7 @@ footer {
 	position: relative;
 	top: -3px;
 	background-color: #f4f1de;
-	z-index: 10;
+	z-index: 10000;
 	height: 20vh;
 	transition: height 1s;
 	transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
@@ -60,6 +58,7 @@ p {
 	position: relative;
 	margin: 0 auto;
 	animation: fade-in 0.5s ease-in;
+	z-index: 1000 !important;
 }
 
 .footer-box {
@@ -73,11 +72,12 @@ p {
 	top: -1px;
 	box-sizing: border-box;
 	overflow-x: hidden;
+	overflow-y: hidden;
     width: 320px;
     margin: 0 auto;
     position: relative;
 	height: calc(100% + 3px);
-	z-index: -1;
+	z-index: 1;
 	animation: fade-in 0.5s ease-in;
 }
 
@@ -106,7 +106,7 @@ input {
 @media only screen and (min-width: 370px)  {
     .content_box {
 		width: calc(100vw - 2em);
-		border: 1px solid #20201e;
+		border: 1px solid #888;
 	}
 
 }
@@ -114,23 +114,23 @@ input {
 @media only screen and (min-width: 450px) {
     .content_box {
 		width: calc(100vw - 2em);
-		border: 1px solid #20201e;
+		border: 1px solid #888;
 
 	}
 
 	.content_box {
-		border: 1px solid #20201e;
+		border: 1px solid #888;
 	}
 }
 
 @media only screen and  (min-width: 620px) {
     .content_box {
 		width: calc(100vw - 2em);
-		border: 1px solid #20201e;
+		border: 1px solid #888;
 	}
 
 	.content_box {
-		border: 1px solid #20201e;
+		border: 1px solid #888;
 	}
 }
 
@@ -164,6 +164,140 @@ input {
 	}
 }
 
+@media only screen and (min-width: 769px) and (max-width: 991px) {
+	.header_box,
+	.footer_box,
+	.content_box  {
+        width: calc(100vw - 22px);
+	}
+
+
+	p, span {
+		font-size: 14px;
+	}
+
+
+.traceability_module {
+	border-left: 1px solid #888;
+	border-bottom: 1px solid #888;
+	width: calc((100% / 6) * 3);
+	height: calc(45vh - 1px);
+	display: flex;
+	flex-flow: wrap;
+	box-sizing: border-box;
+}
+
+
+.traceability_module:nth-child(2n) {
+	border-right: 1px solid #888;
+}
+
+.traceability_module:nth-child(3n) {
+	border-right: none;
+}
+
+
+.traceability_module:nth-child(6n) {
+	border-right: 1px solid #888;
+}
+
+.traceability_module > div:first-child {
+	width: 100%;
+	height: 70%;
+	position: relative;
+
+}
+
+.traceability_module > div:first-child > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	color: #fff;
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	padding: 0.25em 0.75em;
+}
+
+
+.traceability_module img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.traceability_module > div:first-child > span {
+
+	font-weight: lighter;
+	background-color: #000;
+	color: #fff;
+}
+
+.traceability_module > div:last-child {
+	width: 100%;
+	height: 30%;
+	border-top: 1px solid rgb(73, 70, 70);
+	display: flex;
+	flex-flow: wrap;
+}
+
+.traceability_module > div:last-child > div:first-child {
+	width: calc(40% - 1px);
+	height: 100%;
+	border-right: 1px solid #888;
+}
+
+.traceability_module > div:last-child > div:last-child {
+	width: 60%;
+	height: 100%;
+}
+
+.traceability_module > div:last-child > div:last-child div {
+	width: 100%;
+	height: calc(50% - 1px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child > span {
+	position: relative;
+	top: 3px;
+	font-size: 1.25em;
+	width: fit-content;
+}
+
+.traceability_module > div:last-child > div:last-child > div:first-child {
+	background-color: #F3AA28;
+}
+
+.traceability_module > div:last-child > div:last-child > div:first-child > span {
+	font-size: 2.25em;
+	position: relative;
+	top: 6px;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child {
+	border-top: 1px solid rgb(73, 70, 70);
+	background-color: #fff;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child a {
+	color: #20201e;
+	text-decoration: none;
+	position: relative;
+	top: 3px;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child a:hover {
+	color: #20201e;
+	text-decoration: underline;
+}
+
+}
+
 @media only screen and (min-width: 992px) {
 	.header_box,
 	.footer_box,
@@ -175,6 +309,8 @@ input {
 	p, span {
 		font-size: 14px;
 	}
+
+
 }
 
 
@@ -455,7 +591,7 @@ input {
 }
 
 .traceability_module > div:first-child > span {
-	font-family: 'GilSansLight';
+
 	font-weight: lighter;
 	background-color: #000;
 	color: #fff;
@@ -482,7 +618,7 @@ input {
 
 .traceability_module > div:last-child > div:last-child div {
 	width: 100%;
-	height: 50%;
+	height: calc(50% - 1px);
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -509,6 +645,18 @@ input {
 .traceability_module > div:last-child > div:last-child > div:last-child {
 	border-top: 1px solid rgb(73, 70, 70);
 	background-color: #fff;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child a {
+	color: #20201e;
+	text-decoration: none;
+	position: relative;
+	top: 3px;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child a:hover {
+	color: #20201e;
+	text-decoration: underline;
 }
 
 .product_module {
@@ -833,9 +981,8 @@ input {
   }
 
   .index_header .hwmi span:hover {
-	font-family: 'GilSansLight';
+	color: #e8a648;
   }
-
 
   .index_header .grds_logo {
 	width: calc((100% / 6) - 1px);
@@ -901,13 +1048,11 @@ input {
 	width: 100%;
   }
 
-  button.icon {
-	display: none;
-  }
 
   .page_container {
 	width: 100vw;
 	overflow: scroll;
+	z-index: 10000;
   }
 
   .page_navigation1 {
@@ -1203,3 +1348,136 @@ input {
   }
 
 
+  @media only screen and (min-width: 769px) and (max-width: 991px) {
+	.header_box,
+	.footer_box,
+	.content_box  {
+        width: calc(100vw - 22px);
+	}
+
+
+	p, span {
+		font-size: 14px;
+	}
+
+
+.traceability_module {
+	border-left: 1px solid #888;
+	border-bottom: 1px solid #888;
+	width: calc((100% / 6) * 3);
+	height: auto;
+	display: flex;
+	flex-flow: wrap;
+	box-sizing: border-box;
+}
+
+
+.traceability_module:nth-child(2n) {
+	border-right: 1px solid #888;
+}
+
+.traceability_module:nth-child(3n) {
+	border-right: none;
+}
+
+
+.traceability_module:nth-child(6n) {
+	border-right: 1px solid #888;
+}
+
+.traceability_module > div:first-child {
+	width: 100%;
+	height: 70%;
+	position: relative;
+
+}
+
+.traceability_module > div:first-child > div {
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	color: #fff;
+	width: fit-content;
+	display: flex;
+	justify-content: center;
+	padding: 0.25em 0.75em;
+}
+
+
+.traceability_module img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.traceability_module > div:first-child > span {
+	font-family: 'GilSansLight';
+	font-weight: lighter;
+	background-color: #000;
+	color: #fff;
+}
+
+.traceability_module > div:last-child {
+	width: 100%;
+	height: 30%;
+	border-top: 1px solid rgb(73, 70, 70);
+	display: flex;
+	flex-flow: wrap;
+}
+
+.traceability_module > div:last-child > div:first-child {
+	width: calc(40% - 1px);
+	height: 100%;
+	border-right: 1px solid #888;
+}
+
+.traceability_module > div:last-child > div:last-child {
+	width: 60%;
+	height: 100%;
+}
+
+.traceability_module > div:last-child > div:last-child div {
+	width: 100%;
+	height: calc(50% - 1px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child > span {
+	position: relative;
+	top: 3px;
+	font-size: 1.25em;
+	width: fit-content;
+}
+
+.traceability_module > div:last-child > div:last-child > div:first-child {
+	background-color: #F3AA28;
+}
+
+.traceability_module > div:last-child > div:last-child > div:first-child > span {
+	font-size: 2.25em;
+	position: relative;
+	top: 6px;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child {
+	border-top: 1px solid rgb(73, 70, 70);
+	background-color: #fff;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child a {
+	color: #20201e;
+	text-decoration: none;
+	position: relative;
+	top: 3px;
+}
+
+.traceability_module > div:last-child > div:last-child > div:last-child a:hover {
+	color: #20201e;
+	text-decoration: underline;
+}
+
+}

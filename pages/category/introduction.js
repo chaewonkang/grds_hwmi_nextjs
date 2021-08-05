@@ -22,17 +22,9 @@ import LogoExample from '../../static/images/trial_1.png';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 
-import { SearchBar, GoToShop, GoToTop } from '../../components';
+import { SearchBar, GoToTop } from '../../components';
 
 import styled from 'styled-components';
-
-// 0731
-// TODO #1 : 각 Ref box의 이미지 box order 1 => offsetTop grayscale 전환에 바로 걸리게끔
-// TODO #2 : 각 Ref box의 scrollPosition 걸렸을 때 글자 깜빡이는 모션 등장하기
-
-// 0801
-// TODO #3 : API 명세 정리
-// TODO #4 : 메인화면 정리 (6단 그리드일때. 5개의 카테고리를 어떻게 정리하면 좋을지?)
 
 const imagePath07 = [
   '../static/images/introduction/int_1.png',
@@ -42,7 +34,7 @@ const imagePath07 = [
   '../static/images/introduction/int_5.jpeg',
 ];
 
-const StyledBurger = styled.button`
+const StyledBurger = styled.div`
   position: absolute;
   right: 2em;
   background-color: rgba(0, 0, 0, 0) !important;
@@ -96,7 +88,8 @@ const StyledMenu = styled.nav`
   width: 100vw;
   padding-top: 0px;
   padding-bottom: 0;
-  z-index: 100;
+  z-index: 10000000;
+
   border-bottom: 1px solid #888;
   height: 45vh;
   background-color: #f4f1de;
@@ -183,7 +176,7 @@ const StyledMenu = styled.nav`
 const StyledNav = styled.div`
   padding-top: 1.5em;
   padding-left: 1em;
-
+  z-index: 1000000;
   li {
     margin-bottom: 0.25em;
   }

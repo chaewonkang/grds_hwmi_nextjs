@@ -1,8 +1,9 @@
 {
-    "presets": ["@babel/react"],
+    "presets": ["@babel/react", "next/babel"],
     "plugins": [
         ["@babel/plugin-proposal-decorators", { "legacy" : true }],
         ["@babel/plugin-proposal-class-properties", { "loose" : true }],
-        ["emotion", {}]
+		["emotion", {}],
+		["babel-plugin-styled-components", { "fileName": true, "displayName": true, "pure": true }]
     ]
 }

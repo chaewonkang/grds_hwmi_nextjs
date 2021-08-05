@@ -1,0 +1,17 @@
+{
+	"images": [
+		{
+			"imageLink": "string/url",
+			"imageAlt": "string"
+		},
+		{
+			"imageLink": "string/url",
+			"imageAlt": "string"
+		}
+	],
+	"descriptions": [
+		"text/string",
+		"text/string",
+		"text/string"
+	]
+}

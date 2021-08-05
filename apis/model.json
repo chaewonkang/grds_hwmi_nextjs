@@ -1,0 +1,112 @@
+{
+	"index": "number",
+	"product": {
+		"productTitle": "string",
+		"imageAlt": "string",
+		"imageLink": "string/url"
+	  },
+	"traceability": {
+		"score": "number",
+		"imageAlt": "string",
+		"imageLink": "string/url"
+	  },
+	"material_main": [
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url",
+			"description": "text"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url",
+			"description": "text"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url",
+			"description": "text"
+		}
+	],
+	"material_main_gif": [
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		}
+	],
+	"material_outsole": {
+		"imageAlt": "string",
+		"imageLink": "string/url",
+		"description": "text"
+	},
+	"material_outsole_gif": [
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		},
+		{
+			"imageAlt": "string",
+			"imageLink": "string/url"
+		}
+	],
+	"material_sub": {
+		"images": [
+			{
+				"imageLink": "string/url",
+				"imageAlt": "string"
+			},
+			{
+				"imageLink": "string/url",
+				"imageAlt": "string"
+			}
+		],
+		"description": "text"
+	},
+	"technology": {
+		"images": [
+			{
+				"imageLink": "string/url",
+				"imageAlt": "string"
+			},
+			{
+				"imageLink": "string/url",
+				"imageAlt": "string"
+			}
+		],
+		"description": "text",
+		"biomechanicsLink": "string/url"
+	},
+	"manufacturing": {
+		"images": [
+			{
+				"imageLink": "string/url",
+				"imageAlt": "string"
+			}
+		],
+		"description": "text",
+		"location": {
+			"lat": "string",
+			"lang": "string",
+			"place": "string"
+		}
+	}
+  }

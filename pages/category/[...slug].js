@@ -23,6 +23,7 @@ import LogoBlack from '../../static/images/LogoBlack.png';
 import { SearchBar } from '../../components';
 
 import styled from 'styled-components';
+
 const imagePath07 = [
   '../static/images/introduction/int_1.png',
   '../static/images/introduction/int_2.png',
@@ -37,7 +38,7 @@ const materialPath = [
   '../static/images/material/1_3.jpg',
 ];
 
-const StyledBurger = styled.button`
+const StyledBurger = styled.div`
   position: absolute;
   right: 2em;
   background-color: rgba(0, 0, 0, 0) !important;
@@ -91,7 +92,8 @@ const StyledMenu = styled.nav`
   width: 100vw;
   padding-top: 0px;
   padding-bottom: 0;
-  z-index: 100;
+  z-index: 10000000;
+
   border-bottom: 1px solid #888;
   height: 45vh;
   background-color: #f4f1de;
@@ -212,17 +214,12 @@ const Header = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('scroll', updateScroll);
-
-    if (router.query.slug) {
+    if (router && router.query && router.query.slug) {
       setQuery(router.query.slug);
     }
     console.log(query);
-  }, [router.query.slug, query]);
-
-  const scrollToRef = (ref) => {
-    timeoutRef.current = setInterval(onScrollStep(ref), 3000);
-  };
+    document.addEventListener('scroll', updateScroll);
+  }, [router.query]);
 
   return (
     <>
