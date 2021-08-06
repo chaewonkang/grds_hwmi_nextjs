@@ -11,6 +11,9 @@ const Product = () => {
       <div>
         <img src={imagePath[0]}></img>
       </div>
+      <div>
+        <span>balmoral 07 leather/suded black</span>
+      </div>
     </div>
   );
 };

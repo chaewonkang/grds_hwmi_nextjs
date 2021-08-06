@@ -20,7 +20,7 @@ import store from '../../common/store';
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 
-import { SearchBar, GoToTop } from '../../components';
+import { GoToTop } from '../../components';
 
 import styled from 'styled-components';
 
@@ -258,9 +258,7 @@ const Header = () => {
       <>
         <StyledMenu open={open} setOpen={setOpen}>
           <div>
-            <div>
-              <SearchBar></SearchBar>
-            </div>
+            <div></div>
             <div>
               <StyledNav>
                 <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
@@ -304,16 +302,6 @@ const Header = () => {
                 ) : (
                   <h1 onClick={() => setOpen(!open)}>How we make it</h1>
                 )}
-              </div>
-              <div className='other_box'>
-                <li className='contactright'>
-                  <SearchBar></SearchBar>
-                </li>
-                <StyledBurger open={open} onClick={() => setOpen(!open)}>
-                  <div />
-                  <div />
-                  <div />
-                </StyledBurger>
               </div>
             </div>
           </div>
@@ -397,7 +385,7 @@ const Header = () => {
             </div>
           </div>
 
-          <div className='introduction_halfimg' ref={locRef}>
+          <div className='introduction_fullimg' ref={locRef}>
             <div>
               {scrollPosition &&
               subRef &&
@@ -407,19 +395,6 @@ const Header = () => {
                 <img
                   style={{ filter: 'grayscale(100%)' }}
                   src={imagePath07[3]}
-                  alt='mainImg'
-                ></img>
-              )}
-            </div>
-            <div>
-              {scrollPosition &&
-              subRef &&
-              scrollPosition > subRef.current.offsetTop ? (
-                <img src={imagePath07[4]} alt='mainImg'></img>
-              ) : (
-                <img
-                  style={{ filter: 'grayscale(100%)' }}
-                  src={imagePath07[4]}
                   alt='mainImg'
                 ></img>
               )}

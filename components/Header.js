@@ -32,8 +32,6 @@ const imagePath07 = [
   '../static/images/07/score.png',
 ];
 
-import { SearchBar } from './index';
-
 const StyledBurger = styled.button`
   position: absolute;
   right: 2em;
@@ -242,9 +240,6 @@ const Header = () => {
         <StyledMenu open={open} setOpen={setOpen}>
           <div>
             <div>
-              <SearchBar></SearchBar>
-            </div>
-            <div>
               <StyledNav>
                 <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
                   Traceability
@@ -291,9 +286,6 @@ const Header = () => {
                 )}
               </div>
               <div className='other_box'>
-                <li className='contactright'>
-                  <SearchBar></SearchBar>
-                </li>
                 <StyledBurger open={open} onClick={() => setOpen(!open)}>
                   <div />
                   <div />

@@ -9,6 +9,7 @@ import React, {
 import { observable, toJS, reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import { useRouter } from 'next/router';
+import useScrollCount from '../../utils/useScrollCount';
 
 import * as Wine from '../../axios/Material';
 
@@ -17,17 +18,9 @@ import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 
-import { SearchBar, GoToTop, GoToShop, Footer, Map } from '../../components';
+import { GoToTop, GoToShop, Footer, Map } from '../../components';
 
 import styled from 'styled-components';
-
-// 0731
-// TODO #1 : 각 Ref box의 이미지 box order 1 => offsetTop grayscale 전환에 바로 걸리게끔
-// TODO #2 : 각 Ref box의 scrollPosition 걸렸을 때 글자 깜빡이는 모션 등장하기
-
-// 0801
-// TODO #3 : API 명세 정리
-// TODO #4 : 메인화면 정리 (6단 그리드일때. 5개의 카테고리를 어떻게 정리하면 좋을지?)
 
 const imagePath07 = [
   '../static/images/07/07_9.png',
@@ -225,6 +218,8 @@ const Header = ({ props }) => {
   const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  const animatedItem = useScrollCount(80, 0, 2.5);
+
   const updateScroll = () => {
     setScrollPosition(window.scrollY);
     setPos(true);
@@ -290,9 +285,6 @@ const Header = ({ props }) => {
         <StyledMenu open={open} setOpen={setOpen}>
           <div>
             <div>
-              <SearchBar></SearchBar>
-            </div>
-            <div>
               <StyledNav>
                 <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
                   Traceability
@@ -339,16 +331,6 @@ const Header = ({ props }) => {
                       : null}
                   </h1>
                 )}
-              </div>
-              <div className='other_box'>
-                <li className='contactright'>
-                  <SearchBar></SearchBar>
-                </li>
-                <StyledBurger open={open} onClick={() => setOpen(!open)}>
-                  <div />
-                  <div />
-                  <div />
-                </StyledBurger>
               </div>
             </div>
           </div>
@@ -413,7 +395,7 @@ const Header = ({ props }) => {
               <div>
                 <div id='loading'>
                   <div className='score'>
-                    <span>80 %</span>
+                    <div {...animatedItem} />%
                   </div>
                 </div>
               </div>
@@ -817,19 +799,6 @@ const Header = ({ props }) => {
                 {scrollPosition &&
                 tecRef &&
                 scrollPosition > tecRef.current.offsetTop + 100 ? (
-                  <img src={imagePath07[15]} alt='mainImg'></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={imagePath07[15]}
-                    alt='mainImg'
-                  ></img>
-                )}
-              </div>
-              <div>
-                {scrollPosition &&
-                tecRef &&
-                scrollPosition > tecRef.current.offsetTop + 200 ? (
                   <img src={imagePath07[16]} alt='mainImg'></img>
                 ) : (
                   <img

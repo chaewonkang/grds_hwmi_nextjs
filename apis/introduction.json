@@ -7,6 +7,10 @@
 		{
 			"imageLink": "string/url",
 			"imageAlt": "string"
+		},
+		{
+			"imageLink": "string/url",
+			"imageAlt": "string"
 		}
 	],
 	"descriptions": [

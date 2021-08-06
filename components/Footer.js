@@ -12,17 +12,16 @@ const Footer = () => {
                 <img src={logoF}></img>
               </div>
               <div className='footer_about'>
-                <h3>How we made it</h3>
+                <h3>how we make it</h3>
                 <p>
                   그라더스가 사용하는 소재와 기술의 출처를 밝혀 투명하게 제품이
-                  만들어지는 제조과정을 공개합니다. 엄선된 주요 소재와 제품에
-                  사용되는 작은 부품까지 해당되는 모든 소재에 대한 정보를
-                  공유합니다. 소재부터 최종 신발에 이르는 모든 제조단계를
-                  보여줍니다.
+                  만들어지는 제조과정을 공개합니다.
                 </p>
               </div>
               <div className='footer_connect'>
-                <h3>Connect with us</h3>
+                <h3>connect with us</h3>
+                <span>Instagram</span>
+                <span>Shop</span>
               </div>
             </div>
           </div>
@@ -60,17 +59,14 @@ const Footer = () => {
 
         .footer_logo_box {
           width: calc(100% / 6 * 2);
-          border-left: 1px solid #888;
         }
 
         .footer_about {
           width: calc(100% / 6 * 2);
-          border-left: 1px solid #888;
         }
 
         .footer_connect {
           width: calc(100% / 6 * 2);
-          border-left: 1px solid #888;
           border-right: 1px solid #888;
         }
 
@@ -100,10 +96,6 @@ const Footer = () => {
             border-top: 1px solid #888;
             transition: height 1s;
             transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
-          }
-
-          .footer_container:hover {
-            height: 40vh;
           }
 
           .footer_box {

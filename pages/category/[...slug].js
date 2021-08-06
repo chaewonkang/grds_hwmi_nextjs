@@ -20,8 +20,6 @@ import {
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 
-import { SearchBar } from '../../components';
-
 import styled from 'styled-components';
 
 const imagePath07 = [
@@ -258,9 +256,6 @@ const Header = () => {
         <StyledMenu open={open} setOpen={setOpen}>
           <div>
             <div>
-              <SearchBar></SearchBar>
-            </div>
-            <div>
               <StyledNav>
                 <Link href='/category/traceability'>
                   <li className='nav_item'>Traceability</li>
@@ -309,16 +304,6 @@ const Header = () => {
                 }
               >
                 <h1 onClick={() => setOpen(!open)}>How we make it</h1>
-              </div>
-              <div className='other_box'>
-                <li className='contactright'>
-                  <SearchBar></SearchBar>
-                </li>
-                <StyledBurger open={open} onClick={() => setOpen(!open)}>
-                  <div />
-                  <div />
-                  <div />
-                </StyledBurger>
               </div>
             </div>
           </div>
