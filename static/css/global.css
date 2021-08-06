@@ -339,13 +339,14 @@ input {
 .manufacturing_intro>div:last-child {
     height: 100%;
     width: calc((100% / 6) * 3 - 1px);
-    border-right: 1px solid #888 !important;
+	border-right: 1px solid #888 !important;
+	overflow: auto;
 }
 
-.manufacturing_intro>div:last-child>img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
+.manufacturing_intro>div:last-child img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .manufacturing_gif {
@@ -423,7 +424,7 @@ input {
 
 .traceability_module>div:first-child {
     width: 100%;
-    height: 60%;
+    height: 70%;
     position: relative;
 }
 
@@ -439,9 +440,15 @@ input {
     padding: 0.25em 0.75em;
 }
 
-.traceability_module img {
+.traceability_module>div:first-child>img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+
+.traceability_module>div:last-child img {
+    width: 80%;
+    height: auto;
     object-fit: cover;
 }
 
@@ -453,7 +460,7 @@ input {
 
 .traceability_module>div:last-child {
     width: 100%;
-    height: 40%;
+    height: 30%;
     border-top: 1px solid rgb(73, 70, 70);
     display: flex;
     flex-flow: wrap;
@@ -462,7 +469,10 @@ input {
 .traceability_module>div:last-child>div:first-child {
     width: calc(40% - 1px);
     height: 100%;
-    border-right: 1px solid #888;
+	border-right: 1px solid #888;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .traceability_module>div:last-child>div:last-child {
@@ -487,7 +497,7 @@ input {
 }
 
 .traceability_module>div:last-child>div:last-child>div:first-child {
-    background-color: #F3AA28;
+
 }
 
 .traceability_module>div:last-child>div:last-child>div:first-child>span {
@@ -498,14 +508,14 @@ input {
 
 .traceability_module>div:last-child>div:last-child>div:last-child {
     border-top: 1px solid rgb(73, 70, 70);
-    background-color: #fff;
+
 }
 
 .traceability_module>div:last-child>div:last-child>div:last-child a {
     color: #20201e;
     text-decoration: none;
     position: relative;
-    top: 3px;
+	top: 3px;
 }
 
 .traceability_module>div:last-child>div:last-child>div:last-child a:hover {
@@ -543,9 +553,9 @@ input {
     max-height: 300px;
 }
 
-.material_module div {
+.material_module >div {
     width: calc(100% - 1px);
-    height: calc(100% - 1px);
+    height: calc(80% - 1px);
     border-left: 1px solid #888;
     border-bottom: 1px solid #888;
     border-right: 1px solid #888;
@@ -1207,6 +1217,18 @@ li.contactright {
 
 .sub_material_intro {
     width: calc((100% / 6) * 3 - 1px);
+}
+
+.manufacturing_intro>div:last-child>div {
+	width: 100%;
+	height: 100%;
+}
+
+.mapAPI > div {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: 100% !important;
+	max-height: 100% !important;
 }
 
 @media only screen and (min-width: 769px) and (max-width: 991px) {

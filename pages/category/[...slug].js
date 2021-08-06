@@ -432,6 +432,20 @@ const Header = () => {
               <Material image={materialPath[2]}></Material>
             </div>
           ) : null}
+          {router && query && query == 'technology' ? (
+            <div className='module_wrapper'>
+              <Material image={materialPath[0]}></Material>
+              <Material image={materialPath[1]}></Material>
+              <Material image={materialPath[2]}></Material>
+            </div>
+          ) : null}
+          {router && query && query == 'manufacturing' ? (
+            <div className='module_wrapper'>
+              <Material image={materialPath[0]}></Material>
+              <Material image={materialPath[1]}></Material>
+              <Material image={materialPath[2]}></Material>
+            </div>
+          ) : null}
         </div>
         <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>

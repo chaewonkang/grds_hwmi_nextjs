@@ -463,6 +463,7 @@ const Header = () => {
         </div>
         <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>
+      <Footer></Footer>
     </>
   );
 };

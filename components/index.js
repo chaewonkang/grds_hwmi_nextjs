@@ -7,3 +7,5 @@ export { default as ProductBody } from './ProductBody';
 export { default as Traceability } from './Traceability';
 export { default as Product } from './Product';
 export { default as Material } from './Material';
+export { default as Manufacturing } from './Manufacturing';
+export { default as Map } from './Map';

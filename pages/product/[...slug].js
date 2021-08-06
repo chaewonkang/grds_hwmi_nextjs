@@ -17,7 +17,7 @@ import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 
-import { SearchBar, GoToTop, GoToShop, Footer } from '../../components';
+import { SearchBar, GoToTop, GoToShop, Footer, Map } from '../../components';
 
 import styled from 'styled-components';
 
@@ -867,17 +867,7 @@ const Header = ({ props }) => {
                 </p>
               </div>
               <div>
-                {scrollPosition &&
-                manRef &&
-                scrollPosition > manRef.current.offsetTop ? (
-                  <img src={imagePath07[17]} alt='mainImg'></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={imagePath07[17]}
-                    alt='mainImg'
-                  ></img>
-                )}
+                <Map></Map>
               </div>
             </div>
             <div className='manufacturing_gif'>

@@ -433,7 +433,8 @@
         border-right: none !important;
         border-bottom: 1px solid #888;
         order: 1;
-        display: flex;
+		display: block;
+		height: 35vh;
     }
     .manufacturing_intro>div:last-child>img {
         height: 100%;

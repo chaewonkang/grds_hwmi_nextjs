@@ -1,7 +1,13 @@
 import React from 'react';
 
-const Traceability = () => {
-  <div className='traceability_module'>Hello</div>;
+const Manufacturing = ({ image }) => {
+  return (
+    <div className='material_module'>
+      <div>
+        <img src={image}></img>
+      </div>
+    </div>
+  );
 };
 
-export default Traceability;
+export default Manufacturing;

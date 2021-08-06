@@ -6,6 +6,9 @@ const Material = ({ image }) => {
       <div>
         <img src={image}></img>
       </div>
+      <div>
+        <span>upper leather / balmoral 07 black</span>
+      </div>
     </div>
   );
 };
