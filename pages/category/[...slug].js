@@ -102,7 +102,7 @@ const Header = () => {
 
     console.log(query);
     document.addEventListener('scroll', updateScroll);
-  }, [router.query.slug, navId]);
+  });
 
   return (
     <>
