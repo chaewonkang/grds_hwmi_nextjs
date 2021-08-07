@@ -266,10 +266,23 @@ const Header = () => {
               <Material image={materialPath[0]}></Material>
               <Material image={materialPath[1]}></Material>
               <Material image={materialPath[2]}></Material>
+              <Material image={materialPath[0]}></Material>
+              <Material image={materialPath[1]}></Material>
+              <Material image={materialPath[2]}></Material>
+              <Material image={materialPath[0]}></Material>
+              <Material image={materialPath[1]}></Material>
+              <Material image={materialPath[2]}></Material>
+              <Material image={materialPath[0]}></Material>
+              <Material image={materialPath[1]}></Material>
+              <Material image={materialPath[2]}></Material>
             </div>
           ) : null}
           {router && query && query == 'technology' ? (
             <div className='module_wrapper'>
+              <Technology image={technologyPath[0]}></Technology>
+              <Technology image={technologyPath[1]}></Technology>
+              <Technology image={technologyPath[0]}></Technology>
+              <Technology image={technologyPath[1]}></Technology>
               <Technology image={technologyPath[0]}></Technology>
               <Technology image={technologyPath[1]}></Technology>
             </div>
