@@ -232,43 +232,11 @@ const Header = () => {
             <img src={LogoBlack}></img>
           </div>
           <div className='copyright'>
-            <span>FINE QUALITY + TRANCEPARENCY</span>
+            <span>FINE QUALITY + TRANSPARENCY</span>
           </div>
         </div>
       </div>
       <>
-        <StyledMenu open={open} setOpen={setOpen}>
-          <div>
-            <div>
-              <StyledNav>
-                <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
-                  Traceability
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(topRef)}>
-                  Product
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(matRef)}>
-                  Material
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
-                  Technology
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
-                  Manufacturing
-                </li>
-                <Link href='/category/introduction'>
-                  <li className='nav_item'>Introduction</li>
-                </Link>
-              </StyledNav>
-              <div>
-                <div>Go to grds.com</div>
-                <div>
-                  <img src={LogoBlack} alt='officiallogo'></img>
-                </div>
-              </div>
-            </div>
-          </div>
-        </StyledMenu>
         <div className='page_container' id='topmenu'>
           <div className='page_navigation1'>
             <div className='header_box'>
@@ -284,13 +252,6 @@ const Header = () => {
                     Balmoral 07 Suede/Leather Black
                   </h1>
                 )}
-              </div>
-              <div className='other_box'>
-                <StyledBurger open={open} onClick={() => setOpen(!open)}>
-                  <div />
-                  <div />
-                  <div />
-                </StyledBurger>
               </div>
             </div>
           </div>

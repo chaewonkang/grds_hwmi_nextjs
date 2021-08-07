@@ -251,44 +251,11 @@ const Header = () => {
             <img src={LogoBlack}></img>
           </div>
           <div className='copyright'>
-            <span>FINE QUALITY + TRANCEPARENCY</span>
+            <span>FINE QUALITY + TRANSPARENCY</span>
           </div>
         </div>
       </div>
       <>
-        <StyledMenu open={open} setOpen={setOpen}>
-          <div>
-            <div></div>
-            <div>
-              <StyledNav>
-                <li className='nav_item' onClick={() => scrollToRef(tracRef)}>
-                  Traceability
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(topRef)}>
-                  Product
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(matRef)}>
-                  Material
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
-                  Technology
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(manRef)}>
-                  Manufacturing
-                </li>
-                <li className='nav_item' onClick={() => scrollToRef(locRef)}>
-                  Introduction
-                </li>
-              </StyledNav>
-              <div>
-                <div>Go to grds.com</div>
-                <div>
-                  <img src={LogoBlack} alt='officiallogo'></img>
-                </div>
-              </div>
-            </div>
-          </div>
-        </StyledMenu>
         <div className='page_container' id='topmenu'>
           <div className='page_navigation1'>
             <div className='header_box'>
@@ -314,6 +281,17 @@ const Header = () => {
               }
             >
               <ul className='page_navigation_inner topnav'>
+                <Link href='/category/introduction'>
+                  <li
+                    className={
+                      router.pathname == '/category/introduction'
+                        ? 'nav_item active'
+                        : 'nav_item'
+                    }
+                  >
+                    Introduction
+                  </li>
+                </Link>
                 <Link href='/category/traceability'>
                   <li className='nav_item'>Traceability</li>
                 </Link>
@@ -328,17 +306,6 @@ const Header = () => {
                 </Link>
                 <Link href='/category/manufacturing'>
                   <li className='nav_item'>Manufacturing</li>
-                </Link>
-                <Link href='/category/introduction'>
-                  <li
-                    className={
-                      router.pathname == '/category/introduction'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Introduction
-                  </li>
                 </Link>
               </ul>
             </div>

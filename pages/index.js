@@ -96,9 +96,12 @@ class Index extends Component {
         {/* <HeaderSub  path={'/'} ref="header_sub" menu={main_page_menu}></HeaderSub> */}
         {this.state.pageLoaded == true ? (
           <>
-            <div>
+            <div className='index'>
               <Link href='/category/introduction'>
-                <div>Hello World</div>
+                <div className='top'>
+                  Return to top
+                  <div class='balloon--bounce'></div>
+                </div>
               </Link>
 
               <div></div>

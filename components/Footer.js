@@ -39,7 +39,6 @@ const Footer = () => {
         .footer_box {
           max-width: 100vw;
           overflow-x: hidden;
-          margin-top: 1.5em;
           margin-bottom: 15em;
         }
 
@@ -54,10 +53,11 @@ const Footer = () => {
 
         .footer_content > div {
           padding: 1em;
-          height: 70%;
+          height: calc(100% - 2em);
         }
 
         .footer_logo_box {
+          border-left: 1px solid #888;
           width: calc(100% / 6 * 2);
         }
 
@@ -94,8 +94,6 @@ const Footer = () => {
             height: 20vh;
             position: relative;
             border-top: 1px solid #888;
-            transition: height 1s;
-            transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
           }
 
           .footer_box {

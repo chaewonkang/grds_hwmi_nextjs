@@ -1,4 +1,5 @@
 import React from 'react';
+import useScrollCount from '../utils/useScrollCount';
 
 const Technology = ({ image }) => {
   return (

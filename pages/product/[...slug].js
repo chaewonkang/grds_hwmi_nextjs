@@ -218,7 +218,7 @@ const Header = ({ props }) => {
   const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const animatedItem = useScrollCount(80, 0, 2.5);
+  const animatedItem = useScrollCount(80, 0, 3000);
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY);
@@ -277,7 +277,7 @@ const Header = ({ props }) => {
             <img src={LogoBlack}></img>
           </div>
           <div className='copyright'>
-            <span>FINE QUALITY + TRANCEPARENCY</span>
+            <span>FINE QUALITY + TRANSPARENCY</span>
           </div>
         </div>
       </div>
@@ -409,6 +409,7 @@ const Header = ({ props }) => {
                     style={{ filter: 'grayscale(100%)' }}
                     src={Emblem}
                     alt='emblemImg'
+                    className='balloon--bounce'
                   ></img>
                 )}
               </div>

@@ -248,53 +248,11 @@ const Header = () => {
             <img src={LogoBlack}></img>
           </div>
           <div className='copyright'>
-            <span>FINE QUALITY + TRANCEPARENCY</span>
+            <span>FINE QUALITY + TRANSPARENCY</span>
           </div>
         </div>
       </div>
       <>
-        <StyledMenu open={open} setOpen={setOpen}>
-          <div>
-            <div>
-              <StyledNav>
-                <Link href='/category/traceability'>
-                  <li className='nav_item'>Traceability</li>
-                </Link>
-                <Link href='/category/product'>
-                  <li className='nav_item'>Product</li>
-                </Link>
-                <Link href='/category/material'>
-                  <li className='nav_item'>Material</li>
-                </Link>
-                <Link href='/category/technology'>
-                  <li className='nav_item'>Technology</li>
-                </Link>
-                <Link href='/category/manufacturing'>
-                  <li className='nav_item'>Manufacturing</li>
-                </Link>
-                <Link href='/category/introduction'>
-                  <li
-                    className={
-                      router &&
-                      router.pathname &&
-                      router.pathname == '/category/introduction'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Introduction
-                  </li>
-                </Link>
-              </StyledNav>
-              <div>
-                <div>Go to grds.com</div>
-                <div>
-                  <img src={LogoBlack} alt='officiallogo'></img>
-                </div>
-              </div>
-            </div>
-          </div>
-        </StyledMenu>
         <div className='page_container' id='topmenu'>
           <div className='page_navigation1'>
             <div className='header_box'>
@@ -316,6 +274,19 @@ const Header = () => {
               }
             >
               <ul className='page_navigation_inner topnav'>
+                <Link href='/category/introduction'>
+                  <li
+                    className={
+                      router &&
+                      router.pathname &&
+                      router.pathname == '/category/introduction'
+                        ? 'nav_item active'
+                        : 'nav_item'
+                    }
+                  >
+                    Introduction
+                  </li>
+                </Link>
                 <Link href='/category/traceability'>
                   <li
                     className={
@@ -375,19 +346,6 @@ const Header = () => {
                     Manufacturing
                   </li>
                 </Link>
-                <Link href='/category/introduction'>
-                  <li
-                    className={
-                      router &&
-                      router.pathname &&
-                      router.pathname == '/category/introduction'
-                        ? 'nav_item active'
-                        : 'nav_item'
-                    }
-                  >
-                    Introduction
-                  </li>
-                </Link>
               </ul>
             </div>
           </div>
@@ -395,16 +353,22 @@ const Header = () => {
         <div className='content_box'>
           {router && query && query == 'traceability' ? (
             <div className='module_wrapper'>
-              <Traceability></Traceability>
-              <Traceability></Traceability>
-              <Traceability></Traceability>
-              <Traceability></Traceability>
-              <Traceability></Traceability>
-              <Traceability></Traceability>
+              <Traceability score={30}></Traceability>
+              <Traceability score={40}></Traceability>
+              <Traceability score={50}></Traceability>
+              <Traceability score={60}></Traceability>
+              <Traceability score={70}></Traceability>
+              <Traceability score={80}></Traceability>
             </div>
           ) : null}
           {router && query && query == 'product' ? (
             <div className='module_wrapper'>
+              <Product></Product>
+              <Product></Product>
+              <Product></Product>
+              <Product></Product>
+              <Product></Product>
+              <Product></Product>
               <Product></Product>
               <Product></Product>
               <Product></Product>
