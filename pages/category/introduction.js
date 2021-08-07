@@ -32,154 +32,6 @@ const imagePath07 = [
   '../static/images/introduction/int_5.jpeg',
 ];
 
-const StyledBurger = styled.div`
-  position: absolute;
-  right: 2em;
-  background-color: rgba(0, 0, 0, 0) !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 1rem;
-  height: 1rem;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 100;
-
-  &:focus {
-    outline: none;
-  }
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-
-  div {
-    width: 1.8rem;
-    background-color: #000;
-
-    height: 0.05rem;
-    border-radius: 0px;
-    transition: all 0.3s linear;
-
-    transform-origin: center;
-
-    :first-child {
-      transform: ${({ open }) =>
-        open ? 'rotate(30deg) translateY(6px)' : 'rotate(0)'};
-    }
-
-    :nth-child(2) {
-      width: 1.3rem;
-      transform: ${({ open }) => (open ? 'translateX(100px) ' : 'rotate(0)')};
-    }
-
-    :last-child {
-      transform: ${({ open }) =>
-        open ? 'rotate(-30deg) translateY(-6px)' : 'rotate(0)'};
-    }
-  }
-`;
-
-const StyledMenu = styled.nav`
-  display: ${({ open }) => (open ? 'block' : 'none')};
-  width: 100vw;
-  padding-top: 0px;
-  padding-bottom: 0;
-  z-index: 10000000;
-
-  border-bottom: 1px solid #888;
-  height: 45vh;
-  background-color: #f4f1de;
-  position: sticky;
-  top: 41px;
-  transition: height 1.5s;
-  transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
-
-  & > div {
-    animation: fade-in 0.3s ease-in-out;
-    display: grid;
-    grid-template-rows: 40px 1fr;
-    height: 100%;
-  }
-
-  & > div > div:nth-child(1) {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #888;
-    border-top: 1px solid #888;
-    padding-left: 1em;
-  }
-
-  & > div > div:nth-child(2) {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-
-    & > div {
-      width: 50%;
-      border-right: 1px solid #888;
-
-      &:first-child {
-        padding-left: 1em;
-        padding-top: 1em;
-      }
-    }
-
-    & > div:nth-child(2) {
-      display: flex;
-      flex-direction: column;
-
-      & > div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50%;
-
-        :last-child {
-          border-top: 1px solid #888;
-
-          img {
-            width: 50%;
-          }
-        }
-      }
-    }
-  }
-
-  & > div > span {
-    display: block;
-    vertical-align: middle;
-  }
-
-  & > div > a {
-    display: block;
-    padding: 0.25em;
-    margin-top: 0.5em;
-
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s linear;
-
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: em;
-    }
-
-    &:hover {
-      color: ${({ theme }) => theme.primaryHover};
-    }
-  }
-`;
-
-const StyledNav = styled.div`
-  padding-top: 1.5em;
-  padding-left: 1em;
-  z-index: 1000000;
-  li {
-    margin-bottom: 0.25em;
-  }
-`;
-
 const Header = () => {
   const [pos, setPos] = useState(false);
 
@@ -195,7 +47,6 @@ const Header = () => {
   const tracRef = useRef();
   const outRef = useRef();
   const subRef = useRef();
-  const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updateScroll = () => {
@@ -248,7 +99,9 @@ const Header = () => {
             </Link>
           </div>
           <div className='grds_logo'>
-            <img src={LogoBlack}></img>
+            <a href='https://grds.com' target='_blank'>
+              <img src={LogoBlack}></img>
+            </a>
           </div>
           <div className='copyright'>
             <span>FINE QUALITY + TRANSPARENCY</span>
@@ -264,11 +117,7 @@ const Header = () => {
                   scrollPosition < 180 ? 'before_scroll' : 'after_scroll'
                 }
               >
-                {open ? (
-                  <h1 onClick={() => setOpen(!open)}>How we make it</h1>
-                ) : (
-                  <h1 onClick={() => setOpen(!open)}>How we make it</h1>
-                )}
+                <h1>How we make it</h1>
               </div>
             </div>
           </div>

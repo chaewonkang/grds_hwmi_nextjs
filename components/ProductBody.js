@@ -34,7 +34,6 @@ const ProductBody = () => {
 
   const timeoutRef = useRef();
 
-  const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updateScroll = () => {

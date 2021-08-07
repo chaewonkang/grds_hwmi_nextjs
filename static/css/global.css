@@ -494,10 +494,6 @@ input {
     width: fit-content;
 }
 
-.traceability_module>div:last-child>div:last-child>div:first-child {
-
-}
-
 .traceability_module>div:last-child>div:last-child>div:first-child>span {
     font-size: 2.25em;
     position: relative;
@@ -570,24 +566,30 @@ input {
     max-height: 300px;
 }
 
+.material_module:last-child {
+	border-right: 1px solid #888;
+}
+
 .material_module>div:first-child {
-    width: calc(100% - 1px);
+    width: 100%;
     height: calc(100% - 40px);
     border-left: 1px solid #888;
     border-bottom: 1px solid #888;
-	border-right: 1px solid #888;
 	border-top: 1px solid #888;
 }
 
 .material_module>div:last-child {
-    width: calc(100% - 1px);
+    width: 100%;
     height: 40px;
     border-left: 1px solid #888;
     border-bottom: 1px solid #888;
-	border-right: 1px solid #888;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+}
+
+.material_module:last-child {
+	border-right: none;
 }
 
 .material_module>div:last-child span {
@@ -598,6 +600,52 @@ input {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.manufacturing_module {
+	width: calc((100% / 6) * 2 - 1px);
+	height: 30vh;
+	min-height: 300px;
+	border-left: 1px solid #888;
+}
+
+.manufacturing_module > div {
+	width: 100%;
+	height: 100%;
+}
+
+.manufacturing_module > div > img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.technology_module {
+	width: calc((100% / 6) * 2);
+	height: 75vh;
+	border-left: 1px solid #888;
+}
+
+.technology_module:last-child {
+	border-right: 1px solid #888;
+}
+
+.technology_module>div:first-child {
+	height: calc(100% - 40px);
+	border-bottom: 1px solid #888;
+}
+
+.technology_module>div:first-child>img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.technology_module>div:last-child {
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
 .introduction_fulltext {
@@ -920,8 +968,15 @@ body:hover #traceability_showimg {
     font-size: 30px;
 }
 
-.index_header .grds_logo img {
-    width: 40%;
+.index_header .grds_logo a {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.index_header .grds_logo a img {
+	width: 40%;
 }
 
 .index_header .logo img {

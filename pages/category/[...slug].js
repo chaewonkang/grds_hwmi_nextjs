@@ -15,6 +15,8 @@ import {
   Traceability,
   Product,
   Material,
+  Technology,
+  Manufacturing,
 } from '../../components';
 
 import Link from 'next/link';
@@ -36,153 +38,23 @@ const materialPath = [
   '../static/images/material/1_3.jpg',
 ];
 
-const StyledBurger = styled.div`
-  position: absolute;
-  right: 2em;
-  background-color: rgba(0, 0, 0, 0) !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  width: 1rem;
-  height: 1rem;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  z-index: 100;
+const technologyPath = [
+  '../static/images/technology/technology_1.png',
+  '../static/images/technology/technology_2.png',
+];
 
-  &:focus {
-    outline: none;
-  }
-
-  @media (min-width: 768px) {
-    display: none;
-  }
-
-  div {
-    width: 1.8rem;
-    background-color: #000;
-
-    height: 0.05rem;
-    border-radius: 0px;
-    transition: all 0.3s linear;
-
-    transform-origin: center;
-
-    :first-child {
-      transform: ${({ open }) =>
-        open ? 'rotate(30deg) translateY(6px)' : 'rotate(0)'};
-    }
-
-    :nth-child(2) {
-      width: 1.3rem;
-      transform: ${({ open }) => (open ? 'translateX(100px) ' : 'rotate(0)')};
-    }
-
-    :last-child {
-      transform: ${({ open }) =>
-        open ? 'rotate(-30deg) translateY(-6px)' : 'rotate(0)'};
-    }
-  }
-`;
-
-const StyledMenu = styled.nav`
-  display: ${({ open }) => (open ? 'block' : 'none')};
-  width: 100vw;
-  padding-top: 0px;
-  padding-bottom: 0;
-  z-index: 10000000;
-
-  border-bottom: 1px solid #888;
-  height: 45vh;
-  background-color: #f4f1de;
-  position: sticky;
-  top: 41px;
-  transition: height 1.5s;
-  transition-timing-function: cubic-bezier(0.25, 0.25, 0.75, 0.75);
-
-  & > div {
-    animation: fade-in 0.3s ease-in-out;
-    display: grid;
-    grid-template-rows: 40px 1fr;
-    height: 100%;
-  }
-
-  & > div > div:nth-child(1) {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid #888;
-    border-top: 1px solid #888;
-    padding-left: 1em;
-  }
-
-  & > div > div:nth-child(2) {
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-
-    & > div {
-      width: 50%;
-      border-right: 1px solid #888;
-
-      &:first-child {
-        padding-left: 1em;
-        padding-top: 1em;
-      }
-    }
-
-    & > div:nth-child(2) {
-      display: flex;
-      flex-direction: column;
-
-      & > div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 50%;
-
-        :last-child {
-          border-top: 1px solid #888;
-
-          img {
-            width: 50%;
-          }
-        }
-      }
-    }
-  }
-
-  & > div > span {
-    display: block;
-    vertical-align: middle;
-  }
-
-  & > div > a {
-    display: block;
-    padding: 0.25em;
-    margin-top: 0.5em;
-
-    color: #fff;
-    text-decoration: none;
-    transition: color 0.3s linear;
-
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: em;
-    }
-
-    &:hover {
-      color: ${({ theme }) => theme.primaryHover};
-    }
-  }
-`;
-
-const StyledNav = styled.div`
-  padding-top: 1.5em;
-  padding-left: 1em;
-
-  li {
-    margin-bottom: 0.25em;
-  }
-`;
+const manufacturingPath = [
+  '../static/images/manufacturing/man_1.png',
+  '../static/images/manufacturing/man_2.png',
+  '../static/images/manufacturing/man_3.png',
+  '../static/images/manufacturing/man_4.png',
+  '../static/images/manufacturing/man_5.png',
+  '../static/images/manufacturing/man_6.png',
+  '../static/images/manufacturing/man_7.png',
+  '../static/images/manufacturing/man_8.png',
+  '../static/images/manufacturing/man_9.png',
+  '../static/images/manufacturing/man_10.png',
+];
 
 const Header = () => {
   const [pos, setPos] = useState(false);
@@ -192,7 +64,6 @@ const Header = () => {
   const timeoutRef = useRef();
   const router = useRouter();
 
-  const [open, setOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updateScroll = () => {
@@ -245,7 +116,9 @@ const Header = () => {
             </Link>
           </div>
           <div className='grds_logo'>
-            <img src={LogoBlack}></img>
+            <a href='https://grds.com' target='_blank'>
+              <img src={LogoBlack}></img>
+            </a>
           </div>
           <div className='copyright'>
             <span>FINE QUALITY + TRANSPARENCY</span>
@@ -261,7 +134,7 @@ const Header = () => {
                   scrollPosition < 180 ? 'before_scroll' : 'after_scroll'
                 }
               >
-                <h1 onClick={() => setOpen(!open)}>How we make it</h1>
+                <h1>How we make it</h1>
               </div>
             </div>
           </div>
@@ -383,16 +256,21 @@ const Header = () => {
           ) : null}
           {router && query && query == 'technology' ? (
             <div className='module_wrapper'>
-              <Material image={materialPath[0]}></Material>
-              <Material image={materialPath[1]}></Material>
-              <Material image={materialPath[2]}></Material>
+              <Technology image={technologyPath[0]}></Technology>
+              <Technology image={technologyPath[1]}></Technology>
             </div>
           ) : null}
           {router && query && query == 'manufacturing' ? (
             <div className='module_wrapper'>
-              <Material image={materialPath[0]}></Material>
-              <Material image={materialPath[1]}></Material>
-              <Material image={materialPath[2]}></Material>
+              <Manufacturing image={manufacturingPath[0]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[1]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[2]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[3]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[4]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[5]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[6]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[7]}></Manufacturing>
+              <Manufacturing image={manufacturingPath[8]}></Manufacturing>
             </div>
           ) : null}
         </div>

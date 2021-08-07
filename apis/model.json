@@ -10,6 +10,7 @@
 		"imageAlt": "string",
 		"imageLink": "string/url"
 	  },
+	  // 2개일수도 있고 3개일수도 있음. 맥스 3개.
 	"material_main": [
 		{
 			"imageAlt": "string",
@@ -108,5 +109,6 @@
 			"lang": "string",
 			"place": "string"
 		}
-	}
+	},
+	"last_created_at": "string"
   }

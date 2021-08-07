@@ -1,11 +1,13 @@
 import React from 'react';
-import useScrollCount from '../utils/useScrollCount';
 
 const Technology = ({ image }) => {
   return (
-    <div className='material_module'>
+    <div className='technology_module'>
       <div>
         <img src={image}></img>
+      </div>
+      <div>
+        <span>upper leather / balmoral 07 black</span>
       </div>
     </div>
   );
