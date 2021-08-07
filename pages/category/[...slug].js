@@ -21,6 +21,8 @@ import {
 
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
+import arrowLeft from '../../static/images/arrowLeft.png';
+import arrowRight from '../../static/images/arrowRight.png';
 
 import styled from 'styled-components';
 
@@ -56,10 +58,20 @@ const manufacturingPath = [
   '../static/images/manufacturing/man_10.png',
 ];
 
+const categoryArr = [
+  'introduction',
+  'traceability',
+  'product',
+  'material',
+  'technology',
+  'manufacturing',
+];
+
 const Header = () => {
   const [pos, setPos] = useState(false);
 
   const [query, setQuery] = useState('');
+  const [navId, setNavId] = useState(null);
 
   const timeoutRef = useRef();
   const router = useRouter();
@@ -84,11 +96,13 @@ const Header = () => {
 
   useEffect(() => {
     if (router && router.query && router.query.slug) {
-      setQuery(router.query.slug);
+      setQuery(router.query.slug.toString());
+      setNavId(categoryArr.indexOf(query));
     }
+
     console.log(query);
     document.addEventListener('scroll', updateScroll);
-  }, [router.query]);
+  }, [router.query.slug, navId]);
 
   return (
     <>
@@ -273,6 +287,46 @@ const Header = () => {
               <Manufacturing image={manufacturingPath[8]}></Manufacturing>
             </div>
           ) : null}
+          <div className='test bottom_navigator'>
+            <div>
+              <div>
+                {navId !== null ? (
+                  <Link href={`/category/${categoryArr[navId - 1]}`}>
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={arrowLeft}
+                      alt='mainImg'
+                    ></img>
+                  </Link>
+                ) : null}
+              </div>
+              <div>
+                {navId !== null ? (
+                  <Link href={`/category/${categoryArr[navId + -1]}`}>
+                    previous
+                  </Link>
+                ) : null}
+              </div>
+            </div>
+            <div>
+              <div>
+                {navId !== null && navId !== 5 ? (
+                  <Link href={`/category/${categoryArr[navId + 1]}`}>next</Link>
+                ) : null}
+              </div>
+              <div>
+                {navId !== null && navId !== 5 ? (
+                  <Link href={`/category/${categoryArr[navId + 1]}`}>
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={arrowRight}
+                      alt='mainImg'
+                    ></img>
+                  </Link>
+                ) : null}
+              </div>
+            </div>
+          </div>
         </div>
         <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>

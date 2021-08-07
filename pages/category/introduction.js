@@ -19,6 +19,8 @@ import * as Wine from '../../axios/Material';
 import store from '../../common/store';
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
+import arrowLeft from '../../static/images/arrowLeft.png';
+import arrowRight from '../../static/images/arrowRight.png';
 
 import { GoToTop } from '../../components';
 
@@ -249,6 +251,23 @@ const Header = () => {
                 100% 투명성을 상징합니다. 친환경 브랜드는 아니지만 좋은 제품을
                 만들어 오래도록 사용할 수 있는 지속가능성을 실천할 것입니다.
               </p>
+            </div>
+          </div>
+          <div className='test bottom_navigator'>
+            <div></div>
+            <div>
+              <div>
+                <Link href='/category/traceability'>next</Link>
+              </div>
+              <div>
+                <Link href='/category/traceability'>
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={arrowRight}
+                    alt='mainImg'
+                  ></img>
+                </Link>
+              </div>
             </div>
           </div>
         </div>

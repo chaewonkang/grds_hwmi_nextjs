@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
           name='viewport'
           content='width=device-width, initial-scale=1.0, minimum-scale=1.0'
         />
-        <title>How we make it ﹣ grds</title>
+        <title>how we make it ﹣ grds</title>
       </Head>
       <Component {...pageProps} />
     </>
