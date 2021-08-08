@@ -595,7 +595,7 @@ input {
 }
 
 .material_module>div:first-child {
-    width: calc(100% - 1px);
+    width: 100%;
     height: calc(100% - 40px);
     border-left: 1px solid #888;
     border-bottom: 1px solid #888;
@@ -657,7 +657,7 @@ input {
 }
 
 .technology_module>div:first-child {
-	width: calc(100% - 1px);
+	width: 100%;;
 	height: calc(100% - 40px);
 	border-bottom: 1px solid #888;
 }
