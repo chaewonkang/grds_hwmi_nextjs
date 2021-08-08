@@ -875,8 +875,7 @@
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-	border-top: none;
- }
+}
 
  .bottom_navigator > div:last-child {
 	border-right: none !important;

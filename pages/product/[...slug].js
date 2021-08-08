@@ -69,7 +69,7 @@ const Header = ({ props }) => {
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const animatedItem = useScrollCount(80, 0, 3000);
+  const animatedItem = useScrollCount(80, 0, 1500);
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY);
@@ -762,7 +762,18 @@ const Header = ({ props }) => {
               </div>
             </div>
           </div>
+          <div className='test bottom_navigator'>
+            <div>
+              <div></div>
+              <div></div>
+            </div>
+            <div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
         </div>
+
         <GoToShop></GoToShop>
         <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>
