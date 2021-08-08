@@ -395,7 +395,15 @@
         height: 90%;
         width: 90%;
         object-fit: cover;
-    }
+	}
+	.traceability,
+	.item,
+	.material,
+	.manufacturing,
+	.sub_material,
+	.technology {
+		border-bottom: 1px solid #888;
+	}
     .item div:first-child {
         width: 100%;
         display: flex;
