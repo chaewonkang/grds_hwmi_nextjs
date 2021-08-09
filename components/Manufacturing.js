@@ -6,6 +6,9 @@ const Manufacturing = ({ image }) => {
       <div>
         <img src={image}></img>
       </div>
+      <div>
+        <span>Chivitanova Factory</span>
+      </div>
     </div>
   );
 };

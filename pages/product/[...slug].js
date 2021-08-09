@@ -1,14 +1,6 @@
 import Head from 'next/head';
-import React, {
-  Component,
-  createRef,
-  useState,
-  useEffect,
-  useRef,
-} from 'react';
-import Router, { useRouter } from 'next/router';
-import { observable, toJS, reaction } from 'mobx';
-import { observer } from 'mobx-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 import useScrollCount from '../../utils/useScrollCount';
 
 import * as Page from '../../axios/_Page';
@@ -16,6 +8,7 @@ import * as Category from '../../axios/_Category';
 
 import store from '../../common/store';
 import Link from 'next/link';
+
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 import arrowLeft from '../../static/images/arrowLeft.png';
@@ -57,6 +50,8 @@ const PageComponent = ({ props }) => {
   const [pos, setPos] = useState(false);
   const [query, setQuery] = useState('');
   const [pageData, setPageData] = useState(null);
+  const [traceabilityData, setTraceabilityData] = useState(null);
+
   const router = useRouter();
   const { slug } = router.query;
 
@@ -91,15 +86,16 @@ const PageComponent = ({ props }) => {
     });
   };
 
-  const textImages1 =
+  const filterdImages = (keyword) => {
     pageData &&
-    pageData.page_images.filter((nonFilteredItem, nonFilteredIndex) => {
-      if (nonFilteredItem && nonFilteredItem.type == 'material_main') {
-        return nonFilteredItem;
-      } else {
-        return null;
-      }
-    });
+      pageData.page_images.filter((nonFilteredItem, nonFilteredIndex) => {
+        if (nonFilteredItem && nonFilteredItem.type == keyword) {
+          return nonFilteredItem;
+        } else {
+          return null;
+        }
+      });
+  };
 
   useEffect(() => {
     if (router && router.query && router.query.slug) {
@@ -346,20 +342,28 @@ const PageComponent = ({ props }) => {
                   scrollPosition > matRef.current.offsetTop ? (
                     <img
                       src={
-                        textImages1 && textImages1[0] && textImages1[0].image
+                        filterdImages &&
+                        filterdImages[0] &&
+                        filterdImages[0].image
                       }
                       alt={
-                        textImages1 && textImages1[0] && textImages1[0].imageAlt
+                        filterdImages &&
+                        filterdImages[0] &&
+                        filterdImages[0].imageAlt
                       }
                     ></img>
                   ) : (
                     <img
                       style={{ filter: 'grayscale(100%)' }}
                       src={
-                        textImages1 && textImages1[0] && textImages1[0].image
+                        filterdImages &&
+                        filterdImages[0] &&
+                        filterdImages[0].image
                       }
                       alt={
-                        textImages1 && textImages1[0] && textImages1[0].imageAlt
+                        filterdImages &&
+                        filterdImages[0] &&
+                        filterdImages[0].imageAlt
                       }
                     ></img>
                   )}
@@ -384,20 +388,28 @@ const PageComponent = ({ props }) => {
                   scrollPosition > matRef.current.offsetTop ? (
                     <img
                       src={
-                        textImages1 && textImages1[1] && textImages1[1].image
+                        filterdImages &&
+                        filterdImages[1] &&
+                        filterdImages[1].image
                       }
                       alt={
-                        textImages1 && textImages1[1] && textImages1[1].imageAlt
+                        filterdImages &&
+                        filterdImages[1] &&
+                        filterdImages[1].imageAlt
                       }
                     ></img>
                   ) : (
                     <img
                       style={{ filter: 'grayscale(100%)' }}
                       src={
-                        textImages1 && textImages1[1] && textImages1[1].image
+                        filterdImages &&
+                        filterdImages[1] &&
+                        filterdImages[1].image
                       }
                       alt={
-                        textImages1 && textImages1[1] && textImages1[1].imageAlt
+                        filterdImages &&
+                        filterdImages[1] &&
+                        filterdImages[1].imageAlt
                       }
                     ></img>
                   )}
@@ -424,20 +436,28 @@ const PageComponent = ({ props }) => {
                   scrollPosition > matRef.current.offsetTop ? (
                     <img
                       src={
-                        textImages1 && textImages1[2] && textImages1[2].image
+                        filterdImages &&
+                        filterdImages[2] &&
+                        filterdImages[2].image
                       }
                       alt={
-                        textImages1 && textImages1[2] && textImages1[2].imageAlt
+                        filterdImages &&
+                        filterdImages[2] &&
+                        filterdImages[2].imageAlt
                       }
                     ></img>
                   ) : (
                     <img
                       style={{ filter: 'grayscale(100%)' }}
                       src={
-                        textImages1 && textImages1[2] && textImages1[2].image
+                        filterdImages &&
+                        filterdImages[2] &&
+                        filterdImages[2].image
                       }
                       alt={
-                        textImages1 && textImages1[2] && textImages1[2].imageAlt
+                        filterdImages &&
+                        filterdImages[2] &&
+                        filterdImages[2].imageAlt
                       }
                     ></img>
                   )}
@@ -877,7 +897,6 @@ const PageComponent = ({ props }) => {
             </div>
           </div>
         </div>
-
         <GoToShop></GoToShop>
         <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>

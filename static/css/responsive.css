@@ -570,6 +570,13 @@
 		border-bottom: 1px solid #888;
 		border-left: none;
 	}
+	.manufacturing_module:nth-child(3n) {
+		width: 100%;
+		border-right: none;
+	}
+	.manufacturing_module > div:first-child {
+		border-top: none;
+	}
 
 	.manufacturing_module:last-child {
 		border-bottom: none;
@@ -588,7 +595,8 @@
         border-right: none;
     }
     .traceability_module:nth-child(3n) {
-        border-right: none;
+		border-right: none;
+
     }
     .traceability_module:nth-child(6n) {
         border-right: none;

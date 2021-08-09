@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const Technology = ({ image }) => {
   return (
@@ -7,7 +8,9 @@ const Technology = ({ image }) => {
         <img src={image}></img>
       </div>
       <div>
-        <span>upper leather / balmoral 07 black</span>
+        <Link href='/product/balmoral-07-suede-leather-black'>
+          <span>upper leather / balmoral 07 black</span>
+        </Link>
       </div>
     </div>
   );
