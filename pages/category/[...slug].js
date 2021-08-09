@@ -98,9 +98,10 @@ const Header = () => {
     if (router && router.query && router.query.slug) {
       setQuery(router.query.slug.toString());
       setNavId(categoryArr.indexOf(query));
+      console.log(query);
+      console.log(navId);
     }
 
-    console.log(query);
     document.addEventListener('scroll', updateScroll);
   });
 
@@ -315,7 +316,7 @@ const Header = () => {
               </div>
               <div>
                 {navId !== null ? (
-                  <Link href={`/category/${categoryArr[navId + -1]}`}>
+                  <Link href={`/category/${categoryArr[navId - 1]}`}>
                     previous
                   </Link>
                 ) : null}

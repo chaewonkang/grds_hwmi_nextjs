@@ -199,7 +199,7 @@ input {
     }
     p,
     span {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
@@ -402,18 +402,36 @@ input {
 .module_wrapper {
     display: flex;
     flex-direction: row;
-    flex-flow: wrap;
+	flex-flow: wrap;
+	border-bottom: 1px solid #888;
+
+}
+
+.module_wrapper img {
+	filter: grayscale(1);
+}
+
+.module_wrapper img:hover {
+	filter: initial;
 }
 
 .traceability_module {
     border-left: 1px solid #888;
-    border-bottom: 1px solid #888;
+    border-top: 1px solid #888;
     width: calc((100% / 6) * 2);
 	height: calc(45vh - 1px);
 	min-height: 500px;
     display: flex;
     flex-flow: wrap;
     box-sizing: border-box;
+}
+
+.traceability_module:hover {
+	color: #e8a648 !important;
+}
+
+.traceability_module:hover img {
+	filter:initial !important;
 }
 
 .traceability_module:nth-child(3n) {
@@ -445,7 +463,8 @@ input {
 }
 
 .traceability_module>div:last-child img {
-    width: 80%;
+	width: 60%;
+	max-width: 150px;
     height: auto;
     object-fit: cover;
 }
@@ -581,21 +600,22 @@ input {
     border-left: 1px solid #888;
     border-bottom: 1px solid #888;
 	border-top: 1px solid #888;
+
+}
+
+.material_module:nth-child(3n) {
+	border-right: 1px solid #888;
 }
 
 .material_module>div:last-child {
     width: 100%;
     height: 40px;
     border-left: 1px solid #888;
-    border-bottom: 1px solid #888;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
-.material_module:last-child {
-	border-right: none;
-}
 
 .material_module>div:last-child span {
 	font-size: 1em;
@@ -626,16 +646,18 @@ input {
 }
 
 .technology_module {
-	width: calc((100% / 6) * 2);
+	width: calc((100% / 6) * 2 - 1.4px);
 	height: 75vh;
 	border-left: 1px solid #888;
+	border-top: 1px solid #888;
 }
 
-.technology_module:last-child {
+.technology_module:nth-child(3n) {
 	border-right: 1px solid #888;
 }
 
 .technology_module>div:first-child {
+	width: 100%;;
 	height: calc(100% - 40px);
 	border-bottom: 1px solid #888;
 }
@@ -648,19 +670,34 @@ input {
 
 .technology_module>div:last-child {
 	height: 40px;
+	width: calc(100% - 1px);
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
-.introduction_fulltext,
+.introduction_fulltext {
+    height: 10vh;
+	width: 100%;
+	min-height: 160px;
+	overflow: hidden;
+}
+
+
 .bottom_navigator {
     height: 10vh;
 	width: 100%;
 	min-height: 100px;
-
     display: flex;
     flex-direction: row;
+}
+
+.bottom_navigator:last-child {
+	border-bottom: none;
+}
+
+.test:last-child {
+	border-bottom: none;
 }
 
 .bottom_navigator > div {
@@ -668,7 +705,7 @@ input {
 	height: 100%;
 	display: flex;
 	flex-direction: row;
-	border-top: 1px solid #888;
+
 }
 
 .bottom_navigator > div > div:first-child {
@@ -686,12 +723,23 @@ input {
 	align-items: center;
 	justify-content: flex-end;
 	padding-right: 1em;
+}
+
+.bottom_navigator > div > div:last-child > a,
+.bottom_navigator > div > div:first-child > a{
+	color: #20201e;
+	text-decoration: none;
+}
+
+.bottom_navigator > div > div:last-child > a:hover,
+.bottom_navigator > div > div:first-child > a:hover {
+	color: #e8a648;
+	border-bottom: 1px solid #e8a648;
 
 }
 
 .bottom_navigator > div > div:first-child > img,
 .bottom_navigator > div > div:last-child > img {
-
 	height: 50%;
 }
 
@@ -700,9 +748,10 @@ input {
 }
 
 .introduction_fulltext > div > p{
-    height: calc(100% - 4em);
-    max-height: calc(100% - 4em);
+    height: 100%;
+    max-height: 100%;
 	overflow: auto;
+
 }
 
 .introduction_halfimg div {
@@ -983,7 +1032,8 @@ body:hover #traceability_showimg {
 }
 
 .index_header .hwmi span:hover {
-    color: #e8a648;
+	color: #e8a648;
+	border-bottom: 1px solid #e8a648;
 }
 
 .index_header .grds_logo {

@@ -18,10 +18,10 @@ import store from '../../common/store';
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
+import arrowLeft from '../../static/images/arrowLeft.png';
+import arrowRight from '../../static/images/arrowRight.png';
 
 import { GoToTop, GoToShop, Footer, Map } from '../../components';
-
-import styled from 'styled-components';
 
 const imagePath07 = [
   '../static/images/07/07_9.png',
@@ -73,7 +73,7 @@ const PageComponent = ({ props }) => {
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
-  const animatedItem = useScrollCount(80, 0, 3000);
+  const animatedItem = useScrollCount(80, 0, 1500);
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY);
@@ -814,7 +814,30 @@ const PageComponent = ({ props }) => {
               </div>
             </div>
           </div>
+          <div className='test bottom_navigator'>
+            <div>
+              <div>
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={arrowLeft}
+                  alt='mainImg'
+                ></img>
+              </div>
+              <div>previous</div>
+            </div>
+            <div>
+              <div>next</div>
+              <div>
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={arrowRight}
+                  alt='mainImg'
+                ></img>
+              </div>
+            </div>
+          </div>
         </div>
+
         <GoToShop></GoToShop>
         <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>
