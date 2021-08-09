@@ -1,13 +1,18 @@
 import React from 'react';
+import Link from 'next/link';
 
-const Material = ({ image }) => {
+const Material = ({ image, title }) => {
   return (
     <div className='material_module'>
       <div>
-        <img src={image}></img>
+        <Link href={`/product/${title}`}>
+          <img src={image}></img>
+        </Link>
       </div>
       <div>
-        <span>upper leather / balmoral 07 black</span>
+        <Link href={`/product/${title}`}>
+          <span>{title && title.replace(/-/g, ' ')}</span>
+        </Link>
       </div>
     </div>
   );

@@ -6,15 +6,17 @@ const imagePath = [
   '../static/images/temblem.png',
 ];
 
-const Product = () => {
+const Product = ({ image, title }) => {
   return (
     <div className='product_module'>
       <div>
-        <img src={imagePath[0]}></img>
+        <Link href={`/product/${title}`}>
+          <img src={image}></img>
+        </Link>
       </div>
       <div>
-        <Link href='/product/balmoral-07-leather-suede-black'>
-          <span>balmoral 07 leather/suded black</span>
+        <Link href={`/product/${title}`}>
+          <span>{title && title.replace(/-/g, ' ')}</span>
         </Link>
       </div>
     </div>

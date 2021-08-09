@@ -94,10 +94,26 @@ input {
 .index {
 	width: 100vw;
 	height: 100vh;
-	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.last_update {
+	width: calc(100% - 2px);
+	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+	border-bottom: 1px solid #888;
+	border-left: 1px solid #888;
+	border-right: 1px solid #888;
+}
+
+.last_update span {
+	position: relative;
+	top: 3px;
 }
 
 @media only screen and (min-width: 370px) {
@@ -426,6 +442,10 @@ input {
     box-sizing: border-box;
 }
 
+.traceability_module:last-child {
+	border-right: 1px solid #888;
+}
+
 .traceability_module:hover {
 	color: #e8a648 !important;
 }
@@ -592,7 +612,8 @@ input {
     width: calc((100% / 6) * 2 - 1px);
     height: 20vh;
     min-height: 250px;
-    max-height: 300px;
+	max-height: 300px;
+	border-bottom: 1px solid #888;
 }
 
 .material_module:last-child {
@@ -603,7 +624,7 @@ input {
     width: calc(100% - 1px);
     height: calc(100% - 40px);
     border-left: 1px solid #888;
-    border-bottom: 1px solid #888;
+
 	border-top: 1px solid #888;
 
 }
@@ -638,10 +659,12 @@ input {
 }
 
 .manufacturing_module {
-	width: calc((100% / 6) * 2 - 1px);
+	width: calc((100% / 6) * 2 - 2px);
 	height: 30vh;
 	min-height: 300px;
 	border-left: 1px solid #888;
+	border-bottom: 1px solid #888;
+	border-right: 1px solid #888;
 }
 
 .manufacturing_module:nth-child(3n) {
@@ -652,7 +675,7 @@ input {
 .manufacturing_module > div:first-child {
 	width: 100%;
 	height: calc(100% - 40px);
-	border-top: 1px solid #888;
+
 }
 
 .manufacturing_module > div:first-child > img {
@@ -670,16 +693,23 @@ input {
 	border-top: 1px solid #888;
 }
 
-.technology_module {
-	width: calc((100% / 6) * 2 - 1.4px);
-	height: 75vh;
-	border-left: 1px solid #888;
-	border-top: 1px solid #888;
+.manufacturing_module > div:last-child span {
+	cursor: pointer;
 }
 
-.technology_module:nth-child(3n) {
+.manufacturing_module > div:last-child span:hover {
+	color: #e8a648;
+	border-bottom: 1px solid #e8a648;
+}
+
+.technology_module {
+	width: 100%;
+	height: 35vh;
+	border-left: 1px solid #888;
+	border-top: 1px solid #888;
 	border-right: 1px solid #888;
 }
+
 
 .technology_module>div:first-child {
 	width: 100%;;
@@ -774,6 +804,7 @@ input {
 .bottom_navigator > div > div:first-child > img,
 .bottom_navigator > div > div:last-child > img {
 	height: 50%;
+	cursor: pointer;
 }
 
 .introduction_fulltext > div {
@@ -949,7 +980,7 @@ input {
 .active,
 .nav_item:hover,
 .nav_item:active {
-    color: #F3AA28 !important;
+	color: #F3AA28 !important;
 }
 
 body:hover #traceability_hiddenimg {
@@ -1255,7 +1286,6 @@ li.contactright {
 
 .page_navigation2>.header_box>.page_navigation_inner>.nav_item:last-child {
 	border-right: 1px solid #888;
-	margin-right: 1em;
 }
 
 #loading {
@@ -1460,14 +1490,13 @@ li.contactright {
 }
 
 .top {
+	width: 100%;
+	height: 100%;
 	position: relative;
-	float: right;
 	color: #fff;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	height: 100px;
-	width: 100px;
 	font-size: 15px;
 	line-height: 17px;
 	border-radius: 50%;
@@ -1489,9 +1518,8 @@ li.contactright {
 	width: 130px;
 	height: 185px;
 	-webkit-border-radius: 63px 63px 63px 63px / 108px 108px 72px 72px;
-	border-radius: 50%  50%  50%  50%  / 40%   40%   60%  60%;
+	border-radius: 50%  50%  50%  50%  / 40%   40%  60%  60%;
 	display: block;
-	float: right;
 	background-size: 100%;
 	-webkit-transition: all 2s ease-in-out;
 	-moz-transition: all 2s ease-in-out;
@@ -1560,9 +1588,17 @@ li.contactright {
 	padding-right: 1em;
   }
 
-  .footer_connect > div > span {
-	  font-size: 16px;
+  .footer_connect > div > a{
+	  color: #000;
 	  margin-bottom: 0.25em;
+	  width: fit-content;
+	  cursor: pointer;
+	  text-decoration: none;
+  }
+
+  .footer_connect > div > a:hover {
+	color: #F3AA28 !important;
+	border-bottom: 1px solid #F3AA28 !important;
   }
 
   .footer_content {
@@ -1671,8 +1707,7 @@ li.contactright {
     .traceability_module>div:first-child>span {
         font-family: 'GilSansLight';
         font-weight: lighter;
-        background-color: #000;
-        color: #fff;
+
     }
     .traceability_module>div:last-child {
         width: 100%;
@@ -1720,7 +1755,8 @@ li.contactright {
         top: 3px;
     }
     .traceability_module>div:last-child>div:last-child>div:last-child a:hover {
-        color: #20201e;
-        text-decoration: underline;
+        color: #F3AA28;
+		text-decoration: none;
+
     }
 }

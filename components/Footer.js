@@ -22,9 +22,18 @@ const Footer = () => {
                 <div className='footer_connect'>
                   <h3>connect with us</h3>
                   <div>
-                    <span>instagram</span>
-                    <span>shop</span>
-                    <span>email</span>
+                    <a
+                      href='https://instagram.com/grds_official'
+                      target='_blank'
+                    >
+                      <span>instagram</span>
+                    </a>
+                    <a href='https://grds.com/index.html' target='_blank'>
+                      <span>shop</span>
+                    </a>
+                    <a href='mailto:info@grds.com'>
+                      <span>email</span>
+                    </a>
                   </div>
                 </div>
               </div>

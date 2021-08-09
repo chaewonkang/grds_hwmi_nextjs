@@ -54,8 +54,8 @@ const GoToShop = () => {
 
         .gotoshop_text {
           display: flex;
-          justify-self: center;
-          align-self: center;
+          justify-content: center;
+          align-items: center;
         }
 
         .gotoshop_text a {
@@ -66,7 +66,7 @@ const GoToShop = () => {
         }
 
         .gotoshop_text img {
-          width: 100%;
+          width: 75%;
         }
 
         .show {

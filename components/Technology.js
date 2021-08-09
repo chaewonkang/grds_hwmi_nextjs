@@ -1,15 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 
-const Technology = ({ image }) => {
+const Technology = ({ image, title }) => {
   return (
     <div className='technology_module'>
       <div>
-        <img src={image}></img>
+        <Link href={`/product/${title}`}>
+          <img src={image}></img>
+        </Link>
       </div>
       <div>
-        <Link href='/product/balmoral-07-suede-leather-black'>
-          <span>upper leather / balmoral 07 black</span>
+        <Link href={`/product/${title}`}>
+          <span>{title && title.replace(/-/g, ' ')}</span>
         </Link>
       </div>
     </div>

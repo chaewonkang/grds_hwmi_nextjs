@@ -71,20 +71,16 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
         }
 
         .gototop_text {
-          display: flex;
-          justify-self: center;
-          align-self: center;
-        }
-
-        .gototop_text a {
           width: 100%;
+          height: 100%;
           display: flex;
           justify-content: center;
           align-items: center;
         }
 
         .gototop_text img {
-          width: 100%;
+          width: 75%;
+          height: auto;
         }
 
         .show {

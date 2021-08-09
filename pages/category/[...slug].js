@@ -19,12 +19,14 @@ import {
   Manufacturing,
 } from '../../components';
 
+import * as Page from '../../axios/_Page';
+import * as Image from '../../axios/_Image';
+import * as Category from '../../axios/_Category';
+
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import arrowLeft from '../../static/images/arrowLeft.png';
 import arrowRight from '../../static/images/arrowRight.png';
-
-import styled from 'styled-components';
 
 const imagePath07 = [
   '../static/images/introduction/int_1.png',
@@ -67,15 +69,17 @@ const categoryArr = [
   'manufacturing',
 ];
 
-const Header = () => {
-  const [pos, setPos] = useState(false);
-
-  const [query, setQuery] = useState('');
-  const [navId, setNavId] = useState(null);
-
-  const timeoutRef = useRef();
+const PageComponent = () => {
   const router = useRouter();
+  const { slug } = router.query;
 
+  const [loaded, setLoaded] = useState(false);
+  const [pos, setPos] = useState(false);
+  const [retVal, setRetVal] = useState(null);
+  const [query, setQuery] = useState('');
+  const [previousQuery, setPreviousQuery] = useState('');
+  const [navId, setNavId] = useState(null);
+  const timeoutRef = useRef();
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updateScroll = () => {
@@ -83,34 +87,128 @@ const Header = () => {
     setPos(true);
   };
 
-  const onScrollStep = (ref) => {
-    if (window.pageYOffset === 0) {
-      clearInterval(timeoutRef.current);
+  async function fetchImageData() {
+    var query = '';
+    query = '?type=' + slug;
+
+    const req = { header: {}, data: {}, query: query };
+    const result = await Image.getList(req);
+
+    // TODO-시도1 : 중복 호출막기
+    // TODO-시도2 : 감지
+    if (result.data && slug && slug == 'traceability') {
+      setRetVal(
+        result.data.map((item) => {
+          return (
+            <Traceability
+              key={item.id}
+              score={
+                item &&
+                item.page_item &&
+                item.page_item[0] &&
+                item.page_item[0].point
+              }
+              image={item && item.image}
+              title={
+                item &&
+                item.page_item &&
+                item.page_item[0] &&
+                item.page_item[0].title
+              }
+            ></Traceability>
+          );
+        })
+      );
+    } else if (result.data && slug && slug == 'product') {
+      setRetVal(
+        result.data.map((item) => {
+          return (
+            <Product
+              key={item && item.id}
+              image={item && item.image}
+              title={
+                item &&
+                item.page_item &&
+                item.page_item[0] &&
+                item.page_item[0].title
+              }
+            ></Product>
+          );
+        })
+      );
+    } else if (result.data && slug && slug == 'material') {
+      setRetVal(
+        result.data.map((item) => {
+          return (
+            <Material
+              image={item && item.image}
+              title={
+                item &&
+                item.page_item &&
+                item.page_item[0] &&
+                item.page_item[0].title
+              }
+            ></Material>
+          );
+        })
+      );
+    } else if (result.data && slug && slug == 'technology') {
+      setRetVal(
+        result.data.map((item) => {
+          return (
+            <Technology
+              image={item && item.image}
+              title={
+                item &&
+                item.page_item &&
+                item.page_item[0] &&
+                item.page_item[0].title
+              }
+            ></Technology>
+          );
+        })
+      );
+    } else if (result.data && slug && slug == 'manufacturing') {
+      setRetVal(
+        result.data.map((item) => {
+          return (
+            <Manufacturing
+              image={item && item.image}
+              title={
+                item &&
+                item.page_item &&
+                item.page_item[0] &&
+                item.page_item[0].title
+              }
+            ></Manufacturing>
+          );
+        })
+      );
     }
-    window.scrollTo({
-      left: 0,
-      top: ref.current.offsetTop + 70,
-      behavior: 'smooth',
-    });
-  };
+  }
 
   useEffect(() => {
+    const timeout = setTimeout(() => setLoaded(true), 1000);
+
     if (router && router.query && router.query.slug) {
-      setQuery(router.query.slug.toString());
-      setNavId(categoryArr.indexOf(query));
-      //   console.log(query);
-      //   console.log(navId);
+      setQuery(
+        router.query.slug &&
+          router.query.slug[0] &&
+          router.query.slug[0].toString()
+      );
     }
+    fetchImageData();
 
     document.addEventListener('scroll', updateScroll);
-  });
+    return () => {
+      document.removeEventListener('scroll', updateScroll);
+      clearTimeout(timeout);
+    };
+  }, [loaded, router]);
 
   return (
     <>
       <Head>
-        {/* LOADER */}
-        {/* PAGE CSS */}
-        {/* PAGE CARD */}
         <link
           rel='stylesheet'
           type='text/css'
@@ -240,72 +338,36 @@ const Header = () => {
         </div>
         <div className='content_box'>
           {router && query && query == 'traceability' ? (
-            <div className='module_wrapper'>
-              <Traceability score={30}></Traceability>
-              <Traceability score={40}></Traceability>
-              <Traceability score={50}></Traceability>
-              <Traceability score={60}></Traceability>
-              <Traceability score={70}></Traceability>
-              <Traceability score={80}></Traceability>
-            </div>
+            <div className='module_wrapper'>{retVal}</div>
           ) : null}
           {router && query && query == 'product' ? (
-            <div className='module_wrapper'>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-              <Product></Product>
-            </div>
+            <div className='module_wrapper'>{retVal}</div>
           ) : null}
           {router && query && query == 'material' ? (
-            <div className='module_wrapper'>
-              <Material image={materialPath[0]}></Material>
-              <Material image={materialPath[1]}></Material>
-              <Material image={materialPath[2]}></Material>
-              <Material image={materialPath[0]}></Material>
-              <Material image={materialPath[1]}></Material>
-              <Material image={materialPath[2]}></Material>
-              <Material image={materialPath[0]}></Material>
-              <Material image={materialPath[1]}></Material>
-              <Material image={materialPath[2]}></Material>
-              <Material image={materialPath[0]}></Material>
-              <Material image={materialPath[1]}></Material>
-              <Material image={materialPath[2]}></Material>
-            </div>
+            <div className='module_wrapper'>{retVal}</div>
           ) : null}
           {router && query && query == 'technology' ? (
-            <div className='module_wrapper'>
-              <Technology image={technologyPath[0]}></Technology>
-              <Technology image={technologyPath[1]}></Technology>
-              <Technology image={technologyPath[0]}></Technology>
-              <Technology image={technologyPath[1]}></Technology>
-              <Technology image={technologyPath[0]}></Technology>
-              <Technology image={technologyPath[1]}></Technology>
-            </div>
+            <div className='module_wrapper'>{retVal}</div>
           ) : null}
           {router && query && query == 'manufacturing' ? (
-            <div className='module_wrapper'>
-              <Manufacturing image={manufacturingPath[0]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[1]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[2]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[3]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[4]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[5]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[6]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[7]}></Manufacturing>
-              <Manufacturing image={manufacturingPath[8]}></Manufacturing>
-            </div>
+            <div className='module_wrapper'>{retVal}</div>
           ) : null}
           <div className='test bottom_navigator'>
             <div>
               <div>
-                {navId !== null ? (
-                  <Link href={`/category/${categoryArr[navId - 1]}`}>
+                {router.query.slug &&
+                router.query.slug[0] &&
+                categoryArr.indexOf(router.query.slug[0].toString()) != 0 ? (
+                  <Link
+                    href={`/category/${
+                      categoryArr[
+                        router.query.slug &&
+                          router.query.slug[0] &&
+                          categoryArr.indexOf(router.query.slug[0].toString()) -
+                            1
+                      ]
+                    }`}
+                  >
                     <img
                       style={{ filter: 'grayscale(100%)' }}
                       src={arrowLeft}
@@ -315,8 +377,19 @@ const Header = () => {
                 ) : null}
               </div>
               <div>
-                {navId !== null ? (
-                  <Link href={`/category/${categoryArr[navId - 1]}`}>
+                {router.query.slug &&
+                router.query.slug[0] &&
+                categoryArr.indexOf(router.query.slug[0].toString()) != 0 ? (
+                  <Link
+                    href={`/category/${
+                      categoryArr[
+                        router.query.slug &&
+                          router.query.slug[0] &&
+                          categoryArr.indexOf(router.query.slug[0].toString()) -
+                            1
+                      ]
+                    }`}
+                  >
                     previous
                   </Link>
                 ) : null}
@@ -324,13 +397,34 @@ const Header = () => {
             </div>
             <div>
               <div>
-                {navId !== null && navId !== 5 ? (
-                  <Link href={`/category/${categoryArr[navId + 1]}`}>next</Link>
+                {router.query.slug &&
+                router.query.slug[0] &&
+                categoryArr.indexOf(router.query.slug[0].toString()) != 6 ? (
+                  <Link
+                    href={`/category/${
+                      categoryArr[
+                        router.query.slug &&
+                          router.query.slug[0] &&
+                          categoryArr.indexOf(router.query.slug[0].toString()) +
+                            1
+                      ]
+                    }`}
+                  >
+                    next
+                  </Link>
                 ) : null}
               </div>
               <div>
-                {navId !== null && navId !== 5 ? (
-                  <Link href={`/category/${categoryArr[navId + 1]}`}>
+                {router.query.slug &&
+                router.query.slug[0] &&
+                categoryArr.indexOf(router.query.slug[0].toString()) != 6 ? (
+                  <Link
+                    href={`/category/${
+                      categoryArr[
+                        categoryArr.indexOf(router.query.slug[0].toString()) + 1
+                      ]
+                    }`}
+                  >
                     <img
                       style={{ filter: 'grayscale(100%)' }}
                       src={arrowRight}
@@ -349,4 +443,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default PageComponent;

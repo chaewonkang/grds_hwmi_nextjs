@@ -28,7 +28,7 @@ import { GoToTop } from '../../components';
 import styled from 'styled-components';
 
 const imagePath07 = [
-  '../static/images/introduction/int_1.png',
+  '../static/images/emblem.png',
   '../static/images/introduction/int_2.png',
   '../static/images/introduction/int_3.jpeg',
   '../static/images/introduction/int_4.jpeg',
