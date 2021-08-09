@@ -36,6 +36,7 @@ const imagePath07 = [
 ];
 
 const Header = () => {
+  const [loaded, setLoaded] = useState(false);
   const [pos, setPos] = useState(false);
 
   const timeoutRef = useRef();
@@ -75,6 +76,26 @@ const Header = () => {
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
   };
+
+  async function fetchPageData() {
+    var query = '';
+    query = '?type=' + 'page1';
+
+    console.log('[fetchPageData] query');
+    console.log(query);
+
+    const req = { header: {}, data: {}, query: query };
+    const result = await Page.getList(req);
+
+    console.log('[fetchPageData] result');
+    console.log(result);
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setLoaded(true), 1000);
+    fetchPageData();
+    return () => clearTimeout(timeout);
+  }, [loaded]);
 
   return (
     <>

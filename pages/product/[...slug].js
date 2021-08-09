@@ -91,6 +91,16 @@ const PageComponent = ({ props }) => {
     });
   };
 
+  const textImages1 =
+    pageData &&
+    pageData.page_images.filter((nonFilteredItem, nonFilteredIndex) => {
+      if (nonFilteredItem && nonFilteredItem.type == 'material_main') {
+        return nonFilteredItem;
+      } else {
+        return null;
+      }
+    });
+
   useEffect(() => {
     if (router && router.query && router.query.slug) {
       setQuery(router.query.slug);
@@ -102,38 +112,39 @@ const PageComponent = ({ props }) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
   };
 
-  
   async function fetchPageData() {
     var query = '';
     query = '?slug=' + 'product/' + slug;
 
-    console.log("[fetchPageData] query")
-    console.log(query)
+    console.log('[fetchPageData] query');
+    console.log(query);
 
     const req = { header: {}, data: {}, query: query };
     const result = await Page.getList(req);
 
-    console.log("[fetchPageData] result")
-    console.log(result)
+    console.log('[fetchPageData] [200] result');
+    console.log(result);
+    result.data && result.data[0] && setPageData(result.data[0]);
 
+    console.log('[fetchPageData] [300] result.data[0]');
+    console.log(result.data[0]);
+    console.log('[fetchPageData] [400] pageData');
+    console.log(pageData);
   }
 
-  
   async function fetchCategoryData() {
     var query = '';
     query = '';
 
-    console.log("[fetchCategoryData] query")
-    console.log(query)
+    console.log('[fetchCategoryData] query');
+    console.log(query);
 
     const req = { header: {}, data: {}, query: query };
     const result = await Category.getList(req);
 
-    console.log("[fetchCategoryData] result")
-    console.log(result)
-
+    console.log('[fetchCategoryData] result');
+    console.log(result);
   }
-
 
   if (store.pageSlug != slug) {
     store.pageSlug = slug;
@@ -144,11 +155,11 @@ const PageComponent = ({ props }) => {
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 1000);
     fetchCategoryData();
+    // setCate(fetchPageData());
     fetchPageData();
+
     return () => clearTimeout(timeout);
   }, [loaded]);
-
-
 
   return (
     <>
@@ -194,11 +205,7 @@ const PageComponent = ({ props }) => {
                   scrollPosition < 180 ? 'before_scroll' : 'after_scroll'
                 }
               >
-                <h1>
-                  {router && router.query && router.query.slug
-                    ? router.query.slug.toString().replace(/-/g, ' ')
-                    : null}
-                </h1>
+                <h1>{pageData && pageData.title.replace(/-/g, ' ')}</h1>
               </div>
             </div>
           </div>
@@ -333,15 +340,27 @@ const PageComponent = ({ props }) => {
             <div className='material_column_small'>
               <div>
                 <div>
+                  {/* FILTER FOR IMAGE 3 */}
                   {scrollPosition &&
                   matRef &&
                   scrollPosition > matRef.current.offsetTop ? (
-                    <img src={imagePath07[1]} alt='mainImg'></img>
+                    <img
+                      src={
+                        textImages1 && textImages1[0] && textImages1[0].image
+                      }
+                      alt={
+                        textImages1 && textImages1[0] && textImages1[0].imageAlt
+                      }
+                    ></img>
                   ) : (
                     <img
                       style={{ filter: 'grayscale(100%)' }}
-                      src={imagePath07[1]}
-                      alt='mainImg'
+                      src={
+                        textImages1 && textImages1[0] && textImages1[0].image
+                      }
+                      alt={
+                        textImages1 && textImages1[0] && textImages1[0].imageAlt
+                      }
                     ></img>
                   )}
                 </div>
@@ -362,13 +381,24 @@ const PageComponent = ({ props }) => {
                 <div>
                   {scrollPosition &&
                   matRef &&
-                  scrollPosition > matRef.current.offsetTop + 100 ? (
-                    <img src={imagePath07[2]} alt='mainImg'></img>
+                  scrollPosition > matRef.current.offsetTop ? (
+                    <img
+                      src={
+                        textImages1 && textImages1[1] && textImages1[1].image
+                      }
+                      alt={
+                        textImages1 && textImages1[1] && textImages1[1].imageAlt
+                      }
+                    ></img>
                   ) : (
                     <img
                       style={{ filter: 'grayscale(100%)' }}
-                      src={imagePath07[2]}
-                      alt='mainImg'
+                      src={
+                        textImages1 && textImages1[1] && textImages1[1].image
+                      }
+                      alt={
+                        textImages1 && textImages1[1] && textImages1[1].imageAlt
+                      }
                     ></img>
                   )}
                 </div>
@@ -391,13 +421,24 @@ const PageComponent = ({ props }) => {
                 <div>
                   {scrollPosition &&
                   matRef &&
-                  scrollPosition > matRef.current.offsetTop + 200 ? (
-                    <img src={imagePath07[3]} alt='mainImg'></img>
+                  scrollPosition > matRef.current.offsetTop ? (
+                    <img
+                      src={
+                        textImages1 && textImages1[2] && textImages1[2].image
+                      }
+                      alt={
+                        textImages1 && textImages1[2] && textImages1[2].imageAlt
+                      }
+                    ></img>
                   ) : (
                     <img
                       style={{ filter: 'grayscale(100%)' }}
-                      src={imagePath07[3]}
-                      alt='mainImg'
+                      src={
+                        textImages1 && textImages1[2] && textImages1[2].image
+                      }
+                      alt={
+                        textImages1 && textImages1[2] && textImages1[2].imageAlt
+                      }
                     ></img>
                   )}
                 </div>
