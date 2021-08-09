@@ -14,7 +14,8 @@ import parse from 'html-react-parser';
 import moment from 'moment';
 import { Footer } from '../../components';
 
-import * as Wine from '../../axios/Material';
+import * as Page from '../../axios/_Page';
+import * as Category from '../../axios/_Category';
 // import Header from "../../components/Header";
 import store from '../../common/store';
 import Link from 'next/link';
