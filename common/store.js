@@ -6,5 +6,9 @@ class Store {
     @observable layoutMode = ''; // desktop, tablet, mobile
     @observable dummy = [{}, {}, {}, {}, {}, {}, ];
 
+    @observable posts = [];
+    @observable selectedPost = {};
+    @observable pageSlug = null;
+
 }
 export default (new Store);

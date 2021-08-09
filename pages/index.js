@@ -59,7 +59,7 @@ class Index extends Component {
 
   ___apiGetItem = () => {
     const req = { query: '' };
-    Wine.getList(req)
+    Page.getList(req)
       .then((res) => {
         if (res.status < 300) {
           this.setState({

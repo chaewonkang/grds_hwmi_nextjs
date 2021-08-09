@@ -6,12 +6,13 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
+import Router, { useRouter } from 'next/router';
 import { observable, toJS, reaction } from 'mobx';
 import { observer } from 'mobx-react';
-import { useRouter } from 'next/router';
 import useScrollCount from '../../utils/useScrollCount';
 
-import * as Wine from '../../axios/Material';
+import * as Page from '../../axios/_Page';
+import * as Category from '../../axios/_Category';
 
 import store from '../../common/store';
 import Link from 'next/link';
@@ -51,12 +52,15 @@ const imagePath07 = [
   '../static/images/temblem.png',
 ];
 
-const Header = ({ props }) => {
+const PageComponent = ({ props }) => {
+  const [loaded, setLoaded] = useState(false);
   const [pos, setPos] = useState(false);
   const [query, setQuery] = useState('');
+  const [pageData, setPageData] = useState(null);
+  const router = useRouter();
+  const { slug } = router.query;
 
   const timeoutRef = useRef();
-  const router = useRouter();
 
   const topRef = useRef();
   const matRef = useRef();
@@ -98,6 +102,54 @@ const Header = ({ props }) => {
   const scrollToRef = (ref) => {
     timeoutRef.current = setInterval(onScrollStep(ref), 3000);
   };
+
+  
+  async function fetchPageData() {
+    var query = '';
+    query = '?slug=' + 'product/' + slug;
+
+    console.log("[fetchPageData] query")
+    console.log(query)
+
+    const req = { header: {}, data: {}, query: query };
+    const result = await Page.getList(req);
+
+    console.log("[fetchPageData] result")
+    console.log(result)
+
+  }
+
+  
+  async function fetchCategoryData() {
+    var query = '';
+    query = '';
+
+    console.log("[fetchCategoryData] query")
+    console.log(query)
+
+    const req = { header: {}, data: {}, query: query };
+    const result = await Category.getList(req);
+
+    console.log("[fetchCategoryData] result")
+    console.log(result)
+
+  }
+
+
+  if (store.pageSlug != slug) {
+    store.pageSlug = slug;
+
+    // fetchData();
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => setLoaded(true), 1000);
+    fetchCategoryData();
+    fetchPageData();
+    return () => clearTimeout(timeout);
+  }, [loaded]);
+
+
 
   return (
     <>
@@ -771,4 +823,4 @@ const Header = ({ props }) => {
   );
 };
 
-export default Header;
+export default PageComponent;
