@@ -98,8 +98,8 @@ const Header = () => {
     if (router && router.query && router.query.slug) {
       setQuery(router.query.slug.toString());
       setNavId(categoryArr.indexOf(query));
-      console.log(query);
-      console.log(navId);
+      //   console.log(query);
+      //   console.log(navId);
     }
 
     document.addEventListener('scroll', updateScroll);

@@ -91,7 +91,6 @@ const Header = ({ props }) => {
     if (router && router.query && router.query.slug) {
       setQuery(router.query.slug);
     }
-    console.log(router.query.slug);
     document.addEventListener('scroll', updateScroll);
   }, [router.query]);
 

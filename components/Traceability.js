@@ -19,7 +19,6 @@ const Traceability = ({ score }) => {
     if (router && router.query && router.query.slug) {
       setQuery(router.query.slug);
     }
-    console.log(router.query.slug);
   }, [router.query]);
   return (
     <div className='traceability_module'>
