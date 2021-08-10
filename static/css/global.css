@@ -1379,24 +1379,32 @@ li.contactright {
     border-top: 1px solid #888;
 }
 
-.technology_intro>div:last-child span {
-    border-bottom: 1px solid #888;
+.technology_intro>div:last-child a {
+	text-decoration: none;
+	color: #000;
+
+}
+
+.technology_intro>div:last-child a:hover {
+	border-bottom: 1px solid #F3AA28;
+	color: #F3AA28;
 }
 
 .technology_img {
     width: calc((100% / 6) * 4 - 1px);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .technology_img>div {
-    width: calc(100% / 2);
-    height: 100%;
-    border-right: 1px solid #888;
+    width: calc(100%);
+    height: calc(50% - 0.5px);
+
 }
 
 .technology_img>div:last-child {
-    border-right: none;
+	border-top: 1px solid #888;
+	border-bottom: 1px solid #888;
 }
 
 .technology_img>div>img {

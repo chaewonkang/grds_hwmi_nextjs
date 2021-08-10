@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Throttle } from '../utils';
 import ShopLogo from '../static/images/Cart.png';
 
-const GoToShop = () => {
+const GoToShop = ({ shopLink }) => {
   const [show, setShow] = useState(false);
   const [pageY, setPageY] = useState(0);
 
@@ -28,7 +28,7 @@ const GoToShop = () => {
     <div className={show ? 'show btn_container' : 'btn_container'}>
       <div className={show ? 'gotoshop_container' : 'gotoshop_container'}>
         <div className='gotoshop_text'>
-          <a href='https://grds.com' target='_blank'>
+          <a href={shopLink} target='_blank'>
             <img src={ShopLogo} alt='shoplogo'></img>
           </a>
         </div>

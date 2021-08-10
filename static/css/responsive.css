@@ -511,16 +511,16 @@
     }
     .technology_img {
         width: calc(100% + 1px);
-        height: auto;
+        height: 50vh;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         border-bottom: 1px solid #888;
         order: 1;
         border-top: none;
     }
     .technology_img>div {
-        width: calc(50% - 1px);
-        height: 100%;
+        width: 100%;
+        height: 50%;
         display: flex;
         border-right: 1px solid #888 !important;
     }

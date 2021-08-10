@@ -4,19 +4,34 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 const lib = ['places'];
 const id = ['3fbeff094553dbdc'];
 const key = 'AIzaSyC7xOPXC-xex5fB-Ho_x-Jp8lkTxUz_BDo';
-const defaultLocation = { lat: 41.366851, lng: -8.19769 };
+// const defaultLocation = { lat: 41.366851, lng: -8.19769 };
 
 class Map extends React.Component {
   render() {
+    const { location } = this.props;
+    console.log('location');
+    const locationString = '{' + location + '}';
+    const locationToObj = JSON.parse(locationString);
+
+    console.log('locationToObj');
+    console.log(locationToObj);
+
+    location && console.log(locationToObj);
+
     return (
       <div>
         <LoadScript googleMapsApiKey={key} libraries={lib} mapIds={id}>
-          <GoogleMap
-            center={defaultLocation}
-            zoom={5}
-            options={{ mapId: id, disableDefaultUI: true }}
-            mapContainerStyle={{ height: '100%', width: '100%' }}
-          />
+          {locationToObj && locationToObj.location && (
+            <GoogleMap
+              center={{
+                lat: parseFloat(locationToObj.location.lat),
+                lng: parseFloat(locationToObj.location.lang),
+              }}
+              zoom={5}
+              options={{ mapId: id, disableDefaultUI: true }}
+              mapContainerStyle={{ height: '100%', width: '100%' }}
+            />
+          )}
         </LoadScript>
       </div>
     );

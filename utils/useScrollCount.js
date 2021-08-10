@@ -1,6 +1,6 @@
 import React, { useRef, useCallback, useEffect } from 'react';
 
-const useScrollCount = (end, start = 0, duration = 3000, delay = 0) => {
+const useScrollCount = (end, start = 0, duration = 3000) => {
   const element = useRef();
   const observer = useRef(null);
   const stepTime = Math.abs(Math.floor(duration / (end - start)));

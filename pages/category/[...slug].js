@@ -361,7 +361,7 @@ const PageComponent = () => {
               <div>
                 {router.query.slug &&
                 router.query.slug[0] &&
-                categoryArr.indexOf(router.query.slug[0].toString()) != 6 ? (
+                categoryArr.indexOf(router.query.slug[0].toString()) != 5 ? (
                   <Link
                     href={`/category/${
                       categoryArr[
@@ -379,7 +379,7 @@ const PageComponent = () => {
               <div>
                 {router.query.slug &&
                 router.query.slug[0] &&
-                categoryArr.indexOf(router.query.slug[0].toString()) != 6 ? (
+                categoryArr.indexOf(router.query.slug[0].toString()) != 5 ? (
                   <Link
                     href={`/category/${
                       categoryArr[

@@ -27,6 +27,11 @@ const PageComponent = ({ props }) => {
   const [query, setQuery] = useState('');
   const [pageData, setPageData] = useState(null);
 
+  /* score, link, location preprecessing */
+  const [score, setScore] = useState(null);
+  const [links, setLinks] = useState(null);
+  const [location, setLocation] = useState(null);
+
   /* images preprocessing */
   const [mainImage, setMainImage] = useState(null);
   const [tracImage, setTracImage] = useState(null);
@@ -41,13 +46,12 @@ const PageComponent = ({ props }) => {
   /* category preprocessing */
   const [category, setCategory] = useState([
     {
-      created_at: '2021-08-09T17:05:46.932463',
-      description:
-        '엄선하게 선별된 주요 소재와 제품에 사용되는 작은 부품까지 해당되는 모든 소재에 대한 정보를 공유합니다.',
-      id: 'nW1jYSBEyoKW8tsO',
-      ordering: 1,
-      title: '소재',
-      updated_at: '2021-08-09T18:31:42.548102',
+      created_at: '',
+      description: '',
+      id: '',
+      ordering: 0,
+      title: '',
+      updated_at: '',
     },
   ]);
 
@@ -58,6 +62,7 @@ const PageComponent = ({ props }) => {
   const [outsoleDesc, setOutsoleDesc] = useState(null);
   const [techDesc, setTechDesc] = useState(null);
   const [manDesc, setManDesc] = useState(null);
+  const [aimatedItem, setAnimatedItem] = useState(null);
 
   const router = useRouter();
   const { slug } = router.query;
@@ -72,10 +77,9 @@ const PageComponent = ({ props }) => {
   const tracRef = useRef();
   const outRef = useRef();
   const subRef = useRef();
+  let animatedItem = 0;
 
   const [scrollPosition, setScrollPosition] = useState(0);
-
-  const animatedItem = useScrollCount(80, 0, 1500);
 
   const updateScroll = () => {
     setScrollPosition(window.scrollY);
@@ -136,20 +140,18 @@ const PageComponent = ({ props }) => {
     var query = '';
     query = '?slug=' + slug;
 
-    console.log(query);
+    // console.log(query);
 
     const req = { header: {}, data: {}, query: query };
     const result = await Page.getList(req);
-
-    // console.log('[fetchPageData] CONDITION CHECK!');
-    // console.log('[fetchPageData] CONDITION - traceabilityImages');
-    // console.log(result);
 
     if (result.data && result.data[0]) {
       // TODO- 해당 시점에 맞추어서 분기(Condition) 처리
       //   console.log('[fetchPageData] 151- CONDITION CHECK!');
       setPageData(result.data[0]);
-      const traceabilityImages = filteredImages('traceability');
+      console.log(result.data[0]);
+      setScore(parseInt(result.data[0].point));
+
       //   console.log('[fetchPageData] CONDITION CHECK!');
       //   console.log('[fetchPageData] traceabilityImages');
       //   console.log(traceabilityImages);
@@ -173,6 +175,12 @@ const PageComponent = ({ props }) => {
       setOutsoleDesc(filteredDesc('material_outsole'));
       setTechDesc(filteredDesc('technology'));
       setManDesc(filteredDesc('manufacturing'));
+
+      setScore(parseInt(result.data[0].point));
+      setLinks(result.data[0].page_links);
+      console.log(links);
+      if (result.data[0].page_areas && result.data[0].page_areas[0])
+        setLocation(result.data[0].page_areas[0].area_info1);
     }
   }
 
@@ -183,13 +191,13 @@ const PageComponent = ({ props }) => {
     const req = { header: {}, data: {}, query: query };
     const result = await Category.getList(req);
     // result && result.data && setCategory(result.data);
-    console.log('[fetchCategoryData] 175- CALLED');
-    console.log(result);
-    console.log('[fetchCategoryData] 177- CALLED');
-    console.log(result.data);
+    // console.log('[fetchCategoryData] 175- CALLED');
+    // console.log(result);
+    // console.log('[fetchCategoryData] 177- CALLED');
+    // console.log(result.data);
     if (result && result.data) {
-      console.log('[fetchCategoryData] 180- CALLED');
-      console.log(Array.from(result.data));
+      //   console.log('[fetchCategoryData] 180- CALLED');
+      //   console.log(Array.from(result.data));
       setCategory([...result.data]);
     }
   }
@@ -202,8 +210,6 @@ const PageComponent = ({ props }) => {
     const timeout = setTimeout(() => setLoaded(true), 1000);
     fetchCategoryData();
     fetchPageData();
-
-    if (category) console.log(category);
 
     return () => clearTimeout(timeout);
   }, [loaded, router.query]);
@@ -326,7 +332,7 @@ const PageComponent = ({ props }) => {
               <div>
                 <div id='loading'>
                   <div className='score'>
-                    <div {...animatedItem} />%
+                    <div {...useScrollCount(80, 0, 1500)}></div>%
                   </div>
                 </div>
               </div>
@@ -383,17 +389,18 @@ const PageComponent = ({ props }) => {
               <span>소재</span>
             </div>
             <div>
-              {category &&
-                toJS(category).map((item, mobxIndex) => {
-                  if (item.title == '소재') return item.description;
-                })}
+              <p>
+                {category &&
+                  toJS(category).map((item, mobxIndex) => {
+                    if (item.title == '소재') return item.description;
+                  })}
+              </p>
             </div>
           </div>
           <div className='test material' ref={matRef}>
             <div className='material_column_small'>
               <div>
                 <div>
-                  {/* FILTER FOR IMAGE 3 */}
                   {scrollPosition &&
                   matRef &&
                   scrollPosition > matRef.current.offsetTop ? (
@@ -811,7 +818,19 @@ const PageComponent = ({ props }) => {
             <div className='technology_intro'>
               <div>{techDesc && techDesc[0] && parse(techDesc[0])}</div>
               <div>
-                <span>Go to biomechanics</span>
+                <a
+                  href={
+                    links &&
+                    links
+                      .filter((item) => item.type == 'technology')
+                      .map((item) => {
+                        return item.url;
+                      })
+                  }
+                  target='_blank'
+                >
+                  <span>Go to biomechanics</span>
+                </a>
               </div>
             </div>
             <div className='technology_img'>
@@ -865,9 +884,7 @@ const PageComponent = ({ props }) => {
           <div className='test manufacturing' ref={manRef}>
             <div className='manufacturing_intro'>
               <div>{manDesc && manDesc[0] && parse(manDesc[0])}</div>
-              <div>
-                <Map></Map>
-              </div>
+              <div>{location && <Map location={location}></Map>}</div>
             </div>
             <div className='manufacturing_gif'>
               <div>
@@ -996,16 +1013,46 @@ const PageComponent = ({ props }) => {
           <div className='test bottom_navigator'>
             <div>
               <div>
-                <img
-                  style={{ filter: 'grayscale(100%)' }}
-                  src={arrowLeft}
-                  alt='mainImg'
-                ></img>
+                {links && (
+                  <Link
+                    href={links
+                      .filter((item) => item.type == 'previous_page_link')
+                      .map((item) => {
+                        return item.url;
+                      })}
+                  >
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={arrowLeft}
+                      alt='mainImg'
+                    ></img>
+                  </Link>
+                )}
               </div>
-              <div>previous</div>
+              {links && (
+                <Link
+                  href={links
+                    .filter((item) => item.type == 'previous_page_link')
+                    .map((item) => {
+                      return item.url;
+                    })}
+                >
+                  <div>previous</div>
+                </Link>
+              )}
             </div>
             <div>
-              <div>next</div>
+              {links && (
+                <Link
+                  href={links
+                    .filter((item) => item.type == 'next_page_link')
+                    .map((item) => {
+                      return item.url;
+                    })}
+                >
+                  <div>next</div>
+                </Link>
+              )}
               <div>
                 <img
                   style={{ filter: 'grayscale(100%)' }}
@@ -1016,7 +1063,16 @@ const PageComponent = ({ props }) => {
             </div>
           </div>
         </div>
-        <GoToShop></GoToShop>
+        <GoToShop
+          shopLink={
+            links &&
+            links
+              .filter((item) => item.type == 'etc')
+              .map((item) => {
+                return item.url;
+              })
+          }
+        ></GoToShop>
         <GoToTop scrollStepInPx='100' delayInMs='30.50'></GoToTop>
       </>
       <Footer></Footer>
