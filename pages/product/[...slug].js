@@ -170,6 +170,7 @@ const PageComponent = ({ props }) => {
 
       setScore(parseInt(result.data[0].point));
       setLinks(result.data[0].page_links);
+      setUpdate(result.data[0].updated_at);
       if (result.data[0].page_areas && result.data[0].page_areas[0])
         setLocation(result.data[0].page_areas[0].area_info1);
     }
@@ -213,6 +214,7 @@ const PageComponent = ({ props }) => {
     fetchCategoryData();
     fetchPageData();
     fetchIntroData();
+    console.log(pageData);
 
     return () => {
       clearTimeout(timeout);
@@ -1008,7 +1010,10 @@ const PageComponent = ({ props }) => {
           </div>
           <div className='last_update'>
             <div>
-              <span>마지막 업데이트: 2021. 08. 13. Wed</span>
+              <span>
+                마지막 업데이트:{' '}
+                {update && update.slice(0, 10).replace(/-/g, '.')}
+              </span>
             </div>
           </div>
           <div className='test bottom_navigator'>
