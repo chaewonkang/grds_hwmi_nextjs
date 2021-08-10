@@ -8,3 +8,4 @@ export { default as Material } from './Material';
 export { default as Manufacturing } from './Manufacturing';
 export { default as Map } from './Map';
 export { default as Technology } from './Technology';
+export { default as Score } from './Score';

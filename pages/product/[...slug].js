@@ -1,23 +1,21 @@
 import Head from 'next/head';
+import Link from 'next/link';
+
 import React, { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { toJS } from 'mobx';
-import useScrollCount from '../../utils/useScrollCount';
 
 import parse from 'html-react-parser';
 
 import * as Page from '../../axios/_Page';
 import * as Category from '../../axios/_Category';
 
-import store from '../../common/store';
-import Link from 'next/link';
-
 import LogoBlack from '../../static/images/LogoBlack.png';
 import Emblem from '../../static/images/emblem.png';
 import arrowLeft from '../../static/images/arrowLeft.png';
 import arrowRight from '../../static/images/arrowRight.png';
 
-import { GoToTop, GoToShop, Footer, Map } from '../../components';
+import { GoToTop, GoToShop, Footer, Map, Score } from '../../components';
 
 const imagePath07 = ['../static/images/temblem.png'];
 
@@ -27,10 +25,11 @@ const PageComponent = ({ props }) => {
   const [query, setQuery] = useState('');
   const [pageData, setPageData] = useState(null);
 
-  /* score, link, location preprecessing */
+  /* score, link, location, data preprecessing */
   const [score, setScore] = useState(0);
   const [links, setLinks] = useState(null);
   const [location, setLocation] = useState(null);
+  const [update, setUpdate] = useState(null);
 
   /* images preprocessing */
   const [mainImage, setMainImage] = useState(null);
@@ -42,7 +41,6 @@ const PageComponent = ({ props }) => {
   const [outsoleGifs, setOutsoleGifs] = useState(null);
   const [techImages, setTechImages] = useState(null);
   const [manGifs, setManGifs] = useState(null);
-  const [introImages, setIntroImages] = useState(null);
 
   /* category preprocessing */
   const [category, setCategory] = useState([
@@ -64,7 +62,6 @@ const PageComponent = ({ props }) => {
   const [techDesc, setTechDesc] = useState(null);
   const [manDesc, setManDesc] = useState(null);
   const [introText, setIntroText] = useState(null);
-  const [animatedItem, setAnimatedItem] = useState(null);
 
   const router = useRouter();
   const { slug } = router.query;
@@ -178,17 +175,6 @@ const PageComponent = ({ props }) => {
     }
   }
 
-  //   useEffect(() => {
-  //     // useScrollCount(80, 0, 1500);
-  //     console.log('[useEffect] score');
-  //     // setAnimatedItem(
-  //     //   <>
-  //     //     <div {...useScrollCount(score, 0, 1500)}></div>%
-  //     //   </>
-  //     // );
-  //     return () => {};
-  //   }, [score]);
-
   async function fetchCategoryData() {
     console.log('[fetchCategoryData] 153- CALLED');
     var query = '';
@@ -204,20 +190,17 @@ const PageComponent = ({ props }) => {
     var query = '';
     query = '?type=' + 'page100';
 
-    console.log('[fetchPageData] query');
-    console.log(query);
+    // console.log('[fetchPageData] query');
+    // console.log(query);
 
     const req = { header: {}, data: {}, query: query };
     const result = await Page.getList(req);
 
-    console.log('[fetchPageData] result');
-    console.log(result);
+    // console.log('[fetchPageData] result');
+    // console.log(result);
 
     if (result.data && result.data[0]) {
-      setIntroData(result.data[0]);
-
       setIntroText(result.data[0].page_descs);
-      setIntroImages(result.data[0].page_images);
     }
   }
 
@@ -355,8 +338,7 @@ const PageComponent = ({ props }) => {
               <div>
                 <div id='loading'>
                   <div className='score'>
-                    {/* TODO-STEP1-#338-SCORE */}
-                    {/* {score && score} */}
+                    {score && <Score score={score}></Score>}%
                   </div>
                 </div>
               </div>
@@ -1018,14 +1000,9 @@ const PageComponent = ({ props }) => {
                 ></img>
               </div>
               <div>
-                <p>
-                  그라더스의 디자인은 개인의 기호를 위해 다양한 스타일을
-                  만들어냄과 동시에 하입(hype)을 배제한 진실함을 추구합니다.
-                  제품이 오래사용될 수 있는 좋은 품질을 지향하며 월드클라스
-                  디자인을 모두에게 접근성있게 만들 것입니다. 제품이 만들어지는
-                  과정에 대한 투명성은 hwmi(how we make it)의 본질이자
-                  태도입니다.
-                </p>
+                {introText && introText[0] && parse(introText[0].description)}
+                {introText && introText[1] && parse(introText[1].description)}
+                {introText && introText[2] && parse(introText[2].description)}
               </div>
             </div>
           </div>
@@ -1085,11 +1062,24 @@ const PageComponent = ({ props }) => {
                 </Link>
               )}
               <div>
-                <img
-                  style={{ filter: 'grayscale(100%)' }}
-                  src={arrowRight}
-                  alt='mainImg'
-                ></img>
+                {links && (
+                  <Link
+                    href={
+                      links &&
+                      links
+                        .filter((item) => item.type == 'next_page_link')
+                        .map((item) => {
+                          return item.url;
+                        })[0]
+                    }
+                  >
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={arrowRight}
+                      alt='mainImg'
+                    ></img>
+                  </Link>
+                )}
               </div>
             </div>
           </div>

@@ -416,13 +416,17 @@
 	.technology {
 		border-bottom: 1px solid #888;
 	}
+
+
     .item div:first-child {
-        width: 100%;
+		width: 100%;
+		height: auto;
         display: flex;
         align-items: center;
     }
     .item div:last-child {
-        width: 100%;
+		width: 100%;
+		height: auto;
         border-top: 1px solid #888;
     }
     .manufacturing {
@@ -820,7 +824,7 @@
   .footer_connect > div > span {
 	  font-size: 12px;
 	  margin-bottom: 0.25em;
-	  width: 100%;
+
 	  text-align: center;
   }
 
@@ -865,7 +869,11 @@
   .footer_connect div {
 	  display: flex;
 	  flex-direction: column;
+	  width: 100%;
+	  justify-content: center;
+	  align-items: center;
   }
+
 
   .footer_logo_box {
 	width: 100%;

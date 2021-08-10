@@ -85,8 +85,6 @@ const Header = () => {
     console.log(result);
 
     if (result.data && result.data[0]) {
-      setIntroData(result.data[0]);
-
       setIntroText(result.data[0].page_descs);
       setIntroImages(result.data[0].page_images);
     }
