@@ -19,46 +19,12 @@ import {
   Manufacturing,
 } from '../../components';
 
-import * as Page from '../../axios/_Page';
 import * as Image from '../../axios/_Image';
-import * as Category from '../../axios/_Category';
 
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import arrowLeft from '../../static/images/arrowLeft.png';
 import arrowRight from '../../static/images/arrowRight.png';
-
-const imagePath07 = [
-  '../static/images/introduction/int_1.png',
-  '../static/images/introduction/int_2.png',
-  '../static/images/introduction/int_3.jpeg',
-  '../static/images/introduction/int_4.jpeg',
-  '../static/images/introduction/int_5.jpeg',
-];
-
-const materialPath = [
-  '../static/images/material/1_1.jpg',
-  '../static/images/material/1_2.jpeg',
-  '../static/images/material/1_3.jpg',
-];
-
-const technologyPath = [
-  '../static/images/technology/technology_1.png',
-  '../static/images/technology/technology_2.png',
-];
-
-const manufacturingPath = [
-  '../static/images/manufacturing/man_1.png',
-  '../static/images/manufacturing/man_2.png',
-  '../static/images/manufacturing/man_3.png',
-  '../static/images/manufacturing/man_4.png',
-  '../static/images/manufacturing/man_5.png',
-  '../static/images/manufacturing/man_6.png',
-  '../static/images/manufacturing/man_7.png',
-  '../static/images/manufacturing/man_8.png',
-  '../static/images/manufacturing/man_9.png',
-  '../static/images/manufacturing/man_10.png',
-];
 
 const categoryArr = [
   'introduction',
@@ -77,9 +43,7 @@ const PageComponent = () => {
   const [pos, setPos] = useState(false);
   const [retVal, setRetVal] = useState(null);
   const [query, setQuery] = useState('');
-  const [previousQuery, setPreviousQuery] = useState('');
-  const [navId, setNavId] = useState(null);
-  const timeoutRef = useRef();
+
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const updateScroll = () => {
@@ -94,8 +58,6 @@ const PageComponent = () => {
     const req = { header: {}, data: {}, query: query };
     const result = await Image.getList(req);
 
-    // TODO-시도1 : 중복 호출막기
-    // TODO-시도2 : 감지
     if (result.data && slug && slug == 'traceability') {
       setRetVal(
         result.data.map((item) => {

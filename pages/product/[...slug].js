@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { toJS } from 'mobx';
 import useScrollCount from '../../utils/useScrollCount';
 
+import parse from 'html-react-parser';
+
 import * as Page from '../../axios/_Page';
 import * as Category from '../../axios/_Category';
 
@@ -374,21 +376,17 @@ const PageComponent = ({ props }) => {
                 ></img>
               )}
             </div>
-            <div>
-              <p>{productDesc && productDesc[0]}</p>
-            </div>
+            <div>{productDesc && productDesc[0] && parse(productDesc[0])}</div>
           </div>
           <div className='category_desc'>
             <div>
               <span>소재</span>
             </div>
             <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '소재') return item.description;
-                  })}
-              </p>
+              {category &&
+                toJS(category).map((item, mobxIndex) => {
+                  if (item.title == '소재') return item.description;
+                })}
             </div>
           </div>
           <div className='test material' ref={matRef}>
@@ -428,7 +426,7 @@ const PageComponent = ({ props }) => {
                   )}
                 </div>
                 <div>
-                  <p>{mainMatDesc && mainMatDesc[0]}</p>
+                  {mainMatDesc && mainMatDesc[0] && parse(mainMatDesc[0])}
                 </div>
               </div>
               <div>
@@ -465,7 +463,7 @@ const PageComponent = ({ props }) => {
                   )}
                 </div>
                 <div>
-                  <p>{mainMatDesc && mainMatDesc[1]}</p>
+                  {mainMatDesc && mainMatDesc[1] && parse(mainMatDesc[1])}
                 </div>
               </div>
               <div>
@@ -502,7 +500,7 @@ const PageComponent = ({ props }) => {
                   )}
                 </div>
                 <div>
-                  <p>{mainMatDesc && mainMatDesc[2]}</p>
+                  {mainMatDesc && mainMatDesc[2] && parse(mainMatDesc[2])}
                 </div>
               </div>
             </div>
@@ -605,7 +603,7 @@ const PageComponent = ({ props }) => {
           <div className='test manufacturing' ref={outRef}>
             <div className='manufacturing_intro'>
               <div>
-                <p>{outsoleDesc && outsoleDesc[0]}</p>
+                {outsoleDesc && outsoleDesc[0] && parse(outsoleDesc[0])}
               </div>
               <div>
                 {scrollPosition &&
@@ -792,9 +790,7 @@ const PageComponent = ({ props }) => {
               </div>
             </div>
             <div className='sub_material_intro'>
-              <div>
-                <p>{subMatDesc && subMatDesc[0]}</p>
-              </div>
+              <div>{subMatDesc && subMatDesc[0] && parse(subMatDesc[0])}</div>
             </div>
           </div>
 
@@ -813,9 +809,7 @@ const PageComponent = ({ props }) => {
           </div>
           <div className='test technology' ref={tecRef}>
             <div className='technology_intro'>
-              <div>
-                <p>{techDesc && techDesc[0]}</p>
-              </div>
+              <div>{techDesc && techDesc[0] && parse(techDesc[0])}</div>
               <div>
                 <span>Go to biomechanics</span>
               </div>
@@ -870,9 +864,7 @@ const PageComponent = ({ props }) => {
           </div>
           <div className='test manufacturing' ref={manRef}>
             <div className='manufacturing_intro'>
-              <div>
-                <p>{manDesc && manDesc[0]}</p>
-              </div>
+              <div>{manDesc && manDesc[0] && parse(manDesc[0])}</div>
               <div>
                 <Map></Map>
               </div>

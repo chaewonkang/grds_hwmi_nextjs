@@ -15,12 +15,11 @@ import moment from 'moment';
 import { Footer } from '../../components';
 
 import * as Page from '../../axios/_Page';
-import * as Category from '../../axios/_Category';
-// import Header from "../../components/Header";
+
 import store from '../../common/store';
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
-import arrowLeft from '../../static/images/arrowLeft.png';
+
 import arrowRight from '../../static/images/arrowRight.png';
 
 import { GoToTop } from '../../components';
@@ -38,6 +37,9 @@ const imagePath07 = [
 const Header = () => {
   const [loaded, setLoaded] = useState(false);
   const [pos, setPos] = useState(false);
+  const [introData, setIntroData] = useState(null);
+  const [introText, setIntroText] = useState(null);
+  const [introImages, setIntroImages] = useState(null);
 
   const timeoutRef = useRef();
 
@@ -69,17 +71,9 @@ const Header = () => {
     });
   };
 
-  useEffect(() => {
-    document.addEventListener('scroll', updateScroll);
-  }, []);
-
-  const scrollToRef = (ref) => {
-    timeoutRef.current = setInterval(onScrollStep(ref), 3000);
-  };
-
-  async function fetchPageData() {
+  async function fetchIntroData() {
     var query = '';
-    query = '?type=' + 'page1';
+    query = '?type=' + 'page100';
 
     console.log('[fetchPageData] query');
     console.log(query);
@@ -89,11 +83,18 @@ const Header = () => {
 
     console.log('[fetchPageData] result');
     console.log(result);
+
+    if (result.data && result.data[0]) {
+      setIntroData(result.data[0]);
+
+      setIntroText(result.data[0].page_descs);
+      setIntroImages(result.data[0].page_images);
+    }
   }
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 1000);
-    fetchPageData();
+    fetchIntroData();
     return () => clearTimeout(timeout);
   }, [loaded]);
 
@@ -208,19 +209,12 @@ const Header = () => {
               <div>
                 <img
                   style={{ filter: 'grayscale(100%)' }}
-                  src={imagePath07[1]}
-                  alt='mainImg'
+                  src={LogoBlack}
+                  alt='logo'
                 ></img>
               </div>
               <div>
-                <p>
-                  그라더스의 디자인은 개인의 기호를 위해 다양한 스타일을
-                  만들어냄과 동시에 하입(hype)을 배제한 진실함을 추구합니다.
-                  제품이 오래사용될 수 있는 좋은 품질을 지향하며 월드클라스
-                  디자인을 모두에게 접근성있게 만들 것입니다. 제품이 만들어지는
-                  과정에 대한 투명성은 hwmi(how we make it)의 본질이자
-                  태도입니다.
-                </p>
+                {introText && introText[0] && parse(introText[0].description)}
               </div>
             </div>
           </div>
@@ -230,7 +224,10 @@ const Header = () => {
               {scrollPosition &&
               subRef &&
               scrollPosition > subRef.current.offsetTop ? (
-                <img src={imagePath07[3]} alt='mainImg'></img>
+                <img
+                  src={introImages && introImages[0] && introImages[0].image}
+                  alt={introImages && introImages[0] && introImages[0].imageAlt}
+                ></img>
               ) : (
                 <img
                   style={{ filter: 'grayscale(100%)' }}
@@ -242,13 +239,7 @@ const Header = () => {
           </div>
           <div className='test introduction_fulltext' ref={subRef}>
             <div>
-              <p>
-                hwmi의 황금알(golden egg)은 이솝 우화중 ‘황금알을 낳는 거위’의
-                모티브에서 시작되었습니다. 쉽게 황금알을 가지려는 농부는 인간의
-                탐욕스러움을 나타내며 많은 것을 바랄수록 더 큰 것을 잃는 교훈을
-                줍니다. 반대로 그라더스는 정직한 농부가 되어 거위가 좋은
-                황금알을 낳을 수 있도록 노력하고자 합니다.
-              </p>
+              {introText && introText[1] && parse(introText[1].description)}
             </div>
           </div>
           <div className='introduction_fullimg' ref={locRef}>
@@ -256,23 +247,22 @@ const Header = () => {
               {scrollPosition &&
               subRef &&
               scrollPosition > subRef.current.offsetTop ? (
-                <img src={imagePath07[2]} alt='mainImg'></img>
+                <img
+                  src={introImages && introImages[1] && introImages[1].image}
+                  alt={introImages && introImages[1] && introImages[1].imageAlt}
+                ></img>
               ) : (
                 <img
                   style={{ filter: 'grayscale(100%)' }}
-                  src={imagePath07[2]}
-                  alt='mainImg'
+                  src={introImages && introImages[1] && introImages[1].image}
+                  alt={introImages && introImages[1] && introImages[1].imageAlt}
                 ></img>
               )}
             </div>
           </div>
           <div className='test introduction_fulltext'>
             <div>
-              <p>
-                그라더스의 황금알은 제품에 사용되는 모든 소재와 제조과정에 대한
-                100% 투명성을 상징합니다. 친환경 브랜드는 아니지만 좋은 제품을
-                만들어 오래도록 사용할 수 있는 지속가능성을 실천할 것입니다.
-              </p>
+              {introText && introText[2] && parse(introText[2].description)}
             </div>
           </div>
           <div className='test bottom_navigator'>
