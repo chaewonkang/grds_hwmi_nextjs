@@ -28,7 +28,7 @@ const PageComponent = ({ props }) => {
   const [pageData, setPageData] = useState(null);
 
   /* score, link, location preprecessing */
-  const [score, setScore] = useState(null);
+  const [score, setScore] = useState(0);
   const [links, setLinks] = useState(null);
   const [location, setLocation] = useState(null);
 
@@ -42,6 +42,7 @@ const PageComponent = ({ props }) => {
   const [outsoleGifs, setOutsoleGifs] = useState(null);
   const [techImages, setTechImages] = useState(null);
   const [manGifs, setManGifs] = useState(null);
+  const [introImages, setIntroImages] = useState(null);
 
   /* category preprocessing */
   const [category, setCategory] = useState([
@@ -62,7 +63,8 @@ const PageComponent = ({ props }) => {
   const [outsoleDesc, setOutsoleDesc] = useState(null);
   const [techDesc, setTechDesc] = useState(null);
   const [manDesc, setManDesc] = useState(null);
-  const [aimatedItem, setAnimatedItem] = useState(null);
+  const [introText, setIntroText] = useState(null);
+  const [animatedItem, setAnimatedItem] = useState(null);
 
   const router = useRouter();
   const { slug } = router.query;
@@ -77,7 +79,6 @@ const PageComponent = ({ props }) => {
   const tracRef = useRef();
   const outRef = useRef();
   const subRef = useRef();
-  let animatedItem = 0;
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -147,18 +148,12 @@ const PageComponent = ({ props }) => {
 
     if (result.data && result.data[0]) {
       // TODO- 해당 시점에 맞추어서 분기(Condition) 처리
-      //   console.log('[fetchPageData] 151- CONDITION CHECK!');
       setPageData(result.data[0]);
-      console.log(result.data[0]);
-      setScore(parseInt(result.data[0].point));
 
-      //   console.log('[fetchPageData] CONDITION CHECK!');
-      //   console.log('[fetchPageData] traceabilityImages');
-      //   console.log(traceabilityImages);
-
-      //   console.log('[fetchPageData] CONDITION CHECK!');
-      //   console.log('[fetchPageData] trans');
-      //   console.log(traceabilityImages);
+      // TODO-STEP1-#154-SCORE
+      console.log('TODO-STEP1-#154-SCORE');
+      console.log(result.data[0].point);
+      console.log(parseInt(result.data[0].point));
 
       setTracImage(filteredImages('traceability'));
       setMainMatImages(filteredImages('material_main'));
@@ -178,11 +173,21 @@ const PageComponent = ({ props }) => {
 
       setScore(parseInt(result.data[0].point));
       setLinks(result.data[0].page_links);
-      console.log(links);
       if (result.data[0].page_areas && result.data[0].page_areas[0])
         setLocation(result.data[0].page_areas[0].area_info1);
     }
   }
+
+  //   useEffect(() => {
+  //     // useScrollCount(80, 0, 1500);
+  //     console.log('[useEffect] score');
+  //     // setAnimatedItem(
+  //     //   <>
+  //     //     <div {...useScrollCount(score, 0, 1500)}></div>%
+  //     //   </>
+  //     // );
+  //     return () => {};
+  //   }, [score]);
 
   async function fetchCategoryData() {
     console.log('[fetchCategoryData] 153- CALLED');
@@ -190,15 +195,29 @@ const PageComponent = ({ props }) => {
     query = '?type=' + 'introduction';
     const req = { header: {}, data: {}, query: query };
     const result = await Category.getList(req);
-    // result && result.data && setCategory(result.data);
-    // console.log('[fetchCategoryData] 175- CALLED');
-    // console.log(result);
-    // console.log('[fetchCategoryData] 177- CALLED');
-    // console.log(result.data);
     if (result && result.data) {
-      //   console.log('[fetchCategoryData] 180- CALLED');
-      //   console.log(Array.from(result.data));
       setCategory([...result.data]);
+    }
+  }
+
+  async function fetchIntroData() {
+    var query = '';
+    query = '?type=' + 'page100';
+
+    console.log('[fetchPageData] query');
+    console.log(query);
+
+    const req = { header: {}, data: {}, query: query };
+    const result = await Page.getList(req);
+
+    console.log('[fetchPageData] result');
+    console.log(result);
+
+    if (result.data && result.data[0]) {
+      setIntroData(result.data[0]);
+
+      setIntroText(result.data[0].page_descs);
+      setIntroImages(result.data[0].page_images);
     }
   }
 
@@ -210,8 +229,12 @@ const PageComponent = ({ props }) => {
     const timeout = setTimeout(() => setLoaded(true), 1000);
     fetchCategoryData();
     fetchPageData();
+    fetchIntroData();
 
-    return () => clearTimeout(timeout);
+    return () => {
+      clearTimeout(timeout);
+      document.removeEventListener('scroll', updateScroll);
+    };
   }, [loaded, router.query]);
 
   return (
@@ -332,7 +355,8 @@ const PageComponent = ({ props }) => {
               <div>
                 <div id='loading'>
                   <div className='score'>
-                    <div {...useScrollCount(80, 0, 1500)}></div>%
+                    {/* TODO-STEP1-#338-SCORE */}
+                    {/* {score && score} */}
                   </div>
                 </div>
               </div>
@@ -1015,11 +1039,13 @@ const PageComponent = ({ props }) => {
               <div>
                 {links && (
                   <Link
-                    href={links
-                      .filter((item) => item.type == 'previous_page_link')
-                      .map((item) => {
-                        return item.url;
-                      })}
+                    href={
+                      links
+                        .filter((item) => item.type == 'previous_page_link')
+                        .map((item) => {
+                          return item.url;
+                        })[0]
+                    }
                   >
                     <img
                       style={{ filter: 'grayscale(100%)' }}
@@ -1031,11 +1057,13 @@ const PageComponent = ({ props }) => {
               </div>
               {links && (
                 <Link
-                  href={links
-                    .filter((item) => item.type == 'previous_page_link')
-                    .map((item) => {
-                      return item.url;
-                    })}
+                  href={
+                    links
+                      .filter((item) => item.type == 'previous_page_link')
+                      .map((item) => {
+                        return item.url;
+                      })[0]
+                  }
                 >
                   <div>previous</div>
                 </Link>
@@ -1044,11 +1072,14 @@ const PageComponent = ({ props }) => {
             <div>
               {links && (
                 <Link
-                  href={links
-                    .filter((item) => item.type == 'next_page_link')
-                    .map((item) => {
-                      return item.url;
-                    })}
+                  href={
+                    links &&
+                    links
+                      .filter((item) => item.type == 'next_page_link')
+                      .map((item) => {
+                        return item.url;
+                      })[0]
+                  }
                 >
                   <div>next</div>
                 </Link>

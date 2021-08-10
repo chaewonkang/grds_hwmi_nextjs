@@ -507,7 +507,7 @@ input {
 }
 
 .traceability_module>div:last-child>div:first-child {
-    width: calc(50% - 1px);
+    width: 50%;
     height: 100%;
 	border-right: 1px solid #888;
 	display: flex;
@@ -516,7 +516,7 @@ input {
 }
 
 .traceability_module>div:last-child>div:last-child {
-    width: 50%;
+    width: calc(50% - 1px);
     height: 100%;
 }
 
@@ -552,6 +552,16 @@ input {
     text-decoration: none;
     position: relative;
 	top: 3px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.traceability_module>div:last-child>div:last-child>div:last-child a span {
+	width: 80%;
+
+	text-align: center;
+	word-break: keep-all;
 }
 
 .traceability_module>div:last-child>div:last-child>div:last-child a:hover {
@@ -560,7 +570,7 @@ input {
 }
 
 .product_module {
-    width: calc((100% / 6) * 3 - 1px);
+    width: calc((100% / 6) * 3 - 0.5px);
 	height: 30vh;
 	min-height: 350px;
 }
@@ -1672,8 +1682,7 @@ li.contactright {
     }
     .traceability_module {
         border-left: 1px solid #888;
-
-        width: calc((100% / 6) * 3);
+        width: calc((100% / 6) * 3 - 0.5px);
         height: auto;
         display: flex;
         flex-flow: wrap;
@@ -1758,7 +1767,10 @@ li.contactright {
     }
     .traceability_module>div:last-child>div:last-child>div:last-child a {
         color: #20201e;
-        text-decoration: none;
+		text-decoration: none;
+		display: flex;
+		align-items: center;
+		justify-content: center;
         position: relative;
         top: 3px;
     }

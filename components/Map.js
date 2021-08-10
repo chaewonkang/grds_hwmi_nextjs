@@ -9,14 +9,9 @@ const key = 'AIzaSyC7xOPXC-xex5fB-Ho_x-Jp8lkTxUz_BDo';
 class Map extends React.Component {
   render() {
     const { location } = this.props;
-    console.log('location');
+
     const locationString = '{' + location + '}';
     const locationToObj = JSON.parse(locationString);
-
-    console.log('locationToObj');
-    console.log(locationToObj);
-
-    location && console.log(locationToObj);
 
     return (
       <div>

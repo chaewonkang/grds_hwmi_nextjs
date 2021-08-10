@@ -19,6 +19,7 @@ const GoToShop = ({ shopLink }) => {
   useEffect(() => {
     if (typeof window !== 'undefined')
       document.addEventListener('scroll', throttleScroll);
+
     return () => {
       document.removeEventListener('scroll', throttleScroll);
     };

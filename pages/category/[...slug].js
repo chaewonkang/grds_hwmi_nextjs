@@ -25,6 +25,7 @@ import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
 import arrowLeft from '../../static/images/arrowLeft.png';
 import arrowRight from '../../static/images/arrowRight.png';
+import jQuery from 'jquery';
 
 const categoryArr = [
   'introduction',
@@ -103,6 +104,7 @@ const PageComponent = () => {
         result.data.map((item) => {
           return (
             <Material
+              key={item && item.id}
               image={item && item.image}
               title={
                 item &&
@@ -119,6 +121,7 @@ const PageComponent = () => {
         result.data.map((item) => {
           return (
             <Technology
+              key={item && item.id}
               image={item && item.image}
               title={
                 item &&
@@ -135,6 +138,7 @@ const PageComponent = () => {
         result.data.map((item) => {
           return (
             <Manufacturing
+              key={item && item.id}
               image={item && item.image}
               title={
                 item &&
@@ -152,6 +156,7 @@ const PageComponent = () => {
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 1000);
 
+    window.$ = window.jQuery = jQuery;
     if (router && router.query && router.query.slug) {
       setQuery(
         router.query.slug &&
@@ -161,6 +166,75 @@ const PageComponent = () => {
     }
     fetchImageData();
 
+    // DONE-CONDITION1 ::: 스크롤 이동할것 => 완료 조건
+    // TODO-CONDITION2 ::: 모바일 일때 (디바이스의 폭이 특정 사이즈 일때) ::: 768px 일때
+    // DONE-CONDITION3 ::: 어떤 영역을 클릭할때 일어난다 ::: 화살표영역
+
+    const prev_arrow0 = document.getElementById('prev_arrow0');
+    const next_arrow0 = document.getElementById('next_arrow0');
+    const prev_arrow1 = document.getElementById('prev_arrow1');
+    const next_arrow1 = document.getElementById('next_arrow1');
+    const page_nav_container1 = document.getElementById('page_nav_container1');
+
+    console.log('page_nav_container1');
+    console.log(page_nav_container1);
+    if (prev_arrow0) {
+      console.log('prev_arrow0.addEventListener');
+      prev_arrow0.addEventListener('click', () => {
+        // event.preventDefault();
+        console.log('prev_arrow0.addEventListener');
+        // TODO ::: 계산 (블럭의 크기가 가변적이지 않다면,px로 정해져 있다면) :: +=specific_px
+        $('#page_nav_container1').animate(
+          {
+            scrollLeft: '-=300px',
+          },
+          'fast'
+          // 'slow'
+        );
+      });
+      prev_arrow0.removeEventListener('click');
+    }
+    if (prev_arrow1) {
+      console.log('prev_arrow1.addEventListener');
+      prev_arrow1.addEventListener('click', () => {
+        // event.preventDefault();
+        console.log('prev_arrow1.addEventListener');
+        // TODO ::: 계산 (블럭의 크기가 가변적이지 않다면,px로 정해져 있다면) :: +=specific_px
+        $('#page_nav_container1').animate(
+          {
+            scrollLeft: '-=300px',
+          },
+          'fast'
+          // 'slow'
+        );
+      });
+      prev_arrow1.removeEventListener('click');
+    }
+    if (next_arrow0) {
+      next_arrow0.addEventListener('click', () => {
+        // event.preventDefault();
+        console.log('next_arrow0.addEventListener');
+        $('#page_nav_container1').animate(
+          {
+            scrollLeft: '+=50px',
+          },
+          'fast'
+        );
+      });
+    }
+    if (next_arrow1) {
+      next_arrow1.addEventListener('click', () => {
+        // event.preventDefault();
+        console.log('next_arrow1.addEventListener');
+        $('#page_nav_container1').animate(
+          {
+            scrollLeft: '+=50px',
+          },
+          'fast'
+        );
+      });
+    }
+
     document.addEventListener('scroll', updateScroll);
     return () => {
       document.removeEventListener('scroll', updateScroll);
@@ -168,6 +242,7 @@ const PageComponent = () => {
     };
   }, [loaded, router]);
 
+  // RENDER- RENDER()
   return (
     <>
       <Head>
@@ -213,7 +288,8 @@ const PageComponent = () => {
               </div>
             </div>
           </div>
-          <div className='page_navigation2'>
+          {/* TODO-#226 */}
+          <div id='page_navigation2' className='page_navigation2'>
             <div
               className={
                 scrollPosition < 180
@@ -221,7 +297,10 @@ const PageComponent = () => {
                   : 'header_box after_scroll'
               }
             >
-              <ul className='page_navigation_inner topnav'>
+              <ul
+                id='page_nav_container1'
+                className='page_navigation_inner topnav'
+              >
                 <Link href='/category/introduction'>
                   <li
                     className={
@@ -321,6 +400,7 @@ const PageComponent = () => {
                 router.query.slug[0] &&
                 categoryArr.indexOf(router.query.slug[0].toString()) != 0 ? (
                   <Link
+                    id='prev_arrow0'
                     href={`/category/${
                       categoryArr[
                         router.query.slug &&
@@ -343,6 +423,7 @@ const PageComponent = () => {
                 router.query.slug[0] &&
                 categoryArr.indexOf(router.query.slug[0].toString()) != 0 ? (
                   <Link
+                    id='prev_arrow1'
                     href={`/category/${
                       categoryArr[
                         router.query.slug &&
@@ -358,7 +439,7 @@ const PageComponent = () => {
               </div>
             </div>
             <div>
-              <div>
+              <div id='next_arrow0'>
                 {router.query.slug &&
                 router.query.slug[0] &&
                 categoryArr.indexOf(router.query.slug[0].toString()) != 5 ? (
@@ -376,7 +457,7 @@ const PageComponent = () => {
                   </Link>
                 ) : null}
               </div>
-              <div>
+              <div id='next_arrow1'>
                 {router.query.slug &&
                 router.query.slug[0] &&
                 categoryArr.indexOf(router.query.slug[0].toString()) != 5 ? (

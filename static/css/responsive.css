@@ -761,8 +761,8 @@
 }
 .technology_module {
 	width: 100%;
-	height: 50vh;
-	min-height: 500px;
+	height: 20vh;
+	min-height: 300px;
 	border-right: none;
 	border-left: none;
 }
