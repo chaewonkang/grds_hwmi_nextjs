@@ -296,7 +296,7 @@ const PageComponent = ({ props }) => {
                 <li className='nav_item' onClick={() => scrollToRef(matRef)}>
                   Material
                 </li>
-                {techDesc && techDesc.length > 1 ? (
+                {techDesc && techDesc.length != 0 ? (
                   <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
                     Technology
                   </li>
@@ -415,12 +415,25 @@ const PageComponent = ({ props }) => {
               </p>
             </div>
           </div>
-          <div className='test material' ref={matRef}>
+          <div
+            className='test material'
+            ref={matRef}
+            style={
+              mainMatDesc && mainMatDesc.length < 3
+                ? {
+                    height: '75vh',
+                  }
+                : null
+            }
+          >
             <div
               className='material_column_small'
               style={
                 mainMatDesc && mainMatDesc.length < 3
-                  ? { borderBottom: 'none' }
+                  ? {
+                      borderBottom: 'none',
+                      height: '100%',
+                    }
                   : null
               }
             >
@@ -952,7 +965,7 @@ const PageComponent = ({ props }) => {
               <div>{subMatDesc && subMatDesc[0] && parse(subMatDesc[0])}</div>
             </div>
           </div>
-          {techDesc && techDesc.length > 1 && (
+          {techDesc && techDesc.length != 0 && (
             <>
               <div className='category_desc'>
                 <div>

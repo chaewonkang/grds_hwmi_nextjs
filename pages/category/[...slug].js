@@ -104,7 +104,10 @@ const PageComponent = () => {
     } else if (result.data && slug && slug == 'material') {
       setRetVal(
         result.data
-          .filter((item) => item.type == 'material_main')
+          .filter(
+            (item) =>
+              item.type == 'material_sub' || item.type == 'material_main'
+          )
           .map((item) => {
             return (
               <Material
