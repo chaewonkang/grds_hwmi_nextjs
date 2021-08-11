@@ -292,9 +292,15 @@ const PageComponent = ({ props }) => {
                 <li className='nav_item' onClick={() => scrollToRef(matRef)}>
                   Material
                 </li>
-                <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
-                  Technology
-                </li>
+                {techDesc && techDesc.length > 1 ? (
+                  <li className='nav_item' onClick={() => scrollToRef(tecRef)}>
+                    Technology
+                  </li>
+                ) : (
+                  <li className='nav_item deactive' style={{ color: '#888' }}>
+                    Technology
+                  </li>
+                )}
                 <li className='nav_item' onClick={() => scrollToRef(manRef)}>
                   Manufacturing
                 </li>
@@ -406,8 +412,19 @@ const PageComponent = ({ props }) => {
             </div>
           </div>
           <div className='test material' ref={matRef}>
-            <div className='material_column_small'>
-              <div>
+            <div
+              className='material_column_small'
+              style={
+                mainMatDesc && mainMatDesc.length < 3
+                  ? { borderBottom: 'none' }
+                  : null
+              }
+            >
+              <div
+                style={
+                  mainMatImages && mainMatImages.length == 2 && { width: '50%' }
+                }
+              >
                 <div>
                   {scrollPosition &&
                   matRef &&
@@ -444,7 +461,11 @@ const PageComponent = ({ props }) => {
                   {mainMatDesc && mainMatDesc[0] && parse(mainMatDesc[0])}
                 </div>
               </div>
-              <div>
+              <div
+                style={
+                  mainMatImages && mainMatImages.length == 2 && { width: '50%' }
+                }
+              >
                 <div>
                   {scrollPosition &&
                   matRef &&
@@ -481,126 +502,146 @@ const PageComponent = ({ props }) => {
                   {mainMatDesc && mainMatDesc[1] && parse(mainMatDesc[1])}
                 </div>
               </div>
-              <div>
+              {mainMatImages && mainMatImages.length > 2 && (
+                <div>
+                  <div>
+                    {scrollPosition &&
+                    matRef &&
+                    scrollPosition > matRef.current.offsetTop ? (
+                      <img
+                        src={
+                          mainMatImages &&
+                          mainMatImages[2] &&
+                          mainMatImages[2].image
+                        }
+                        alt={
+                          mainMatImages &&
+                          mainMatImages[2] &&
+                          mainMatImages[2].imageAlt
+                        }
+                      ></img>
+                    ) : (
+                      <img
+                        style={{ filter: 'grayscale(100%)' }}
+                        src={
+                          mainMatImages &&
+                          mainMatImages[2] &&
+                          mainMatImages[2].image
+                        }
+                        alt={
+                          mainMatImages &&
+                          mainMatImages[2] &&
+                          mainMatImages[2].imageAlt
+                        }
+                      ></img>
+                    )}
+                  </div>
+                  <div>
+                    {mainMatDesc && mainMatDesc[2] && parse(mainMatDesc[2])}
+                  </div>
+                </div>
+              )}
+            </div>
+            {mainMatGifs && mainMatGifs.length > 1 && (
+              <div className='gif_column_small'>
                 <div>
                   {scrollPosition &&
                   matRef &&
-                  scrollPosition > matRef.current.offsetTop ? (
+                  scrollPosition > matRef.current.offsetTop + 300 ? (
                     <img
                       src={
-                        mainMatImages &&
-                        mainMatImages[2] &&
-                        mainMatImages[2].image
+                        mainMatGifs && mainMatGifs[0] && mainMatGifs[0].image
                       }
                       alt={
-                        mainMatImages &&
-                        mainMatImages[2] &&
-                        mainMatImages[2].imageAlt
+                        mainMatGifs && mainMatGifs[0] && mainMatGifs[0].imageAlt
                       }
                     ></img>
                   ) : (
                     <img
                       style={{ filter: 'grayscale(100%)' }}
                       src={
-                        mainMatImages &&
-                        mainMatImages[2] &&
-                        mainMatImages[2].image
+                        mainMatGifs && mainMatGifs[0] && mainMatGifs[0].image
                       }
                       alt={
-                        mainMatImages &&
-                        mainMatImages[2] &&
-                        mainMatImages[2].imageAlt
+                        mainMatGifs && mainMatGifs[0] && mainMatGifs[0].imageAlt
                       }
                     ></img>
                   )}
                 </div>
                 <div>
-                  {mainMatDesc && mainMatDesc[2] && parse(mainMatDesc[2])}
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop + 400 ? (
+                    <img
+                      src={
+                        mainMatGifs && mainMatGifs[1] && mainMatGifs[1].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[1] && mainMatGifs[1].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        mainMatGifs && mainMatGifs[1] && mainMatGifs[1].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[1] && mainMatGifs[1].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop + 500 ? (
+                    <img
+                      src={
+                        mainMatGifs && mainMatGifs[2] && mainMatGifs[2].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[2] && mainMatGifs[2].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        mainMatGifs && mainMatGifs[2] && mainMatGifs[2].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[2] && mainMatGifs[2].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop + 600 ? (
+                    <img
+                      src={
+                        mainMatGifs && mainMatGifs[3] && mainMatGifs[3].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[3] && mainMatGifs[3].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        mainMatGifs && mainMatGifs[3] && mainMatGifs[3].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[3] && mainMatGifs[3].imageAlt
+                      }
+                    ></img>
+                  )}
                 </div>
               </div>
-            </div>
-            <div className='gif_column_small'>
-              <div>
-                {scrollPosition &&
-                matRef &&
-                scrollPosition > matRef.current.offsetTop + 300 ? (
-                  <img
-                    src={mainMatGifs && mainMatGifs[0] && mainMatGifs[0].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[0] && mainMatGifs[0].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={mainMatGifs && mainMatGifs[0] && mainMatGifs[0].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[0] && mainMatGifs[0].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
-              <div>
-                {scrollPosition &&
-                matRef &&
-                scrollPosition > matRef.current.offsetTop + 400 ? (
-                  <img
-                    src={mainMatGifs && mainMatGifs[1] && mainMatGifs[1].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[1] && mainMatGifs[1].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={mainMatGifs && mainMatGifs[1] && mainMatGifs[1].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[1] && mainMatGifs[1].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
-              <div>
-                {scrollPosition &&
-                matRef &&
-                scrollPosition > matRef.current.offsetTop + 500 ? (
-                  <img
-                    src={mainMatGifs && mainMatGifs[2] && mainMatGifs[2].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[2] && mainMatGifs[2].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={mainMatGifs && mainMatGifs[2] && mainMatGifs[2].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[2] && mainMatGifs[2].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
-              <div>
-                {scrollPosition &&
-                matRef &&
-                scrollPosition > matRef.current.offsetTop + 600 ? (
-                  <img
-                    src={mainMatGifs && mainMatGifs[3] && mainMatGifs[3].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[3] && mainMatGifs[3].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={mainMatGifs && mainMatGifs[3] && mainMatGifs[3].image}
-                    alt={
-                      mainMatGifs && mainMatGifs[3] && mainMatGifs[3].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
-            </div>
+            )}
           </div>
           <div className='category_desc'>
             <div>
@@ -649,88 +690,106 @@ const PageComponent = ({ props }) => {
                 )}
               </div>
             </div>
-            <div className='manufacturing_gif'>
-              <div>
-                {scrollPosition &&
-                outRef &&
-                scrollPosition > outRef.current.offsetTop + 100 ? (
-                  <img
-                    src={outsoleGifs && outsoleGifs[1] && outsoleGifs[0].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[1] && outsoleGifs[0].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={outsoleGifs && outsoleGifs[1] && outsoleGifs[0].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[1] && outsoleGifs[0].imageAlt
-                    }
-                  ></img>
-                )}
+            {outsoleGifs && outsoleGifs.length > 1 && (
+              <div className='manufacturing_gif'>
+                <div>
+                  {scrollPosition &&
+                  outRef &&
+                  scrollPosition > outRef.current.offsetTop + 100 ? (
+                    <img
+                      src={
+                        outsoleGifs && outsoleGifs[1] && outsoleGifs[0].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[1] && outsoleGifs[0].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        outsoleGifs && outsoleGifs[1] && outsoleGifs[0].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[1] && outsoleGifs[0].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  outRef &&
+                  scrollPosition > outRef.current.offsetTop + 200 ? (
+                    <img
+                      src={
+                        outsoleGifs && outsoleGifs[2] && outsoleGifs[1].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[2] && outsoleGifs[1].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        outsoleGifs && outsoleGifs[2] && outsoleGifs[1].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[2] && outsoleGifs[1].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  outRef &&
+                  scrollPosition > outRef.current.offsetTop + 200 ? (
+                    <img
+                      src={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[2].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[2].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[2].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[2].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  outRef &&
+                  scrollPosition > outRef.current.offsetTop + 300 ? (
+                    <img
+                      src={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[3].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[3].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[3].image
+                      }
+                      alt={
+                        outsoleGifs && outsoleGifs[3] && outsoleGifs[3].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
               </div>
-              <div>
-                {scrollPosition &&
-                outRef &&
-                scrollPosition > outRef.current.offsetTop + 200 ? (
-                  <img
-                    src={outsoleGifs && outsoleGifs[2] && outsoleGifs[1].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[2] && outsoleGifs[1].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={outsoleGifs && outsoleGifs[2] && outsoleGifs[1].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[2] && outsoleGifs[1].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
-              <div>
-                {scrollPosition &&
-                outRef &&
-                scrollPosition > outRef.current.offsetTop + 200 ? (
-                  <img
-                    src={outsoleGifs && outsoleGifs[3] && outsoleGifs[2].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[3] && outsoleGifs[2].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={outsoleGifs && outsoleGifs[3] && outsoleGifs[2].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[3] && outsoleGifs[2].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
-              <div>
-                {scrollPosition &&
-                outRef &&
-                scrollPosition > outRef.current.offsetTop + 300 ? (
-                  <img
-                    src={outsoleGifs && outsoleGifs[3] && outsoleGifs[3].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[3] && outsoleGifs[3].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={outsoleGifs && outsoleGifs[3] && outsoleGifs[3].image}
-                    alt={
-                      outsoleGifs && outsoleGifs[3] && outsoleGifs[3].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
-            </div>
+            )}
           </div>
           <div className='category_desc'>
             <div>
@@ -808,74 +867,85 @@ const PageComponent = ({ props }) => {
               <div>{subMatDesc && subMatDesc[0] && parse(subMatDesc[0])}</div>
             </div>
           </div>
-
-          <div className='category_desc'>
-            <div>
-              <span>기술</span>
-            </div>
-            <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '기술') return item.description;
-                  })}
-              </p>
-            </div>
-          </div>
-          <div className='test technology' ref={tecRef}>
-            <div className='technology_intro'>
-              <div>{techDesc && techDesc[0] && parse(techDesc[0])}</div>
-              <div>
-                <a
-                  href={
-                    links &&
-                    links
-                      .filter((item) => item.type == 'technology')
-                      .map((item) => {
-                        return item.url;
-                      })
-                  }
-                  target='_blank'
-                >
-                  <span>Go to biomechanics</span>
-                </a>
+          {techDesc && techDesc.length > 1 && (
+            <>
+              <div className='category_desc'>
+                <div>
+                  <span>기술</span>
+                </div>
+                <div>
+                  <p>
+                    {category &&
+                      toJS(category).map((item, mobxIndex) => {
+                        if (item.title == '기술') return item.description;
+                      })}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className='technology_img'>
-              <div>
-                {scrollPosition &&
-                tecRef &&
-                scrollPosition > tecRef.current.offsetTop ? (
-                  <img
-                    src={techImages && techImages[0] && techImages[0].image}
-                    alt={techImages && techImages[0] && techImages[0].imageAlt}
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={techImages && techImages[0] && techImages[0].image}
-                    alt={techImages && techImages[0] && techImages[0].imageAlt}
-                  ></img>
-                )}
+              <div className='test technology' ref={tecRef}>
+                <div className='technology_intro'>
+                  <div>{techDesc && techDesc[0] && parse(techDesc[0])}</div>
+                  <div>
+                    <a
+                      href={
+                        links &&
+                        links
+                          .filter((item) => item.type == 'technology')
+                          .map((item) => {
+                            return item.url;
+                          })
+                      }
+                      target='_blank'
+                    >
+                      <span>Go to biomechanics</span>
+                    </a>
+                  </div>
+                </div>
+                <div className='technology_img'>
+                  <div>
+                    {scrollPosition &&
+                    tecRef &&
+                    scrollPosition > tecRef.current.offsetTop ? (
+                      <img
+                        src={techImages && techImages[0] && techImages[0].image}
+                        alt={
+                          techImages && techImages[0] && techImages[0].imageAlt
+                        }
+                      ></img>
+                    ) : (
+                      <img
+                        style={{ filter: 'grayscale(100%)' }}
+                        src={techImages && techImages[0] && techImages[0].image}
+                        alt={
+                          techImages && techImages[0] && techImages[0].imageAlt
+                        }
+                      ></img>
+                    )}
+                  </div>
+                  <div>
+                    {scrollPosition &&
+                    tecRef &&
+                    scrollPosition > tecRef.current.offsetTop + 100 ? (
+                      <img
+                        src={techImages && techImages[1] && techImages[1].image}
+                        alt={
+                          techImages && techImages[1] && techImages[1].imageAlt
+                        }
+                      ></img>
+                    ) : (
+                      <img
+                        style={{ filter: 'grayscale(100%)' }}
+                        src={techImages && techImages[1] && techImages[1].image}
+                        alt={
+                          techImages && techImages[1] && techImages[1].imageAlt
+                        }
+                      ></img>
+                    )}
+                  </div>
+                </div>
               </div>
-              <div>
-                {scrollPosition &&
-                tecRef &&
-                scrollPosition > tecRef.current.offsetTop + 100 ? (
-                  <img
-                    src={techImages && techImages[1] && techImages[1].image}
-                    alt={techImages && techImages[1] && techImages[1].imageAlt}
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={techImages && techImages[1] && techImages[1].image}
-                    alt={techImages && techImages[1] && techImages[1].imageAlt}
-                  ></img>
-                )}
-              </div>
-            </div>
-          </div>
+            </>
+          )}
           <div className='category_desc'>
             <div>
               <span>공정</span>

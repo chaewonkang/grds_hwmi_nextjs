@@ -116,6 +116,11 @@ input {
 	top: 3px;
 }
 
+li.deactive:hover {
+	color: #888 !important;
+	border-bottom: none !important;
+}
+
 @media only screen and (min-width: 370px) {
     .content_box {
         width: calc(100vw - 2em);
@@ -726,6 +731,7 @@ input {
 	border-left: 1px solid #888;
 	border-top: 1px solid #888;
 	border-right: 1px solid #888;
+	min-height: 400px;
 }
 
 
