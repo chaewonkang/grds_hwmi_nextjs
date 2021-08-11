@@ -41,6 +41,7 @@ const PageComponent = ({ props }) => {
   const [outsoleGifs, setOutsoleGifs] = useState(null);
   const [techImages, setTechImages] = useState(null);
   const [manGifs, setManGifs] = useState(null);
+  const [midsoleImages, setMidsoleImages] = useState(null);
 
   /* category preprocessing */
   const [category, setCategory] = useState([
@@ -62,6 +63,7 @@ const PageComponent = ({ props }) => {
   const [techDesc, setTechDesc] = useState(null);
   const [manDesc, setManDesc] = useState(null);
   const [introText, setIntroText] = useState(null);
+  const [midsoleDesc, setMidsoleDesc] = useState(null);
 
   const router = useRouter();
   const { slug } = router.query;
@@ -160,6 +162,7 @@ const PageComponent = ({ props }) => {
       setOutsoleGifs(filteredImages('material_outsole_gif'));
       setTechImages(filteredImages('technology'));
       setManGifs(filteredImages('manufacturing_gif'));
+      setMidsoleImages(filteredImages('material_midsole'));
 
       setProductDesc(filteredDesc('product'));
       setMainMatDesc(filteredDesc('material_main'));
@@ -167,6 +170,7 @@ const PageComponent = ({ props }) => {
       setOutsoleDesc(filteredDesc('material_outsole'));
       setTechDesc(filteredDesc('technology'));
       setManDesc(filteredDesc('manufacturing'));
+      setMidsoleDesc(filteredDesc('material_midsole'));
 
       setScore(parseInt(result.data[0].point));
       setLinks(result.data[0].page_links);
@@ -660,8 +664,21 @@ const PageComponent = ({ props }) => {
               </p>
             </div>
           </div>
-          <div className='test manufacturing' ref={outRef}>
-            <div className='manufacturing_intro'>
+          <div
+            className='test manufacturing'
+            ref={outRef}
+            style={
+              outsoleGifs && outsoleGifs.length < 1 ? { height: '35vh' } : null
+            }
+          >
+            <div
+              className='manufacturing_intro'
+              style={
+                outsoleGifs && outsoleGifs.length < 1
+                  ? { height: '100%' }
+                  : null
+              }
+            >
               <div>
                 {outsoleDesc && outsoleDesc[0] && parse(outsoleDesc[0])}
               </div>
@@ -795,6 +812,63 @@ const PageComponent = ({ props }) => {
               </div>
             )}
           </div>
+          {midsoleDesc && midsoleDesc.length && (
+            <div
+              className='test manufacturing'
+              ref={outRef}
+              style={
+                outsoleGifs && outsoleGifs.length < 1
+                  ? { height: '35vh' }
+                  : null
+              }
+            >
+              <div
+                className='manufacturing_intro'
+                style={
+                  outsoleGifs && outsoleGifs.length < 1
+                    ? { height: '100%' }
+                    : null
+                }
+              >
+                <div>
+                  {midsoleDesc && midsoleDesc[0] && parse(midsoleDesc[0])}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  outRef &&
+                  scrollPosition > outRef.current.offsetTop ? (
+                    <img
+                      src={
+                        midsoleImages &&
+                        midsoleImages[0] &&
+                        midsoleImages[0].image
+                      }
+                      alt={
+                        midsoleImages &&
+                        midsoleImages[0] &&
+                        midsoleImages[0].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        midsoleImages &&
+                        midsoleImages[0] &&
+                        midsoleImages[0].image
+                      }
+                      alt={
+                        midsoleImages &&
+                        midsoleImages[0] &&
+                        midsoleImages[0].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+              </div>
+            </div>
+          )}
+
           <div className='category_desc'>
             <div>
               <span>기타소재</span>
