@@ -6,25 +6,16 @@ import React, {
   useEffect,
   useRef,
 } from 'react';
-import { observable, toJS, reaction } from 'mobx';
-import { observer } from 'mobx-react';
-import { useRouter } from 'next/router';
-import jQuery from 'jquery';
-import parse from 'html-react-parser';
-import moment from 'moment';
-import { Footer } from '../../components';
 
+import { useRouter } from 'next/router';
+import parse from 'html-react-parser';
+import { Footer } from '../../components';
 import * as Page from '../../axios/_Page';
 
-import store from '../../common/store';
 import Link from 'next/link';
 import LogoBlack from '../../static/images/LogoBlack.png';
-
 import arrowRight from '../../static/images/arrowRight.png';
-
 import { GoToTop } from '../../components';
-
-import styled from 'styled-components';
 
 const imagePath07 = [
   '../static/images/emblem.png',

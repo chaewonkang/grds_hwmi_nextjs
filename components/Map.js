@@ -4,7 +4,6 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 const lib = ['places'];
 const id = ['3fbeff094553dbdc'];
 const key = 'AIzaSyC7xOPXC-xex5fB-Ho_x-Jp8lkTxUz_BDo';
-// const defaultLocation = { lat: 41.366851, lng: -8.19769 };
 
 class Map extends React.Component {
   render() {

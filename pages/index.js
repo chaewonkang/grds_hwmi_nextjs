@@ -1,18 +1,8 @@
 import Head from 'next/head';
 import React, { Component, createRef } from 'react';
-import { observable, toJS, reaction } from 'mobx';
 import { observer } from 'mobx-react';
-import Router from 'next/router';
 import jQuery from 'jquery';
-import parse from 'html-react-parser';
-import moment from 'moment';
-import { Footer, Header, GoToTop, GoToShop, ProductBody } from '../components';
-
-import store from '../common/store';
 import Link from 'next/link';
-
-import styled from 'styled-components';
-
 @observer
 class Index extends Component {
   constructor(props) {
@@ -99,7 +89,6 @@ class Index extends Component {
             <div className='index'>
               <Link href='/category/introduction'>
                 <div className='top'>
-                  Return to top
                   <div class='balloon--bounce'></div>
                 </div>
               </Link>
