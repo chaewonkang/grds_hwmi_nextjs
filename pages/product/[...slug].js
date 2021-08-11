@@ -663,6 +663,106 @@ const PageComponent = ({ props }) => {
                 </div>
               </div>
             )}
+            {mainMatGifs && mainMatGifs.length > 4 && (
+              <div className='gif_column_small'>
+                <div>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop + 700 ? (
+                    <img
+                      src={
+                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop + 800 ? (
+                    <img
+                      src={
+                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop + 900 ? (
+                    <img
+                      src={
+                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+                <div>
+                  {scrollPosition &&
+                  matRef &&
+                  scrollPosition > matRef.current.offsetTop + 1000 ? (
+                    <img
+                      src={
+                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].image
+                      }
+                      alt={
+                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+              </div>
+            )}
           </div>
           <div className='category_desc'>
             <div>
