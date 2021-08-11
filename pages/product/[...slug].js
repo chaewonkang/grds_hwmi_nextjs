@@ -422,7 +422,9 @@ const PageComponent = ({ props }) => {
             >
               <div
                 style={
-                  mainMatImages && mainMatImages.length == 2 && { width: '50%' }
+                  mainMatImages && mainMatImages.length == 2
+                    ? { width: '50%' }
+                    : null
                 }
               >
                 <div>
@@ -463,7 +465,9 @@ const PageComponent = ({ props }) => {
               </div>
               <div
                 style={
-                  mainMatImages && mainMatImages.length == 2 && { width: '50%' }
+                  mainMatImages && mainMatImages.length == 2
+                    ? { width: '50%' }
+                    : null
                 }
               >
                 <div>
