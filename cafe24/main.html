@@ -1,0 +1,649 @@
+<!--@layout(/layout/basic/layout.html)-->
+<style>
+	#container {
+	  width: 100%;
+	  padding: 0;
+	}
+
+	#contents {
+	  margin: 0;
+	}
+
+
+  </style>
+
+	  <style>
+
+  @font-face {
+	  font-family: 'KoPubWorldDotumPL';
+	  src: url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.eot');
+	  src: url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.eot?#iefix') format('embedded-opentype'),
+		  url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.woff2') format('woff2'),
+		  url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.woff') format('font-woff'),
+	  font-weight: normal;
+	  font-style: normal;
+	  font-display: swap;
+  }
+
+
+		  </style>
+
+  <script src="/drmvsn/plugins/flickity.pkgd.min.js"></script>
+  <!-- CSS -->
+  <link
+	rel="stylesheet"
+	href="https://unpkg.com/flickity-fade@1/flickity-fade.css"
+  />
+  <!-- JS -->
+  <script src="https://unpkg.com/flickity-fade@1/flickity-fade.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
+
+  <div id="index-page">
+	<div class="main-first-section">
+	  <div id="slider-container"></div>
+	  <div id="animated-logo">
+		<img src="/web/new/imgs/main-logo@2x.png" alt="grds" />
+	  </div>
+	</div>
+	<div class="free-move-section">
+	  <div id="featured-container"></div>
+	</div>
+	<div class="feature-section"> <!-- 미사용시 displaynone 추가 (띄어쓰기 주의)-->
+	  <div
+		class="feat-bg"
+		onclick="window.location.href='/product/list-comingsoon.html?cate_no=67'"
+	  ></div>
+	  <div class="feat-slider">
+		<div module="product_listmain_5" class="ec-base-product">
+		  <!--
+				$count = 8
+					※ 상품진열갯수를 설정하는 변수입니다. 설정하지 않을 경우, 최대 200개의 상품이 진열 됩니다.
+					※ 진열된 상품이 많으면, 쇼핑몰에 부하가 발생할 수 있습니다.
+				$basket_result = /product/add_basket.html
+				$basket_option = /product/basket_option.html
+			-->
+		  <ul class="prdList">
+			<li id="anchorBoxId_{$product_no}">
+			  <div class="thumbnail">
+				<div class="prdImg">
+				  <a
+					href="/product/detail-comingsoon.html{$param}"
+					name="anchorBoxName_{$product_no}"
+					><img
+					  src="{$image_medium}"
+					  id="{$image_medium_id}"
+					  alt="{$seo_alt_tag}"
+					/></a>
+				</div>
+				<div class="icon">
+				  <div class="soldout">{$soldout_icon}</div>
+				</div>
+			  </div>
+			  <div class="description">
+				<strong class="name"
+				  ><a
+					href="/product/detail-comingsoon.html{$param}"
+					class="{$product_name_display|display}"
+					>{$product_name}</a
+				  ></strong
+				>
+				<ul module="product_ListItem" class="spec">
+				  <li class="{$item_display|display}">{$item_content}</li>
+				  <li class="{$item_display|display}">{$item_content}</li>
+				</ul>
+			  </div>
+			</li>
+			<li id="anchorBoxId_{$product_no}">
+			  <div class="thumbnail">
+				<div class="prdImg">
+				  <a
+					href="/product/detail-comingsoon.html{$param}"
+					name="anchorBoxName_{$product_no}"
+					><img
+					  src="{$image_medium}"
+					  id="{$image_medium_id}"
+					  alt="{$seo_alt_tag}"
+					/></a>
+				</div>
+				<div class="icon">
+				  <div class="soldout">{$soldout_icon}</div>
+				</div>
+			  </div>
+			  <div class="description">
+				<strong class="name"
+				  ><a
+					href="/product/detail-comingsoon.html{$param}"
+					class="{$product_name_display|display}"
+					>{$product_name}</a
+				  ></strong
+				>
+				<ul module="product_ListItem" class="spec">
+				  <li class="{$item_display|display}">{$item_content}</li>
+				  <li class="{$item_display|display}">{$item_content}</li>
+				</ul>
+			  </div>
+			</li>
+		  </ul>
+		</div>
+		<div class="more-link feature">
+		  <a href="/product/list-comingsoon.html?cate_no=67">more</a>
+		</div>
+	  </div>
+	</div>
+
+	<style>
+	  .about-vis-factory {
+		opacity: 1;
+		max-height: 100000px;
+		padding: 0;
+		padding-top: 30vh;
+		overflow: hidden;
+	  }
+	  #animated-bg {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: cover;
+		will-change: background;
+		transition: 0.5s all cubic-bezier(0.785, 0.135, 0.15, 0.86);
+		opacity: 0;
+		visibility: hidden;
+	  }
+	  #animated-bg.show {
+		opacity: 0.3;
+		visibility: visible;
+	  }
+	  .about-vis-factory .grid {
+		min-height: 100vh;
+		height: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 70%;
+	  }
+
+	  .scroller {
+		z-index: 999;
+		position: relative;
+	  }
+
+	  .about-vis-factory section {
+		height: 100vh;
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	  }
+
+	  .about-vis-factory section .heading {
+		position: relative;
+		margin: auto;
+		color: #fff;
+		font-size: 100px;
+	  }
+	  .grid span {
+		cursor: pointer;
+	  }
+	</style>
+
+	<div class="about-vis-factory"> <!-- 검정 삼단 풀 슬라이드 data-bg url 경로 수정-->
+	  <div id="animated-bg"></div>
+	  <div id="viewport">
+		<div class="scroller" id="scrollTrigger">
+		  <section
+			class="section1 panel"
+			data-bg="url(/web/new/bg/desktop/about.jpg)"
+		  >
+			<div class="heading grid">
+			  <span onclick="window.location.href='/grds/about.html'">about</span>
+			</div>
+		  </section>
+
+		  <section
+			class="section2 panel"
+			data-bg="url(/web/new/bg/desktop/visibilty.jpg)"
+		  >
+			<div class="heading grid">
+			  <span onclick="window.location.href='/grds/our-product.html'"
+				>visibility</span
+			  >
+			</div>
+		  </section>
+
+		  <section
+			class="section3 panel"
+			data-bg="url(/web/new/bg/desktop/ourfactories.jpg)"
+		  >
+			<div class="heading grid">
+			  <span onclick="window.location.href='/grds/our-factories.html'"
+				>our factories</span
+			  >
+			</div>
+		  </section>
+		</div>
+	  </div>
+	</div>
+
+	<div id="main-boardArea">
+	  <div class="board" module="board_listpackage_8">
+		<h3 module="board_title_8">{$home_title}</h3>
+		<div class="main-galleryList" module="board_list_8">
+		  <!--
+				$count = 12
+			-->
+		  <ul>
+			<li>
+			  <a href="{$link_board_detail}" class="imgLink"
+				><img src="{$img_src}" alt="" />{$subject}</a
+			  >
+			  <div class="readmore">
+				<a href="{$link_board_detail}" class=""><span>read more</span></a>
+			  </div>
+			</li>
+			<li>
+			  <a href="{$link_board_detail}" class="imgLink"
+				><img src="{$img_src}" alt="" />{$subject}</a
+			  >
+			  <div class="readmore">
+				<a href="{$link_board_detail}" class=""><span>read more</span></a>
+			  </div>
+			</li>
+		  </ul>
+		</div>
+		<div class="more-link">
+		  <a href="/board/gallery/list.html?board_no=8">more</a>
+		</div>
+	  </div>
+	</div>
+
+	<div module="product_listmain_1" class="ec-base-product best-product">
+	  <h3>our best products</h3>
+	  <!--
+			$count = 8
+				※ 상품진열갯수를 설정하는 변수입니다. 설정하지 않을 경우, 최대 200개의 상품이 진열 됩니다.
+				※ 진열된 상품이 많으면, 쇼핑몰에 부하가 발생할 수 있습니다.
+			$basket_result = /product/add_basket.html
+			$basket_option = /product/basket_option.html
+		-->
+	  <ul class="prdList">
+		<li id="anchorBoxId_{$product_no}">
+		  <div class="thumbnail">
+			<div class="prdImg">
+			  <a href="{$link_product_detail}" name="anchorBoxName_{$product_no}"
+				><img
+				  src="{$image_medium}"
+				  id="{$image_medium_id}"
+				  alt="{$seo_alt_tag}"
+				/></a>
+			</div>
+			<div class="icon">
+			  <div class="soldout">{$soldout_icon}</div>
+			</div>
+		  </div>
+		  <div class="description">
+			<strong class="name"
+			  ><a
+				href="{$link_product_detail}"
+				class="{$product_name_display|display}"
+				>{$product_name}</a
+			  ></strong
+			>
+			<ul module="product_ListItem" class="spec">
+			  <li class="{$item_display|display}">{$item_content}</li>
+			  <li class="{$item_display|display}">{$item_content}</li>
+			</ul>
+		  </div>
+		</li>
+		<li id="anchorBoxId_{$product_no}">
+		  <div class="thumbnail">
+			<div class="prdImg">
+			  <a href="{$link_product_detail}" name="anchorBoxName_{$product_no}"
+				><img
+				  src="{$image_medium}"
+				  id="{$image_medium_id}"
+				  alt="{$seo_alt_tag}"
+				/></a>
+			</div>
+			<div class="icon">
+			  <div class="soldout">{$soldout_icon}</div>
+			</div>
+		  </div>
+		  <div class="description">
+			<strong class="name"
+			  ><a
+				href="{$link_product_detail}"
+				class="{$product_name_display|display}"
+				>{$product_name}</a
+			  ></strong
+			>
+			<ul module="product_ListItem" class="spec">
+			  <li class="{$item_display|display}">{$item_content}</li>
+			  <li class="{$item_display|display}">{$item_content}</li>
+			</ul>
+		  </div>
+		</li>
+	  </ul>
+	  <div class="more-link feature">
+		<a href="/category/all-shoes/43/">more</a>
+	  </div>
+	</div>
+  </div>
+  <script>
+	var brandLogo = document.querySelector(".brand-nav");
+	brandLogo.classList.add("ready");
+	document.body.className += " main";
+	var playerInfoList = [];
+	function mainSlider(callback) {
+	  var sliderArr = [
+		<!--@import(/grds/main-full-slider.js)-->
+	  ];
+	  var sliderTarget = document.getElementById("slider-container");
+	  for (var i = 0; i < sliderArr.length; i++) {
+		var slide = document.createElement("div");
+		slide.className += "single-slide " + sliderArr[i].position;
+		slide.innerHTML =
+		  '<h1><a style="color:' +
+		  sliderArr[i].titleColor +
+		  '" href="' +
+		  sliderArr[i].link +
+		  '">' +
+		  sliderArr[i].title +
+		  "</a></h1>";
+		if (sliderArr[i].img.startsWith("/")) {
+		  slide.style.backgroundImage = "url(" + sliderArr[i].img + ")";
+		} else {
+		  // slide.style.backgroundImage = "url(" + sliderArr[i].img + ")";
+		  slide.classList.add('video-wrap');
+		  var video = document.createElement("div");
+		  video.id = "player" + i;
+		  var singleInfo = {
+			id: "player" + i,
+			videoId: sliderArr[i].img,
+			width: 936,
+			height: 526,
+		  };
+		  playerInfoList.push(singleInfo);
+		  slide.append(video);
+		}
+
+		slide.setAttribute(
+		  "onclick",
+		  'window.location.href="' + sliderArr[i].link + '"'
+		);
+		sliderTarget.append(slide);
+	  }
+	  callback();
+	}
+	var lastOne = {};
+	function freeArranged(callback) {
+	  var featArr = [
+		<!--@import(/grds/main-feat-banners.js)-->
+	  ];
+	  lastOne = {
+		img: featArr[4].sectionImg,
+		title: featArr[4].title,
+		titleColor: featArr[4].titleColor,
+	  };
+	  featArr.pop();
+
+	  var featTarget = document.getElementById("featured-container");
+	  var featLength = featArr.length,
+		chunk = 2,
+		subset;
+	  for (var i = 0; i < featLength; i += chunk) {
+		subset = featArr.slice(i, i + chunk);
+		var secondWrap = document.createElement("div");
+		secondWrap.className += "row";
+		for (var j = 0; j < subset.length; j++) {
+		  var featSingle = document.createElement("div");
+		  featSingle.className += "feature-single";
+		  var featWrap = document.createElement("div");
+		  featWrap.className += "feat-wrap";
+		  featWrap.setAttribute('onclick','window.location.href="' +subset[j]['link']+'"');
+		  featSingle.append(featWrap);
+		  var featImg = document.createElement("img");
+		  featImg.setAttribute("src", subset[j]["img"]);
+
+		  featWrap.append(featImg);
+
+		  var titleSingle = document.createElement("h3");
+		  titleSingle.setAttribute('onclick','window.location.href="' +subset[j]['link']+'"');
+		  var h3Text = document.createTextNode(subset[j]["title"]);
+
+		  titleSingle.appendChild(h3Text);
+		  featSingle.append(titleSingle);
+		  secondWrap.append(featSingle);
+		}
+
+		featTarget.append(secondWrap);
+	  }
+	  callback();
+	}
+
+	function intiSlider() {
+	  var elem = document.querySelector("#slider-container");
+	  var elem2 = document.querySelector(".feat-slider .prdList");
+	  var elem3 = document.querySelector(".main-galleryList ul");
+	  var elem4 = document.querySelector(".best-product .prdList");
+	  var flkty = new Flickity(elem, {
+		cellAlign: "left",
+		contain: true,
+		imagesLoaded: true,
+		fade: true,
+		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
+	  });
+	  var flkty2 = new Flickity(elem2, {
+		cellAlign: "left",
+		contain: true,
+		pageDots: false,
+		imagesLoaded: true,
+		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
+		on: {
+		  ready: function () {},
+		},
+	  });
+	  var flkty3 = new Flickity(elem3, {
+		cellAlign: "left",
+		contain: true,
+		pageDots: false,
+		imagesLoaded: true,
+		wrapAround: false,
+		groupCells: 3,
+		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
+	  });
+
+	  var flkty4 = new Flickity(elem4, {
+		cellAlign: "left",
+		contain: true,
+		pageDots: false,
+		imagesLoaded: true,
+		wrapAround: false,
+		groupCells: 2,
+		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
+		on: {},
+	  });
+	}
+	var renderStart = false;
+	function scrollEvents(callback) {
+	  var animLogo = document.getElementById("animated-logo"),
+		alOffset = animLogo.offsetTop;
+
+	  var lastScrollTop = 0;
+
+	  window.addEventListener(
+		"scroll",
+		function (e) {
+		  var aboutSection = document.querySelector(".scroller");
+
+		  if (
+			window.scrollY >= aboutSection.offsetTop &&
+			window.scrollY <= aboutSection.offsetTop + aboutSection.clientHeight
+		  ) {
+			renderStart = true;
+		  } else {
+			renderStart = false;
+		  }
+
+		  var bgChanger =
+			document.querySelector(".about-vis-factory").offsetTop -
+			window.innerHeight / 3;
+		  var journalTop =
+			document.querySelector("#main-boardArea").offsetTop -
+			window.innerHeight / 3;
+		  var secondElems = document.querySelectorAll(".feature-single");
+		  for (var i = 0; i < secondElems.length; i++) {
+			if (
+			  window.scrollY >
+			  secondElems[i].offsetTop - secondElems[i].clientHeight / 2
+			) {
+			  secondElems[i].classList.add("show");
+			}
+		  }
+		  if (window.scrollY > alOffset) {
+			document.body.className = document.body.className.replace(
+			  /\b main\b/g,
+			  ""
+			);
+			setTimeout(function () {
+			  brandLogo.className = brandLogo.className.replace(
+				/\b ready\b/g,
+				""
+			  );
+			}, 500);
+		  } else {
+			if (document.body.className.indexOf("main") <= -1) {
+			  document.body.className += " main";
+			}
+			if (brandLogo.className.indexOf("ready") <= -1) {
+			  setTimeout(function () {
+				brandLogo.className += " ready";
+			  }, 500);
+			}
+		  }
+		  if (window.scrollY > bgChanger) {
+			if (document.body.className.indexOf("blacked") <= -1) {
+			  document.body.classList.add("blacked");
+			  document.querySelector("#animated-bg").classList.add("show");
+			}
+		  } else {
+			document.body.classList.remove("blacked");
+			document.querySelector("#animated-bg").classList.remove("show");
+		  }
+		  if (window.scrollY > journalTop) {
+			if (document.body.className.indexOf("temp-white") <= -1) {
+			  document.body.className += " temp-white";
+			  document.querySelector("#animated-bg").classList.remove("show");
+			}
+		  } else {
+			document.body.className = document.body.className.replace(
+			  /\b temp-white\b/g,
+			  ""
+			);
+			if (document.body.className.indexOf("blacked") > -1) {
+			  document.querySelector("#animated-bg").classList.add("show");
+			}
+		  }
+		},
+		false
+	  );
+	}
+
+	docReady(function () {
+	  mainSlider(intiSlider);
+	  freeArranged(scrollEvents);
+	  animStart();
+	});
+  </script>
+  <script>
+	gsap.registerPlugin(ScrollTrigger);
+	gsap.registerPlugin(ScrollToPlugin);
+	function goToSection(section, anim) {
+	  // gsap.to(window, {
+	  //   scrollTo: { y: section, autoKill: false },
+	  //   ease: Expo.easeOut,
+	  //   duration: 1,
+	  // });
+
+	  if (anim) {
+		anim.restart();
+	  }
+
+	  document.getElementById(
+		"animated-bg"
+	  ).style.backgroundImage = section.getAttribute("data-bg");
+	}
+	function animStart() {
+	  document.querySelectorAll(".panel").forEach((section, index) => {
+		const intoAnim = gsap.timeline({ paused: true });
+		ScrollTrigger.create({
+		  trigger: section,
+		  id: "panel" + index,
+		  // scrub:1,
+		  // snap:true,
+		  onEnter: () => goToSection(section, intoAnim),
+		});
+
+		ScrollTrigger.create({
+		  trigger: section,
+		  start: "bottom bottom",
+		  // scrub:1,
+		  // snap:true,
+		  id: "panel" + index,
+		  onEnterBack: () => goToSection(section, intoAnim),
+		});
+	  });
+	}
+	window.scrollTo(0, 0);
+  </script>
+  <script>
+	// 2. This code loads the IFrame Player API code asynchronously.
+	var tag = document.createElement("script");
+
+	tag.src = "https://www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName("script")[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	function onPlayerReady(event) {
+	  event.target.playVideo();
+	}
+
+	function stopVideo() {
+	  player.stopVideo();
+	}
+
+	function onYouTubeIframeAPIReady() {
+	  if (typeof playerInfoList === "undefined") return;
+
+	  for (var i = 0; i < playerInfoList.length; i++) {
+		var curplayer = createPlayer(playerInfoList[i]);
+	  }
+	}
+	function createPlayer(playerInfo) {
+	  return new YT.Player(playerInfo.id, {
+		height: playerInfo.height,
+		width: playerInfo.width,
+		videoId: playerInfo.videoId,
+		playerVars: {
+		  controls:0,
+				   modestbranding: 1,
+				// autoplay : 1,
+				mute: 1,
+				loop:1,
+				playsinline: 1,
+				playlist: playerInfo.videoId,
+		},
+		events: {
+		'onReady': onPlayerReady,
+	  }
+	  });
+	}
+  </script>
+
+  <script src="/drmvsn/js/main.js"></script>
+  <!--@define(cmc_log)-->

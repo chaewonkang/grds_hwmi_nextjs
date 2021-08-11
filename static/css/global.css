@@ -322,8 +322,10 @@ input {
 }
 
 .manufacturing {
-    width: 100%;
-    height: auto;
+	width: 100%;
+
+	height: 75vh;
+
     display: flex;
     flex-direction: column;
 }
@@ -337,7 +339,7 @@ input {
 }
 
 .manufacturing_intro {
-	height: auto;
+	height: calc(50% - 1px);
     width: calc(100% - 1px);
     display: flex;
     flex-direction: row;

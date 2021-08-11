@@ -948,14 +948,14 @@ const PageComponent = ({ props }) => {
                 manRef &&
                 scrollPosition > manRef.current.offsetTop + 400 ? (
                   <img
-                    src={manGifs && manGifs[2] && manGifs[2].image}
-                    alt={manGifs && manGifs[2] && manGifs[2].imageAlt}
+                    src={manGifs && manGifs[3] && manGifs[3].image}
+                    alt={manGifs && manGifs[3] && manGifs[3].imageAlt}
                   ></img>
                 ) : (
                   <img
                     style={{ filter: 'grayscale(100%)' }}
-                    src={manGifs && manGifs[2] && manGifs[2].image}
-                    alt={manGifs && manGifs[2] && manGifs[2].imageAlt}
+                    src={manGifs && manGifs[3] && manGifs[3].image}
+                    alt={manGifs && manGifs[3] && manGifs[3].imageAlt}
                   ></img>
                 )}
               </div>
@@ -1011,7 +1011,7 @@ const PageComponent = ({ props }) => {
           <div className='last_update'>
             <div>
               <span>
-                마지막 업데이트:{' '}
+                마지막 업데이트:
                 {update && update.slice(0, 10).replace(/-/g, '.')}
               </span>
             </div>
