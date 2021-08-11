@@ -59,6 +59,8 @@ const PageComponent = () => {
     const req = { header: {}, data: {}, query: query };
     const result = await Image.getList(req);
 
+    console.log(result);
+
     if (result.data && slug && slug == 'traceability') {
       setRetVal(
         result.data.map((item) => {
@@ -101,20 +103,22 @@ const PageComponent = () => {
       );
     } else if (result.data && slug && slug == 'material') {
       setRetVal(
-        result.data.map((item) => {
-          return (
-            <Material
-              key={item && item.id}
-              image={item && item.image}
-              title={
-                item &&
-                item.page_item &&
-                item.page_item[0] &&
-                item.page_item[0].title
-              }
-            ></Material>
-          );
-        })
+        result.data
+          .filter((item) => item.type == 'material_main')
+          .map((item) => {
+            return (
+              <Material
+                key={item && item.id}
+                image={item && item.image}
+                title={
+                  item &&
+                  item.page_item &&
+                  item.page_item[0] &&
+                  item.page_item[0].title
+                }
+              ></Material>
+            );
+          })
       );
     } else if (result.data && slug && slug == 'technology') {
       setRetVal(
@@ -176,13 +180,13 @@ const PageComponent = () => {
     const next_arrow1 = document.getElementById('next_arrow1');
     const page_nav_container1 = document.getElementById('page_nav_container1');
 
-    console.log('page_nav_container1');
-    console.log(page_nav_container1);
+    // console.log('page_nav_container1');
+    // console.log(page_nav_container1);
     if (prev_arrow0) {
-      console.log('prev_arrow0.addEventListener');
+      //   console.log('prev_arrow0.addEventListener');
       prev_arrow0.addEventListener('click', () => {
         // event.preventDefault();
-        console.log('prev_arrow0.addEventListener');
+        // console.log('prev_arrow0.addEventListener');
         // TODO ::: 계산 (블럭의 크기가 가변적이지 않다면,px로 정해져 있다면) :: +=specific_px
         $('#page_nav_container1').animate(
           {
@@ -195,10 +199,10 @@ const PageComponent = () => {
       prev_arrow0.removeEventListener('click');
     }
     if (prev_arrow1) {
-      console.log('prev_arrow1.addEventListener');
+      //   console.log('prev_arrow1.addEventListener');
       prev_arrow1.addEventListener('click', () => {
         // event.preventDefault();
-        console.log('prev_arrow1.addEventListener');
+        // console.log('prev_arrow1.addEventListener');
         // TODO ::: 계산 (블럭의 크기가 가변적이지 않다면,px로 정해져 있다면) :: +=specific_px
         $('#page_nav_container1').animate(
           {
@@ -213,7 +217,7 @@ const PageComponent = () => {
     if (next_arrow0) {
       next_arrow0.addEventListener('click', () => {
         // event.preventDefault();
-        console.log('next_arrow0.addEventListener');
+        // console.log('next_arrow0.addEventListener');
         $('#page_nav_container1').animate(
           {
             scrollLeft: '+=50px',
@@ -225,7 +229,7 @@ const PageComponent = () => {
     if (next_arrow1) {
       next_arrow1.addEventListener('click', () => {
         // event.preventDefault();
-        console.log('next_arrow1.addEventListener');
+        // console.log('next_arrow1.addEventListener');
         $('#page_nav_container1').animate(
           {
             scrollLeft: '+=50px',
