@@ -884,7 +884,13 @@ const PageComponent = ({ props }) => {
           </div>
           <div className='test sub_material' ref={subRef}>
             <div className='sub_material_img'>
-              <div>
+              <div
+                style={
+                  subMatImages && subMatImages.length == 1
+                    ? { height: '100%' }
+                    : null
+                }
+              >
                 {scrollPosition &&
                 subRef &&
                 scrollPosition > subRef.current.offsetTop ? (
@@ -912,34 +918,36 @@ const PageComponent = ({ props }) => {
                   ></img>
                 )}
               </div>
-              <div>
-                {scrollPosition &&
-                subRef &&
-                scrollPosition > subRef.current.offsetTop + 100 ? (
-                  <img
-                    src={
-                      subMatImages && subMatImages[1] && subMatImages[1].image
-                    }
-                    alt={
-                      subMatImages &&
-                      subMatImages[1] &&
-                      subMatImages[1].imageAlt
-                    }
-                  ></img>
-                ) : (
-                  <img
-                    style={{ filter: 'grayscale(100%)' }}
-                    src={
-                      subMatImages && subMatImages[1] && subMatImages[1].image
-                    }
-                    alt={
-                      subMatImages &&
-                      subMatImages[1] &&
-                      subMatImages[1].imageAlt
-                    }
-                  ></img>
-                )}
-              </div>
+              {subMatImages && subMatImages.length >= 2 && (
+                <div>
+                  {scrollPosition &&
+                  subRef &&
+                  scrollPosition > subRef.current.offsetTop + 100 ? (
+                    <img
+                      src={
+                        subMatImages && subMatImages[1] && subMatImages[1].image
+                      }
+                      alt={
+                        subMatImages &&
+                        subMatImages[1] &&
+                        subMatImages[1].imageAlt
+                      }
+                    ></img>
+                  ) : (
+                    <img
+                      style={{ filter: 'grayscale(100%)' }}
+                      src={
+                        subMatImages && subMatImages[1] && subMatImages[1].image
+                      }
+                      alt={
+                        subMatImages &&
+                        subMatImages[1] &&
+                        subMatImages[1].imageAlt
+                      }
+                    ></img>
+                  )}
+                </div>
+              )}
             </div>
             <div className='sub_material_intro'>
               <div>{subMatDesc && subMatDesc[0] && parse(subMatDesc[0])}</div>

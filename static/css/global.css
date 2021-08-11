@@ -1043,7 +1043,7 @@ body:hover #traceability_showimg {
 
 .material_column_small {
     width: calc(100% - 2px);
-    height: calc(100vh - 150px);
+    height: 100%;
     display: flex;
 	border-bottom: 1px solid #888;
 }
