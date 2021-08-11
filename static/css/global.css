@@ -1095,6 +1095,13 @@ body:hover #traceability_showimg {
     border-right: 1px solid #888;
 }
 
+.material_column_small>div>div:first-child {
+	border-top: 1px solid #888;
+	border-bottom: 1px solid #888;
+	display: flex;
+	margin-top: -1px;
+}
+
 .material_column_small>div:last-child {
     border-right: none;
 }
