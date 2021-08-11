@@ -812,7 +812,7 @@ const PageComponent = ({ props }) => {
               </div>
             )}
           </div>
-          {midsoleDesc && midsoleDesc.length && (
+          {midsoleDesc && midsoleDesc.length != 0 && (
             <div
               className='test manufacturing'
               ref={outRef}
@@ -868,7 +868,6 @@ const PageComponent = ({ props }) => {
               </div>
             </div>
           )}
-
           <div className='category_desc'>
             <div>
               <span>기타소재</span>
