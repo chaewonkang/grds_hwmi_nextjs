@@ -295,8 +295,7 @@ input {
 
 .test {
     position: relative;
-    height: 75vh;
-    max-height: 1000px;
+    height: calc(100vh - 150px);
     width: 100%;
     border-bottom: 1px solid #888;
     display: flex;
@@ -323,15 +322,13 @@ input {
 
 .manufacturing {
 	width: 100%;
-
-	height: 75vh;
-
+	height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
 }
 
 .manufacturing_gif {
-    height: calc(75vh / 2);
+    height: 50%;
     width: calc(100% - 2px);
     border-top: 1px solid #888;
     border-left: 1px solid #888;
@@ -339,7 +336,7 @@ input {
 }
 
 .manufacturing_intro {
-	height: calc(50% - 1px);
+	height: 50%;
     width: calc(100% - 1px);
     display: flex;
     flex-direction: row;
@@ -366,7 +363,7 @@ input {
 }
 
 .manufacturing_gif {
-    height: calc(75vh / 2);
+    height: 50%;
     display: flex;
     flex-direction: row;
 }
@@ -436,13 +433,16 @@ input {
 
 .traceability_module {
     border-left: 1px solid #888;
-    border-top: 1px solid #888;
+	border-top: 1px solid #888;
+	border-bottom: 1px solid #888;
+	box-sizing: border-box;
     width: calc((100% / 6) * 2);
-	height: calc(45vh - 1px);
+	height: calc(45vh);
 	min-height: 500px;
     display: flex;
     flex-flow: wrap;
-    box-sizing: border-box;
+	box-sizing: border-box;
+	border-collapse: collapse;
 }
 
 .traceability_module:last-child {
@@ -627,6 +627,7 @@ input {
     min-height: 250px;
 	max-height: 300px;
 	border-bottom: 1px solid #888;
+	border-collapse: collapse;
 }
 
 .material_module:last-child {
@@ -678,11 +679,13 @@ input {
 	border-left: 1px solid #888;
 	border-bottom: 1px solid #888;
 	border-right: 1px solid #888;
+	border-collapse: collapse;
 }
 
 .manufacturing_module:nth-child(3n) {
 	 border-right: 1px solid #888;
 	 width: calc((100% / 6) * 2 - 2px);
+	 border-collapse: collapse;
 }
 
 .manufacturing_module > div:first-child {
@@ -704,6 +707,7 @@ input {
 	align-items: center;
 	justify-content: center;
 	border-top: 1px solid #888;
+	border-collapse: collapse;
 }
 
 .manufacturing_module > div:last-child span {
@@ -1008,6 +1012,15 @@ body:hover #traceability_showimg {
     text-align: center;
 }
 
+.traceability,
+.item,
+.sub_material,
+.technology
+{
+	min-height: 400px;
+	max-height: 700px;
+}
+
 .traceability div:last-child div:last-child img {
     height: 80%;
     object-fit: contain;
@@ -1016,14 +1029,14 @@ body:hover #traceability_showimg {
 .material {
     width: 100%;
     display: flex;
-    height: calc(75vh + (75vh / 2));
+    height: calc((100vh - 150px) / 2 + 100vh - 150px);
     max-height: 1000px;
     flex-direction: column;
 }
 
 .material_column_small {
     width: calc(100% - 3px);
-    height: 75vh;
+    height: calc(100% - 150px);
     display: flex;
 	border-bottom: 1px solid #888;
 	overflow: auto;
@@ -1570,8 +1583,7 @@ li.contactright {
   }
 
   .footer_box {
-	border-left: 1px solid #888;
-	border-right: 1px solid #888;
+
 	position: relative;
   }
 
@@ -1580,7 +1592,7 @@ li.contactright {
   }
 
   .footer_info_box {
-	height: 80%;
+	height: 100%;
 	display: flex;
 	flex-direction: row;
   }
@@ -1630,8 +1642,12 @@ li.contactright {
   }
 
   .footer_logo_box {
-
+	height: 100%;
 	width: calc(100% / 6 * 2);
+  }
+
+  .footer_logo_box img {
+	  height: 80%;
   }
 
   .footer_about {
@@ -1653,10 +1669,6 @@ li.contactright {
 	font-size: 1em;
 	font-weight: lighter;
 	margin-top: 0;
-  }
-
-  .footer_logo_box > img {
-	height: 100%;
   }
 
   .footer_content > div > p {
