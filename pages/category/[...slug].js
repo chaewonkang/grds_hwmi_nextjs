@@ -59,8 +59,6 @@ const PageComponent = () => {
     const req = { header: {}, data: {}, query: query };
     const result = await Image.getList(req);
 
-    // console.log(result);
-
     if (result.data && slug && slug == 'traceability') {
       setRetVal(
         result.data.map((item) => {
@@ -102,30 +100,99 @@ const PageComponent = () => {
         })
       );
     } else if (result.data && slug && slug == 'material') {
+      var added_product_type = [];
+      var mt_returns0 = [];
+      const mt_returns1 = result.data
+        .filter((item) => item.type == 'material_main')
+        .map((item) => {
+          return item;
+        });
+      const mt_returns2 = result.data
+        .filter(
+          (item) =>
+            item.type == 'material_sub' ||
+            item.type == 'material_main_gif' ||
+            item.type == 'material_oustsole' ||
+            item.type == 'material_outsole_gif' ||
+            item.type == 'material_midsole'
+        )
+        .filter((item, index) => {
+          const splitWord1 = '-';
+          const search1 =
+            item.page_item[0].title.split(splitWord1)[0] +
+            splitWord1 +
+            item.page_item[0].title.split(splitWord1)[1];
+          if (added_product_type.toString().indexOf(search1) > -1) {
+            return null;
+          } else {
+            const product_title1 = (
+              item.page_item[0].title.split(splitWord1)[0] +
+              splitWord1 +
+              item.page_item[0].title.split(splitWord1)[1]
+            ).replaceAll('/', '');
+            added_product_type.push(product_title1);
+            return item;
+          }
+        })
+        .map((item) => {
+          return item;
+        });
+
+      mt_returns0 = [...mt_returns1, ...mt_returns2];
+
       setRetVal(
-        result.data
-          .filter(
-            (item) =>
-              item.type == 'material_sub' || item.type == 'material_main'
-          )
-          .map((item) => {
-            return (
-              <Material
-                key={item && item.id}
-                image={item && item.image}
-                title={
-                  item &&
-                  item.page_item &&
-                  item.page_item[0] &&
-                  item.page_item[0].title
-                }
-              ></Material>
-            );
-          })
+        mt_returns0.map((item) => {
+          return (
+            <Material
+              key={item && item.id}
+              image={item && item.image}
+              title={
+                item &&
+                item.page_item &&
+                item.page_item[0] &&
+                item.page_item[0].title
+              }
+            ></Material>
+          );
+        })
       );
     } else if (result.data && slug && slug == 'technology') {
+      var added_product_type = [];
+      var tn_returns0 = [];
+
+      const tn_returns1 = result.data
+        .filter((item) => !(item.type == 'technology'))
+        .map((item) => {
+          return item;
+        });
+
+      const tn_returns2 = result.data
+        .filter((item) => item.type == 'technology')
+        .filter((item, index) => {
+          const splitWord1 = '-';
+          const search1 =
+            item.page_item[0].title.split(splitWord1)[0] +
+            splitWord1 +
+            item.page_item[0].title.split(splitWord1)[1];
+          if (added_product_type.toString().indexOf(search1) > -1) {
+            return null;
+          } else {
+            const product_title1 = (
+              item.page_item[0].title.split(splitWord1)[0] +
+              splitWord1 +
+              item.page_item[0].title.split(splitWord1)[1]
+            ).replaceAll('/', '');
+            added_product_type.push(product_title1);
+            return item;
+          }
+        })
+        .map((item) => {
+          return item;
+        });
+      tn_returns0 = [...tn_returns1, ...tn_returns2];
+
       setRetVal(
-        result.data.map((item) => {
+        tn_returns0.map((item) => {
           return (
             <Technology
               key={item && item.id}
@@ -141,8 +208,42 @@ const PageComponent = () => {
         })
       );
     } else if (result.data && slug && slug == 'manufacturing') {
+      var added_product_type = [];
+      var mf_returns0 = [];
+
+      const mf_returns1 = result.data
+        .filter((item) => !(item.type == 'manufacturing_gif'))
+        .map((item) => {
+          return item;
+        });
+
+      const mf_returns2 = result.data
+        .filter((item) => item.type == 'manufacturing_gif')
+        .filter((item, index) => {
+          const splitWord1 = '-';
+          const search1 =
+            item.page_item[0].title.split(splitWord1)[0] +
+            splitWord1 +
+            item.page_item[0].title.split(splitWord1)[1];
+          if (added_product_type.toString().indexOf(search1) > -1) {
+            return null;
+          } else {
+            const product_title1 = (
+              item.page_item[0].title.split(splitWord1)[0] +
+              splitWord1 +
+              item.page_item[0].title.split(splitWord1)[1]
+            ).replaceAll('/', '');
+            added_product_type.push(product_title1);
+            return item;
+          }
+        })
+        .map((item) => {
+          return item;
+        });
+      mf_returns0 = [...mf_returns1, ...mf_returns2];
+
       setRetVal(
-        result.data.map((item) => {
+        mf_returns0.map((item) => {
           return (
             <Manufacturing
               key={item && item.id}
@@ -183,13 +284,9 @@ const PageComponent = () => {
     const next_arrow1 = document.getElementById('next_arrow1');
     const page_nav_container1 = document.getElementById('page_nav_container1');
 
-    // console.log('page_nav_container1');
-    // console.log(page_nav_container1);
     if (prev_arrow0) {
-      //   console.log('prev_arrow0.addEventListener');
       prev_arrow0.addEventListener('click', () => {
         // event.preventDefault();
-        // console.log('prev_arrow0.addEventListener');
         // TODO ::: 계산 (블럭의 크기가 가변적이지 않다면,px로 정해져 있다면) :: +=specific_px
         $('#page_nav_container1').animate(
           {
@@ -202,10 +299,8 @@ const PageComponent = () => {
       prev_arrow0.removeEventListener('click');
     }
     if (prev_arrow1) {
-      //   console.log('prev_arrow1.addEventListener');
       prev_arrow1.addEventListener('click', () => {
         // event.preventDefault();
-        // console.log('prev_arrow1.addEventListener');
         // TODO ::: 계산 (블럭의 크기가 가변적이지 않다면,px로 정해져 있다면) :: +=specific_px
         $('#page_nav_container1').animate(
           {
@@ -220,7 +315,6 @@ const PageComponent = () => {
     if (next_arrow0) {
       next_arrow0.addEventListener('click', () => {
         // event.preventDefault();
-        // console.log('next_arrow0.addEventListener');
         $('#page_nav_container1').animate(
           {
             scrollLeft: '+=50px',
@@ -232,7 +326,6 @@ const PageComponent = () => {
     if (next_arrow1) {
       next_arrow1.addEventListener('click', () => {
         // event.preventDefault();
-        // console.log('next_arrow1.addEventListener');
         $('#page_nav_container1').animate(
           {
             scrollLeft: '+=50px',
