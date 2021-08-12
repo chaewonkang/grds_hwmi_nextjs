@@ -121,6 +121,28 @@ li.deactive:hover {
 	border-bottom: none !important;
 }
 
+.product_bottom_navigator {
+	width: 100%;
+	background-color: #f4f1de;
+    height: 10vh !important;
+	min-height: 100px;
+    display: flex;
+    flex-direction: row;
+}
+
+.product_bottom_navigator div
+{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+}
+
+.product_bottom_navigator img {
+	height: 50%;
+}
+
 @media only screen and (min-width: 370px) {
     .content_box {
         width: calc(100vw - 2em);

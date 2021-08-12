@@ -962,4 +962,29 @@
 	width: 100%;
 	max-width: 120px;
 }
+
+
+.product_bottom_navigator {
+	width: 100%;
+	background-color: #f4f1de;
+    height: 10vh !important;
+	min-height: 100px;
+    display: flex;
+	flex-direction: row;
+	border-top: 1px solid #888;
+}
+
+.product_bottom_navigator div
+{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+
+}
+
+.product_bottom_navigator img {
+	height: 40%;
+}
+
 }

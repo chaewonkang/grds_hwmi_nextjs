@@ -663,107 +663,100 @@ const PageComponent = ({ props }) => {
                 </div>
               </div>
             )}
-            {mainMatGifs && mainMatGifs.length > 4 && (
-              <div className='gif_column_small'>
-                <div>
-                  {scrollPosition &&
-                  matRef &&
-                  scrollPosition > matRef.current.offsetTop + 700 ? (
-                    <img
-                      src={
-                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].imageAlt
-                      }
-                    ></img>
-                  ) : (
-                    <img
-                      style={{ filter: 'grayscale(100%)' }}
-                      src={
-                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[4] && mainMatGifs[4].imageAlt
-                      }
-                    ></img>
-                  )}
-                </div>
-                <div>
-                  {scrollPosition &&
-                  matRef &&
-                  scrollPosition > matRef.current.offsetTop + 800 ? (
-                    <img
-                      src={
-                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].imageAlt
-                      }
-                    ></img>
-                  ) : (
-                    <img
-                      style={{ filter: 'grayscale(100%)' }}
-                      src={
-                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[5] && mainMatGifs[5].imageAlt
-                      }
-                    ></img>
-                  )}
-                </div>
-                <div>
-                  {scrollPosition &&
-                  matRef &&
-                  scrollPosition > matRef.current.offsetTop + 900 ? (
-                    <img
-                      src={
-                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].imageAlt
-                      }
-                    ></img>
-                  ) : (
-                    <img
-                      style={{ filter: 'grayscale(100%)' }}
-                      src={
-                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[6] && mainMatGifs[6].imageAlt
-                      }
-                    ></img>
-                  )}
-                </div>
-                <div>
-                  {scrollPosition &&
-                  matRef &&
-                  scrollPosition > matRef.current.offsetTop + 1000 ? (
-                    <img
-                      src={
-                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].imageAlt
-                      }
-                    ></img>
-                  ) : (
-                    <img
-                      style={{ filter: 'grayscale(100%)' }}
-                      src={
-                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].image
-                      }
-                      alt={
-                        mainMatGifs && mainMatGifs[7] && mainMatGifs[7].imageAlt
-                      }
-                    ></img>
-                  )}
-                </div>
-              </div>
-            )}
           </div>
+          {mainMatGifs && mainMatGifs.length > 4 && (
+            <div
+              className='gif_column_small'
+              style={{
+                height: 'calc((100vh - 150px) / 2)',
+                marginTop: '-1px !important',
+                boxSizing: 'border-box',
+                width: '100%',
+                borderBottom: '1px solid #888',
+              }}
+            >
+              <div>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop + 700 ? (
+                  <img
+                    src={mainMatGifs && mainMatGifs[4] && mainMatGifs[4].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[4] && mainMatGifs[4].imageAlt
+                    }
+                  ></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={mainMatGifs && mainMatGifs[4] && mainMatGifs[4].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[4] && mainMatGifs[4].imageAlt
+                    }
+                  ></img>
+                )}
+              </div>
+              <div>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop + 800 ? (
+                  <img
+                    src={mainMatGifs && mainMatGifs[5] && mainMatGifs[5].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[5] && mainMatGifs[5].imageAlt
+                    }
+                  ></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={mainMatGifs && mainMatGifs[5] && mainMatGifs[5].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[5] && mainMatGifs[5].imageAlt
+                    }
+                  ></img>
+                )}
+              </div>
+              <div>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop + 900 ? (
+                  <img
+                    src={mainMatGifs && mainMatGifs[6] && mainMatGifs[6].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[6] && mainMatGifs[6].imageAlt
+                    }
+                  ></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={mainMatGifs && mainMatGifs[6] && mainMatGifs[6].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[6] && mainMatGifs[6].imageAlt
+                    }
+                  ></img>
+                )}
+              </div>
+              <div>
+                {scrollPosition &&
+                matRef &&
+                scrollPosition > matRef.current.offsetTop + 1000 ? (
+                  <img
+                    src={mainMatGifs && mainMatGifs[7] && mainMatGifs[7].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[7] && mainMatGifs[7].imageAlt
+                    }
+                  ></img>
+                ) : (
+                  <img
+                    style={{ filter: 'grayscale(100%)' }}
+                    src={mainMatGifs && mainMatGifs[7] && mainMatGifs[7].image}
+                    alt={
+                      mainMatGifs && mainMatGifs[7] && mainMatGifs[7].imageAlt
+                    }
+                  ></img>
+                )}
+              </div>
+            </div>
+          )}
           <div className='category_desc'>
             <div>
               <span>아웃솔</span>
@@ -1284,76 +1277,17 @@ const PageComponent = ({ props }) => {
               </span>
             </div>
           </div>
-          <div className='test bottom_navigator'>
+          <div className='test product_bottom_navigator'>
             <div>
-              <div>
-                {links && (
-                  <Link
-                    href={
-                      links
-                        .filter((item) => item.type == 'previous_page_link')
-                        .map((item) => {
-                          return item.url;
-                        })[0]
-                    }
-                  >
-                    <img
-                      style={{ filter: 'grayscale(100%)' }}
-                      src={arrowLeft}
-                      alt='mainImg'
-                    ></img>
-                  </Link>
-                )}
-              </div>
-              {links && (
-                <Link
-                  href={
-                    links
-                      .filter((item) => item.type == 'previous_page_link')
-                      .map((item) => {
-                        return item.url;
-                      })[0]
-                  }
-                >
-                  <div>previous</div>
-                </Link>
-              )}
-            </div>
-            <div>
-              {links && (
-                <Link
-                  href={
-                    links &&
-                    links
-                      .filter((item) => item.type == 'next_page_link')
-                      .map((item) => {
-                        return item.url;
-                      })[0]
-                  }
-                >
-                  <div>next</div>
-                </Link>
-              )}
-              <div>
-                {links && (
-                  <Link
-                    href={
-                      links &&
-                      links
-                        .filter((item) => item.type == 'next_page_link')
-                        .map((item) => {
-                          return item.url;
-                        })[0]
-                    }
-                  >
-                    <img
-                      style={{ filter: 'grayscale(100%)' }}
-                      src={arrowRight}
-                      alt='mainImg'
-                    ></img>
-                  </Link>
-                )}
-              </div>
+              <Link href='/category/product'>
+                <img
+                  style={{ filter: 'grayscale(100%)' }}
+                  src={arrowLeft}
+                  alt='mainImg'
+                ></img>
+              </Link>
+
+              <span>see more products</span>
             </div>
           </div>
         </div>
