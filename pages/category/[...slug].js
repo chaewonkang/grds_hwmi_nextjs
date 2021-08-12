@@ -83,8 +83,16 @@ const PageComponent = () => {
         })
       );
     } else if (result.data && slug && slug == 'product') {
+      var added_product_type = [];
+      var pr_returns0 = [];
+      const pr_returns1 = result.data
+        .sort((a, b) => (a.ordering > b.ordering ? 1 : -1))
+        .map((item) => {
+          return item;
+        });
+      pr_returns0 = [...pr_returns1];
       setRetVal(
-        result.data.map((item) => {
+        pr_returns0.map((item) => {
           return (
             <Product
               key={item && item.id}
