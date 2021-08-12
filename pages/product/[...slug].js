@@ -136,7 +136,7 @@ const PageComponent = ({ props }) => {
   };
 
   async function fetchPageData() {
-    console.log('[fetchPageData] 142- CALLED');
+    // console.log('[fetchPageData] 142- CALLED');
     var query = '';
     query = '?slug=' + slug;
 
@@ -181,7 +181,7 @@ const PageComponent = ({ props }) => {
   }
 
   async function fetchCategoryData() {
-    console.log('[fetchCategoryData] 153- CALLED');
+    // console.log('[fetchCategoryData] 153- CALLED');
     var query = '';
     query = '?type=' + 'introduction';
     const req = { header: {}, data: {}, query: query };
@@ -918,7 +918,7 @@ const PageComponent = ({ props }) => {
               </div>
             )}
           </div>
-          {midsoleDesc && midsoleDesc.length != 0 && (
+          {midsoleImages && midsoleImages.length != 0 && (
             <div
               className='test manufacturing'
               ref={outRef}
@@ -1117,6 +1117,7 @@ const PageComponent = ({ props }) => {
                   <div>
                     {scrollPosition &&
                     tecRef &&
+                    tecRef.current &&
                     scrollPosition > tecRef.current.offsetTop + 100 ? (
                       <img
                         src={techImages && techImages[1] && techImages[1].image}
