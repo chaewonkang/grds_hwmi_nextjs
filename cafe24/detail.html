@@ -86,7 +86,8 @@
                     hwmi_image0.style.width = "100%";
                     hwmi_image0.style.height = "100%";
                     hwmi_image0.style.objectFit = "cover";
-                    hwmi_image0.src = data[0]['image'];
+					hwmi_image0.src = data[0]['image'];
+
                     // hwmi_image0.style.backgroundSize = ""
                 }
                 if (data[0]['point'] == null || data[0]['point'] === undefined)  {
@@ -100,8 +101,9 @@
                 if (data[0]['title'] == null || data[0]['title'] === undefined)  {
 
                 } else {
-                    hwmi_a_wrapper1.href = "https://hwmi.grds.com/" + data[0]['slug'];
-                    hwmi_a1.innerText = "" + data[0]['title'].toString().replace('/-/g', ' ');
+					hwmi_a_wrapper1.href = "https://" + data[0]['slug'];
+					hwmi_outer_button.href = "https://" + data[0]['slug'];
+                    hwmi_a1.innerText = "" + data[0]['title'].toString().replace(/-/g, ' ');
                 }
 
             }
@@ -128,7 +130,7 @@
 <style>
 
 	.hwmi_button a {
-		color: #fff
+		color: #fff !important;
 	}
 	#hwmi {
 		display: flex;
@@ -176,7 +178,7 @@
     font-family: 'Gill Sans';
 }
 
-.hwmi_outer_link {
+#hwmi_outer_link {
 	color: #fff !important;
 	width: 300px;
     height: 40px;
@@ -689,7 +691,7 @@
 
                 </div>
             </div>
-            <div id="small-visibility"></div>
+            <!-- <div id="small-visibility"></div> -->
         </div>
 
 

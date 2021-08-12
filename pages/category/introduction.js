@@ -214,7 +214,6 @@ const Header = () => {
           <div className='introduction_fullimg' ref={locRef}>
             <div>
               <img
-                style={{ filter: 'grayscale(100%)' }}
                 src={introImages && introImages[1] && introImages[1].image}
                 alt={introImages && introImages[1] && introImages[1].imageAlt}
               ></img>
