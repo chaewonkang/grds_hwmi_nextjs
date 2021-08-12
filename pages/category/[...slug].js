@@ -161,7 +161,7 @@ const PageComponent = () => {
       var tn_returns0 = [];
 
       const tn_returns1 = result.data
-        .filter((item) => !(item.type == 'technology'))
+        .filter((item) => item.type == 'technology')
         .map((item) => {
           return item;
         });
@@ -208,12 +208,15 @@ const PageComponent = () => {
         })
       );
     } else if (result.data && slug && slug == 'manufacturing') {
-      var added_product_type = [];
+      var added_product_type0 = [];
+      var added_product_type1 = [];
       var mf_returns0 = [];
 
       const mf_returns1 = result.data
         .filter((item) => !(item.type == 'manufacturing_gif'))
         .map((item) => {
+          console.log('manufacturing_gif');
+          console.log(item);
           return item;
         });
 
@@ -225,7 +228,12 @@ const PageComponent = () => {
             item.page_item[0].title.split(splitWord1)[0] +
             splitWord1 +
             item.page_item[0].title.split(splitWord1)[1];
-          if (added_product_type.toString().indexOf(search1) > -1) {
+          if (
+            added_product_type1.toString().indexOf(item.page_item[0].title) > -1
+          ) {
+            return item;
+          }
+          if (added_product_type0.toString().indexOf(search1) > -1) {
             return null;
           } else {
             const product_title1 = (
@@ -233,14 +241,18 @@ const PageComponent = () => {
               splitWord1 +
               item.page_item[0].title.split(splitWord1)[1]
             ).replaceAll('/', '');
-            added_product_type.push(product_title1);
+            added_product_type0.push(product_title1);
+            added_product_type1.push(item.page_item[0].title);
             return item;
           }
         })
+        .sort((a, b) => (a.page_item[0].title > b.page_item[0].title ? 1 : -1))
         .map((item) => {
           return item;
         });
-      mf_returns0 = [...mf_returns1, ...mf_returns2];
+
+      // mf_returns0 = [...mf_returns1, ...mf_returns2];
+      mf_returns0 = [...mf_returns2];
 
       setRetVal(
         mf_returns0.map((item) => {
