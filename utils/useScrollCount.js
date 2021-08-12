@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect } from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 
 const useScrollCount = (end, start = 0, duration = 3000) => {
   const element = useRef();
@@ -8,7 +8,7 @@ const useScrollCount = (end, start = 0, duration = 3000) => {
   const onScroll = useCallback(
     ([entry]) => {
       const { current } = element;
-      if (entry.isIntersecting) {
+      if (entry.isIntersecting && current) {
         let currentNumber = start;
         const counter = setInterval(() => {
           currentNumber += 1;
@@ -28,6 +28,8 @@ const useScrollCount = (end, start = 0, duration = 3000) => {
       observer.current = new IntersectionObserver(onScroll, { threshold: 0.7 });
       observer.current.observe(element.current);
     }
+
+    return;
   }, [onScroll]);
 
   return {

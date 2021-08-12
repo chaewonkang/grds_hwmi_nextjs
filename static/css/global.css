@@ -437,6 +437,16 @@ li.deactive:hover {
 	filter: initial;
 }
 
+.introduction div img,
+.introduction_fullimg div img {
+	filter: grayscale(1);
+}
+
+.introduction img:hover,
+.introduction_fullimg img:hover {
+	filter: initial;
+}
+
 .traceability_module {
 	margin-top:-1px;
     border-left: 1px solid #888;

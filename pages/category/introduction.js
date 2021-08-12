@@ -66,14 +66,14 @@ const Header = () => {
     var query = '';
     query = '?type=' + 'page100';
 
-    console.log('[fetchPageData] query');
-    console.log(query);
+    // console.log('[fetchPageData] query');
+    // console.log(query);
 
     const req = { header: {}, data: {}, query: query };
     const result = await Page.getList(req);
 
-    console.log('[fetchPageData] result');
-    console.log(result);
+    // console.log('[fetchPageData] result');
+    // console.log(result);
 
     if (result.data && result.data[0]) {
       setIntroText(result.data[0].page_descs);
@@ -177,17 +177,7 @@ const Header = () => {
         <div className='content_box'>
           <div className='test introduction' ref={topRef}>
             <div>
-              {scrollPosition &&
-              topRef &&
-              scrollPosition > topRef.current.offsetTop ? (
-                <img src={imagePath07[0]} alt='mainImg'></img>
-              ) : (
-                <img
-                  style={{ filter: 'grayscale(100%)' }}
-                  src={imagePath07[0]}
-                  alt='mainImg'
-                ></img>
-              )}
+              <img src={imagePath07[0]} alt='mainImg'></img>
             </div>
             <div>
               <div>
@@ -210,20 +200,10 @@ const Header = () => {
 
           <div className='introduction_fullimg' ref={locRef}>
             <div>
-              {scrollPosition &&
-              subRef &&
-              scrollPosition > subRef.current.offsetTop ? (
-                <img
-                  src={introImages && introImages[0] && introImages[0].image}
-                  alt={introImages && introImages[0] && introImages[0].imageAlt}
-                ></img>
-              ) : (
-                <img
-                  style={{ filter: 'grayscale(100%)' }}
-                  src={imagePath07[3]}
-                  alt='mainImg'
-                ></img>
-              )}
+              <img
+                src={introImages && introImages[0] && introImages[0].image}
+                alt={introImages && introImages[0] && introImages[0].imageAlt}
+              ></img>
             </div>
           </div>
           <div className='test introduction_fulltext' ref={subRef}>
@@ -233,20 +213,11 @@ const Header = () => {
           </div>
           <div className='introduction_fullimg' ref={locRef}>
             <div>
-              {scrollPosition &&
-              subRef &&
-              scrollPosition > subRef.current.offsetTop ? (
-                <img
-                  src={introImages && introImages[1] && introImages[1].image}
-                  alt={introImages && introImages[1] && introImages[1].imageAlt}
-                ></img>
-              ) : (
-                <img
-                  style={{ filter: 'grayscale(100%)' }}
-                  src={introImages && introImages[1] && introImages[1].image}
-                  alt={introImages && introImages[1] && introImages[1].imageAlt}
-                ></img>
-              )}
+              <img
+                style={{ filter: 'grayscale(100%)' }}
+                src={introImages && introImages[1] && introImages[1].image}
+                alt={introImages && introImages[1] && introImages[1].imageAlt}
+              ></img>
             </div>
           </div>
           <div className='test introduction_fulltext'>

@@ -59,7 +59,7 @@ const PageComponent = () => {
     const req = { header: {}, data: {}, query: query };
     const result = await Image.getList(req);
 
-    console.log(result);
+    // console.log(result);
 
     if (result.data && slug && slug == 'traceability') {
       setRetVal(

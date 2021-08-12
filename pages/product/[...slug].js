@@ -150,9 +150,9 @@ const PageComponent = ({ props }) => {
       setPageData(result.data[0]);
 
       // TODO-STEP1-#154-SCORE
-      console.log('TODO-STEP1-#154-SCORE');
-      console.log(result.data[0].point);
-      console.log(parseInt(result.data[0].point));
+      //   console.log('TODO-STEP1-#154-SCORE');
+      //   console.log(result.data[0].point);
+      //   console.log(parseInt(result.data[0].point));
 
       setTracImage(filteredImages('traceability'));
       setMainMatImages(filteredImages('material_main'));
@@ -1246,7 +1246,7 @@ const PageComponent = ({ props }) => {
             <div>
               {scrollPosition &&
               locRef &&
-              scrollPosition > locRef.current.offsetTop - 400 ? (
+              scrollPosition > locRef.current.offsetTop ? (
                 <img src={imagePath07[0]} alt='mainImg'></img>
               ) : (
                 <img
