@@ -1094,7 +1094,8 @@ body:hover #traceability_showimg {
 	overflow: auto;
 }
 
-.gif_column_small {
+.gif_column_small,
+.gif_column_small_added {
     width: calc(100% - 2px);
     height: 30%;
     display: flex;
@@ -1104,7 +1105,10 @@ body:hover #traceability_showimg {
     border-right: 1px solid #888;
 }
 
-.gif_column_small>div {
+
+
+.gif_column_small>div,
+.gif_column_small_added>div {
     width: calc(100% / 4);
     height: 100%;
     display: flex;
@@ -1112,7 +1116,8 @@ body:hover #traceability_showimg {
     align-items: center;
 }
 
-.gif_column_small>div img {
+.gif_column_small>div img,
+.gif_column_small_added img {
     height: 90%;
     width: 90%;
     object-fit: cover;

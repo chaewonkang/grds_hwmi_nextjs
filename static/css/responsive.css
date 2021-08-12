@@ -398,12 +398,27 @@
         flex-flow: wrap;
         border-left: none;
         border-top: 1px solid #888;
-    }
-    .gif_column_small>div {
+	}
+	.gif_column_small_added {
+		width: 100%;
+        height: auto !important;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+        flex-flow: wrap;
+        border-left: none;
+        border-top: none;
+	}
+	.gif_column_small>div,
+	.gif_column_small_added>div {
         width: 50%;
-        height: calc(75vh / 2);
+		height: calc(75vh / 2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
     }
-    .gif_column_small>div img {
+	.gif_column_small>div img,
+	.gif_column_small_added>div img {
         height: 90%;
         width: 90%;
         object-fit: cover;

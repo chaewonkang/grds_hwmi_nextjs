@@ -666,7 +666,7 @@ const PageComponent = ({ props }) => {
           </div>
           {mainMatGifs && mainMatGifs.length > 4 && (
             <div
-              className='gif_column_small'
+              className='gif_column_small_added'
               style={{
                 height: 'calc((100vh - 150px) / 2)',
                 marginTop: '-1px !important',
@@ -1096,6 +1096,7 @@ const PageComponent = ({ props }) => {
                   <div>
                     {scrollPosition &&
                     tecRef &&
+                    tecRef.current &&
                     scrollPosition > tecRef.current.offsetTop ? (
                       <img
                         src={techImages && techImages[0] && techImages[0].image}
