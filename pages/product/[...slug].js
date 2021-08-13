@@ -1226,13 +1226,13 @@ const PageComponent = ({ props }) => {
           </div>
           <div className='category_desc'>
             <div>
-              <span>공정</span>
+              <span>목표</span>
             </div>
             <div>
               <p>
                 {category &&
                   toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '공정') return item.description;
+                    if (item.title == '목표') return item.description;
                   })}
               </p>
             </div>

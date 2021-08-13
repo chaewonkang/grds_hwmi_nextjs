@@ -1,651 +1,275 @@
-<!--@layout(/layout/basic/layout.html)-->
-<style>
-	#container {
-	  width: 100%;
-	  padding: 0;
-	}
+<!doctype html>
+<html lang="ko">
 
-	#contents {
-	  margin: 0;
-	}
+<head>
+    <!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PRN6PFT');</script>
+	<!-- End Google Tag Manager -->
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, minimum-scale=1.0, user-scalable=yes">
 
-  </style>
+    <!-- LABBIT - 푸터바 아이콘 21.01.20 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
+    <!-- LABBIT - 푸터바 아이콘 21.01.20 -->
 
-	  <style>
+    <meta name="format-detection" content="telephone=no">
+    <title>grds | Sneakers to inspire</title>
+    <!--@css(/drmvsn/css/style.css)-->
+    <!--@css(/drmvsn/css/child-style.css)-->
+    <!--@css(/drmvsn/css/order-form.css)-->
 
-  @font-face {
-	  font-family: 'KoPubWorldDotumPL';
-	  src: url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.eot');
-	  src: url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.eot?#iefix') format('embedded-opentype'),
-		  url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.woff2') format('woff2'),
-		  url('https://grds.com/web/grds/fonts/KoPubWorldDotumPL.woff') format('font-woff'),
-	  font-weight: normal;
-	  font-style: normal;
-	  font-display: swap;
-  }
+    <meta name="description" content="">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="grds">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="/web/src/imgs/logo-200.png">
+    <meta property="og:url" content="https://grds.com">
+    <!-- Website meta tags ends-->
 
+    <link rel="shortcut icon" href="/web/src/imgs/favicon.ico">
+    <link rel="icon" type="image/png" href="/web/src/imgs/favicon.png">
+    <link rel="apple-touch-icon" href="/web/src/imgs/favicon.png">
+    <link rel="apple-touch-icon-precomposed" href="/web/src/imgs/favicon.png">
+    <!-- 스마트디자인에서는 JQuery 1.4.4 버전이 내장되어있습니다. 추가로 호출하면 충돌이 생길 수 있습니다. -->
+    <!--@js(/layout/basic/js/common.js)-->
+    <!--@js(/drmvsn/js/progress.js)-->
+    <script src="/drmvsn/js/common.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript">
+        window.njQuery = jQuery.noConflict(true);
+    </script>
+    <script>
+        var site_id = "1000221091";
+        var category_id = "96443";
+        var yid = "@그라더스";
+        var division_id = "96444";
+        var ht_token = "";
+        var site_uid = "";
+        var site_url = "https://api.happytalk.io/";
 
-		  </style>
+        yid = encodeURIComponent(encodeURI(yid));
 
-  <script src="/drmvsn/plugins/flickity.pkgd.min.js"></script>
-  <!-- CSS -->
-  <link
-	rel="stylesheet"
-	href="https://unpkg.com/flickity-fade@1/flickity-fade.css"
-  />
-  <!-- JS -->
-  <script src="https://unpkg.com/flickity-fade@1/flickity-fade.js"></script>
+        eval(function(p, a, c, k, e, r) {
+            e = function(c) {
+                return c.toString(a)
+            };
+            if (!''.replace(/^/, String)) {
+                while (c--) r[e(c)] = k[c] || e(c);
+                k = [function(e) {
+                    return r[e]
+                }];
+                e = function() {
+                    return '\\w+'
+                };
+                c = 1
+            };
+            while (c--)
+                if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+            return p
+        }('4 h=c(){4 5=0;4 6=s(c(){5+=8;9(5>=r||(!2.3(\'e-f-n\')||2.3(\'1\').j)){o(6);9(2.3(\'e-f-n\')){1=2.3(\'1\').j;$("a[m*=\'/l/k/g\']").p(\'m\',q+\'l/k/g?b=\'+b+\'&7=\'+7+\'&i=\'+i+\'&d=\'+d+\'&1=\'+1)}}},8)}', 29, 29, '|site_uid|document|getElementById|var|timer|interverId|site_id|500|if||yid|function|division_id|ht|partner|chat_open||category_id|textContent|kakao|api|href|user|clearInterval|attr|site_url|5000|setInterval'.split('|'), 0, {}));
+        eval(function(p, a, c, k, e, r) {
+            e = String;
+            if (!''.replace(/^/, String)) {
+                while (c--) r[c] = k[c] || c;
+                k = [function(e) {
+                    return r[e]
+                }];
+                e = function() {
+                    return '\\w+'
+                };
+                c = 1
+            };
+            while (c--)
+                if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+            return p
+        }('3(0.1){0.1(\'4\',2)}5{0.6(\'7\',2,8)}', 9, 9, 'window|attachEvent|h|if|onload|else|addEventListener|DOMContentLoaded|false'.split('|'), 0, {}));
+        eval(function(p, a, c, k, e, r) {
+            e = function(c) {
+                return c.toString(a)
+            };
+            if (!''.replace(/^/, String)) {
+                while (c--) r[e(c)] = k[c] || e(c);
+                k = [function(e) {
+                    return r[e]
+                }];
+                e = function() {
+                    return '\\w+'
+                };
+                c = 1
+            };
+            while (c--)
+                if (k[c]) p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c]);
+            return p
+        }('i(f 0.8!=\'e\'&&0.8!=\'g\'){9="6:4(0.1.7+0.1.3-5.3);a:4(0.1.b + 0.1.c - d);}"}h{9="6:4(0.2.7+0.2.3-5.3);a:4(0.2.b + 0.2.c - d);}"}', 19, 19, 'document|documentElement|body|clientHeight|expression|this|_top|scrollTop|compatMode|happyFixedRBCalc|_left|scrollLeft|clientWidth|offsetWidth|undefined|typeof|BackCompat|else|if'.split('|'), 0, {}));
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollToPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js"></script>
+        /* STYLE 적용부분 */
+        var htPluginStyle = '#ht-plugin{border 1 solid;position:fixed;_position:absolute;bottom:10px;right:10px;clip:rect(0 110 105 0);overflow:hidden;z-index:999999;' + happyFixedRBCalc;
 
-  <div id="index-page">
-	<div class="main-first-section">
-	  <div id="slider-container"></div>
-	  <div id="animated-logo">
-		<img src="/web/new/imgs/main-logo@2x.png" alt="grds" />
-	  </div>
-	</div>
-	<!--<div class="free-move-section">
-	  <div id="featured-container"></div>
-	</div>-->
-	<div class="feature-section displaynone"> <!-- 미사용시 displaynone 추가 (띄어쓰기 주의)-->
-	  <div
-		class="feat-bg"
-		onclick="window.location.href='/product/list-comingsoon.html?cate_no=67'"
-	  ></div>
-	  <div class="feat-slider">
-		<div module="product_listmain_5" class="ec-base-product">
-		  <!--
-				$count = 8
-					※ 상품진열갯수를 설정하는 변수입니다. 설정하지 않을 경우, 최대 200개의 상품이 진열 됩니다.
-					※ 진열된 상품이 많으면, 쇼핑몰에 부하가 발생할 수 있습니다.
-				$basket_result = /product/add_basket.html
-				$basket_option = /product/basket_option.html
-			-->
-		  <ul class="prdList">
-			<li id="anchorBoxId_{$product_no}">
-			  <div class="thumbnail">
-				<div class="prdImg">
-				  <a
-					href="/product/detail-comingsoon.html{$param}"
-					name="anchorBoxName_{$product_no}"
-					><img
-					  src="{$image_medium}"
-					  id="{$image_medium_id}"
-					  alt="{$seo_alt_tag}"
-					/></a>
-				</div>
-				<div class="icon">
-				  <div class="soldout">{$soldout_icon}</div>
-				</div>
-			  </div>
-			  <div class="description">
-				<strong class="name"
-				  ><a
-					href="/product/detail-comingsoon.html{$param}"
-					class="{$product_name_display|display}"
-					>{$product_name}</a
-				  ></strong
-				>
-				<ul module="product_ListItem" class="spec">
-				  <li class="{$item_display|display}">{$item_content}</li>
-				  <li class="{$item_display|display}">{$item_content}</li>
-				</ul>
-			  </div>
-			</li>
-			<li id="anchorBoxId_{$product_no}">
-			  <div class="thumbnail">
-				<div class="prdImg">
-				  <a
-					href="/product/detail-comingsoon.html{$param}"
-					name="anchorBoxName_{$product_no}"
-					><img
-					  src="{$image_medium}"
-					  id="{$image_medium_id}"
-					  alt="{$seo_alt_tag}"
-					/></a>
-				</div>
-				<div class="icon">
-				  <div class="soldout">{$soldout_icon}</div>
-				</div>
-			  </div>
-			  <div class="description">
-				<strong class="name"
-				  ><a
-					href="/product/detail-comingsoon.html{$param}"
-					class="{$product_name_display|display}"
-					>{$product_name}</a
-				  ></strong
-				>
-				<ul module="product_ListItem" class="spec">
-				  <li class="{$item_display|display}">{$item_content}</li>
-				  <li class="{$item_display|display}">{$item_content}</li>
-				</ul>
-			  </div>
-			</li>
-		  </ul>
-		</div>
-		<div class="more-link feature">
-		  <a href="/product/list-comingsoon.html?cate_no=67">more</a>
-		</div>
-	  </div>
-	</div>
+        /* HTML 적용부분 (고객사 변경가능) */
+        document.write('<STYLE TYPE="text/css">' + htPluginStyle + '</STYLE>');
+        document.write('<DIV ID=ht-plugin>');
+        document.write('<A HREF="https://api.happytalk.io/api/kakao/chat_open?yid=' + yid + '&site_id=' + site_id + '&category_id=' + category_id + '&division_id=' + division_id + '" target="_blank">');
 
-	<style>
-	  .about-vis-factory {
-		opacity: 1;
-		max-height: 100000px;
-		padding: 0;
-		padding-top: 30vh;
-		overflow: hidden;
-	  }
-	  #animated-bg {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		background-repeat: no-repeat;
-		background-position: center center;
-		background-size: cover;
-		will-change: background;
-		transition: 0.5s all cubic-bezier(0.785, 0.135, 0.15, 0.86);
-		opacity: 0;
-		visibility: hidden;
-	  }
-	  #animated-bg.show {
-		opacity: 0.3;
-		visibility: visible;
-	  }
-	  .about-vis-factory .grid {
-		min-height: 100vh;
-		height: auto;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 70%;
-	  }
+        /* 채팅버튼 크기설정 width="XX" height="YY" */
+        document.write('<IMG SRC="/web/src/imgs/kakao-rec@2x.png" style="width:45px;height:45px;">');
+        document.write('</A>');
+        document.write('</DIV>');
+    </script>
+</head>
 
-	  .scroller {
-		z-index: 999;
-		position: relative;
-	  }
+    <style>
+        .footer-grid:nth-child(even):after {
+            width:0px;
+            }
+     </style>
 
-	  .about-vis-factory section {
-		height: 100vh;
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-	  }
+<body id="layout" class="grds mobile3 main">
 
-	  .about-vis-factory section .heading {
-		position: relative;
-		margin: auto;
-		color: #fff;
-		font-size: 100px;
-	  }
-	  .grid span {
-		cursor: pointer;
-	  }
-	</style>
+    <!-- Google Tag Manager (noscript) -->
+	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PRN6PFT"
+	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+	<!-- End Google Tag Manager (noscript) -->
 
-	<!--<div class="about-vis-factory">
-	  <div id="animated-bg"></div>
-	  <div id="viewport">
-		<div class="scroller" id="scrollTrigger">
-		  <section
-			class="section1 panel"
-			data-bg="url(/web/new/bg/desktop/about.jpg)"
-		  >
-			<div class="heading grid">
-			  <span onclick="window.location.href='/grds/about.html'">about</span>
-			</div>
-		  </section>
+    <div id="loading" data-loading="0">
+        <svg version="1.1" id="loading-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 186 90" style="enable-background:new 0 0 186 90;" xml:space="preserve">
+        <g>
+            <path class="st0" d="M139,66.9c-2-0.8-3.9-1.9-5.7-3.1v7c1.9,0.9,3.8,1.7,5.8,2.3c1.7,0.4,3.5,0.6,5.2,0.6
+                c2.9,0.1,5.8-0.8,8.2-2.6c2-1.6,3.2-4.1,3.2-6.6c0-3.8-2.8-7.2-8.2-10.3l-2.3-1.3c-1.3-0.7-2.6-1.5-3.7-2.5c-0.6-0.6-1-1.3-1.1-2.2
+                c0-0.9,0.4-1.7,1.2-2.1c0.9-0.6,2-0.9,3.1-0.8c2.5,0,5.6,1.2,9.5,3.5v-6.5c-3-1.7-6.4-2.7-9.9-2.7c-2.7-0.1-5.4,0.7-7.6,2.4
+                c-1.9,1.5-3,3.8-3,6.2c0,2,0.7,3.9,2,5.4c1.3,1.7,4.1,3.7,8.3,6c1.5,0.8,2.8,1.7,4.1,2.7c0.6,0.6,1,1.5,0.9,2.4
+                c0,1-0.6,1.9-1.5,2.4c-1,0.7-2.3,1-3.5,1C142.2,68,140.6,67.6,139,66.9 M102.2,56.9c-0.2-3.1,0.9-6.2,2.9-8.6
+                c2-2.2,4.8-3.3,7.8-3.2c2.1,0,4.3,0.5,6.2,1.5v20.9H114c-2,0.1-4.1-0.1-6.1-0.6c-1.2-0.5-2.3-1.2-3.2-2.2
+                C103.1,62.9,102.2,60.3,102.2,56.9 M100.2,44.2c-3.1,3.2-4.7,7.5-4.6,12c0,5.2,1.4,9.3,4.3,12.4c2.9,3.1,6.8,4.6,11.7,4.6h14V23.1
+                H119v17.8c-2.3-0.9-4.7-1.4-7.2-1.4C107.5,39.3,103.2,41,100.2,44.2 M75.7,40.2h-6.6v33h6.6V55.9c-0.1-2.6,0.8-5.1,2.3-7.1
+                c1.2-1.8,3.3-3,5.5-3c1.9,0,4,1.1,6.3,3.2l3.4-5.7c-2.7-2.5-5.2-3.7-7.7-3.7c-3.2,0-6.3,2.5-9.5,7.6l-0.4,0.6L75.7,40.2z
+                M36.4,79.7c0-1.5,0.8-2.9,2.1-3.6c1.6-1,3.5-1.5,5.4-1.4c2.7-0.1,5.3,0.4,7.8,1.5c2,1,3,2.2,3,3.7c0,1.6-0.9,3-2.4,3.6
+                c-2.1,1-4.4,1.4-6.7,1.3C39.5,84.8,36.4,83.1,36.4,79.7 M40.9,56.2c-1.2-1.1-1.9-2.6-1.8-4.2c0-1.6,0.7-3.2,1.9-4.3
+                c1.2-1.2,2.8-1.8,4.5-1.8c1.7-0.1,3.4,0.6,4.7,1.7c2.4,2.2,2.5,5.9,0.3,8.3c-0.1,0.1-0.2,0.2-0.3,0.3
+                C47.5,58.4,43.6,58.4,40.9,56.2 M30.3,79.6c0,3.1,1.6,6,4.2,7.5C37.3,89.1,41,90,45.8,90c4.7,0,8.4-0.9,11.2-2.8
+                c2.6-1.6,4.2-4.4,4.2-7.5c0.1-2.2-0.8-4.4-2.4-6c-0.9-0.9-2-1.6-3.1-2.2c-2.5-0.9-5.1-1.6-7.8-2.1c-1.7-0.3-3.4-0.8-5-1.5
+                c-0.8-0.3-1.3-1-1.4-1.9c0-1.3,1.2-2.2,3.7-2.5c2.6-0.3,5.2-1,7.6-2.1c1.6-0.9,2.9-2.2,3.8-3.8c0.9-1.5,1.4-3.3,1.5-5.1
+                c0-1.3-0.2-2.5-0.7-3.7c-0.7-1.3-1.6-2.5-2.7-3.6h6.7v-5.1H47.6c-4.4,0-8,1-10.5,3.1c-2.5,2-4,5.1-3.8,8.3c0,4.8,2.4,8.3,7.3,10.4
+                c-1.4,0.3-2.7,1-3.8,1.9c-0.9,0.7-1.4,1.8-1.4,2.9c0,1.4,1.1,2.8,3.3,4.2C33,72.3,30.3,75.2,30.3,79.6 M186,28
+                C129.6-9.3,56.4-9.3,0,28l3.6,5.5c54.2-35.9,124.6-35.9,178.7,0L186,28z"/>
+        </g>
+        </svg>
+        <div class="overlay-loading"></div>
+    </div>
 
-		  <section
-			class="section2 panel"
-			data-bg="url(/web/new/bg/desktop/visibilty.jpg)"
-		  >
-			<div class="heading grid">
-			  <span onclick="window.location.href='/grds/our-product.html'"
-				>visibility</span
-			  >
-			</div>
-		  </section>
+    <div id="wrap">
+        <hr class="layout">
+        <div id="container">
+            <header id="header">
+                <div class="header">
+                    <section id="topArea">
+                        <div class="searchWrap">
+                            <p class="category">
+                                <a href="#none" class="fold"><img src="/web/new/imgs/m-fold@2x.png" class="def-icon fold-blk" alt="menu" /><img src="/web/new/imgs/m-fold-w@2x.png" class="main-only" alt="menu" /><img src="/web/new/imgs/close@2x.png" class="btn-close" alt="닫기"></a>
+                            </p>
+                            <h1 module="Layout_LogoTop" class="brand-nav">
+                                <a href="/"><img src="/web/new/imgs/m-logo@2x.png" alt="logo" /></a>
+                            </h1>
+                            <p class="search"><img src="/web/new/imgs/m-search@2x.png" class="def-icon" alt="search" /><img src="/web/new/imgs/m-search-w@2x.png" class="main-only" alt="search" /></p>
+                            <p module="Layout_orderBasketcount">
+                                <a href="/order/basket.html" class="btnBasket"><img src="/web/new/imgs/m-bag@2x.png" class="def-icon" alt="basket" /><img src="/web/new/imgs/m-bag-w@2x.png" class="main-only" alt="basket" /><span class="count-num">{$basket_count}</span>
+                                </a>
+                            </p>
+                        </div>
+                    </section>
+                    <div module="Layout_SearchHeader">
+                        <div class="searchForm">
+                            {$form.keyword}
+                            <button type="submit" class="search-term"><img src="/web/new/imgs/search-bar@2x.png" alt="검색" /></button>
+                        </div>
+                        <div class="close-searchform"></div>
+                    </div>
+                </div>
+                <!--@import(/layout/basic/sidebar.html)-->
 
-		  <section
-			class="section3 panel"
-			data-bg="url(/web/new/bg/desktop/ourfactories.jpg)"
-		  >
-			<div class="heading grid">
-			  <span onclick="window.location.href='/grds/our-factories.html'"
-				>our factories</span
-			  >
-			</div>
-		  </section>
-		</div>
-	  </div>
-	</div>-->
+                <!-- LABBIT - factory 페이지 수정 21.01.20 -->
+                <div class="header labbit_factory_bar" style="display:none;">
+                    <section id="topArea">
+                        <div class="searchWrap">
+                            <p class="category" style="top:6px;left:-10px;">
+                                <a href="#" style="width:50px;height:50px;"><svg class="flickity-button-icon" viewBox="0 0 100 100"><path d="M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z" class="arrow"></path></svg><!--i class="fas fa-long-arrow-alt-left" style="color:black;"--></i></a>
+                            </p>
+                        </div>
+                    </section>
+                </div>
+                <script>
+                	(function() {
+						if (checkReferrer() && checkURL()) {
+					    	hideHeader();
+					        showHeader();
+					    }
+					})();
 
-	<!--<div id="main-boardArea">
-	  <div class="board" module="board_listpackage_8">
-		<h3 module="board_title_8">{$home_title}</h3>
-		<div class="main-galleryList" module="board_list_8">
+					function checkReferrer() {
+					    var referrer = document.referrer;
 
-				$count = 12
+                        if (!referrer) {
+                        	return false;
+                        } else {
+                        	referrer = new URL(referrer);
+                        }
 
-		  <ul>
-			<li>
-			  <a href="{$link_board_detail}" class="imgLink"
-				><img src="{$img_src}" alt="" />{$subject}</a
-			  >
-			  <div class="readmore">
-				<a href="{$link_board_detail}" class=""><span>read more</span></a>
-			  </div>
-			</li>
-			<li>
-			  <a href="{$link_board_detail}" class="imgLink"
-				><img src="{$img_src}" alt="" />{$subject}</a
-			  >
-			  <div class="readmore">
-				<a href="{$link_board_detail}" class=""><span>read more</span></a>
-			  </div>
-			</li>
-		  </ul>
-		</div>
-		<div class="more-link">
-		  <a href="/board/gallery/list.html?board_no=8">more</a>
-		</div>
-	  </div>
-	</div>
-		-->
+					    var path = decodeURIComponent(referrer.pathname);
+					    var check1 = /^(\/product)+(\/[가-힣\-a-zA-Z0-9]+)+(\/[0-9]+)+(\/category)?(\/)?([0-9]+)?(\/display)?(\/)?([0-9]+)?(\/)?$/.test(path);
+					    var check2 = /^\/product\/detail(\.html)?$/.test(path);
 
-	<!--<div module="product_listmain_1" class="ec-base-product best-product">
-	  <h3>our best products</h3>
+					    if (check1 || check2) {
+					        document.querySelector('.labbit_factory_bar a').href = referrer.href;
 
-			$count = 8
-				※ 상품진열갯수를 설정하는 변수입니다. 설정하지 않을 경우, 최대 200개의 상품이 진열 됩니다.
-				※ 진열된 상품이 많으면, 쇼핑몰에 부하가 발생할 수 있습니다.
-			$basket_result = /product/add_basket.html
-			$basket_option = /product/basket_option.html
+					        return true;
+					    } else {
+					        return false;
+					    }
+					}
 
-	  <ul class="prdList">
-		<li id="anchorBoxId_{$product_no}">
-		  <div class="thumbnail">
-			<div class="prdImg">
-			  <a href="{$link_product_detail}" name="anchorBoxName_{$product_no}"
-				><img
-				  src="{$image_medium}"
-				  id="{$image_medium_id}"
-				  alt="{$seo_alt_tag}"
-				/></a>
-			</div>
-			<div class="icon">
-			  <div class="soldout">{$soldout_icon}</div>
-			</div>
-		  </div>
-		  <div class="description">
-			<strong class="name"
-			  ><a
-				href="{$link_product_detail}"
-				class="{$product_name_display|display}"
-				>{$product_name}</a
-			  ></strong
-			>
-			<ul module="product_ListItem" class="spec">
-			  <li class="{$item_display|display}">{$item_content}</li>
-			  <li class="{$item_display|display}">{$item_content}</li>
-			</ul>
-		  </div>
-		</li>
-		<li id="anchorBoxId_{$product_no}">
-		  <div class="thumbnail">
-			<div class="prdImg">
-			  <a href="{$link_product_detail}" name="anchorBoxName_{$product_no}"
-				><img
-				  src="{$image_medium}"
-				  id="{$image_medium_id}"
-				  alt="{$seo_alt_tag}"
-				/></a>
-			</div>
-			<div class="icon">
-			  <div class="soldout">{$soldout_icon}</div>
-			</div>
-		  </div>
-		  <div class="description">
-			<strong class="name"
-			  ><a
-				href="{$link_product_detail}"
-				class="{$product_name_display|display}"
-				>{$product_name}</a
-			  ></strong
-			>
-			<ul module="product_ListItem" class="spec">
-			  <li class="{$item_display|display}">{$item_content}</li>
-			  <li class="{$item_display|display}">{$item_content}</li>
-			</ul>
-		  </div>
-		</li>
-	  </ul>
-	  <div class="more-link feature">
-		<a href="/category/all-shoes/43/">more</a>
-	  </div>
-	</div>
-		-->
-  </div>
-  <script>
-	var brandLogo = document.querySelector(".brand-nav");
-	brandLogo.classList.add("ready");
-	document.body.className += " main";
-	var playerInfoList = [];
-	function mainSlider(callback) {
-	  var sliderArr = [
-		<!--@import(/grds/main-full-slider.js)-->
-	  ];
-	  var sliderTarget = document.getElementById("slider-container");
-	  for (var i = 0; i < sliderArr.length; i++) {
-		var slide = document.createElement("div");
-		slide.className += "single-slide " + sliderArr[i].position;
-		slide.innerHTML =
-		  '<h1><a style="color:' +
-		  sliderArr[i].titleColor +
-		  '" href="' +
-		  sliderArr[i].link +
-		  '">' +
-		  sliderArr[i].title +
-		  "</a></h1>";
-		if (sliderArr[i].img.startsWith("/")) {
-		  slide.style.backgroundImage = "url(" + sliderArr[i].img + ")";
-		} else {
-		  // slide.style.backgroundImage = "url(" + sliderArr[i].img + ")";
-		  slide.classList.add('video-wrap');
-		  var video = document.createElement("div");
-		  video.id = "player" + i;
-		  var singleInfo = {
-			id: "player" + i,
-			videoId: sliderArr[i].img,
-			width: 936,
-			height: 526,
-		  };
-		  playerInfoList.push(singleInfo);
-		  slide.append(video);
-		}
+                    function checkURL() {
+                    	var path = location.pathname;
+                        var check = /^\/grds\/factories\/factory\-[0-9]+(\.html)?/.test(path);
 
-		slide.setAttribute(
-		  "onclick",
-		  'window.location.href="' + sliderArr[i].link + '"'
-		);
-		sliderTarget.append(slide);
-	  }
-	  callback();
-	}
-	var lastOne = {};
-	function freeArranged(callback) {
-	  var featArr = [
-		<!--@import(/grds/main-feat-banners.js)-->
-	  ];
-	  lastOne = {
-		img: featArr[4].sectionImg,
-		title: featArr[4].title,
-		titleColor: featArr[4].titleColor,
-	  };
-	  featArr.pop();
+                        if (check) {
+                        	return true;
+                        } else {
+                        	return false;
+                        }
+                    }
 
-	  var featTarget = document.getElementById("featured-container");
-	  var featLength = featArr.length,
-		chunk = 2,
-		subset;
-	  for (var i = 0; i < featLength; i += chunk) {
-		subset = featArr.slice(i, i + chunk);
-		var secondWrap = document.createElement("div");
-		secondWrap.className += "row";
-		for (var j = 0; j < subset.length; j++) {
-		  var featSingle = document.createElement("div");
-		  featSingle.className += "feature-single";
-		  var featWrap = document.createElement("div");
-		  featWrap.className += "feat-wrap";
-		  featWrap.setAttribute('onclick','window.location.href="' +subset[j]['link']+'"');
-		  featSingle.append(featWrap);
-		  var featImg = document.createElement("img");
-		  featImg.setAttribute("src", subset[j]["img"]);
+					function hideHeader() {
+						var header = document.querySelector('#header .header:not(.labbit_factory_bar)');
 
-		  featWrap.append(featImg);
+					    header.style.display = 'none';
+					}
 
-		  var titleSingle = document.createElement("h3");
-		  titleSingle.setAttribute('onclick','window.location.href="' +subset[j]['link']+'"');
-		  var h3Text = document.createTextNode(subset[j]["title"]);
+					function showHeader() {
+					    var header = document.querySelector('#header .labbit_factory_bar');
 
-		  titleSingle.appendChild(h3Text);
-		  featSingle.append(titleSingle);
-		  secondWrap.append(featSingle);
-		}
+						header.style.display = 'block';
+					}
+                </script>
+                <!-- LABBIT - factory 페이지 수정 21.01.20 -->
 
-		featTarget.append(secondWrap);
-	  }
-	  callback();
-	}
+            </header>
+            <hr class="layout">
+            <div id="contents">
+                <!--@contents-->
+            </div>
+            <hr class="layout">
+            <!--@import(/layout/basic/footer.html)-->
+        </div>
+    </div>
+    <!--리뷰톡톡 공통파일-->
 
-	function intiSlider() {
-	  var elem = document.querySelector("#slider-container");
-	  var elem2 = document.querySelector(".feat-slider .prdList");
-	  var elem3 = document.querySelector(".main-galleryList ul");
-	  var elem4 = document.querySelector(".best-product .prdList");
-	  var flkty = new Flickity(elem, {
-		cellAlign: "left",
-		contain: true,
-		imagesLoaded: true,
-		fade: true,
-		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
-	  });
-	  var flkty2 = new Flickity(elem2, {
-		cellAlign: "left",
-		contain: true,
-		pageDots: false,
-		imagesLoaded: true,
-		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
-		on: {
-		  ready: function () {},
-		},
-	  });
-	  var flkty3 = new Flickity(elem3, {
-		cellAlign: "left",
-		contain: true,
-		pageDots: false,
-		imagesLoaded: true,
-		wrapAround: false,
-		groupCells: 3,
-		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
-	  });
+    <!--@import(/board/smartreview/provider/common.html)-->
 
-	  var flkty4 = new Flickity(elem4, {
-		cellAlign: "left",
-		contain: true,
-		pageDots: false,
-		imagesLoaded: true,
-		wrapAround: false,
-		groupCells: 2,
-		arrowShape: "M37.1,50.1l6.9,5.8v-4.7h19v-2.3H44v-4.6L37.1,50.1z",
-		on: {},
-	  });
-	}
-	var renderStart = false;
-	function scrollEvents(callback) {
-	  var animLogo = document.getElementById("animated-logo"),
-		alOffset = animLogo.offsetTop;
+    <!--//리뷰톡톡 공통파일-->
+</body>
 
-	  var lastScrollTop = 0;
-
-	  window.addEventListener(
-		"scroll",
-		function (e) {
-		  var aboutSection = document.querySelector(".scroller");
-
-		  if (
-			window.scrollY >= aboutSection.offsetTop &&
-			window.scrollY <= aboutSection.offsetTop + aboutSection.clientHeight
-		  ) {
-			renderStart = true;
-		  } else {
-			renderStart = false;
-		  }
-
-		  var bgChanger =
-			document.querySelector(".about-vis-factory").offsetTop -
-			window.innerHeight / 3;
-		  var journalTop =
-			document.querySelector("#main-boardArea").offsetTop -
-			window.innerHeight / 3;
-		  var secondElems = document.querySelectorAll(".feature-single");
-		  for (var i = 0; i < secondElems.length; i++) {
-			if (
-			  window.scrollY >
-			  secondElems[i].offsetTop - secondElems[i].clientHeight / 2
-			) {
-			  secondElems[i].classList.add("show");
-			}
-		  }
-		  if (window.scrollY > alOffset) {
-			document.body.className = document.body.className.replace(
-			  /\b main\b/g,
-			  ""
-			);
-			setTimeout(function () {
-			  brandLogo.className = brandLogo.className.replace(
-				/\b ready\b/g,
-				""
-			  );
-			}, 500);
-		  } else {
-			if (document.body.className.indexOf("main") <= -1) {
-			  document.body.className += " main";
-			}
-			if (brandLogo.className.indexOf("ready") <= -1) {
-			  setTimeout(function () {
-				brandLogo.className += " ready";
-			  }, 500);
-			}
-		  }
-		  if (window.scrollY > bgChanger) {
-			if (document.body.className.indexOf("blacked") <= -1) {
-			  document.body.classList.add("blacked");
-			  document.querySelector("#animated-bg").classList.add("show");
-			}
-		  } else {
-			document.body.classList.remove("blacked");
-			document.querySelector("#animated-bg").classList.remove("show");
-		  }
-		  if (window.scrollY > journalTop) {
-			if (document.body.className.indexOf("temp-white") <= -1) {
-			  document.body.className += " temp-white";
-			  document.querySelector("#animated-bg").classList.remove("show");
-			}
-		  } else {
-			document.body.className = document.body.className.replace(
-			  /\b temp-white\b/g,
-			  ""
-			);
-			if (document.body.className.indexOf("blacked") > -1) {
-			  document.querySelector("#animated-bg").classList.add("show");
-			}
-		  }
-		},
-		false
-	  );
-	}
-
-	docReady(function () {
-	  mainSlider(intiSlider);
-	  freeArranged(scrollEvents);
-	  animStart();
-	});
-  </script>
-  <script>
-	gsap.registerPlugin(ScrollTrigger);
-	gsap.registerPlugin(ScrollToPlugin);
-	function goToSection(section, anim) {
-	  // gsap.to(window, {
-	  //   scrollTo: { y: section, autoKill: false },
-	  //   ease: Expo.easeOut,
-	  //   duration: 1,
-	  // });
-
-	  if (anim) {
-		anim.restart();
-	  }
-
-	  document.getElementById(
-		"animated-bg"
-	  ).style.backgroundImage = section.getAttribute("data-bg");
-	}
-	function animStart() {
-	  document.querySelectorAll(".panel").forEach((section, index) => {
-		const intoAnim = gsap.timeline({ paused: true });
-		ScrollTrigger.create({
-		  trigger: section,
-		  id: "panel" + index,
-		  // scrub:1,
-		  // snap:true,
-		  onEnter: () => goToSection(section, intoAnim),
-		});
-
-		ScrollTrigger.create({
-		  trigger: section,
-		  start: "bottom bottom",
-		  // scrub:1,
-		  // snap:true,
-		  id: "panel" + index,
-		  onEnterBack: () => goToSection(section, intoAnim),
-		});
-	  });
-	}
-	window.scrollTo(0, 0);
-  </script>
-  <script>
-	// 2. This code loads the IFrame Player API code asynchronously.
-	var tag = document.createElement("script");
-
-	tag.src = "https://www.youtube.com/iframe_api";
-	var firstScriptTag = document.getElementsByTagName("script")[0];
-	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-	function onPlayerReady(event) {
-	  event.target.playVideo();
-	}
-
-	function stopVideo() {
-	  player.stopVideo();
-	}
-
-	function onYouTubeIframeAPIReady() {
-	  if (typeof playerInfoList === "undefined") return;
-
-	  for (var i = 0; i < playerInfoList.length; i++) {
-		var curplayer = createPlayer(playerInfoList[i]);
-	  }
-	}
-	function createPlayer(playerInfo) {
-	  return new YT.Player(playerInfo.id, {
-		height: playerInfo.height,
-		width: playerInfo.width,
-		videoId: playerInfo.videoId,
-		playerVars: {
-		  controls:0,
-				   modestbranding: 1,
-				// autoplay : 1,
-				mute: 1,
-				loop:1,
-				playsinline: 1,
-				playlist: playerInfo.videoId,
-		},
-		events: {
-		'onReady': onPlayerReady,
-	  }
-	  });
-	}
-  </script>
-
-  <script src="/drmvsn/js/main.js"></script>
-  <!--@define(cmc_log)-->
+</html>
