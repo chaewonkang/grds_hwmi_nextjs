@@ -804,7 +804,7 @@
 	border-top: 1px solid #888;
 	display: flex;
 	flex-direction: column;
-
+	padding-top: 0px;
   }
 
   .footer_box {
@@ -1000,6 +1000,10 @@
 
 .product_bottom_navigator img {
 	height: 40%;
+}
+
+.introduction_fullimg>div {
+	border-bottom: none;
 }
 
 }

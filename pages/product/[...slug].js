@@ -1288,8 +1288,9 @@ const PageComponent = ({ props }) => {
                   alt='mainImg'
                 ></img>
               </Link>
-
-              <span>see more products</span>
+              <Link href='/category/product'>
+                <span>see more products</span>
+              </Link>
             </div>
           </div>
         </div>

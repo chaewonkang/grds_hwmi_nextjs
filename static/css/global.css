@@ -136,11 +136,20 @@ li.deactive:hover {
 	display: flex;
 	align-items: center;
 	justify-content: space-evenly;
+}
 
+.product_bottom_navigator span {
+	cursor: pointer;
+}
+
+.product_bottom_navigator span:hover {
+	color: #F3AA28;
+	border-bottom: 1px solid #F3AA28;
 }
 
 .product_bottom_navigator img {
 	height: 50%;
+	cursor: pointer;
 }
 
 @media only screen and (min-width: 370px) {
@@ -486,6 +495,7 @@ li.deactive:hover {
 
 .traceability_module:last-child {
 	border-right: 1px solid #888;
+	margin-bottom: -1px;
 }
 
 .traceability_module:hover {
@@ -606,9 +616,9 @@ li.deactive:hover {
 	word-break: keep-all;
 }
 
-.traceability_module>div:last-child>div:last-child>div:last-child a:hover {
+.traceability_module>div:last-child>div:last-child>div:last-child a span:hover {
     color: #e8a648;
-    border-bottom: 1px solid #e8a648;
+
 }
 
 .product_module {
@@ -1644,6 +1654,7 @@ li.contactright {
 	height: 200px;
 	position: relative;
 	border-top: 1px solid #888;
+	padding-top: 2em;
   }
 
   .footer_box {
@@ -1846,9 +1857,8 @@ li.contactright {
         position: relative;
         top: 3px;
     }
-    .traceability_module>div:last-child>div:last-child>div:last-child a:hover {
+    .traceability_module>div:last-child>div:last-child>div:last-child a span:hover {
         color: #F3AA28;
 		text-decoration: none;
-
     }
 }
