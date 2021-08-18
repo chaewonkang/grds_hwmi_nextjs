@@ -22,6 +22,8 @@ const GoToShop = ({ shopLink }) => {
 
     return () => {
       document.removeEventListener('scroll', throttleScroll);
+      setShow(false);
+      setPageY(null);
     };
   }, []);
 

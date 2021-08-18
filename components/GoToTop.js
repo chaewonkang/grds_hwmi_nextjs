@@ -32,7 +32,12 @@ const GoToTop = ({ scrollStepInPx, delayInMs }) => {
       });
     }
 
-    return () => document.removeEventListener('scroll', throttleScroll);
+    return () => {
+      document.removeEventListener('scroll', throttleScroll);
+      setPos(false);
+      setShow(false);
+      setPageY(null);
+    };
   }, []);
 
   const onScrollStep = () => {

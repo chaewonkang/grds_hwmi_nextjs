@@ -218,7 +218,7 @@ const PageComponent = ({ props }) => {
     fetchCategoryData();
     fetchPageData();
     fetchIntroData();
-    console.log(pageData);
+    // console.log(pageData);
 
     return () => {
       clearTimeout(timeout);
@@ -316,7 +316,7 @@ const PageComponent = ({ props }) => {
           </div>
         </div>
         <div className='content_box'>
-          <div className='category_desc'>
+          <div className='traceability_desc'>
             <div>
               <span>추적가능성</span>
             </div>
@@ -374,14 +374,6 @@ const PageComponent = ({ props }) => {
             <div>
               <span>제품</span>
             </div>
-            <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '제품') return item.description;
-                  })}
-              </p>
-            </div>
           </div>
           <div className='test item' ref={topRef}>
             <div>
@@ -405,14 +397,6 @@ const PageComponent = ({ props }) => {
           <div className='category_desc'>
             <div>
               <span>소재</span>
-            </div>
-            <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '소재') return item.description;
-                  })}
-              </p>
             </div>
           </div>
           <div
@@ -761,14 +745,6 @@ const PageComponent = ({ props }) => {
             <div>
               <span>아웃솔</span>
             </div>
-            <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '아웃솔') return item.description;
-                  })}
-              </p>
-            </div>
           </div>
           <div
             className='test manufacturing'
@@ -978,14 +954,6 @@ const PageComponent = ({ props }) => {
             <div>
               <span>기타소재</span>
             </div>
-            <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '기타소재') return item.description;
-                  })}
-              </p>
-            </div>
           </div>
           <div className='test sub_material' ref={subRef}>
             <div className='sub_material_img'>
@@ -1064,14 +1032,6 @@ const PageComponent = ({ props }) => {
                 <div>
                   <span>기술</span>
                 </div>
-                <div>
-                  <p>
-                    {category &&
-                      toJS(category).map((item, mobxIndex) => {
-                        if (item.title == '기술') return item.description;
-                      })}
-                  </p>
-                </div>
               </div>
               <div className='test technology' ref={tecRef}>
                 <div className='technology_intro'>
@@ -1142,14 +1102,6 @@ const PageComponent = ({ props }) => {
           <div className='category_desc'>
             <div>
               <span>공정</span>
-            </div>
-            <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '공정') return item.description;
-                  })}
-              </p>
             </div>
           </div>
           <div className='test manufacturing' ref={manRef}>
@@ -1227,14 +1179,6 @@ const PageComponent = ({ props }) => {
           <div className='category_desc'>
             <div>
               <span>목표</span>
-            </div>
-            <div>
-              <p>
-                {category &&
-                  toJS(category).map((item, mobxIndex) => {
-                    if (item.title == '목표') return item.description;
-                  })}
-              </p>
             </div>
           </div>
           <div className='test introduction' ref={locRef}>

@@ -231,8 +231,8 @@ const PageComponent = () => {
       const mf_returns1 = result.data
         .filter((item) => !(item.type == 'manufacturing_gif'))
         .map((item) => {
-          console.log('manufacturing_gif');
-          console.log(item);
+          //   console.log('manufacturing_gif');
+          //   console.log(item);
           return item;
         });
 
