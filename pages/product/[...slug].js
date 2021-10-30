@@ -78,6 +78,7 @@ const PageComponent = ({ props }) => {
   const tracRef = useRef();
   const outRef = useRef();
   const subRef = useRef();
+  const intRef = useRef();
 
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -308,7 +309,7 @@ const PageComponent = ({ props }) => {
                 <li className='nav_item' onClick={() => scrollToRef(manRef)}>
                   Manufacturing
                 </li>
-                <li className='nav_item' onClick={() => scrollToRef(locRef)}>
+                <li className='nav_item' onClick={() => scrollToRef(intRef)}>
                   Introduction
                 </li>
               </ul>
@@ -409,6 +410,13 @@ const PageComponent = ({ props }) => {
                   }
                 : null
             }
+            style={
+              mainMatGifs && mainMatGifs.length < 1
+                ? {
+                    height: 'calc(100vh - 150px)',
+                  }
+                : null
+            }
           >
             <div
               className='material_column_small'
@@ -417,6 +425,14 @@ const PageComponent = ({ props }) => {
                   ? {
                       borderBottom: 'none',
                       height: '100%',
+                    }
+                  : null
+              }
+              style={
+                mainMatGifs && mainMatGifs.length < 1
+                  ? {
+                      height: '100%',
+                      borderBottom: 'none',
                     }
                   : null
               }
@@ -1181,12 +1197,16 @@ const PageComponent = ({ props }) => {
               <span>목표</span>
             </div>
           </div>
-          <div className='test introduction' ref={locRef}>
+          <div className='test introduction' ref={intRef}>
             <div>
               {scrollPosition &&
-              locRef &&
-              scrollPosition > locRef.current.offsetTop ? (
-                <img src={imagePath07[0]} alt='mainImg'></img>
+              intRef &&
+              scrollPosition > intRef.current.offsetTop ? (
+                <img
+                  style={{ filter: 'none' }}
+                  src={imagePath07[0]}
+                  alt='mainImg'
+                ></img>
               ) : (
                 <img
                   style={{ filter: 'grayscale(100%)' }}

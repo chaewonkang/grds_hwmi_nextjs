@@ -83,6 +83,8 @@ const Header = () => {
 
   useEffect(() => {
     const timeout = setTimeout(() => setLoaded(true), 1000);
+    document.addEventListener('scroll', updateScroll);
+
     fetchIntroData();
     return () => clearTimeout(timeout);
   }, [loaded]);

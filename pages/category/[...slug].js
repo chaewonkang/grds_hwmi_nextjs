@@ -60,8 +60,17 @@ const PageComponent = () => {
     const result = await Image.getList(req);
 
     if (result.data && slug && slug == 'traceability') {
+      var added_product_type = [];
+      var tr_returns0 = [];
+      const tr_returns1 = result.data
+        .sort((a, b) => (a.ordering > b.ordering ? 1 : -1))
+        .map((item) => {
+          return item;
+        });
+      tr_returns0 = [...tr_returns1];
+      console.log(tr_returns1);
       setRetVal(
-        result.data.map((item) => {
+        tr_returns0.map((item) => {
           return (
             <Traceability
               key={item.id}
